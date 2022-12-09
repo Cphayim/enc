@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "name": "✨ enc-monorepo",
+      "path": "."
+    },
+    {
+      "name": "📦 @cphayim-enc/shared",
+      "path": "packages/shared"
+    },
+    {
+      "name": "📦 @cphayim-enc/base",
+      "path": "packages/base"
+    },
+    {
+      "name": "📦 @cphayim-enc/vue",
+      "path": "packages/vue"
+    }
+  ],
+  "settings": {}
+}
