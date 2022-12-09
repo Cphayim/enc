@@ -15,6 +15,14 @@
     {
       "name": "📦 @cphayim-enc/vue",
       "path": "packages/vue"
+    },
+    {
+      "name": "📦 @cphayim-enc/vue-element-plus",
+      "path": "packages/vue-element-plus"
+    },
+    {
+      "name": "📦 @cphayim-enc/vue-vant",
+      "path": "packages/vue-vant"
     }
   ],
   "settings": {}
