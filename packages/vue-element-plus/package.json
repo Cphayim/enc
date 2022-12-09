@@ -25,10 +25,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@cphayim-enc/vue": "workspace:*",
-    "@cphayim-enc/shared": "workspace:*"
+    "@cphayim-enc/shared": "workspace:*",
+    "@cphayim-enc/vue": "workspace:*"
   },
   "devDependencies": {
+    "unplugin-vue-define-options": "^1.0.0",
     "vue": "^3.2.45"
   },
   "peerDependencies": {

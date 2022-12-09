@@ -1,4 +1,5 @@
 import vue from '@vitejs/plugin-vue'
+import defineOptions from 'unplugin-vue-define-options/vite'
 import { UserConfigExport, defineConfig } from 'vite'
 
 import {
@@ -19,15 +20,23 @@ export default defineConfig(({ mode }) => {
       },
     },
   }
-
   const config: UserConfigExport = {
-    build: build,
-    plugins: [vue()],
+    build,
+    plugins: [
+      vue(), //
+      defineOptions(), //
+    ],
   }
 
   // generate dts file
   if (mode === 'production') {
-    config.plugins!.push(createDTSPlugin({ mode, root: __dirname }))
+    config.plugins!.push(
+      createDTSPlugin({
+        mode,
+        root: __dirname,
+        skipDiagnostics: true, // use `vue-tsc` check types
+      }),
+    )
   }
 
   return config

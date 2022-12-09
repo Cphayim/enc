@@ -27,9 +27,17 @@ export const createBuild = ({ root }: CreateOptions) => {
   return build
 }
 
-export const createDTSPlugin = ({ mode, root }: CreateOptions) => {
+export type CreateDTSPluginOptions = CreateOptions & {
+  skipDiagnostics?: boolean
+}
+
+export const createDTSPlugin = ({
+  mode,
+  root,
+  skipDiagnostics,
+}: CreateDTSPluginOptions) => {
   return dts({
-    // skipDiagnostics: false,
+    skipDiagnostics,
     // entryRoot: resolve(__dirname, 'src'),
     tsConfigFilePath: resolve(root, 'tsconfig.json'),
     rollupTypes: mode === 'production',

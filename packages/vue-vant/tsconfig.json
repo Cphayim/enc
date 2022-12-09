@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["unplugin-vue-define-options"]
+    "types": ["unplugin-vue-define-options/macros-global"]
   },
   "include": ["src"],
   "references": [

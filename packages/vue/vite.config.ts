@@ -21,13 +21,19 @@ export default defineConfig(({ mode }) => {
   }
 
   const config: UserConfigExport = {
-    build: build,
+    build,
     plugins: [vue()],
   }
 
   // generate dts file
   if (mode === 'production') {
-    config.plugins!.push(createDTSPlugin({ mode, root: __dirname }))
+    config.plugins!.push(
+      createDTSPlugin({
+        mode,
+        root: __dirname,
+        skipDiagnostics: true, // use `vue-tsc` check types
+      }),
+    )
   }
 
   return config
