@@ -1,0 +1,9 @@
+{
+  "extends": "@ombro/tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    // "composite": true,
+    "removeComments": false
+  }
+}

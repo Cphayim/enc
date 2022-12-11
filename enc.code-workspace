@@ -25,5 +25,7 @@
       "path": "packages/vue-vant"
     }
   ],
-  "settings": {}
+  "settings": {
+    "typescript.tsdk": "✨ enc-monorepo/node_modules/typescript/lib"
+  }
 }

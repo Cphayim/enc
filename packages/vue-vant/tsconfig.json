@@ -1,17 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
     "types": ["unplugin-vue-define-options/macros-global"]
-  },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "../shared"
-    },
-    {
-      "path": "../vue"
-    }
-  ]
+  }
 }

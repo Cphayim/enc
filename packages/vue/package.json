@@ -29,6 +29,7 @@
     "@cphayim-enc/shared": "workspace:*"
   },
   "devDependencies": {
+    "unplugin-vue-define-options": "^1.0.0",
     "vue": "^3.2.45"
   },
   "peerDependencies": {

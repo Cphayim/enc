@@ -1,6 +1,6 @@
 import { UserConfigExport, defineConfig } from 'vite'
 
-import { createBuild, createDTSPlugin } from '../vite.base.config'
+import { addDTSPlugin, createBuild } from '../vite.base.config'
 
 export default defineConfig(({ mode }) => {
   const config: UserConfigExport = {
@@ -9,9 +9,7 @@ export default defineConfig(({ mode }) => {
   }
 
   // generate dts file
-  if (mode === 'production') {
-    config.plugins!.push(createDTSPlugin({ mode, root: __dirname }))
-  }
+  addDTSPlugin(config, { mode, root: __dirname })
 
   return config
 })
