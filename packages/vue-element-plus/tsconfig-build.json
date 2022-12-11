@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig-build.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": ["unplugin-vue-define-options/macros-global"]
+  },
+  "include": ["src"]
+}

@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-import type { BuildOptions } from 'vite'
+import type { BuildOptions, UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
 export const EXTERNAL_REPO_PKG = /^@cphayim-enc\/(.*)/
@@ -31,19 +31,21 @@ export type CreateDTSPluginOptions = CreateOptions & {
   skipDiagnostics?: boolean
 }
 
-export const createDTSPlugin = ({
-  mode,
-  root,
-  skipDiagnostics,
-}: CreateDTSPluginOptions) => {
+export const createDTSPlugin = ({ mode, root, skipDiagnostics }: CreateDTSPluginOptions) => {
   return dts({
     skipDiagnostics,
     // entryRoot: resolve(__dirname, 'src'),
-    tsConfigFilePath: resolve(root, 'tsconfig.json'),
+    tsConfigFilePath: resolve(root, 'tsconfig-build.json'),
     rollupTypes: mode === 'production',
     copyDtsFiles: false,
     beforeWriteFile: (filePath, content) => {
       return { filePath, content }
     },
   })
+}
+
+export const addDTSPlugin = (config: UserConfig, options: CreateDTSPluginOptions) => {
+  if (options.mode === 'production') {
+    config.plugins = [...(config.plugins ?? []), createDTSPlugin(options)]
+  }
 }
