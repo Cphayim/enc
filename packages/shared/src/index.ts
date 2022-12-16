@@ -1,5 +1,18 @@
 export * from './types'
 
+export const PKG_NAME = 'enc'
+
+export const log = {
+  debug: console.debug.bind(console, PKG_NAME),
+  info: console.info.bind(console, PKG_NAME),
+  warn: console.warn.bind(console, PKG_NAME),
+  error: console.error.bind(console, PKG_NAME),
+}
+
+export function createErrorMessage(message: string) {
+  return `[${PKG_NAME}] ${message}`
+}
+
 export function isNone(value: unknown): value is undefined | null {
   return value === undefined || value === null
 }
