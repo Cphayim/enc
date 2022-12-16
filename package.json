@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "preinstall": "npx -y only-allow pnpm ",
+    "preinstall": "npx -y only-allow pnpm",
     "prepare": "husky install",
     "clean": "pnpm -r exec rimraf dist *.tsbuildinfo",
     "build": "turbo run build",

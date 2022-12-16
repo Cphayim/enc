@@ -94,11 +94,13 @@ importers:
 
   packages/vue-element-plus:
     specifiers:
+      '@cphayim-enc/base': workspace:*
       '@cphayim-enc/shared': workspace:*
       '@cphayim-enc/vue': workspace:*
       unplugin-vue-define-options: ^1.0.0
       vue: ^3.2.45
     dependencies:
+      '@cphayim-enc/base': link:../base
       '@cphayim-enc/shared': link:../shared
       '@cphayim-enc/vue': link:../vue
     devDependencies:
@@ -107,11 +109,13 @@ importers:
 
   packages/vue-vant:
     specifiers:
+      '@cphayim-enc/base': workspace:*
       '@cphayim-enc/shared': workspace:*
       '@cphayim-enc/vue': workspace:*
       unplugin-vue-define-options: ^1.0.0
       vue: ^3.2.45
     dependencies:
+      '@cphayim-enc/base': link:../base
       '@cphayim-enc/shared': link:../shared
       '@cphayim-enc/vue': link:../vue
     devDependencies:
