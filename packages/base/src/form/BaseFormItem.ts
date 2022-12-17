@@ -45,6 +45,27 @@ export interface BaseFormItem<F = string, E = any> {
    */
   extra?: E
   /**
+   * 列宽/格: 1-24, 默认 24
+   *
+   * 例如两个 col 为 12 的控件，会占满同一行
+   *
+   * 仅 PC 端有效
+   *
+   * @default 24
+   */
+  col?: number
+  /**
+   * 宽度缩放比例，即占用的列宽的百分比，范围 0-1
+   *
+   * 通常你只需要设置 col，当你的场景是两个表单元素看起来像 col 12，又需要独占一行时
+   * 可以设置 col 为 24，scale 为 0.5（即宽度收缩为一半）
+   *
+   * 仅 PC 端有效
+   *
+   * @default 1
+   */
+  scale?: number
+  /**
    * 控件对齐方式（例如 input 内文字，部分控件有效）
    * @default 'left'
    */
