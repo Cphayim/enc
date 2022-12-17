@@ -23,6 +23,10 @@
     {
       "name": "📦 @enc/vue-vant",
       "path": "packages/vue-vant"
+    },
+    {
+      "name": "📦 @playground/vue",
+      "path": "playgrounds/vue"
     }
   ],
   "settings": {
