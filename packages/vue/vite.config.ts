@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import { UserConfigExport, defineConfig } from 'vite'
 
-import { EXTERNAL_REPO_PKG, addDTSPlugin, createBuild } from '../vite.base.config'
+import { EXTERNAL_REPO_PKG, addDTSPlugin, createBuild } from '../../scripts/vite.base.config'
 
 export default defineConfig(({ mode }) => {
   const build = createBuild({ mode, root: __dirname })
