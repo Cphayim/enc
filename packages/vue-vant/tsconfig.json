@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["unplugin-vue-define-options/macros-global"]
+    "types": ["unplugin-vue-define-options"]
   }
 }
