@@ -22,6 +22,7 @@
   "scripts": {
     "dev": "vite build --mode=development --watch",
     "build": "vue-tsc --noEmit && vite build",
+    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
