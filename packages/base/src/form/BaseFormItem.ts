@@ -39,6 +39,11 @@ export interface BaseFormItem<F = string, E = any> {
    */
   rules?: FormItemRule[]
   /**
+   * 是否可清空
+   * @default false
+   */
+  clearable?: boolean
+  /**
    * 额外内容，你可以在此存储一些特定业务场景的东西，比如 select 对应的枚举或字典值，上传地址等
    *
    * 组件不负责处理该内容，使用前自行转化为有效的组件 props

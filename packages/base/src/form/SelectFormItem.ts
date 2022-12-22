@@ -19,6 +19,11 @@ export interface SelectFormItem<F = string, E = any> extends PopupFormItem<F, E>
    */
   selectMultiple?: boolean
   /**
+   * 多选时最多可选个数，0 为不限制
+   * @default 0
+   */
+  selectMultipleLimit?: number
+  /**
    * 是否支持搜索过滤
    *
    * 由 UI package 决定是否支持，如果不支持，将会忽略该配置
