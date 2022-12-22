@@ -14,7 +14,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./style": "./dist/index.css"
   },
   "files": [
     "dist"
@@ -22,6 +23,7 @@
   "scripts": {
     "dev": "vite build --mode=development --watch",
     "build": "vue-tsc --noEmit && vite build",
+    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -30,9 +32,16 @@
     "@cphayim-enc/vue": "workspace:*"
   },
   "devDependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "@vueuse/core": "^9.7.0",
+    "dayjs": "^1.11.7",
+    "element-plus": "^2.2.27",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
+    "@element-plus/icons-vue": "^2.0.0",
+    "@vueuse/core": ">=8.0.0",
+    "element-plus": "^2.2.0",
     "vue": "^3.2.25"
   },
   "peerDependenciesMeta": {},

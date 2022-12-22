@@ -9,6 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:debug": "vite build",
+    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
