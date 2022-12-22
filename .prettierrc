@@ -4,12 +4,7 @@
   "trailingComma": "all",
   "printWidth": 100,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": [
-    "^node:(.*)$",
-    "<THIRD_PARTY_MODULES>",
-    "^@cphayim-enc/(.*)$",
-    "^[./]"
-  ],
+  "importOrder": ["^node:(.*)$", "<THIRD_PARTY_MODULES>", "^@cphayim-enc/(.*)$", "^@/", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
