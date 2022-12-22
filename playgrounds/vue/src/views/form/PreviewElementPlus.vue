@@ -6,7 +6,9 @@ import { EncForm, FormItemUnion } from '@cphayim-enc/vue-element-plus'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
-const formData = ref({})
+const formData = ref({
+  building: ['1F'],
+})
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, [], {
   writeDefaults: false,
 })

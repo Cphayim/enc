@@ -45,10 +45,9 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
   {
     name: 'building',
     label: '楼栋',
-    type: 'select',
+    type: 'cascader',
     col: 12,
-    selectType: 'cascader',
-    selectOptions: [
+    cascaderOptions: [
       {
         label: 'A栋',
         value: 'A',
@@ -67,7 +66,7 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
         ],
       },
     ],
-    selectMultiple: true,
+    cascaderMultiple: true,
   },
   {
     name: 'alarm',
@@ -95,7 +94,7 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
 ]
 
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, DEFAULT_FORM_ITEMS)
-console.log(formItems.value)
+formItems.value = DEFAULT_FORM_ITEMS
 </script>
 
 <template>
