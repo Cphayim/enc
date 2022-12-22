@@ -13,7 +13,6 @@ const props = defineProps<{
 
 const DEFAULT_OPTIONS: Omit<SelectFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请选择',
-  selectType: 'select',
   selectMultiple: false,
   selectFilterable: false,
   selectOptions: [],
@@ -22,40 +21,19 @@ const DEFAULT_OPTIONS: Omit<SelectFormItem, Exclude<keyof BaseFormItem, 'placeho
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
 
 const _value = useVModel(props, 'modelValue')
-const _cascaderProps = computed(() => {
-  return {
-    multiple: item.value.selectMultiple,
-    expandTrigger: 'click',
-  } as any
-})
 </script>
 
 <template>
-  <!-- 下拉级联选择 -->
-  <template v-if="item.selectType === 'cascader'">
-    <el-cascader
-      v-model="_value"
-      :placeholder="item.placeholder"
-      :options="item.selectOptions"
-      :readonly="item.readonly"
-      :disabled="item.disabled"
-      :props="_cascaderProps"
-    />
-  </template>
-
-  <!-- 下拉选择 -->
-  <template v-else>
-    <el-select-v2
-      v-model="_value"
-      :placeholder="item.placeholder"
-      :readonly="item.readonly"
-      :disabled="item.disabled"
-      :multiple="item.selectMultiple"
-      :filterable="item.selectFilterable"
-      :clearable="item.clearable"
-      :options="item.selectOptions"
-    />
-  </template>
+  <el-select-v2
+    v-model="_value"
+    :placeholder="item.placeholder"
+    :readonly="item.readonly"
+    :disabled="item.disabled"
+    :multiple="item.selectMultiple"
+    :filterable="item.selectFilterable"
+    :clearable="item.clearable"
+    :options="item.selectOptions"
+  />
 </template>
 
 <style></style>

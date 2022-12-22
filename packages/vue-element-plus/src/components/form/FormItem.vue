@@ -8,6 +8,7 @@ import EncDatetimeFormItem from './items/DatetimeFormItem.vue'
 import EncInputFormItem from './items/InputFormItem.vue'
 import EncSelectFormItem from './items/SelectFormItem.vue'
 import EncTimeFormItem from './items/TimeFormItem.vue'
+import EncCascaderFormItem from './items/CascaderFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -23,6 +24,7 @@ const emit = defineEmits<{
 const CompMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItem,
   select: EncSelectFormItem,
+  cascader: EncCascaderFormItem,
   datetime: EncDatetimeFormItem,
   time: EncTimeFormItem,
   upload: EncInputFormItem,
