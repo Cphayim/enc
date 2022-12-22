@@ -9,11 +9,6 @@ export interface SelectFormItem<F = string, E = any> extends PopupFormItem<F, E>
    */
   type: 'select'
   /**
-   * 下拉选择框类型
-   * @default 'select'
-   */
-  selectType?: SelectFormItemType
-  /**
    * 是否多选
    * @default false
    */
@@ -36,8 +31,6 @@ export interface SelectFormItem<F = string, E = any> extends PopupFormItem<F, E>
   selectOptions?: SelectFormItemOption[]
 }
 
-export type SelectFormItemType = 'select' | 'cascader'
-
 export type SelectFormItemOption = {
   /**
    * 显示用文本
@@ -46,9 +39,5 @@ export type SelectFormItemOption = {
   /**
    * 值
    */
-  value?: string | number | boolean
-  /**
-   * 级联选择子项
-   */
-  children?: SelectFormItemOption[]
+  value: string | number | boolean
 }
