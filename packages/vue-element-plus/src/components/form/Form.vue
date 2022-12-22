@@ -3,6 +3,7 @@ import { type CSSProperties, computed, ref } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 
+import { LOCALES } from '../../locales'
 import EncFormItem from './FormItem.vue'
 
 defineOptions({ name: 'EncForm', inheritAttrs: false })
@@ -32,7 +33,12 @@ type Props = {
    * 左侧标题宽度 px，默认 100
    */
   labelWidth?: number
+  /**
+   * 国际化
+   */
+  locale?: keyof typeof LOCALES
 }
+
 const props = withDefaults(defineProps<Props>(), {
   size: 'default',
   rowGutter: 8,
@@ -87,37 +93,39 @@ defineExpose({
 </script>
 
 <template>
-  <div class="enc-form">
-    <el-form
-      ref="formRef"
-      :model="props.data"
-      :label-width="props.labelWidth"
-      @submit.prevent
-      :size="props.size"
-    >
-      <el-row :gutter="props.colGutter * 2">
-        <template v-for="item in props.items" :key="item.name">
-          <el-col v-if="!item.hidden" :span="item.col || 24" :style="rowGutterStyle">
-            <div :style="{ width: `${(item.scale ?? 1) * 100}%` }">
-              <EncFormItem
-                :modelValue="data[item.name]"
-                @update:modelValue="(value: any) => handleValueChange(item.name, value)"
-                :item="item"
-              >
-                <!--
+  <el-config-provider :locale="LOCALES[props.locale ?? 'zh-cn']">
+    <div class="enc-form">
+      <el-form
+        ref="formRef"
+        :model="props.data"
+        :label-width="props.labelWidth"
+        @submit.prevent
+        :size="props.size"
+      >
+        <el-row :gutter="props.colGutter * 2">
+          <template v-for="item in props.items" :key="item.name">
+            <el-col v-if="!item.hidden" :span="item.col || 24" :style="rowGutterStyle">
+              <div :style="{ width: `${(item.scale ?? 1) * 100}%` }">
+                <EncFormItem
+                  :modelValue="data[item.name]"
+                  @update:modelValue="(value: any) => handleValueChange(item.name, value)"
+                  :item="item"
+                >
+                  <!--
                 将传递给 EncForm 的命名插槽（以字段名 ${name} 命名），传递给 FormItem#default 插槽，
                 并传递 FormItem#default 的插槽作用域给外部
               -->
-                <template #default="itemSlotScope">
-                  <slot :name="item.name" v-bind="itemSlotScope" />
-                </template>
-              </EncFormItem>
-            </div>
-          </el-col>
-        </template>
-      </el-row>
-    </el-form>
-  </div>
+                  <template #default="itemSlotScope">
+                    <slot :name="item.name" v-bind="itemSlotScope" />
+                  </template>
+                </EncFormItem>
+              </div>
+            </el-col>
+          </template>
+        </el-row>
+      </el-form>
+    </div>
+  </el-config-provider>
 </template>
 
 <style>

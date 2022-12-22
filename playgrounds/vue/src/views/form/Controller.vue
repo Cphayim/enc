@@ -26,6 +26,13 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     col: 12,
   },
   {
+    name: 'intro',
+    label: '介绍',
+    type: 'input',
+    inputType: 'textarea',
+    col: 24,
+  },
+  {
     name: 'gender',
     label: '性别',
     type: 'select',
@@ -62,10 +69,33 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     ],
     selectMultiple: true,
   },
+  {
+    name: 'alarm',
+    label: '闹钟',
+    type: 'time',
+    col: 12,
+  },
+  {
+    name: 'birthday',
+    label: '生日',
+    type: 'datetime',
+    col: 12,
+  },
+  {
+    name: 'contractDateRange',
+    label: '合同周期',
+    type: 'datetime',
+    datetimeType: 'daterange',
+    datetimeRangeSeparator: '至',
+    datetimeRangeStartPlaceholder: '开始日期',
+    datetimeRangeEndPlaceholder: '结束日期',
+    datetimeMinDate: '2022-12-01',
+    datetimeMaxDate: '2022-12-07',
+  },
 ]
 
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, DEFAULT_FORM_ITEMS)
-console.log('formItems.value', formItems.value)
+console.log(formItems.value)
 </script>
 
 <template>

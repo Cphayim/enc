@@ -15,6 +15,9 @@ watchEffect(() => {
     console.log('PreviewElementPlus: formItems changed')
   }
 })
+watchEffect(() => {
+  console.log(formData.value)
+})
 </script>
 
 <template>

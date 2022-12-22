@@ -12,6 +12,11 @@ import 'element-plus/es/components/notification/style/css'
 import 'element-plus/es/components/popover/style/css'
 import 'element-plus/es/components/dialog/style/css'
 
+export { ElConfigProvider } from 'element-plus'
+import 'element-plus/es/components/config-provider/style/css'
+
+
+
 // 表单
 export { ElForm, ElFormItem } from 'element-plus'
 import 'element-plus/es/components/form/style/css'
@@ -25,6 +30,10 @@ import 'element-plus/es/components/select/style/css'
 import 'element-plus/es/components/select-v2/style/css'
 import 'element-plus/es/components/option/style/css'
 import 'element-plus/es/components/cascader/style/css'
+
+export { ElDatePicker, ElTimePicker } from 'element-plus'
+import 'element-plus/es/components/date-picker/style/css'
+import 'element-plus/es/components/time-picker/style/css'
 
 export { ElCheckbox, ElRadio } from 'element-plus'
 import 'element-plus/es/components/checkbox/style/css'

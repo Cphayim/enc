@@ -4,8 +4,10 @@ import { computed } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 
+import EncDatetimeFormItem from './items/DatetimeFormItem.vue'
 import EncInputFormItem from './items/InputFormItem.vue'
 import EncSelectFormItem from './items/SelectFormItem.vue'
+import EncTimeFormItem from './items/TimeFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -21,7 +23,8 @@ const emit = defineEmits<{
 const CompMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItem,
   select: EncSelectFormItem,
-  datetime: EncInputFormItem,
+  datetime: EncDatetimeFormItem,
+  time: EncTimeFormItem,
   upload: EncInputFormItem,
   custom: null,
   // 'biz-placeholder': null,
