@@ -36,7 +36,7 @@ export const createDTSPlugin = ({ mode, root, skipDiagnostics }: CreateDTSPlugin
     skipDiagnostics,
     // entryRoot: resolve(__dirname, 'src'),
     tsConfigFilePath: resolve(root, 'tsconfig-build.json'),
-    rollupTypes: mode === 'production',
+    rollupTypes: true,
     copyDtsFiles: false,
     beforeWriteFile: (filePath, content) => {
       return { filePath, content }

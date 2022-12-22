@@ -13,6 +13,11 @@
   },
   "dependencies": {
     "@cphayim-enc/vue-element-plus": "workspace:*",
-    "@cphayim-enc/vue-vant": "workspace:*"
+    "@cphayim-enc/vue-vant": "workspace:*",
+    "@element-plus/icons-vue": "^2.0.10",
+    "@vueuse/core": "^9.7.0",
+    "element-plus": "^2.2.27",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   }
 }
