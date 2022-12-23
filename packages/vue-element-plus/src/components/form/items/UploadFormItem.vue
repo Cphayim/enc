@@ -58,6 +58,7 @@ const handleUploadSend = async (options: UploadRequestOptions) => {
     verifyUploadedFile(file)
     const files = [...fileList.value, file]
     const raw = UploadTransformerHelper.toRaw(files, item.value.uploadTransformer!)
+    console.log(raw)
     emit('update:modelValue', raw)
   } catch (error) {
     console.error(error)
