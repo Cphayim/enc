@@ -6,6 +6,7 @@ import _EncInputFormItem from './items/InputFormItem.vue'
 import _EncSelectFormItem from './items/SelectFormItem.vue'
 import _EncCascaderFormItem from './items/CascaderFormItem.vue'
 import _EncTimeFormItem from './items/TimeFormItem.vue'
+import _EncUploadFormItem from './items/UploadFormItem.vue'
 
 export type EncFormInstanceType = InstanceType<typeof _EncForm>
 
@@ -15,3 +16,4 @@ export const EncSelectFormItem = withInstall(_EncSelectFormItem)
 export const EncCascaderFormItem = withInstall(_EncCascaderFormItem)
 export const EncDatetimeFormItem = withInstall(_EncDatetimeFormItem)
 export const EncTimeFormItem = withInstall(_EncTimeFormItem)
+export const EncUploadFormItem = withInstall(_EncUploadFormItem)

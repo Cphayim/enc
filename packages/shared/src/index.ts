@@ -13,6 +13,12 @@ export function createErrorMessage(message: string) {
   return `[${PKG_NAME}] ${message}`
 }
 
+export function createThrowErrorFunction(message: string) {
+  return () => {
+    throw new Error(createErrorMessage(message))
+  }
+}
+
 export function isNone(value: unknown): value is undefined | null {
   return value === undefined || value === null
 }
@@ -28,6 +34,10 @@ export function randomStr(length: number) {
 
 export function deepClone<T>(obj: T): T {
   return JSON.parse(JSON.stringify(obj))
+}
+
+export function getFileNameFromUrl(url: string) {
+  return url.split('#')[0].split('?')[0].split('/').pop() || randomStr(6)
 }
 
 export function readFileContent(file: File, resultType: 'text' | 'dataUrl') {

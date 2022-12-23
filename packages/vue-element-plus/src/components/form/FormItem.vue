@@ -4,11 +4,12 @@ import { computed } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 
-import EncDatetimeFormItem from './items/DatetimeFormItem.vue'
 import EncInputFormItem from './items/InputFormItem.vue'
 import EncSelectFormItem from './items/SelectFormItem.vue'
-import EncTimeFormItem from './items/TimeFormItem.vue'
+import EncDatetimeFormItem from './items/DatetimeFormItem.vue'
 import EncCascaderFormItem from './items/CascaderFormItem.vue'
+import EncTimeFormItem from './items/TimeFormItem.vue'
+import EncUploadFormItem from './items/UploadFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -27,7 +28,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   cascader: EncCascaderFormItem,
   datetime: EncDatetimeFormItem,
   time: EncTimeFormItem,
-  upload: EncInputFormItem,
+  upload: EncUploadFormItem,
   custom: null,
   // 'biz-placeholder': null,
 }

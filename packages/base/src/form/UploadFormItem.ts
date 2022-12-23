@@ -1,4 +1,9 @@
-import { createErrorMessage, log } from '@cphayim-enc/shared'
+import {
+  createErrorMessage,
+  createThrowErrorFunction,
+  getFileNameFromUrl,
+  log,
+} from '@cphayim-enc/shared'
 
 import type { BaseFormItem } from './BaseFormItem'
 
@@ -128,7 +133,7 @@ export const createStringResultUploadTransformer = (separator = ',') =>
     separator,
     from: (file) => ({
       url: file,
-      name: file.split('/').pop(),
+      name: getFileNameFromUrl(file),
     }),
     to: (file) => file.url,
   } as UploadTransformer<string>)
@@ -140,5 +145,38 @@ export function verifyUploadedFile(file: UploadedFile) {
   if (!file || typeof file.url !== 'string') {
     log.warn(`${file} is not a valid UploadedFile type`)
     throw new Error(createErrorMessage('`verifyUploadedFile` failed'))
+  }
+}
+
+export class UploadTransformerHelper {
+  private static NO_IMPLEMENT_FROM = createThrowErrorFunction(
+    '`UploadFormItem.uploadTransformer.from` is not implemented',
+  )
+  private static NO_IMPLEMENT_TO = createThrowErrorFunction(
+    '`UploadFormItem.uploadTransformer.to` is not implemented',
+  )
+
+  /**
+   * - 对 raw 上的所有项调用 `UploadTransformer.from` 方法，返回 `UploadedFile[]`
+   * - 若 `UploadTransformer.separator` 存在，则 raw 是 string， 先将其拆分为数组
+   */
+  static fromRaw(raw: unknown, transformer: UploadTransformer): UploadedFile[] {
+    if (!raw) return []
+
+    if (transformer.separator) {
+      raw = (raw as string).split(transformer.separator)
+    }
+
+    return (raw as unknown[]).map(transformer.from ?? UploadTransformerHelper.NO_IMPLEMENT_FROM)
+  }
+
+  /**
+   * - 对 files 上的所有项调用 `UploadTransformer.to` 方法，返回 raw
+   * - 若 `UploadTransformer.separator` 存在，则 raw 是 string，最后将其合并为字符串
+   */
+  static toRaw(files: UploadedFile[], transformer: UploadTransformer) {
+    const raw = files.map(transformer.to ?? UploadTransformerHelper.NO_IMPLEMENT_TO)
+
+    return transformer.separator ? raw.join(transformer.separator) : raw
   }
 }

@@ -91,6 +91,22 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     datetimeMinDate: '2022-12-01',
     datetimeMaxDate: '2022-12-07',
   },
+  {
+    label: '照片',
+    type: 'upload',
+    name: 'photos',
+    uploadType: 'image',
+    uploadLimit: 3,
+    uploadTips: '只能上传 3 张图片\n图片文件大小不能超过 300kb',
+  },
+  {
+    label: '文件',
+    type: 'upload',
+    name: 'file',
+    uploadLimit: 1,
+    uploadType: 'file',
+    uploadTips: '只能上传 1 个文件',
+  },
 ]
 
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, DEFAULT_FORM_ITEMS)
