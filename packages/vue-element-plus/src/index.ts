@@ -17,7 +17,6 @@ const EncElementPlus: Plugin = {
 
 export default EncElementPlus
 
-export * from '@cphayim-enc/vue'
-
+export * from './upstream'
 export * from './hooks'
 export * from './components'

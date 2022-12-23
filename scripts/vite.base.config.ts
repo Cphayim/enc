@@ -38,6 +38,7 @@ export const createDTSPlugin = ({ mode, root, skipDiagnostics }: CreateDTSPlugin
     tsConfigFilePath: resolve(root, 'tsconfig-build.json'),
     rollupTypes: true,
     copyDtsFiles: false,
+    staticImport: true,
     beforeWriteFile: (filePath, content) => {
       return { filePath, content }
     },
