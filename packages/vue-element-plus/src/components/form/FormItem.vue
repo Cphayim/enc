@@ -10,6 +10,7 @@ import EncDatetimeFormItem from './items/DatetimeFormItem.vue'
 import EncCascaderFormItem from './items/CascaderFormItem.vue'
 import EncTimeFormItem from './items/TimeFormItem.vue'
 import EncUploadFormItem from './items/UploadFormItem.vue'
+import EncSwitchFormItem from './items/SwitchFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -29,6 +30,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   datetime: EncDatetimeFormItem,
   time: EncTimeFormItem,
   upload: EncUploadFormItem,
+  switch: EncSwitchFormItem,
   custom: null,
   // 'biz-placeholder': null,
 }

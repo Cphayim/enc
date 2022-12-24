@@ -107,6 +107,13 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     uploadType: 'file',
     uploadTips: '只能上传 1 个文件',
   },
+  {
+    label: '开关',
+    type: 'switch',
+    name: 'switch',
+    switchActiveValue: 'on',
+    switchInactiveValue: 'off',
+  },
 ]
 
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, DEFAULT_FORM_ITEMS)
