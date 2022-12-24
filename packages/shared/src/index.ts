@@ -2,15 +2,17 @@ export * from './types'
 
 export const PKG_NAME = 'enc'
 
+const LOG_PREFIX = `[${PKG_NAME}]`
+
 export const log = {
-  debug: console.debug.bind(console, PKG_NAME),
-  info: console.info.bind(console, PKG_NAME),
-  warn: console.warn.bind(console, PKG_NAME),
-  error: console.error.bind(console, PKG_NAME),
+  debug: console.debug.bind(console, LOG_PREFIX),
+  info: console.info.bind(console, LOG_PREFIX),
+  warn: console.warn.bind(console, LOG_PREFIX),
+  error: console.error.bind(console, LOG_PREFIX),
 }
 
 export function createErrorMessage(message: string) {
-  return `[${PKG_NAME}] ${message}`
+  return `${LOG_PREFIX} ${message}`
 }
 
 export function createThrowErrorFunction(message: string) {
