@@ -8,6 +8,7 @@ import _EncCascaderFormItem from './items/CascaderFormItem.vue'
 import _EncTimeFormItem from './items/TimeFormItem.vue'
 import _EncUploadFormItem from './items/UploadFormItem.vue'
 import _EncSwitchFormItem from './items/SwitchFormItem.vue'
+import _EncRadioFormItem from './items/RadioFormItem.vue'
 import _EncCheckboxFormItem from './items/CheckboxFormItem.vue'
 
 export type EncFormInstanceType = InstanceType<typeof _EncForm>
@@ -20,4 +21,5 @@ export const EncDatetimeFormItem = withInstall(_EncDatetimeFormItem)
 export const EncTimeFormItem = withInstall(_EncTimeFormItem)
 export const EncUploadFormItem = withInstall(_EncUploadFormItem)
 export const EncSwitchFormItem = withInstall(_EncSwitchFormItem)
+export const EncRadioFormItem = withInstall(_EncRadioFormItem)
 export const EncCheckboxFormItem = withInstall(_EncCheckboxFormItem)

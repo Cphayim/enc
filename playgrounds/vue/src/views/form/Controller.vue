@@ -123,9 +123,17 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     checkboxGroupOptions: ['白光', '红光', { label: '蓝光', value: 'blue', disabled: true }],
   },
   {
+    label: '车辆类型',
+    type: 'radio',
+    name: 'carModel',
+    col: 12,
+    radioOptions: ['轿车', 'SUV', '货车'],
+  },
+  {
     label: '开关',
     type: 'switch',
     name: 'switch',
+    col: 12,
     switchActiveValue: 'on',
     switchInactiveValue: 'off',
   },
