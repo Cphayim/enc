@@ -108,6 +108,20 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     uploadTips: '只能上传 1 个文件',
   },
   {
+    label: '启用日志',
+    type: 'checkbox',
+    name: 'log',
+    col: 12,
+  },
+  {
+    label: '灯光组',
+    type: 'checkbox',
+    name: 'light',
+    col: 12,
+    checkboxType: 'group',
+    checkboxGroupLabels: ['白光', '红光', { label: '蓝光', disabled: true }],
+  },
+  {
     label: '开关',
     type: 'switch',
     name: 'switch',
