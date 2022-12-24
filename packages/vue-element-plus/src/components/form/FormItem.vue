@@ -11,6 +11,7 @@ import EncCascaderFormItem from './items/CascaderFormItem.vue'
 import EncTimeFormItem from './items/TimeFormItem.vue'
 import EncUploadFormItem from './items/UploadFormItem.vue'
 import EncSwitchFormItem from './items/SwitchFormItem.vue'
+import EncCheckboxFormItem from './items/CheckboxFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -31,6 +32,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   time: EncTimeFormItem,
   upload: EncUploadFormItem,
   switch: EncSwitchFormItem,
+  checkbox: EncCheckboxFormItem,
   custom: null,
   // 'biz-placeholder': null,
 }
