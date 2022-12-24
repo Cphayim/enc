@@ -20,5 +20,6 @@
     "element-plus": "^2.2.27",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
-  }
+  },
+  "version": null
 }
