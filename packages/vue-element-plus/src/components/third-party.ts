@@ -35,9 +35,14 @@ export { ElDatePicker, ElTimePicker } from 'element-plus'
 import 'element-plus/es/components/date-picker/style/css'
 import 'element-plus/es/components/time-picker/style/css'
 
-export { ElCheckbox, ElRadio } from 'element-plus'
-import 'element-plus/es/components/checkbox/style/css'
-import 'element-plus/es/components/radio/style/css'
-
 export { ElUpload } from 'element-plus'
 import 'element-plus/es/components/upload/style/css'
+
+export { ElCheckbox, ElCheckboxGroup, ElRadio, ElRadioGroup } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/checkbox-group/style/css'
+import 'element-plus/es/components/radio/style/css'
+import 'element-plus/es/components/radio-group/style/css'
+
+export { ElSwitch } from 'element-plus'
+import 'element-plus/es/components/switch/style/css'
