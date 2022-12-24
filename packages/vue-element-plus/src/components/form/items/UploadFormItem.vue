@@ -11,7 +11,7 @@ import {
   UploadTransformerHelper,
   verifyUploadedFile,
 } from '@cphayim-enc/base'
-import { createThrowErrorFunction } from '@cphayim-enc/shared'
+import { createThrowErrorFunction, log } from '@cphayim-enc/shared'
 
 defineOptions({ name: 'EncUploadFormItem' })
 
@@ -45,7 +45,7 @@ const handleUploadValidate = (file: File) => {
     ElMessage.error({ message: result as string, duration: 3000 })
     throw new Error(result as string)
   } catch (error) {
-    console.error(error)
+    log.error(error)
     return false
   }
 }
@@ -61,7 +61,7 @@ const handleUploadSend = async (options: UploadRequestOptions) => {
     // console.log(raw)
     emit('update:modelValue', raw)
   } catch (error) {
-    console.error(error)
+    log.error(error)
     throw error
   }
 }
