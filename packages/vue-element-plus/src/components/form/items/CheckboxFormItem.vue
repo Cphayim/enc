@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 
-import {
-  BaseFormItem,
-  CheckboxFormItem,
-  CheckboxLabelWithOptions,
-  verifyCheckboxFormItem,
-} from '@cphayim-enc/base'
+import type { BaseFormItem, CheckboxFormItem, CheckboxOptions } from '@cphayim-enc/base'
 
 defineOptions({ name: 'EncCheckboxFormItem' })
 
@@ -19,15 +14,11 @@ const props = defineProps<{
 const DEFAULT_OPTIONS: Omit<CheckboxFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请输入',
   checkboxSingleLabel: '',
-  checkboxGroupLabels: [],
+  checkboxGroupOptions: [],
   checkboxGroupMax: 0,
 }
 
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
-
-watchEffect(() => {
-  verifyCheckboxFormItem(item.value)
-})
 
 const _value = useVModel(props, 'modelValue')
 
@@ -45,11 +36,17 @@ const max = computed(() =>
       :disabled="item.disabled"
       :max="max"
     >
-      <template v-for="(labelOrOption, _) in item.checkboxGroupLabels" :key="_">
+      <template v-for="(labelOrOption, _) in item.checkboxGroupOptions" :key="_">
         <el-checkbox
-          :label="(labelOrOption as CheckboxLabelWithOptions).label ?? labelOrOption"
-          :disabled="(labelOrOption as CheckboxLabelWithOptions).disabled"
-        />
+          :label="
+            (labelOrOption as CheckboxOptions).value ??
+            (labelOrOption as CheckboxOptions).label ??
+            labelOrOption
+          "
+          :disabled="(labelOrOption as CheckboxOptions).disabled"
+        >
+          {{ (labelOrOption as CheckboxOptions).label ?? labelOrOption }}
+        </el-checkbox>
       </template>
     </el-checkbox-group>
   </template>
@@ -62,7 +59,9 @@ const max = computed(() =>
       :false-label="item.checkboxSingleFalseValue"
       :readonly="item.readonly"
       :disabled="item.disabled"
-    />
+    >
+      {{ item.checkboxSingleLabel }}
+    </el-checkbox>
   </template>
 </template>
 

@@ -24,24 +24,24 @@ export interface CheckboxFormItem<F = string, E = any> extends BaseFormItem<F, E
    * - 当 `checkboxType` 为 `single` 时有效
    * @default ''
    */
-  checkboxSingleLabel?: CheckboxLabel
+  checkboxSingleLabel?: CheckboxLabelOrValue
   /**
    * 多选框选中时的值
    * - 当 `checkboxType` 为 `single` 时有效
    * @default true
    */
-  checkboxSingleTrueValue?: Exclude<CheckboxLabel, boolean>
+  checkboxSingleTrueValue?: Exclude<CheckboxLabelOrValue, boolean>
   /**
    * 多选框未选中时的值
    * - 当 `checkboxType` 为 `single` 时有效
    * @default false
    */
-  checkboxSingleFalseValue?: Exclude<CheckboxLabel, boolean>
+  checkboxSingleFalseValue?: Exclude<CheckboxLabelOrValue, boolean>
   /**
-   * 多选框组标签以及选中的值
+   * 多选框组选项
    * - 当 `checkboxType` 为 `group` 时有效
    */
-  checkboxGroupLabels?: (CheckboxLabel | CheckboxLabelWithOptions)[]
+  checkboxGroupOptions?: (CheckboxLabelOrValue | CheckboxOptions)[]
   /**
    * 多选框组最大可选数量，0 为不限制
    * @default 0
@@ -50,16 +50,26 @@ export interface CheckboxFormItem<F = string, E = any> extends BaseFormItem<F, E
 }
 
 export type CheckboxType = 'single' | 'group'
-export type CheckboxLabel = string | number | boolean
-export type CheckboxLabelWithOptions = {
-  label: CheckboxLabel
+export type CheckboxLabelOrValue = string | number | boolean
+export type CheckboxOptions = {
+  /**
+   * checkbox 标签右侧文字
+   */
+  label: CheckboxLabelOrValue
+  /**
+   * checkbox 选中时的值，不存在时取 `label` 的值
+   */
+  value?: CheckboxLabelOrValue
+  /**
+   * 是否禁用该项
+   */
   disabled?: boolean
 }
 
 // 校验多选框表单项
 export function verifyCheckboxFormItem(item: CheckboxFormItem) {
   if (item.checkboxType === 'group') {
-    if (!item.checkboxGroupLabels || !item.checkboxGroupLabels.length) {
+    if (!item.checkboxGroupOptions || !item.checkboxGroupOptions.length) {
       log.warn(
         `CheckboxFormItem.checkboxType -> 'group', but CheckboxFormItem.checkboxGroupLabels is empty`,
       )

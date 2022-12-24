@@ -112,6 +112,7 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     type: 'checkbox',
     name: 'log',
     col: 12,
+    checkboxSingleLabel: '启用',
   },
   {
     label: '灯光组',
@@ -119,7 +120,7 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     name: 'light',
     col: 12,
     checkboxType: 'group',
-    checkboxGroupLabels: ['白光', '红光', { label: '蓝光', disabled: true }],
+    checkboxGroupOptions: ['白光', '红光', { label: '蓝光', value: 'blue', disabled: true }],
   },
   {
     label: '开关',
