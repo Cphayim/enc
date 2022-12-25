@@ -90,7 +90,7 @@ const handlePreview = (file: UploadedFile) => {
 </script>
 
 <template>
-  <div class="enc-upload">
+  <div class="enc-upload[ep]">
     <el-upload
       ref="uploadRef"
       action="/"
@@ -123,7 +123,7 @@ const handlePreview = (file: UploadedFile) => {
 </template>
 
 <style>
-.enc-upload {
+.enc-upload\[ep\] {
   .enc-upload__tip {
     @apply enc-leading-[20px] enc-text-gray-500;
   }
