@@ -45,7 +45,7 @@ const _value = useVModel(props, 'modelValue', emit)
 </script>
 
 <template>
-  <div class="enc-form-item">
+  <div class="enc-form-item[ep]">
     <el-form-item :label="props.item.label" :prop="props.item.name" :rules="props.item.rules">
       <!-- 当传递该插槽时，替换默认的控件 -->
       <slot v-bind="{ item: props.item, value: props.modelValue }">
@@ -59,7 +59,7 @@ const _value = useVModel(props, 'modelValue', emit)
 :root {
   --el-select-font-size: 14px;
 }
-.enc-form-item {
+.enc-form-item\[ep\] {
   @apply enc-relative;
   .el-form-item {
     @apply enc-pr-8;

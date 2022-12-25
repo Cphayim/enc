@@ -94,7 +94,7 @@ defineExpose({
 
 <template>
   <el-config-provider :locale="LOCALES[props.locale ?? 'zh-cn']">
-    <div class="enc-form">
+    <div class="enc-form[ep]">
       <el-form
         ref="formRef"
         :model="props.data"
@@ -129,7 +129,7 @@ defineExpose({
 </template>
 
 <style>
-.enc-form {
+.enc-form\[ep\] {
   @apply enc-relative enc-p-[10px];
 }
 </style>
