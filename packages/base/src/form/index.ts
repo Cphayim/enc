@@ -1,7 +1,7 @@
 import type { CascaderFormItem } from './CascaderFormItem'
 import type { CheckboxFormItem } from './CheckboxFormItem'
 import type { CustomFormItem } from './CustomFormItem'
-import type { DatetimeFormItem } from './DatetimeFormItem'
+import type { DateFormItem } from './DateFormItem'
 import type { InputFormItem } from './InputFormItem'
 import type { RadioFormItem } from './RadioFormItem'
 import type { SelectFormItem } from './SelectFormItem'
@@ -13,7 +13,7 @@ export type FormItemUnion<F = string, E = any> =
   | InputFormItem<F, E>
   | SelectFormItem<F, E>
   | CascaderFormItem<F, E>
-  | DatetimeFormItem<F, E>
+  | DateFormItem<F, E>
   | TimeFormItem<F, E>
   | UploadFormItem<F, E>
   | SwitchFormItem<F, E>
@@ -26,7 +26,7 @@ export type OmitTypeFormItem<F = string, E = any> = Partial<
   Omit<InputFormItem<F, E>, 'type'> &
     Omit<SelectFormItem<F, E>, 'type'> &
     Omit<CascaderFormItem<F, E>, 'type'> &
-    Omit<DatetimeFormItem<F, E>, 'type'> &
+    Omit<DateFormItem<F, E>, 'type'> &
     Omit<TimeFormItem<F, E>, 'type'> &
     Omit<UploadFormItem<F, E>, 'type'> &
     Omit<SwitchFormItem<F, E>, 'type'> &
@@ -51,7 +51,7 @@ export * from './InputFormItem'
 export * from './PopupFormItem'
 export * from './SelectFormItem'
 export * from './CascaderFormItem'
-export * from './DatetimeFormItem'
+export * from './DateFormItem'
 export * from './TimeFormItem'
 export * from './UploadFormItem'
 export * from './SwitchFormItem'
