@@ -8,7 +8,13 @@ import { EXTERNAL_REPO_PKG, addDTSPlugin, createBuild } from '../../scripts/vite
 export default defineConfig(({ mode }) => {
   const build = createBuild({ mode, root: __dirname })
   build.rollupOptions = {
-    external: [EXTERNAL_REPO_PKG, 'vue', '@vueuse/core'],
+    external: [
+      EXTERNAL_REPO_PKG,
+      'vue',
+      '@vueuse/core',
+      'vant',
+      /^vant\/es/, //
+    ],
     output: {
       assetFileNames: (assetInfo) => {
         return assetInfo.name === 'style.css' ? 'index.css' : assetInfo.name!
