@@ -1,0 +1,79 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+import type { FormItemUnion } from '@cphayim-enc/base'
+
+import EncFormItem from './FormItem.vue'
+
+defineOptions({ name: 'EncForm', inheritAttrs: false })
+
+type Props = {
+  /**
+   * 表单数据
+   */
+  data: Record<string, any>
+  /**
+   * 表单项
+   */
+  items: FormItemUnion[]
+}
+
+const props = withDefaults(defineProps<Props>(), {})
+
+const emit = defineEmits<{
+  (e: 'update:data', values: any): void
+}>()
+
+const formRef = ref<any>()
+
+const handleValueChange = (fieldName: string, value: any) => {
+  emit('update:data', {
+    ...props.data,
+    [fieldName]: value,
+  })
+}
+
+const validate = async () => {
+  if (!formRef.value) return
+  return formRef.value.validate()
+}
+
+const clearValidate = (names?: string | string[]) => {
+  if (!formRef.value) return
+  formRef.value!.resetValidation(names)
+}
+
+const getValues = () => props.data
+
+defineExpose({
+  validate,
+  clearValidate,
+  getValues,
+})
+</script>
+
+<template>
+  <div class="enc-form[vant]">
+    <van-form ref="formRef" input-align="right" error-message-align="right" scroll-to-error>
+      <template v-for="item in items" :key="item.name">
+        <EncFormItem
+          v-if="!item.hidden"
+          :modelValue="data[item.name]"
+          @update:modelValue="(value: any) => handleValueChange(item.name, value)"
+          :item="item"
+        >
+          <!-- 将 FieldItem 的插槽作用域再传出去 -->
+          <template #default="itemSlotScope">
+            <slot :name="item.name" v-bind="itemSlotScope" />
+          </template>
+        </EncFormItem>
+      </template>
+    </van-form>
+  </div>
+</template>
+
+<style>
+.enc-form\[vant\] {
+  @apply enc-relative;
+}
+</style>

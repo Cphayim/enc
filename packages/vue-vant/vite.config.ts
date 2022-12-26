@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => {
       /^vant\/es/, //
     ],
     output: {
+      exports: 'named',
       assetFileNames: (assetInfo) => {
         return assetInfo.name === 'style.css' ? 'index.css' : assetInfo.name!
       },
