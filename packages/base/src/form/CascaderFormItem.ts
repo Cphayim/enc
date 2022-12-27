@@ -52,9 +52,9 @@ export type CascaderFormItemOption = {
    */
   label: string | number
   /**
-   * 值
+   * 值，注意：该值在整个树中必须是唯一值
    */
-  value: string | number | boolean
+  value: string | number
   /**
    * 子选项
    */
