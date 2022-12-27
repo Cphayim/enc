@@ -2,9 +2,8 @@
 // 这样打包时，我们的组件类型中不会混合第三方组件的类型（这造成类型可读性变差）
 
 // 工具
-export { Popup, Picker, Toast, Tag } from 'vant'
+export { Popup, Toast, Tag } from 'vant'
 import 'vant/es/popup/style/index'
-import 'vant/es/picker/style/index'
 import 'vant/es/toast/style/index'
 import 'vant/es/tag/style/index'
 
@@ -15,6 +14,12 @@ import 'vant/es/form/style/index'
 export { CellGroup, Field } from 'vant'
 import 'vant/es/cell-group/style/index'
 import 'vant/es/field/style/index'
+
+export { Picker } from 'vant'
+import 'vant/es/picker/style/index'
+
+export { Cascader } from 'vant'
+import 'vant/es/cascader/style/index'
 
 export { DatePicker, TimePicker } from 'vant'
 import 'vant/es/date-picker/style/index'
