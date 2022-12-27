@@ -17,7 +17,7 @@ const DEFAULT_OPTIONS: Omit<CascaderFormItem, Exclude<keyof BaseFormItem, 'place
   cascaderFilterable: false,
   cascaderOptions: [],
   cascaderCheckStrictly: false,
-  cascaderEmitPath: true,
+  cascaderEmitPath: false,
 }
 
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
