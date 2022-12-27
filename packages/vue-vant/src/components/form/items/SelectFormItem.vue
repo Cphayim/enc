@@ -69,11 +69,12 @@ const columnFieldNames = ref({
   children: 'children',
 })
 
-const handleSelectConfirm = useEventLock(({ selectedOptions }: any) => {
+const handleConfirm = useEventLock(({ selectedOptions }: any) => {
   if (!isMultiple.value) {
     const selectedOption: SelectFormItemOption = selectedOptions[0]
     _value.value = selectedOption.value
   }
+  // 多选在 handleChangeSelected 中处理
 
   showPopup.value = false
 })
@@ -123,7 +124,7 @@ const handleChangeSelected = useEventLock((option: SelectFormItemOption) => {
       <van-picker
         :title="`${item.label}（${isMultiple ? '多选' : '单选'}）`"
         :columns="(item.selectOptions as any)"
-        @confirm="handleSelectConfirm"
+        @confirm="handleConfirm"
         @cancel="() => (showPopup = false)"
         :show-toolbar="showToolbar"
         :columns-field-names="columnFieldNames"
