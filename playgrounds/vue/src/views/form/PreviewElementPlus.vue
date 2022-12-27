@@ -11,16 +11,13 @@ import {
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
-// const formData = ref({
-//   building: ['1F'],
-// })
 const oFormItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, [], {
   writeDefaults: false,
 })
 
 const { formData, formItems } = useForm(
   {
-    building: ['1F'],
+    building: ['B', '4'],
   },
   oFormItems,
   {

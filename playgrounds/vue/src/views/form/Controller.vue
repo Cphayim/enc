@@ -65,21 +65,21 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
         label: 'A栋',
         value: 'A',
         children: [
-          { label: '1F', value: '1F' },
-          { label: '2F', value: '2F' },
-          { label: '3F', value: '3F' },
+          { label: '1F', value: '1' },
+          { label: '2F', value: '2' },
+          { label: '3F', value: '3' },
         ],
       },
       {
         label: 'B栋',
         value: 'B',
         children: [
-          { label: 'B1F', value: 'B1F' },
-          { label: '1F', value: '1F' },
+          { label: 'B1F', value: '4' },
+          { label: '1F', value: '5' },
         ],
       },
     ],
-    cascaderMultiple: true,
+    cascaderEmitPath: true,
   },
   {
     name: 'alarm',
