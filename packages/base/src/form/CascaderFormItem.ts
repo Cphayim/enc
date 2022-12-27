@@ -10,6 +10,8 @@ export interface CascaderFormItem<F = string, E = any> extends PopupFormItem<F, 
   type: 'cascader'
   /**
    * 是否多选
+   *
+   * 移动端不支持
    * @default false
    */
   cascaderMultiple?: boolean
@@ -32,12 +34,14 @@ export interface CascaderFormItem<F = string, E = any> extends PopupFormItem<F, 
 
   /**
    * 是否支持选中任意一级选项，默认只能选中叶子节点
+   *
+   * 移动端不支持
    * @default false
    */
   cascaderCheckStrictly?: boolean
   /**
    * 是否返回选中值的完整路径值（即各级父级选项的值组成的数组）若为 false，值仅包含选中项的值
-   * @default true
+   * @default false
    */
   cascaderEmitPath?: boolean
 }
