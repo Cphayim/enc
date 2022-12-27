@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 
 import type { BaseFormItem, InputFormItem } from '@cphayim-enc/base'
 import { useEventLock } from '@cphayim-enc/vue'
@@ -34,6 +34,8 @@ const handleFieldClick = useEventLock(() => {
   if (item.value.readonly || item.value.disabled) return
   emit('click')
 })
+
+const slots = useSlots()
 </script>
 
 <template>
@@ -53,7 +55,13 @@ const handleFieldClick = useEventLock(() => {
     autosize
     show-word-limit
     @click="handleFieldClick"
-  />
+  >
+    <template v-if="slots.label" #label><slot name="label" /></template>
+    <template v-if="slots.input" #input><slot name="input" /></template>
+    <template v-if="slots.leftIcon" #left-icon><slot name="left-icon" /></template>
+    <template v-if="slots.rightIcon" #right-icon><slot name="right-icon" /></template>
+    <template v-if="slots.button" #button><slot name="button" /></template>
+  </van-field>
 </template>
 
 <style></style>

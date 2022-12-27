@@ -43,6 +43,19 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     ],
   },
   {
+    name: 'colors',
+    label: '颜色',
+    type: 'select',
+    col: 12,
+    selectMultiple: true,
+    selectOptions: [
+      { label: '蓝色', value: 'blue' },
+      { label: '红色', value: 'red', disabled: true },
+      { label: '绿色', value: 'green' },
+      { label: '黄色', value: 'yellow' },
+    ],
+  },
+  {
     name: 'building',
     label: '楼栋',
     type: 'cascader',
