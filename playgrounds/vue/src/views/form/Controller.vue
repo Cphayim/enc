@@ -139,7 +139,7 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     type: 'radio',
     name: 'carModel',
     col: 12,
-    radioOptions: ['轿车', 'SUV', '货车'],
+    radioOptions: ['轿车', 'SUV', { label: '大货车', value: '货车' }],
   },
   {
     label: '开关',

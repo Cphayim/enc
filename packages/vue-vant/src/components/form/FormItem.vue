@@ -12,7 +12,7 @@ import EncTimeFormItem from './items/TimeFormItem.vue'
 // import EncUploadFormItem from './items/UploadFormItem.vue'
 // import EncSwitchFormItem from './items/SwitchFormItem.vue'
 import EncCheckboxFormItem from './items/CheckboxFormItem.vue'
-// import EncRadioFormItem from './items/RadioFormItem.vue'
+import EncRadioFormItem from './items/RadioFormItem.vue'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -33,7 +33,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   time: EncTimeFormItem,
   upload: EncInputFormItem,
   switch: EncInputFormItem,
-  radio: EncInputFormItem,
+  radio: EncRadioFormItem,
   checkbox: EncCheckboxFormItem,
   custom: null,
   // 'biz-placeholder': null,
