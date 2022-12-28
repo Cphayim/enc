@@ -21,9 +21,10 @@ import 'vant/es/picker/style/index'
 export { Cascader } from 'vant'
 import 'vant/es/cascader/style/index'
 
-export { DatePicker, TimePicker } from 'vant'
+export { DatePicker, TimePicker, Calendar } from 'vant'
 import 'vant/es/date-picker/style/index'
 import 'vant/es/time-picker/style/index'
+import 'vant/es/calendar/style/index'
 
 export { Uploader } from 'vant'
 import 'vant/es/uploader/style/index'

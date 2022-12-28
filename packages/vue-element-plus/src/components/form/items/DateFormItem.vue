@@ -16,6 +16,8 @@ const DEFAULT_OPTIONS: Omit<DateFormItem, Exclude<keyof BaseFormItem, 'placehold
   placeholder: '请选择',
   dateType: 'date',
   dateFormat: 'YYYY-MM-DD',
+  dateMinDate: dayjs().subtract(10, 'year').toDate(),
+  dateMaxDate: dayjs().add(10, 'year').toDate(),
 }
 
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
