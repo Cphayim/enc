@@ -125,7 +125,6 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     type: 'checkbox',
     name: 'log',
     col: 12,
-    checkboxSingleLabel: '启用',
   },
   {
     label: '灯光组',
