@@ -8,7 +8,7 @@ import EncInputFormItem from './items/InputFormItem.vue'
 import EncSelectFormItem from './items/SelectFormItem.vue'
 import EncCascaderFormItem from './items/CascaderFormItem.vue'
 import EncDateFormItem from './items/DateFormItem.vue'
-// import EncTimeFormItem from './items/TimeFormItem.vue'
+import EncTimeFormItem from './items/TimeFormItem.vue'
 // import EncUploadFormItem from './items/UploadFormItem.vue'
 // import EncSwitchFormItem from './items/SwitchFormItem.vue'
 // import EncCheckboxFormItem from './items/CheckboxFormItem.vue'
@@ -30,7 +30,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   select: EncSelectFormItem,
   cascader: EncCascaderFormItem,
   date: EncDateFormItem,
-  time: EncInputFormItem,
+  time: EncTimeFormItem,
   upload: EncInputFormItem,
   switch: EncInputFormItem,
   radio: EncInputFormItem,
