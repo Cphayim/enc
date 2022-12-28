@@ -7,7 +7,7 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 import EncInputFormItem from './items/InputFormItem.vue'
 import EncSelectFormItem from './items/SelectFormItem.vue'
 import EncCascaderFormItem from './items/CascaderFormItem.vue'
-// import EncDateFormItem from './items/DateFormItem.vue'
+import EncDateFormItem from './items/DateFormItem.vue'
 // import EncTimeFormItem from './items/TimeFormItem.vue'
 // import EncUploadFormItem from './items/UploadFormItem.vue'
 // import EncSwitchFormItem from './items/SwitchFormItem.vue'
@@ -29,7 +29,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItem,
   select: EncSelectFormItem,
   cascader: EncCascaderFormItem,
-  date: EncInputFormItem,
+  date: EncDateFormItem,
   time: EncInputFormItem,
   upload: EncInputFormItem,
   switch: EncInputFormItem,

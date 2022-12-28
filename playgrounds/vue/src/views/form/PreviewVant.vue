@@ -18,6 +18,7 @@ const oFormItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, [], {
 const { formData, formItems } = useForm(
   {
     building: ['B', '4'],
+    birthday: '2020-01-01',
   },
   oFormItems,
   {
