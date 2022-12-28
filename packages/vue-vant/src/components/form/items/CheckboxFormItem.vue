@@ -71,6 +71,6 @@ const _value = useVModel(props, 'modelValue')
 
 <style>
 .enc-checkbox {
-  --van-checkbox-size: 16px;
+  --van-checkbox-size: var(--enc-switch-size);
 }
 </style>

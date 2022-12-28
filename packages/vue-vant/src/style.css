@@ -2,3 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --enc-radio-size: 16px;
+  --enc-checkbox-size: 16px;
+  --enc-switch-size: 20px;
+}
