@@ -117,7 +117,7 @@ const handlePreview = (file: UploadedFile) => {
     </el-upload>
 
     <el-dialog v-model="dialogVisible">
-      <img w-full :src="dialogImageUrl" alt="Preview Image" />
+      <img :src="dialogImageUrl" class="w-full" alt="Preview Image" />
     </el-dialog>
   </div>
 </template>
