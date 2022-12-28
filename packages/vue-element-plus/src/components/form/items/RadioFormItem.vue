@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 const DEFAULT_OPTIONS: Omit<RadioFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
-  placeholder: '请输入',
+  placeholder: '请选择',
   radioOptions: [],
 }
 
