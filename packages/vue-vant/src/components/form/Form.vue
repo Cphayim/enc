@@ -74,6 +74,6 @@ defineExpose({
 
 <style>
 .enc-form\[vant\] {
-  @apply enc-relative;
+  @apply enc-relative enc-select-none;
 }
 </style>
