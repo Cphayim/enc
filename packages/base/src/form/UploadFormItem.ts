@@ -86,7 +86,7 @@ export type UploadedFile = {
    * 文件 url
    */
   url: string
-}
+} & Record<string, any>
 
 /**
  * upload 转换器
