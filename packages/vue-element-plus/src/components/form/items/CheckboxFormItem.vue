@@ -13,6 +13,7 @@ const props = defineProps<{
 
 const DEFAULT_OPTIONS: Omit<CheckboxFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请输入',
+  checkboxType: 'single',
   checkboxSingleLabel: '',
   checkboxGroupOptions: [],
   checkboxGroupMax: 0,
