@@ -53,6 +53,7 @@ const _value = useVModel(props, 'modelValue')
           </van-checkbox>
         </van-checkbox-group>
       </template>
+
       <!-- 多选框 -->
       <template v-else>
         <van-checkbox
