@@ -32,8 +32,11 @@ const DEFAULT_OPTIONS: Omit<UploadFormItem, Exclude<keyof BaseFormItem, 'placeho
   uploadTransformer: defaultUploadTransformer,
 }
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
+const uploadAccept = computed(() =>
+  item.value.uploadAccept ?? item.value.uploadType === 'image' ? 'image/*' : '*',
+)
 
-const fileList = computed<UploadedFile[]>(() =>
+const _uploadedFileList = computed<UploadedFile[]>(() =>
   UploadTransformerHelper.fromRaw(props.modelValue, item.value.uploadTransformer!),
 )
 
@@ -51,17 +54,20 @@ const handleUploadValidate = (file: File) => {
 }
 
 // 上传发送
-const handleUploadSend = async (options: UploadRequestOptions) => {
+const handleUploadSend = async ({ file }: UploadRequestOptions) => {
   try {
     // 发送请求拿到 UploadedFile
-    const file = await item.value.uploadSend!(options.file)
-    verifyUploadedFile(file)
-    const files = [...fileList.value, file]
+    const uploadedFile = await item.value.uploadSend!(file)
+    // 当返回 string 代表错误消息
+    if (typeof uploadedFile === 'string') throw new Error(uploadedFile)
+    verifyUploadedFile(uploadedFile)
+
+    const files = [..._uploadedFileList.value, uploadedFile]
     const raw = UploadTransformerHelper.toRaw(files, item.value.uploadTransformer!)
-    // console.log(raw)
     emit('update:modelValue', raw)
   } catch (error) {
     log.error(error)
+    ElMessage.error({ message: error.message, duration: 3000 })
     throw error
   }
 }
@@ -90,12 +96,15 @@ const handlePreview = (file: UploadedFile) => {
 </script>
 
 <template>
-  <div class="enc-upload[ep]">
+  <div
+    class="enc-upload[ep]"
+    :class="{ limited: item.uploadLimit && _uploadedFileList.length >= item.uploadLimit }"
+  >
     <el-upload
       ref="uploadRef"
       action="/"
-      :accept="item.uploadType === 'image' ? 'image/*' : '*'"
-      :file-list="fileList"
+      :accept="uploadAccept"
+      :file-list="_uploadedFileList"
       :before-upload="handleUploadValidate"
       :http-request="handleUploadSend"
       :limit="item.uploadLimit"
@@ -124,6 +133,11 @@ const handlePreview = (file: UploadedFile) => {
 
 <style>
 .enc-upload\[ep\] {
+  &.limited {
+    .el-upload {
+      @apply enc-hidden;
+    }
+  }
   .enc-upload__tip {
     @apply enc-leading-[20px] enc-text-gray-500;
   }
