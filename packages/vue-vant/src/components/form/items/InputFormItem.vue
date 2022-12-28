@@ -28,6 +28,15 @@ const DEFAULT_OPTIONS: Omit<InputFormItem, Exclude<keyof BaseFormItem, 'placehol
 }
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
 
+// vant rule.pattern 不直接支持字符串，需要转换为 RegExp
+const rules = computed(() => {
+  if (!item.value.rules) return []
+  return item.value.rules.map((rule) => ({
+    ...rule,
+    pattern: typeof rule.pattern === 'string' ? new RegExp(rule.pattern) : rule.pattern,
+  }))
+})
+
 const _value = useVModel(props, 'modelValue', emit)
 
 const handleFieldClick = useEventLock(() => {
@@ -47,7 +56,7 @@ const slots = useSlots()
     :disabled="item.disabled"
     :placeholder="item.placeholder"
     :is-link="props._isLink"
-    :rules="(item.rules as any)"
+    :rules="rules"
     :input-align="item.align ?? item.inputType === 'textarea' ? 'left' : 'right'"
     :type="item.inputType"
     :rows="item.inputRows"
