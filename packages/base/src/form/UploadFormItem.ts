@@ -61,9 +61,11 @@ export interface UploadFormItem<F = string, E = any> extends BaseFormItem<F, E> 
   /**
    * 自定义上传请求函数（必传）
    *
-   * 在该函数内用户需实现文件的上传请求，之后返回一个 Promise<UploadedFile>
+   * 在该函数内用户需实现文件的上传请求，必须返回 Promise<UploadedFile>
+   *
+   * 当处理出现错误时，返回 Promise<string>，作为错误提示
    */
-  uploadSend?: (file: File) => Promise<UploadedFile>
+  uploadSend?: (file: File) => Promise<UploadedFile | string>
 
   /**
    * upload 转换器
