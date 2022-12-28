@@ -26,10 +26,12 @@ export interface DateFormItem<F = string, E = any> extends PopupFormItem<F, E> {
   dateDisplayFormat?: string
   /**
    * 可选最小日期
+   * @default 当前日期的10年前
    */
   dateMinDate?: Date | string
   /**
    * 可选最大日期
+   * @default 当前日期的10年后
    */
   dateMaxDate?: Date | string
   /**
