@@ -27,7 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@cphayim-enc/shared": "workspace:*"
+    "@cphayim-enc/shared": "workspace:*",
+    "image-conversion": "^2.1.1"
   },
   "peerDependenciesMeta": {},
   "publishConfig": {
