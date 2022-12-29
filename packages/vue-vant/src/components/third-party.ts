@@ -2,7 +2,8 @@
 // 这样打包时，我们的组件类型中不会混合第三方组件的类型（这造成类型可读性变差）
 
 // 工具
-export { Popup, Toast, Tag } from 'vant'
+export { Button, Popup, Toast, Tag } from 'vant'
+import 'vant/es/button/style/index'
 import 'vant/es/popup/style/index'
 import 'vant/es/toast/style/index'
 import 'vant/es/tag/style/index'

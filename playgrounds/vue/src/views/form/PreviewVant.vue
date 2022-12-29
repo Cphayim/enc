@@ -3,9 +3,10 @@ import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
 import {
-  createStringResultUploadTransformer,
+  defaultUploadTransformer,
   EncForm,
   FormItemUnion,
+  ImageUtils,
   useForm,
 } from '@cphayim-enc/vue-vant'
 
@@ -19,13 +20,20 @@ const { formData, formItems } = useForm(
   {
     building: ['B', '4'],
     birthday: '2020-01-01',
+    photos: [
+      {
+        name: 'plant-1.png',
+        url: 'https://element-plus.org/images/plant-1.png',
+      },
+    ],
   },
   oFormItems,
   {
     defaultProps: {
-      uploadTransformer: createStringResultUploadTransformer(','),
+      uploadTransformer: defaultUploadTransformer,
       uploadSend: async (file: File) => {
-        return { name: Math.random().toString(), url: URL.createObjectURL(file) }
+        const url = await ImageUtils.getBase64ByFile(file)
+        return { name: Math.random().toString(), url }
       },
     },
   },
