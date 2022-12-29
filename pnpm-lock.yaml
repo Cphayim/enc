@@ -69,8 +69,10 @@ importers:
   packages/base:
     specifiers:
       '@cphayim-enc/shared': workspace:*
+      image-conversion: ^2.1.1
     dependencies:
       '@cphayim-enc/shared': link:../shared
+      image-conversion: 2.1.1
 
   packages/react:
     specifiers:
@@ -136,6 +138,7 @@ importers:
 
   playgrounds/vue:
     specifiers:
+      '@cphayim-enc/base': workspace:*
       '@cphayim-enc/vue-element-plus': workspace:*
       '@cphayim-enc/vue-vant': workspace:*
       '@element-plus/icons-vue': ^2.0.10
@@ -144,6 +147,7 @@ importers:
       vue: ^3.2.45
       vue-router: ^4.1.6
     dependencies:
+      '@cphayim-enc/base': link:../../packages/base
       '@cphayim-enc/vue-element-plus': link:../../packages/vue-element-plus
       '@cphayim-enc/vue-vant': link:../../packages/vue-vant
       '@element-plus/icons-vue': 2.0.10_vue@3.2.45
@@ -3408,6 +3412,10 @@ packages:
     resolution: {integrity: sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==}
     engines: {node: '>= 4'}
     dev: true
+
+  /image-conversion/2.1.1:
+    resolution: {integrity: sha512-hnMOmP7q2jxA+52FZ+wHNhg3fdFRlgfngsQH2JQHEQkafY7tj/8F15e6Rv/RxDegc872jvyaRHwMbkTZK1Cjbg==}
+    dev: false
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}

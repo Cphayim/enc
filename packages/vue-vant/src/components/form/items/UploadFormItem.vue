@@ -25,6 +25,8 @@ const emit = defineEmits<{ (e: 'update:modelValue', value: any): void }>()
 const DEFAULT_OPTIONS: Omit<UploadFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请选择',
   uploadType: 'file',
+  uploadMultiple: false,
+  uploadMultipleLimit: 3,
   uploadButtonText: '上传文件',
   uploadButtonColor: '#337ecc',
   uploadValidate: () => true,
@@ -33,23 +35,23 @@ const DEFAULT_OPTIONS: Omit<UploadFormItem, Exclude<keyof BaseFormItem, 'placeho
   uploadTransformer: defaultUploadTransformer,
 }
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
+const uploadLimited = computed(() =>
+  item.value.uploadMultiple ? item.value.uploadMultipleLimit : 1,
+)
 const uploadAccept = computed(() =>
   item.value.uploadAccept ?? item.value.uploadType === 'image' ? 'image/*' : '*',
 )
 
 const _uploadedFileList = computed<UploadedFile[]>({
   get: () => {
-    const uploadedFileList = UploadTransformerHelper.fromRaw(
-      props.modelValue,
-      item.value.uploadTransformer!,
-    )
+    const uploadedFileList = UploadTransformerHelper.fromRaw(props.modelValue, item.value)
     return item.value.uploadType === 'image'
       ? // 当 url 不以图片后缀结尾时，vant 根据 isImage 来判断是否是图片
         uploadedFileList.map((item) => ({ ...item, isImage: true }))
       : uploadedFileList
   },
   set: (files: UploadedFile[]) => {
-    const raw = UploadTransformerHelper.toRaw(files, item.value.uploadTransformer!)
+    const raw = UploadTransformerHelper.toRaw(files, item.value)
     emit('update:modelValue', raw)
   },
 })
@@ -77,7 +79,7 @@ const handleUploadSend = async (file: File) => {
     verifyUploadedFile(uploadedFile)
 
     const files = [..._uploadedFileList.value, uploadedFile]
-    const raw = UploadTransformerHelper.toRaw(files, item.value.uploadTransformer!)
+    const raw = UploadTransformerHelper.toRaw(files, item.value)
     emit('update:modelValue', raw)
   } catch (error) {
     log.error(error)
@@ -114,7 +116,7 @@ const handleFileUploadTask = async (file: File | File[]): Promise<never> => {
       <van-uploader
         v-model="_uploadedFileList"
         :accept="uploadAccept"
-        :max-count="item.uploadLimit"
+        :max-count="uploadLimited"
         :before-read="handleFileUploadTask"
         :disabled="item.disabled"
         :readonly="item.readonly"
