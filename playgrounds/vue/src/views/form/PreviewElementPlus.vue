@@ -2,7 +2,12 @@
 import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
-import { EncForm, FormItemUnion, useForm, ImageUtils } from '@cphayim-enc/vue-element-plus'
+import {
+  defaultUploadTransformer,
+  EncForm,
+  FormItemUnion,
+  useForm,
+} from '@cphayim-enc/vue-element-plus'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
@@ -14,19 +19,13 @@ const { formData, formItems } = useForm(
   {
     building: ['B', '4'],
     birthday: '2020-01-01',
-    photos: [
-      {
-        name: 'plant-1.png',
-        url: 'https://element-plus.org/images/plant-1.png',
-      },
-    ],
   },
   oFormItems,
   {
     defaultProps: {
+      uploadTransformer: defaultUploadTransformer,
       uploadSend: async (file: File) => {
-        const url = await ImageUtils.getBase64ByFile(file)
-        return { name: Math.random().toString(), url }
+        return { name: file.name, url: URL.createObjectURL(file) }
       },
     },
   },
@@ -38,7 +37,7 @@ watchEffect(() => {
   }
 })
 watchEffect(() => {
-  console.log(formData.value)
+  console.log(JSON.parse(JSON.stringify(formData.value)))
 })
 </script>
 

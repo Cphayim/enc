@@ -23,6 +23,28 @@ export interface UploadFormItem<F = string, E = any> extends BaseFormItem<F, E> 
    */
   uploadType?: UploadFormItemType
   /**
+   * 是否允许上传多个文件
+   *
+   * 这将会影响到 value 的数据结构和 `uploadTransformer` 的行为
+   * - 当值为 `false` 时 value 为单个对象
+   * - 当值为 `true` 时 value 为数组
+   * @default false
+   */
+  uploadMultiple?: boolean
+  /**
+   * 上传数量限制，需要开启 `uploadMultiple` 才生效
+   * @default 3
+   */
+  uploadMultipleLimit?: number
+  /**
+   * 上传文件 mineType
+   */
+  uploadAccept?: string
+  /**
+   * 上传器底部提示文案，支持 \n 换行
+   */
+  uploadTips?: string
+  /**
    * 上传按钮文字，仅 type 为 file 时有效
    * @default '上传文件'
    */
@@ -38,19 +60,6 @@ export interface UploadFormItem<F = string, E = any> extends BaseFormItem<F, E> 
    * 由 UI Package 实现
    */
   uploadButtonColor?: string
-  /**
-   * 上传数量限制
-   */
-  uploadLimit?: number
-  /**
-   * 上传文件 mineType
-   */
-  uploadAccept?: string
-  /**
-   * 上传器底部提示文案，支持 \n 换行
-   */
-  uploadTips?: string
-
   /**
    * 自定义文件验证器函数
    *
@@ -68,10 +77,10 @@ export interface UploadFormItem<F = string, E = any> extends BaseFormItem<F, E> 
   uploadSend?: (file: File) => Promise<UploadedFile | string>
 
   /**
-   * upload 转换器
-   * - `from` 方法用于将表单值的单项类型转换为 `UploadedFile`
-   * - `to` 方法用于将 `UploadedFile` 转换为表单值的单项类型
-   * - [可选] `separator` 用于将多个份文件拆分和组合（如果表单值不是数组，是拼接字符串的话）
+   * upload 内外部值转换器
+   * - `from`: 外部值`T` -> 内部值`UploadedFile`
+   * - `to`: 内部值 `UploadedFile` -> 外部值 `T`
+   * - [可选] `separator` 将多个值拼接为字符串的分隔符
    * @default defaultUploadTransformer
    */
   uploadTransformer?: UploadTransformer
@@ -81,38 +90,45 @@ export type UploadFormItemType = 'file' | 'image'
 
 export type UploadedFile = {
   /**
+   * 文件 url
+   */
+  url: string
+  /**
    * 文件名
    */
   name?: string
   /**
-   * 文件 url
+   * 额外数据
    */
-  url: string
-} & Record<string, any>
+  [key: string]: any
+}
 
 /**
- * upload 转换器
- * - `from` 方法用于将表单值的单项类型转换为 `UploadedFile`
- * - `to` 方法用于将 `UploadedFile` 转换为表单值的单项类型
- * - [可选] `separator` 用于将多个份文件拆分和组合（如果表单值不是数组，是拼接字符串的话）
+ * Upload 内外部值转换器
+ * 必须实现 `from` 和 `to` 方法
  */
-export type UploadTransformer<T = any> = {
+export interface UploadTransformer<T = any> {
   /**
-   * 分隔符，用于将多个份文件拆分和组合
+   * [可选] 用于拆分和拼接多个表单单项（`T extends string`）字符串的分隔符
    *
-   * 如果的上传值对应的表单 `value` 是一个字符串，请填写该字段，是一个数组则不需要
-   *
-   * @default ','
+   * 传递该字段代表外部值是一个字符串拼接值，例如 `url1,url2,url3`
+   * - 仅 `UploadFormItem.uploadMultiple` 为 `true` 时才会生效
+   * - 在对每项调用 `UploadTransformer.from` 前使用 `rawValue.split(separator)` 拆分
+   * - 在对每项调用 `UploadTransformer.to` 后使用 `uploadedFile.map(item => item.url).join(separator)` 拼接
    */
   separator?: string
   /**
-   * 将表单 `value` 转为组件内使用的数据结构，即 `UploadedFile`
+   * 外部值 `T` -> 内部值 `UploadedFile`
+   *
+   * 将表单值的单项 T 类型转为 `UploadedFile` 类型
    * - 将对表单 `value` 数组的每一项调用该方法
    * - 如果存在 `separator`，即 value 是字符串，将在 map 之前使用 `separator` 进行拆分
    */
   from: (file: T) => UploadedFile
   /**
-   * 将组件内使用的数据结构，即 `UploadedFile` 转为表单 `value`
+   * 内部值 `UploadedFile` -> 外部值 `T`
+   *
+   * 将 `UploadedFile` 类型转换为表单值的单项 `T` 类型
    * - 将对组件内的每个 `UploadedFile` 调用该方法
    * - 如果存在 `separator`， 即 value 是字符串，将在 map 之后使用 `separator` 进行组合
    */
@@ -120,7 +136,8 @@ export type UploadTransformer<T = any> = {
 }
 
 /**
- * 默认 upload 适配器
+ * 默认 upload 转换器
+ * - `UploadedFile[]` <-> `UploadedFile[]`
  */
 export const defaultUploadTransformer: UploadTransformer<UploadedFile> = {
   from: (file) => file,
@@ -128,17 +145,18 @@ export const defaultUploadTransformer: UploadTransformer<UploadedFile> = {
 }
 
 /**
- * 创建字符串表单 value 转换器
+ * 创建字符串拼接 value 转换器
+ * - ['url1', 'url2', 'url3'] <-> UploadedFile[]
+ * - separator: ',' -> `url1,url2,url3` <-> UploadedFile[]
  */
-export const createStringResultUploadTransformer = (separator = ',') =>
-  ({
-    separator,
-    from: (file) => ({
-      url: file,
-      name: getFileNameFromUrl(file),
-    }),
-    to: (file) => file.url,
-  } as UploadTransformer<string>)
+export const createStringUploadTransformer = (separator?: string): UploadTransformer<string> => ({
+  separator,
+  from: (file) => ({
+    url: file,
+    name: getFileNameFromUrl(file),
+  }),
+  to: (file) => file.url,
+})
 
 /**
  * 校验是否是合法的 UploadedFile
@@ -159,26 +177,43 @@ export class UploadTransformerHelper {
   )
 
   /**
-   * - 对 raw 上的所有项调用 `UploadTransformer.from` 方法，返回 `UploadedFile[]`
-   * - 若 `UploadTransformer.separator` 存在，则 raw 是 string， 先将其拆分为数组
+   * `raw` -> `UploadedFile[]`
+   * 无论 `UploadFormItem.uploadMultiple` 是否为 `true`，都将 raw 转换为 `UploadedFile[]`
    */
-  static fromRaw(raw: unknown, transformer: UploadTransformer): UploadedFile[] {
+  static fromRaw(raw: unknown, item: UploadFormItem): UploadedFile[] {
+    const transformer: UploadTransformer = item.uploadTransformer ?? defaultUploadTransformer
+
     if (!raw) return []
 
-    if (transformer.separator) {
+    if (!item.uploadMultiple && Array.isArray(raw)) {
+      log.warn(
+        '`UploadTransformerHelper.fromRaw`: `raw` is an array, but `UploadFormItem.uploadMultiple` is false',
+      )
+    }
+
+    if (item.uploadMultiple && transformer.separator) {
       raw = (raw as string).split(transformer.separator)
     }
 
-    return (raw as unknown[]).map(transformer.from ?? UploadTransformerHelper.NO_IMPLEMENT_FROM)
+    return (Array.isArray(raw) ? raw : [raw]).map(
+      transformer.from ?? UploadTransformerHelper.NO_IMPLEMENT_FROM,
+    )
   }
 
   /**
-   * - 对 files 上的所有项调用 `UploadTransformer.to` 方法，返回 raw
-   * - 若 `UploadTransformer.separator` 存在，则 raw 是 string，最后将其合并为字符串
+   * `UploadedFile[]` -> `raw`
    */
-  static toRaw(files: UploadedFile[], transformer: UploadTransformer) {
-    const raw = files.map(transformer.to ?? UploadTransformerHelper.NO_IMPLEMENT_TO)
+  static toRaw(files: UploadedFile[], item: UploadFormItem) {
+    const transformer: UploadTransformer = item.uploadTransformer ?? defaultUploadTransformer
 
-    return transformer.separator ? raw.join(transformer.separator) : raw
+    const rawList = files.map(transformer.to ?? UploadTransformerHelper.NO_IMPLEMENT_TO)
+
+    if (item.uploadMultiple) {
+      // `item.uploadMultiple` -> true
+      return transformer.separator ? rawList.join(transformer.separator) : rawList
+    } else {
+      // `item.uploadMultiple` -> false
+      return rawList.pop()
+    }
   }
 }

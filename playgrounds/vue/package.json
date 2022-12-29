@@ -13,6 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@cphayim-enc/base": "workspace:*",
     "@cphayim-enc/vue-element-plus": "workspace:*",
     "@cphayim-enc/vue-vant": "workspace:*",
     "@element-plus/icons-vue": "^2.0.10",

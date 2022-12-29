@@ -24,6 +24,8 @@ const emit = defineEmits<{ (e: 'update:modelValue', value: any): void }>()
 const DEFAULT_OPTIONS: Omit<UploadFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请选择',
   uploadType: 'file',
+  uploadMultiple: false,
+  uploadMultipleLimit: 3,
   uploadButtonText: '上传文件',
   uploadButtonColor: '#337ecc',
   uploadValidate: () => true,
@@ -32,12 +34,15 @@ const DEFAULT_OPTIONS: Omit<UploadFormItem, Exclude<keyof BaseFormItem, 'placeho
   uploadTransformer: defaultUploadTransformer,
 }
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
+const uploadLimited = computed(() =>
+  item.value.uploadMultiple ? item.value.uploadMultipleLimit! : 1,
+)
 const uploadAccept = computed(() =>
   item.value.uploadAccept ?? item.value.uploadType === 'image' ? 'image/*' : '*',
 )
 
 const _uploadedFileList = computed<UploadedFile[]>(() =>
-  UploadTransformerHelper.fromRaw(props.modelValue, item.value.uploadTransformer!),
+  UploadTransformerHelper.fromRaw(props.modelValue, item.value),
 )
 
 // 校验
@@ -63,7 +68,7 @@ const handleUploadSend = async ({ file }: UploadRequestOptions) => {
     verifyUploadedFile(uploadedFile)
 
     const files = [..._uploadedFileList.value, uploadedFile]
-    const raw = UploadTransformerHelper.toRaw(files, item.value.uploadTransformer!)
+    const raw = UploadTransformerHelper.toRaw(files, item.value)
     emit('update:modelValue', raw)
   } catch (error) {
     log.error(error)
@@ -77,7 +82,7 @@ const handleRemove = (_: UploadedFile, restFiles: UploadedFile[]) => {
   // // 剩余的
   // const rest = restFiles.map((f) => ({ name: f.name, url: f.url }))
 
-  const raw = UploadTransformerHelper.toRaw(restFiles, item.value.uploadTransformer!)
+  const raw = UploadTransformerHelper.toRaw(restFiles, item.value)
   emit('update:modelValue', raw)
 }
 
@@ -98,7 +103,9 @@ const handlePreview = (file: UploadedFile) => {
 <template>
   <div
     class="enc-upload[ep]"
-    :class="{ limited: item.uploadLimit && _uploadedFileList.length >= item.uploadLimit }"
+    :class="{
+      limited: _uploadedFileList.length >= uploadLimited,
+    }"
   >
     <el-upload
       ref="uploadRef"
@@ -107,7 +114,7 @@ const handlePreview = (file: UploadedFile) => {
       :file-list="_uploadedFileList"
       :before-upload="handleUploadValidate"
       :http-request="handleUploadSend"
-      :limit="item.uploadLimit"
+      :limit="uploadLimited"
       :on-remove="handleRemove"
       :list-type="item.uploadType === 'image' ? 'picture-card' : 'text'"
       :on-preview="item.uploadType === 'image' ? handlePreview : undefined"

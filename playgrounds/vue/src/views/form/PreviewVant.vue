@@ -3,10 +3,10 @@ import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
 import {
+  createStringUploadTransformer,
   defaultUploadTransformer,
   EncForm,
   FormItemUnion,
-  ImageUtils,
   useForm,
 } from '@cphayim-enc/vue-vant'
 
@@ -20,20 +20,19 @@ const { formData, formItems } = useForm(
   {
     building: ['B', '4'],
     birthday: '2020-01-01',
-    photos: [
-      {
-        name: 'plant-1.png',
-        url: 'https://element-plus.org/images/plant-1.png',
-      },
-    ],
+    // photos: [
+    //   {
+    //     name: 'plant-1.png',
+    //     url: 'https://element-plus.org/images/plant-1.png',
+    //   },
+    // ],
   },
   oFormItems,
   {
     defaultProps: {
-      uploadTransformer: defaultUploadTransformer,
+      uploadTransformer: createStringUploadTransformer(','),
       uploadSend: async (file: File) => {
-        const url = await ImageUtils.getBase64ByFile(file)
-        return { name: Math.random().toString(), url }
+        return { name: file.name, url: URL.createObjectURL(file) }
       },
     },
   },
@@ -42,10 +41,11 @@ const { formData, formItems } = useForm(
 watchEffect(() => {
   if (formItems.value) {
     console.log('PreviewElementPlus: formItems changed')
+    console.log(formItems.value)
   }
 })
 watchEffect(() => {
-  console.log(formData.value)
+  console.log(JSON.parse(JSON.stringify(formData.value)))
 })
 </script>
 

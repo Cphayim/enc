@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
 
-import type { FormItemUnion } from '@cphayim-enc/base'
+import {
+  createStringUploadTransformer,
+  defaultUploadTransformer,
+  FormItemUnion,
+} from '@cphayim-enc/base'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
@@ -109,14 +113,13 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     type: 'upload',
     name: 'photos',
     uploadType: 'image',
-    uploadLimit: 3,
     uploadTips: '只能上传 3 张图片\n图片文件大小不能超过 300kb',
   },
   {
     label: '文件',
     type: 'upload',
     name: 'file',
-    uploadLimit: 1,
+    uploadMultipleLimit: 1,
     uploadType: 'file',
     uploadTips: '只能上传 1 个文件',
   },
