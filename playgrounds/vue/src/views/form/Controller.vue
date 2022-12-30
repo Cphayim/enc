@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
 
-import {
-  createStringUploadTransformer,
-  defaultUploadTransformer,
-  FormItemUnion,
-} from '@cphayim-enc/base'
+import type { FormItemUnion } from '@cphayim-enc/base'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 

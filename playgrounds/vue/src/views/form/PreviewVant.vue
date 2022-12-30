@@ -2,13 +2,7 @@
 import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
-import {
-  createStringUploadTransformer,
-  defaultUploadTransformer,
-  EncForm,
-  FormItemUnion,
-  useForm,
-} from '@cphayim-enc/vue-vant'
+import { EncForm, FormItemUnion, useForm } from '@cphayim-enc/vue-vant'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
@@ -30,7 +24,6 @@ const { formData, formItems } = useForm(
   oFormItems,
   {
     defaultProps: {
-      uploadTransformer: createStringUploadTransformer(','),
       uploadSend: async (file: File) => {
         return { name: file.name, url: URL.createObjectURL(file) }
       },
