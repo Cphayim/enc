@@ -56,6 +56,10 @@ export type CascaderFormItemOption = {
    */
   value: string | number
   /**
+   * 是否禁用
+   */
+  disabled?: boolean
+  /**
    * 子选项
    */
   children?: CascaderFormItemOption[]

@@ -67,12 +67,13 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
         children: [
           { label: '1F', value: '1' },
           { label: '2F', value: '2' },
-          { label: '3F', value: '3' },
+          { label: '3F', value: '3', disabled: true },
         ],
       },
       {
         label: 'B栋',
         value: 'B',
+        disabled: true,
         children: [
           { label: 'B1F', value: '4' },
           { label: '1F', value: '5' },
