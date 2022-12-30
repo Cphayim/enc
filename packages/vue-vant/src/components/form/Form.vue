@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
+import { delayWrapper } from '@cphayim-enc/shared'
 
 import EncFormItem from './FormItem.vue'
 
@@ -38,9 +39,9 @@ const validate = async () => {
   return formRef.value.validate()
 }
 
-const clearValidate = (names?: string | string[]) => {
+const clearValidate = async (names?: string | string[]) => {
   if (!formRef.value) return
-  formRef.value!.resetValidation(names)
+  return delayWrapper(() => formRef.value!.resetValidation(names), 0)
 }
 
 const getValues = () => props.data
