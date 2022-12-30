@@ -19,8 +19,8 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md}\"",
-    "cs:add": "changeset add",
-    "cs:version": "changeset version"
+    "cs:add": "./scripts/changeset.ts --add",
+    "cs:version": "./scripts/changeset.ts --version"
   },
   "config": {
     "commitizen": {
@@ -52,6 +52,7 @@
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.29.0",
+    "execa": "^6.1.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
     "prettier": "^2.8.0",
