@@ -28,8 +28,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue(), vueTypeImports(), defineOptions()],
   }
 
-  // generate dts file, skip diagnostics, use `vue-tsc` check types
-  addDTSPlugin(config, { mode, root: __dirname, skipDiagnostics: true })
+  // after the build, use vue-tsc to generate the type declaration file
 
   return config
 })

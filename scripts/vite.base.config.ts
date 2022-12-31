@@ -29,14 +29,20 @@ export const createBuild = ({ root }: CreateOptions) => {
 
 export type CreateDTSPluginOptions = CreateOptions & {
   skipDiagnostics?: boolean
+  rollupTypes?: boolean
 }
 
-export const createDTSPlugin = ({ mode, root, skipDiagnostics }: CreateDTSPluginOptions) => {
+export const createDTSPlugin = ({
+  mode,
+  root,
+  skipDiagnostics,
+  rollupTypes = true,
+}: CreateDTSPluginOptions) => {
   return dts({
     skipDiagnostics,
     // entryRoot: resolve(__dirname, 'src'),
-    tsConfigFilePath: resolve(root, 'tsconfig-build.json'),
-    rollupTypes: true,
+    tsConfigFilePath: resolve(root, 'tsconfig.build.json'),
+    rollupTypes,
     copyDtsFiles: false,
     staticImport: true,
     beforeWriteFile: (filePath, content) => {

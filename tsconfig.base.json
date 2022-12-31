@@ -1,0 +1,10 @@
+{
+  "extends": "@ombro/tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "removeComments": false,
+    "noEmitOnError": false, // vue-tsc required
+    "types": ["unplugin-vue-define-options/macros-global"]
+  }
+}
