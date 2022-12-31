@@ -1,11 +1,7 @@
 {
-  "extends": "./tsconfig-build.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@cphayim-enc/*": ["packages/*/src"]
-    },
-    "declaration": false
-  },
-  "include": ["packages/*/src", "playgrounds/*/src"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.build.json" }, //
+    { "path": "./tsconfig.dev.json" } //
+  ]
 }
