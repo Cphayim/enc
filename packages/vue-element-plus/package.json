@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.0.0",
-    "@vueuse/core": ">=8.0.0",
+    "@vueuse/core": ">=9.9.0",
     "element-plus": "^2.2.0",
     "vue": "^3.2.25"
   },

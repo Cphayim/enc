@@ -38,7 +38,7 @@
     "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "@vueuse/core": ">=8.0.0",
+    "@vueuse/core": ">=9.9.0",
     "vant": "^4.0.0",
     "vue": "^3.2.25"
   },
