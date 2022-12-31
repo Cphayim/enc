@@ -30,11 +30,11 @@
     "@cphayim-enc/shared": "workspace:*"
   },
   "devDependencies": {
-    "unplugin-vue-define-options": "^1.0.0",
+    "unplugin-vue-define-options": "^1.1.1",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.45"
   },
   "peerDependenciesMeta": {},
   "publishConfig": {

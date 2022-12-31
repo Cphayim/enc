@@ -33,16 +33,16 @@
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.0.10",
-    "@vueuse/core": "^9.7.0",
+    "@vueuse/core": "^9.9.0",
     "dayjs": "^1.11.7",
-    "element-plus": "^2.2.27",
+    "element-plus": "^2.2.28",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "@element-plus/icons-vue": "^2.0.0",
-    "@vueuse/core": ">=8.0.0",
-    "element-plus": "^2.2.0",
-    "vue": "^3.2.25"
+    "@element-plus/icons-vue": "^2.0.10",
+    "@vueuse/core": ">=8.9.4",
+    "element-plus": "^2.2.28",
+    "vue": "^3.2.45"
   },
   "peerDependenciesMeta": {},
   "publishConfig": {
