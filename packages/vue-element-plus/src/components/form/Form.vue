@@ -2,6 +2,7 @@
 import { type CSSProperties, computed, ref } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
+import { delayWrapper } from '@cphayim-enc/shared'
 
 import { LOCALES } from '../../locales'
 import EncFormItem from './FormItem.vue'
@@ -63,20 +64,22 @@ const validate = async () => {
   if (!formRef.value) return
   // 保持和 vant 一致
   return new Promise((resolve, reject) => {
-    formRef.value!.validate((valid: boolean, fields: any[]) => {
-      if (valid) resolve(undefined)
-      else reject(fields)
+    formRef.value!.validate((isValid: boolean, invalidFields: Record<string, any>) => {
+      if (isValid) resolve(undefined)
+      else reject(invalidFields)
     })
   })
 }
 
-const clearValidate = (names?: string | string[]) => {
+const clearValidate = async (names?: string | string[]) => {
   if (!formRef.value) return
   // @enhance: 当没有传递 names 时，清除所有验证结果
   if (!names) {
     names = props.items.map((item) => item.name)
   }
-  formRef.value!.clearValidate(names)
+  return delayWrapper(() => {
+    formRef.value!.clearValidate(typeof names === 'string' ? [names] : names)
+  }, 0)
 }
 const getValues = () => props.data
 

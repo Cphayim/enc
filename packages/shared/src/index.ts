@@ -57,3 +57,11 @@ export function readFileContent(file: File, resultType: 'text' | 'dataUrl') {
     }
   })
 }
+
+export async function delayWrapper<T>(fn: () => T, delay: number) {
+  return new Promise<T>((resolve) => {
+    setTimeout(() => {
+      resolve(fn())
+    }, delay)
+  })
+}
