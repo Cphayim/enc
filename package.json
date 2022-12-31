@@ -46,7 +46,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "^18.11.10",
     "@vitejs/plugin-react": "^2.2.0",
-    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@vitest/coverage-c8": "^0.25.3",
     "@vue/compiler-sfc": "^3.2.45",
     "commitizen": "^4.2.5",
