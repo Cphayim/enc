@@ -95,8 +95,8 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     col: 12,
   },
   {
-    name: 'contractDateRange',
-    label: '合同周期',
+    name: 'validPeriod',
+    label: '有效期限',
     type: 'date',
     dateType: 'daterange',
     dateRangeSeparator: '至',
