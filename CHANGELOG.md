@@ -12,13 +12,13 @@
 
 **@cphayim-enc/vue-element-plus, @cphayim-enc/vue-vant**
 
-- Delay `EncForm.clearValidate` method [#2]
+- Delay `EncForm.clearValidate` method [#2](https://github.com/Cphayim/enc/pull/2)
 
 ### 0.1.0 (2022-12-30)
 
 #### Features
 
-[#1]
+[#1](https://github.com/Cphayim/enc/pull/1)
 
 **@cphayim-enc/base (base-package)**
 
