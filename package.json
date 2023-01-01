@@ -45,7 +45,7 @@
     "@ombro/tsconfig": "^1.4.2",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "^18.11.18",
-    "@vitejs/plugin-react": "^2.2.0",
+    "@vitejs/plugin-react": "^3.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitest/coverage-c8": "^0.26.2",
     "@vue/compiler-sfc": "^3.2.45",
