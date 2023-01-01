@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import { UserConfigExport, defineConfig } from 'vite'
 
-import { EXTERNAL_REPO_PKG, addDTSPlugin, createBuild } from '../../scripts/vite.base.config'
+import { EXTERNAL_REPO_PKG, createBuild } from '../../scripts/vite.base.config'
 
 export default defineConfig(({ mode }) => {
   const build = createBuild({ mode, root: __dirname })
@@ -19,8 +19,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
   }
 
-  // generate dts file, skip diagnostics, use `vue-tsc` check types
-  addDTSPlugin(config, { mode, root: __dirname, skipDiagnostics: true })
+  // after the build, use vue-tsc to generate the type declaration file
 
   return config
 })
