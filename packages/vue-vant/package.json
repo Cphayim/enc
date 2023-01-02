@@ -34,7 +34,7 @@
   "devDependencies": {
     "@vueuse/core": "^9.9.0",
     "dayjs": "^1.11.7",
-    "vant": "^4.0.6",
+    "vant": "^4.0.7",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
