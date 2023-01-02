@@ -1,7 +1,7 @@
-import vue from '@vitejs/plugin-vue'
-import defineOptions from 'unplugin-vue-define-options/vite'
 import { UserConfigExport, defineConfig } from 'vite'
-import vueTypeImports from 'vite-plugin-vue-type-imports'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import defineOptions from 'unplugin-vue-define-options/vite'
 
 import { EXTERNAL_REPO_PKG, addDTSPlugin, createBuild } from '../../scripts/vite.base.config'
 
@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
   }
   const config: UserConfigExport = {
     build,
-    plugins: [vue(), vueTypeImports(), defineOptions()],
+    plugins: [vue(), vueJsx(), defineOptions()],
   }
 
   // after the build, use vue-tsc to generate the type declaration file
