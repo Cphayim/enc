@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { showToast } from 'vant'
+import { Uploader as VanUploader, showToast } from 'vant'
+import 'vant/es/uploader/style/index'
 
 import {
   BaseFormItem,
@@ -12,7 +13,7 @@ import {
 } from '@cphayim-enc/base'
 import { createThrowErrorFunction, log } from '@cphayim-enc/shared'
 
-import EncInputFormItem from './InputFormItem.vue'
+import { EncInputFormItem } from '../input'
 
 defineOptions({ name: 'EncUploadFormItem' })
 

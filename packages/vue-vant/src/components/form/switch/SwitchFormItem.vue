@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { Switch as VanSwitch } from 'vant'
+import 'vant/es/switch/style/index'
 
 import type { BaseFormItem, SwitchFormItem } from '@cphayim-enc/base'
-// import { isNone } from '@cphayim-enc/shared'
-// import { useEventLock } from '@cphayim-enc/vue'
 
-import EncInputFormItem from './InputFormItem.vue'
+import { EncInputFormItem } from '../input'
 
 defineOptions({ name: 'EncSwitchFormItem' })
 

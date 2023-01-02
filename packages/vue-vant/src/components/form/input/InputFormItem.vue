@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed, useSlots } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { Field as VanField } from 'vant'
+import 'vant/es/field/style/index'
 
 import type { BaseFormItem, InputFormItem } from '@cphayim-enc/base'
 import { useEventLock } from '@cphayim-enc/vue'
@@ -9,7 +11,7 @@ defineOptions({ name: 'EncInputFormItem' })
 
 const props = defineProps<{
   item: InputFormItem
-  modelValue: any
+  modelValue?: any
   // 内部属性，当其它表单组件引用该组件时，该值为 true
   _readonly?: boolean
   // 内部属性，当选择器组件引用该组件时，该值为 true

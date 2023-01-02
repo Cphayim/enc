@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { Popup as VanPopup } from 'vant'
+import 'vant/es/popup/style/index'
 
 import type { BaseFormItem, PopupFormItem } from '@cphayim-enc/base'
 

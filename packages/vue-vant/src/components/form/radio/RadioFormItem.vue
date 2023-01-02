@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { Radio as VanRadio, RadioGroup as VanRadioGroup } from 'vant'
+import 'vant/es/radio/style/index'
+import 'vant/es/radio-group/style/index'
 
 import type { BaseFormItem, RadioFormItem, RadioOptions } from '@cphayim-enc/base'
-// import { isNone } from '@cphayim-enc/shared'
-// import { useEventLock } from '@cphayim-enc/vue'
 
-import EncInputFormItem from './InputFormItem.vue'
+import { EncInputFormItem } from '../input'
 
 defineOptions({ name: 'EncRadioFormItem' })
 

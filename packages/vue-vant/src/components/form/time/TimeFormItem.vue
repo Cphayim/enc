@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed, ref, watchEffect } from 'vue'
-import type { TimePickerColumnType } from 'vant'
+import { useVModel } from '@vueuse/core'
+import { TimePicker as VanTimePicker, TimePickerColumnType } from 'vant'
+import 'vant/es/time-picker/style/index'
 
 import type { BaseFormItem, TimeFormItem } from '@cphayim-enc/base'
-// import { isNone } from '@cphayim-enc/shared'
 import { useEventLock } from '@cphayim-enc/vue'
 
-import EncInputFormItem from './InputFormItem.vue'
-import EncPopupFormItem from './PopupFormItem.vue'
+import { EncInputFormItem } from '../input'
+import { EncPopupFormItem } from '../popup'
 
 defineOptions({ name: 'EncTimeFormItem' })
 

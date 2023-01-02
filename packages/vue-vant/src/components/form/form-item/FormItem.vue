@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { CellGroup as VanCellGroup } from 'vant'
+import 'vant/es/cell-group/style/index'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 
-import EncInputFormItem from './items/InputFormItem.vue'
-import EncSelectFormItem from './items/SelectFormItem.vue'
-import EncCascaderFormItem from './items/CascaderFormItem.vue'
-import EncDateFormItem from './items/DateFormItem.vue'
-import EncTimeFormItem from './items/TimeFormItem.vue'
-import EncUploadFormItem from './items/UploadFormItem.vue'
-import EncSwitchFormItem from './items/SwitchFormItem.vue'
-import EncCheckboxFormItem from './items/CheckboxFormItem.vue'
-import EncRadioFormItem from './items/RadioFormItem.vue'
+import { EncInputFormItem } from '../input'
+import { EncSelectFormItem } from '../select'
+import { EncCascaderFormItem } from '../cascader'
+import { EncDateFormItem } from '../date'
+import { EncTimeFormItem } from '../time'
+import { EncUploadFormItem } from '../upload'
+import { EncSwitchFormItem } from '../switch'
+import { EncCheckboxFormItem } from '../checkbox'
+import { EncRadioFormItem } from '../radio'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 

@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
-import dayjs from 'dayjs'
 import { computed, ref, watchEffect } from 'vue'
+import dayjs from 'dayjs'
+import { useVModel } from '@vueuse/core'
+import { Calendar as VanCalendar, CalendarDayItem } from 'vant'
+import 'vant/es/calendar/style/index'
 
 import type { BaseFormItem, DateFormItem } from '@cphayim-enc/base'
-// import { isNone } from '@cphayim-enc/shared'
-// import { useEventLock } from '@cphayim-enc/vue'
-
-import EncInputFormItem from './InputFormItem.vue'
-import type { CalendarDayItem } from 'vant'
 import { useEventLock } from '@cphayim-enc/vue'
+
+import { EncInputFormItem } from '../input'
 
 defineOptions({ name: 'EncDateFormItem' })
 

@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
 import { computed, ref } from 'vue'
+import { Picker as VanPicker, Checkbox as VanCheckbox, Tag as VanTag } from 'vant'
+import 'vant/es/picker/style/index'
+import 'vant/es/checkbox/style/index'
+import 'vant/es/tag/style/index'
 
 import type { BaseFormItem, SelectFormItem, SelectFormItemOption } from '@cphayim-enc/base'
 import { isNone } from '@cphayim-enc/shared'
 import { useEventLock } from '@cphayim-enc/vue'
 
-import EncInputFormItem from './InputFormItem.vue'
-import EncPopupFormItem from './PopupFormItem.vue'
+import { EncInputFormItem } from '../input'
+import { EncPopupFormItem } from '../popup'
 
 defineOptions({ name: 'EncSelectFormItem' })
 

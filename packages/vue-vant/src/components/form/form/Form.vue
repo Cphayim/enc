@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Form as VanForm } from 'vant'
+import 'vant/es/form/style/index'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { delayWrapper } from '@cphayim-enc/shared'
 
-import EncFormItem from './FormItem.vue'
+import { EncFormItem } from '../form-item'
 
 defineOptions({ name: 'EncForm', inheritAttrs: false })
 
