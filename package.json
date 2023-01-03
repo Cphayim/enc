@@ -16,6 +16,8 @@
     "clean": "pnpm -r exec rimraf dist *.tsbuildinfo",
     "dev:lib": "turbo run dev --parallel --filter=@cphayim-enc/*",
     "dev:pg": "turbo run dev --parallel --filter=@playground/*",
+    "test:unit": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md}\"",
