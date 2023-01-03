@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElSelectV2 } from 'element-plus'
+import 'element-plus/es/components/select-v2/style/css'
 
 import type { BaseFormItem, SelectFormItem } from '@cphayim-enc/base'
 

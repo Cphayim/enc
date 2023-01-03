@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElRadio, ElRadioGroup } from 'element-plus'
+import 'element-plus/es/components/radio/style/css'
+import 'element-plus/es/components/radio-group/style/css'
 
 import type { BaseFormItem, RadioFormItem, RadioOptions } from '@cphayim-enc/base'
 

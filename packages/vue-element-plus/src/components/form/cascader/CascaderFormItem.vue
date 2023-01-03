@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElCascader } from 'element-plus'
+import 'element-plus/es/components/cascader/style/css'
 
 import type { BaseFormItem, CascaderFormItem } from '@cphayim-enc/base'
 

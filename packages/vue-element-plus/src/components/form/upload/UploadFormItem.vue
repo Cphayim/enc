@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { Plus, Upload } from '@element-plus/icons-vue'
-import { ElMessage, UploadRequestOptions } from 'element-plus'
+
+import { ElMessage, ElButton, ElIcon, ElDialog, ElUpload, UploadRequestOptions } from 'element-plus'
+import 'element-plus/es/components/upload/style/css'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/icon/style/css'
+import 'element-plus/es/components/dialog/style/css'
 
 import {
   BaseFormItem,
@@ -111,13 +116,13 @@ const handlePreview = (file: UploadedFile) => {
       ref="uploadRef"
       action="/"
       :accept="uploadAccept"
-      :file-list="_uploadedFileList"
+      :file-list="(_uploadedFileList as any)"
       :before-upload="handleUploadValidate"
       :http-request="handleUploadSend"
       :limit="uploadLimited"
-      :on-remove="handleRemove"
+      :on-remove="(handleRemove as any)"
       :list-type="item.uploadType === 'image' ? 'picture-card' : 'text'"
-      :on-preview="item.uploadType === 'image' ? handlePreview : undefined"
+      :on-preview="((item.uploadType === 'image' ? handlePreview : undefined) as any)"
       :on-exceed="handleExceed"
       :disabled="item.disabled"
       :readonly="item.readonly"

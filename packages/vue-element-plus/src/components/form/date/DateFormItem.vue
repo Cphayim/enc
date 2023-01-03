@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useVModel } from '@vueuse/core'
 import dayjs from 'dayjs'
-import { computed } from 'vue'
+
+import { ElDatePicker } from 'element-plus'
+import 'element-plus/es/components/date-picker/style/css'
 
 import type { BaseFormItem, DateFormItem } from '@cphayim-enc/base'
 
@@ -47,7 +50,7 @@ const handleDisableDate = (date: Date) => {
 
 <template>
   <el-date-picker
-    :type="item.dateType"
+    :type="(item.dateType as any)"
     v-model="_value"
     :value-format="item.dateFormat"
     :format="dateDisplayFormat"

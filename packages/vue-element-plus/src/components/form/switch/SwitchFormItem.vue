@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElSwitch } from 'element-plus'
+import 'element-plus/es/components/switch/style/css'
 
 import type { BaseFormItem, SwitchFormItem } from '@cphayim-enc/base'
 

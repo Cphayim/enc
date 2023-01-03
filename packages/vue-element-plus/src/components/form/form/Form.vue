@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { type CSSProperties, computed, ref } from 'vue'
 
+import { ElConfigProvider, ElForm, ElRow, ElCol } from 'element-plus'
+import 'element-plus/es/components/config-provider/style/css'
+import 'element-plus/es/components/form/style/css'
+import 'element-plus/es/components/row/style/css'
+import 'element-plus/es/components/col/style/css'
+import en from 'element-plus/es/locale/lang/en'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { delayWrapper } from '@cphayim-enc/shared'
 
-import { LOCALES } from '../../locales'
-import EncFormItem from './FormItem.vue'
+import { EncFormItem } from '../form-item'
 
 defineOptions({ name: 'EncForm', inheritAttrs: false })
 
@@ -37,7 +44,7 @@ type Props = {
   /**
    * 国际化
    */
-  locale?: keyof typeof LOCALES
+  locale?: 'zh-cn' | 'en'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,6 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   rowGutter: 8,
   colGutter: 10,
   labelWidth: 100,
+  locale: 'zh-cn',
 })
 
 const emit = defineEmits<{
@@ -93,10 +101,12 @@ defineExpose({
   clearValidate,
   getValues,
 })
+
+const locale = computed(() => (props.locale === 'en' ? en : zhCn))
 </script>
 
 <template>
-  <el-config-provider :locale="LOCALES[props.locale ?? 'zh-cn']">
+  <el-config-provider :locale="locale">
     <div class="enc-form[ep]">
       <el-form
         ref="formRef"
@@ -115,9 +125,9 @@ defineExpose({
                   :item="item"
                 >
                   <!--
-                将传递给 EncForm 的命名插槽（以字段名 ${name} 命名），传递给 FormItem#default 插槽，
-                并传递 FormItem#default 的插槽作用域给外部
-              -->
+                    将传递给 EncForm 的命名插槽（以字段名 ${name} 命名），传递给 FormItem#default 插槽，
+                    并传递 FormItem#default 的插槽作用域给外部
+                  -->
                   <template #default="itemSlotScope">
                     <slot :name="item.name" v-bind="itemSlotScope" />
                   </template>

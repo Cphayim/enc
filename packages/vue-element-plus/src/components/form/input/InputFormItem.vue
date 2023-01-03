@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElInput } from 'element-plus'
+import 'element-plus/es/components/input/style/css'
 
 import type { BaseFormItem, InputFormItem } from '@cphayim-enc/base'
 

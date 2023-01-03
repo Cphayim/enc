@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
 import { computed } from 'vue'
+import { useVModel } from '@vueuse/core'
+
+import { ElCheckbox, ElCheckboxGroup } from 'element-plus'
+import 'element-plus/es/components/checkbox/style/css'
+import 'element-plus/es/components/checkbox-group/style/css'
 
 import type { BaseFormItem, CheckboxFormItem, CheckboxOptions } from '@cphayim-enc/base'
 

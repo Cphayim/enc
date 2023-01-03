@@ -2,6 +2,9 @@
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 
+import { ElTimePicker } from 'element-plus'
+import 'element-plus/es/components/time-picker/style/css'
+
 import type { BaseFormItem, TimeFormItem, TimeFormItemType } from '@cphayim-enc/base'
 
 defineOptions({ name: 'EncTimeFormItem' })
