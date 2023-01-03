@@ -50,7 +50,7 @@ export type CascaderFormItemOption = {
   /**
    * 显示用文本
    */
-  label: string | number
+  label: string
   /**
    * 值，注意：该值在整个树中必须是唯一值
    */

@@ -35,7 +35,7 @@ export type SelectFormItemOption = {
   /**
    * 显示用文本
    */
-  label: string | number
+  label: string
   /**
    * 值
    */
