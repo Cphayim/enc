@@ -2,21 +2,12 @@ import type { App, Plugin } from 'vue'
 
 import { CreateEncOptions, usingSFCWithInstall } from '@cphayim-enc/vue'
 
-import './style.css'
+import './styles'
 import * as componentMap from './components'
-import * as thirdPartyComponentMap from './components/third-party'
 
-export const createEncVant = ({
-  skipDepsInstall = false,
-  skipEncInstall = false,
-}: CreateEncOptions = {}): Plugin => {
+export const createEncVant = ({ skipEncInstall = false }: CreateEncOptions = {}): Plugin => {
   return {
     install(app: App) {
-      // 先安装依赖的第三方组件
-      if (!skipDepsInstall) {
-        usingSFCWithInstall(app, thirdPartyComponentMap)
-      }
-      // 这个包中的组件
       if (!skipEncInstall) {
         usingSFCWithInstall(app, componentMap)
       }

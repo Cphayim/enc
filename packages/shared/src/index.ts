@@ -5,10 +5,10 @@ export const PKG_NAME = 'enc'
 const LOG_PREFIX = `[${PKG_NAME}]`
 
 export const log = {
-  debug: console.debug.bind(console, LOG_PREFIX),
-  info: console.info.bind(console, LOG_PREFIX),
-  warn: console.warn.bind(console, LOG_PREFIX),
-  error: console.error.bind(console, LOG_PREFIX),
+  debug: (...arg: unknown[]) => console.debug(LOG_PREFIX, ...arg),
+  info: (...arg: unknown[]) => console.info(LOG_PREFIX, ...arg),
+  warn: (...arg: unknown[]) => console.warn(LOG_PREFIX, ...arg),
+  error: (...arg: unknown[]) => console.error(LOG_PREFIX, ...arg),
 }
 
 export function createErrorMessage(message: string) {
@@ -39,23 +39,7 @@ export function deepClone<T>(obj: T): T {
 }
 
 export function getFileNameFromUrl(url: string) {
-  return url.split('#')[0].split('?')[0].split('/').pop() || randomStr(6)
-}
-
-export function readFileContent(file: File, resultType: 'text' | 'dataUrl') {
-  return new Promise<string>((resolve) => {
-    const reader = new FileReader()
-
-    reader.onload = (event) => {
-      resolve((event.target as FileReader).result as string)
-    }
-
-    if (resultType === 'dataUrl') {
-      reader.readAsDataURL(file)
-    } else if (resultType === 'text') {
-      reader.readAsText(file)
-    }
-  })
+  return url.split('#')[0].split('?')[0].split('/').pop()
 }
 
 export async function delayWrapper<T>(fn: () => T, delay: number) {

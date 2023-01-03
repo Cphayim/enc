@@ -22,17 +22,17 @@ export type FormItemUnion<F = string, E = any> =
   | CustomFormItem<F, E>
 
 // Used for default configuration
-export type OmitTypeFormItem<F = string, E = any> = Partial<
-  Omit<InputFormItem<F, E>, 'type'> &
-    Omit<SelectFormItem<F, E>, 'type'> &
-    Omit<CascaderFormItem<F, E>, 'type'> &
-    Omit<DateFormItem<F, E>, 'type'> &
-    Omit<TimeFormItem<F, E>, 'type'> &
-    Omit<UploadFormItem<F, E>, 'type'> &
-    Omit<SwitchFormItem<F, E>, 'type'> &
-    Omit<RadioFormItem<F, E>, 'type'> &
-    Omit<CheckboxFormItem<F, E>, 'type'> &
-    Omit<CustomFormItem<F, E>, 'type'>
+export type OmitPartialFormItem = Partial<
+  Omit<InputFormItem, 'type' | 'name'> &
+    Omit<SelectFormItem, 'type' | 'name'> &
+    Omit<CascaderFormItem, 'type' | 'name'> &
+    Omit<DateFormItem, 'type' | 'name'> &
+    Omit<TimeFormItem, 'type' | 'name'> &
+    Omit<UploadFormItem, 'type' | 'name'> &
+    Omit<SwitchFormItem, 'type' | 'name'> &
+    Omit<RadioFormItem, 'type' | 'name'> &
+    Omit<CheckboxFormItem, 'type' | 'name'> &
+    Omit<CustomFormItem, 'type' | 'name'>
 >
 
 export type FormProps = {
