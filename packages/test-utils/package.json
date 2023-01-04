@@ -1,0 +1,9 @@
+{
+  "name": "@cphayim-enc/test-utils",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "main": "src/index.ts"
+}

@@ -73,5 +73,8 @@
     "vitest": "^0.27.0",
     "vue": "^3.2.45",
     "vue-tsc": "^1.0.24"
+  },
+  "dependencies": {
+    "@cphayim-enc/test-utils": "workspace:*"
   }
 }

@@ -7,6 +7,7 @@ importers:
       '@changesets/cli': ^2.26.0
       '@commitlint/cli': ^17.4.1
       '@commitlint/config-conventional': ^17.4.0
+      '@cphayim-enc/test-utils': workspace:*
       '@ombro/eslint-config-typescript': ^0.1.2
       '@ombro/eslint-config-vue3-typescript': ^0.1.2
       '@ombro/tsconfig': ^1.4.2
@@ -38,6 +39,8 @@ importers:
       vitest: ^0.27.0
       vue: ^3.2.45
       vue-tsc: ^1.0.24
+    dependencies:
+      '@cphayim-enc/test-utils': link:packages/test-utils
     devDependencies:
       '@changesets/cli': 2.26.0
       '@commitlint/cli': 17.4.1
@@ -89,6 +92,9 @@ importers:
       '@cphayim-enc/shared': link:../shared
 
   packages/shared:
+    specifiers: {}
+
+  packages/test-utils:
     specifiers: {}
 
   packages/vue:
