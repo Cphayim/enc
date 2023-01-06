@@ -3,6 +3,7 @@ import {
   createThrowErrorFunction,
   getFileNameFromUrl,
   log,
+  toArray,
 } from '@cphayim-enc/shared'
 
 import type { BaseFormItem } from './BaseFormItem'
@@ -163,8 +164,9 @@ export const createStringUploadTransformer = (separator?: string): UploadTransfo
  */
 export function verifyUploadedFile(file: UploadedFile) {
   if (!file || typeof file.url !== 'string') {
-    log.warn(`${file} is not a valid UploadedFile type`)
-    throw new Error(createErrorMessage('`verifyUploadedFile` failed'))
+    throw new Error(
+      createErrorMessage(`"verifyUploadedFile" failed, ${file} is not a valid UploadedFile type`),
+    )
   }
 }
 
@@ -195,7 +197,7 @@ export class UploadTransformerHelper {
       raw = (raw as string).split(transformer.separator)
     }
 
-    return (Array.isArray(raw) ? raw : [raw]).map(
+    return (Array.isArray(raw) ? raw : toArray(raw)).map(
       transformer.from ?? UploadTransformerHelper.NO_IMPLEMENT_FROM,
     )
   }
