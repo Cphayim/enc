@@ -5,4 +5,4 @@ echo "🛠🛠🛠 run lint-staged"
 npx lint-staged
 
 # echo "🛠🛠🛠 run test"
-# npm run test
+pnpm vitest run --changed main
