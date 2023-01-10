@@ -4,7 +4,12 @@ import { useVModel } from '@vueuse/core'
 import { Cascader as VanCascader } from 'vant'
 import 'vant/es/cascader/style/index'
 
-import type { BaseFormItem, CascaderFormItem, CascaderFormItemOption } from '@cphayim-enc/base'
+import {
+  BaseFormItem,
+  CascaderFormItem,
+  CascaderFormItemOption,
+  CascaderHelper,
+} from '@cphayim-enc/base'
 
 import { EncInputFormItem } from '../input'
 import { EncPopupFormItem } from '../popup'
@@ -45,34 +50,11 @@ watchEffect(() => {
     : _value.value
 })
 
-const _selectedOptions = computed<CascaderFormItemOption[]>(
-  () => getSelectedOptionsByValue(cascaderOptions.value, _lastValue.value) ?? [],
+const _selectedOptions = computed<CascaderFormItemOption[]>(() =>
+  CascaderHelper.getOptionsPathByValue(cascaderOptions.value, _lastValue.value),
 )
 const _selectedLabels = computed(() => _selectedOptions.value.map((option) => option.label))
 const _selectedValues = computed(() => _selectedOptions.value.map((option) => option.value))
-
-// 根据 value 值获取选中的链路选项（数组）
-const getSelectedOptionsByValue = (
-  options: CascaderFormItemOption[],
-  value?: CascaderOptionValue,
-): CascaderFormItemOption[] | undefined => {
-  if (!value) return undefined
-
-  for (const option of options) {
-    if (option.value === value) {
-      return [option]
-    }
-
-    if (option.children) {
-      const selectedOptions = getSelectedOptionsByValue(option.children, value)
-      if (selectedOptions) {
-        return [option, ...selectedOptions]
-      }
-    }
-  }
-
-  return undefined
-}
 
 const showPopup = ref(false)
 const columnFieldNames = ref({
@@ -83,10 +65,10 @@ const columnFieldNames = ref({
 
 const handleFinish = () => {
   if (item.value.cascaderEmitPath) {
-    // 完整链路 value
+    // 完整链路 value: [1,2,3]
     _value.value = _selectedValues.value
   } else {
-    // 叶子节点 value
+    // 叶子节点 value: 3
     _value.value = _lastValue.value
   }
 }

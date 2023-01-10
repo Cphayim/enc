@@ -1,4 +1,6 @@
 import { it, expect, vi } from 'vitest'
+
+import { createConsoleSpy } from '@cphayim-enc/test-utils'
 import {
   createErrorMessage,
   createThrowErrorFunction,
@@ -8,29 +10,27 @@ import {
   isNone,
   log,
   randomStr,
+  toArray,
 } from '..'
 
 it('should be able to output prefixed logs', () => {
-  const debugSpy = vi.spyOn(console, 'debug').mockImplementation(() => void 0)
-  const infoSpy = vi.spyOn(console, 'info').mockImplementation(() => void 0)
-  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => void 0)
-  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => void 0)
+  const consoleSpy = createConsoleSpy()
 
   log.debug('debug')
-  expect(debugSpy).toBeCalled()
-  expect(debugSpy).lastCalledWith('[enc]', 'debug')
+  expect(consoleSpy.debug).toBeCalled()
+  expect(consoleSpy.debug).lastCalledWith('[enc]', 'debug')
 
   log.info('info')
-  expect(infoSpy).toBeCalled()
-  expect(infoSpy).lastCalledWith('[enc]', 'info')
+  expect(consoleSpy.info).toBeCalled()
+  expect(consoleSpy.info).lastCalledWith('[enc]', 'info')
 
   log.warn('warn')
-  expect(warnSpy).toBeCalled()
-  expect(warnSpy).lastCalledWith('[enc]', 'warn')
+  expect(consoleSpy.warn).toBeCalled()
+  expect(consoleSpy.warn).lastCalledWith('[enc]', 'warn')
 
   log.error('error')
-  expect(errorSpy).toBeCalled()
-  expect(errorSpy).lastCalledWith('[enc]', 'error')
+  expect(consoleSpy.error).toBeCalled()
+  expect(consoleSpy.error).lastCalledWith('[enc]', 'error')
 })
 
 it(`should create a standard error message`, () => {
@@ -78,4 +78,9 @@ it(`should be able to delay a function`, async () => {
   const result = await delayWrapper(fn, 1)
   expect(result).toBe(1)
   expect(fn).toBeCalled()
+})
+
+it(`should be to array`, () => {
+  expect(toArray(1)).toEqual([1])
+  expect(toArray([1])).toEqual([1])
 })

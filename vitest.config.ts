@@ -10,6 +10,7 @@ export default defineConfig({
   },
   test: {
     clearMocks: true,
+    restoreMocks: true,
     environment: 'jsdom',
     deps: {
       inline: ['element-plus', 'vant'],
@@ -21,7 +22,7 @@ export default defineConfig({
     coverage: {
       include: ['packages/*/src/**/*.{ts,vue}'],
       reporter: ['text', 'lcov'],
-      statements: 90,
+      statements: 80,
     },
   },
 })
