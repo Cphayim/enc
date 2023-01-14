@@ -36,6 +36,10 @@ describe(`SelectFormItem.vue`, () => {
     modelValue.value = 'green'
     await nextTick()
     expect(wrapper.find('.el-select-v2__placeholder').text()).toBe('Green')
+
+    modelValue.value = 'yellow' // not exist
+    await nextTick()
+    expect(wrapper.find('.el-select-v2__placeholder').text()).toBe('yellow') // when not exist option, show value
   })
 
   it(`should be able to sync value with multiple`, async () => {
