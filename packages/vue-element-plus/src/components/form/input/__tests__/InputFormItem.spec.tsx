@@ -1,11 +1,11 @@
-import type { InputFormItem } from '@cphayim-enc/base'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { nextTick, ref } from 'vue'
 
+import type { InputFormItem } from '@cphayim-enc/base'
 import { EncInputFormItem } from '..'
 
-describe(`CascaderFormItem.vue`, () => {
+describe(`InputFormItem.vue`, () => {
   const DEFAULT_ITEM: InputFormItem = {
     type: 'input',
     name: 'name',
@@ -17,18 +17,18 @@ describe(`CascaderFormItem.vue`, () => {
     const item = ref<InputFormItem>({ ...DEFAULT_ITEM })
 
     const wrapper = mount(() => <EncInputFormItem v-model={modelValue.value} item={item} />)
-    const input = wrapper.find('input')
+    const inputRef = wrapper.find('input')
 
-    expect(input.exists()).toBe(true)
-    expect(input.attributes('type')).toBe('text')
-    expect(input.element.value).toBe('')
+    expect(inputRef.exists()).toBe(true)
+    expect(inputRef.attributes('type')).toBe('text')
+    expect(inputRef.element.value).toBe('')
 
-    input.setValue('test')
+    inputRef.setValue('test')
     expect(modelValue.value).toBe('test')
 
     modelValue.value = 'test2'
     await nextTick()
-    expect(input.element.value).toBe('test2')
+    expect(inputRef.element.value).toBe('test2')
   })
 
   it(`should be able to show placeholder`, async () => {
@@ -36,14 +36,14 @@ describe(`CascaderFormItem.vue`, () => {
     const item = ref<InputFormItem>({ ...DEFAULT_ITEM })
 
     const wrapper = mount(() => <EncInputFormItem v-model={modelValue.value} item={item.value} />)
-    const input = wrapper.find('input')
+    const inputRef = wrapper.find('input')
 
-    expect(input.exists()).toBe(true)
-    expect(input.attributes('placeholder')).toBe('请输入')
+    expect(inputRef.exists()).toBe(true)
+    expect(inputRef.attributes('placeholder')).toBe('请输入')
 
     item.value.placeholder = '请输入名称'
     await nextTick()
-    expect(input.attributes('placeholder')).toBe('请输入名称')
+    expect(inputRef.attributes('placeholder')).toBe('请输入名称')
   })
 
   it(`should be able to support different input types`, async () => {
@@ -54,18 +54,18 @@ describe(`CascaderFormItem.vue`, () => {
     })
 
     const wrapper = mount(() => <EncInputFormItem v-model={modelValue.value} item={item.value} />)
-    const input = wrapper.find('input')
+    const inputRef = wrapper.find('input')
 
-    expect(input.exists()).toBe(true)
-    expect(input.attributes('type')).toBe('text')
+    expect(inputRef.exists()).toBe(true)
+    expect(inputRef.attributes('type')).toBe('text')
 
     item.value.inputType = 'password'
     await nextTick()
-    expect(input.attributes('type')).toBe('password')
+    expect(inputRef.attributes('type')).toBe('password')
 
     item.value.inputType = 'number'
     await nextTick()
-    expect(input.attributes('type')).toBe('number')
+    expect(inputRef.attributes('type')).toBe('number')
 
     item.value.inputType = 'textarea'
     await nextTick()
@@ -81,13 +81,13 @@ describe(`CascaderFormItem.vue`, () => {
     })
 
     const wrapper = mount(() => <EncInputFormItem v-model={modelValue.value} item={item.value} />)
-    const textarea = wrapper.find('textarea')
+    const textareaRef = wrapper.find('textarea')
 
-    expect(textarea.exists()).toBe(true)
-    expect(textarea.element.rows).toBe(4) // default rows
+    expect(textareaRef.exists()).toBe(true)
+    expect(textareaRef.element.rows).toBe(4) // default rows
 
     item.value.inputRows = 10
     await nextTick()
-    expect(textarea.element.rows).toBe(10)
+    expect(textareaRef.element.rows).toBe(10)
   })
 })
