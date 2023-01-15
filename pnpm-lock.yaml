@@ -29,7 +29,7 @@ importers:
       jsdom: ^21.0.0
       lint-staged: ^13.1.0
       prettier: ^2.8.2
-      rimraf: ^3.0.2
+      rimraf: ^4.0.5
       tailwindcss: ^3.2.4
       tsx: ^3.12.2
       turbo: ^1.6.3
@@ -67,7 +67,7 @@ importers:
       jsdom: 21.0.0
       lint-staged: 13.1.0
       prettier: 2.8.2
-      rimraf: 3.0.2
+      rimraf: 4.0.5
       tailwindcss: 3.2.4
       tsx: 3.12.2
       turbo: 1.6.3
@@ -5592,6 +5592,12 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rimraf/4.0.5:
+    resolution: {integrity: sha512-3gf/WdsBM+ZkuPb76MpXSxNKt00QQ3PdXqDCCBOsHgcoBs8DAhXbqtrGQUAkhxHgXYWzXxuaOsN4s21+at5fBw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /rollup/3.9.0:
