@@ -11,7 +11,7 @@ import type { BaseFormItem, RadioFormItem, RadioOptions } from '@cphayim-enc/bas
 defineOptions({ name: 'EncRadioFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: RadioFormItem
 }>()
 
