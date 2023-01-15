@@ -10,7 +10,7 @@ import type { BaseFormItem, SwitchFormItem } from '@cphayim-enc/base'
 defineOptions({ name: 'EncSwitchFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: SwitchFormItem
 }>()
 
