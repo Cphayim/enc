@@ -20,7 +20,7 @@ import { EncRadioFormItem } from '../radio'
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: FormItemUnion // 取联合类型，之后收敛为单个类型
 }>()
 
@@ -39,7 +39,6 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   radio: EncRadioFormItem,
   checkbox: EncCheckboxFormItem,
   custom: null,
-  // 'biz-placeholder': null,
 }
 
 const comp = computed(() => CompMap[props.item.type])
