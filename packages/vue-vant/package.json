@@ -32,9 +32,9 @@
     "@cphayim-enc/vue": "workspace:*"
   },
   "devDependencies": {
-    "@vueuse/core": "^9.10.0",
+    "@vueuse/core": "^9.11.1",
     "dayjs": "^1.11.7",
-    "vant": "^4.0.8",
+    "vant": "^4.0.9",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
