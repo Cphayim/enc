@@ -17,5 +17,8 @@ describe('useForm', () => {
 
     mount(() => <EncForm data={formData.value} items={formItems.value} ref={setFormRef as any} />)
     expect(formRef.value).toBeDefined()
+
+    setFormRef(undefined)
+    expect(formRef.value).toBeUndefined()
   })
 })
