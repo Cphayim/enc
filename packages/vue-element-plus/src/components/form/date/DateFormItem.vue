@@ -56,6 +56,7 @@ const handleDisableDate = (date: Date) => {
     :format="dateDisplayFormat"
     :readonly="item.readonly"
     :disabled="item.disabled"
+    :clearable="item.clearable"
     :placeholder="item.placeholder"
     :range-separator="item.dateRangeSeparator"
     :start-placeholder="item.dateRangeStartPlaceholder"

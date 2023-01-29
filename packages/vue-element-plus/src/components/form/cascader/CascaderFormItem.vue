@@ -44,6 +44,7 @@ const _cascaderProps = computed(() => {
     :readonly="item.readonly"
     :disabled="item.disabled"
     :props="_cascaderProps"
+    :clearable="item.clearable"
   />
 </template>
 
