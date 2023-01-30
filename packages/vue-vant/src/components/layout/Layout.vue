@@ -3,12 +3,20 @@ import { computed, onActivated, ref, useSlots } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDebounceFn } from '@vueuse/core'
 
-export type TabBarOption = {
-  title: string
-  icon: string
-  routerPath: string
-  routerName?: string
-}
+import {
+  NavBar as VanNavBar,
+  Icon as VanIcon,
+  Tabbar as VanTabbar,
+  TabbarItem as VanTabbarItem,
+} from 'vant'
+import 'vant/es/nav-bar/style/index'
+import 'vant/es/icon/style/index'
+import 'vant/es/tabbar/style/index'
+import 'vant/es/tabbar-item/style/index'
+
+import type { TabBarOption } from '.'
+
+defineOptions({ name: 'EncLayout' })
 
 type LayoutProps = {
   title?: string // 头部标题

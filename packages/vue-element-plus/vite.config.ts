@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
     external: [
       EXTERNAL_REPO_PKG,
       'vue',
+      'vue-router',
       '@vueuse/core',
       'element-plus',
       '@element-plus/icons-vue',

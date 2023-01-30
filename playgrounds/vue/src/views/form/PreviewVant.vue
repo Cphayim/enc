@@ -2,7 +2,7 @@
 import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
-import { EncForm, FormItemUnion, useForm } from '@cphayim-enc/vue-vant'
+import { EncLayout, EncForm, FormItemUnion, useForm } from '@cphayim-enc/vue-vant'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 
@@ -43,7 +43,9 @@ watchEffect(() => {
 </script>
 
 <template>
-  <EncForm v-model:data="formData" :items="formItems" size="default" />
+  <EncLayout title="EncForm" back-arrow>
+    <EncForm v-model:data="formData" :items="formItems" size="default" />
+  </EncLayout>
 </template>
 
 <style></style>

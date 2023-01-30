@@ -9,6 +9,8 @@
 import { computed, ref } from 'vue'
 import { RouteLocationNormalized, useRouter } from 'vue-router'
 
+defineOptions({ name: 'EncRouterTransition' })
+
 enum Direction {
   Left = 'left',
   Right = 'right',
