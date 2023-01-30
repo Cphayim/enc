@@ -1,5 +1,6 @@
-import { showLoadingToast, showToast } from 'vant'
-import 'vant/es/toast/style/index'
+import { ElMessage, MessageHandler } from 'element-plus'
+import 'element-plus/es/components/message/style/css'
+import { Loading } from '@element-plus/icons-vue'
 
 import { useLoading as _useLoading, UseLoadingOptions } from '@cphayim-enc/vue'
 
@@ -11,16 +12,17 @@ export function useLoading<T extends unknown[]>(
 ): (...args: T) => Promise<void> {
   return _useLoading(fn, {
     onLoading: (message) => {
-      showLoadingToast(message as string)
+      const flag = ElMessage({ type: 'info', message, duration: 0, icon: Loading })
+      flag.close()
     },
-    onClearLoading: (flag: ReturnType<typeof showToast>) => {
+    onClearLoading: (flag: MessageHandler) => {
       flag.close()
     },
     onSuccess: (message) => {
-      showToast({ message, duration: DURATION })
+      ElMessage({ type: 'success', message, duration: DURATION })
     },
     onError: (message) => {
-      showToast({ message, duration: DURATION })
+      ElMessage({ type: 'error', message, duration: DURATION })
     },
     ...options,
   })
