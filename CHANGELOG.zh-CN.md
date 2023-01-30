@@ -1,5 +1,24 @@
 ## 更新日志
 
+### 0.1.7 (2023-01-30)
+
+#### Features
+
+**@cphayim-enc/vue**
+
+- 添加 `useEmitter` hook [#26](https://github.com/Cphayim/enc/pull/26)
+- 添加基本 `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+
+**@cphayim-enc/vue-element-plus**
+
+- 添加 `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+
+**@cphayim-enc/vue-vant**
+
+- 添加 `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+- 添加 `EncLayout` 组件 [#26](https://github.com/Cphayim/enc/pull/26)
+- 添加 `EncRouterTransition` 组件 [#26](https://github.com/Cphayim/enc/pull/26)
+
 ### 0.1.1 (2022-12-31)
 
 #### Features
