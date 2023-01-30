@@ -1,5 +1,24 @@
 ## Changelog
 
+### 0.1.7 (2023-01-30)
+
+#### Features
+
+**@cphayim-enc/vue**
+
+- add `useEmitter` hook [#26](https://github.com/Cphayim/enc/pull/26)
+- add base `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+
+**@cphayim-enc/vue-element-plus**
+
+- add `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+
+**@cphayim-enc/vue-vant**
+
+- add `useLoading` hook [#26](https://github.com/Cphayim/enc/pull/26)
+- add `EncLayout` component [#26](https://github.com/Cphayim/enc/pull/26)
+- add `EncRouterTransition` component [#26](https://github.com/Cphayim/enc/pull/26)
+
 ### 0.1.1 (2022-12-31)
 
 #### Features
