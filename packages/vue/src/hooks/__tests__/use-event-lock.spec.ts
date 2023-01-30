@@ -6,7 +6,7 @@ import { useEventLock } from '../use-event-lock'
 describe('useEventLock', () => {
   it('should not repeat called with wrapped function', async () => {
     const fn = vi.fn().mockImplementation(async () => {
-      await sleep(5)
+      await sleep(1)
     })
     const wrappedFn = useEventLock(fn)
     wrappedFn()
@@ -26,12 +26,12 @@ describe('useEventLock', () => {
     expect(fn).toHaveBeenCalledTimes(2)
   })
 
-  it('should be unlocked when an exception is thrown', () => {
+  it('should be unlocked when an exception is thrown', async () => {
     const fn = vi.fn().mockImplementation(() => {
       throw new Error('test')
     })
     const wrappedFn = useEventLock(fn)
-    expect(wrappedFn).rejects.toThrow('test')
+    await expect(wrappedFn).rejects.toThrow('test')
     expect(fn).toHaveBeenCalledTimes(1)
 
     expect(wrappedFn).rejects.toThrow('test')
