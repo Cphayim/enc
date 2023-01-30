@@ -140,6 +140,7 @@ importers:
       dayjs: ^1.11.7
       vant: ^4.0.9
       vue: ^3.2.45
+      vue-router: ^4.1.6
     dependencies:
       '@cphayim-enc/base': link:../base
       '@cphayim-enc/shared': link:../shared
@@ -149,6 +150,7 @@ importers:
       dayjs: 1.11.7
       vant: 4.0.9_vue@3.2.45
       vue: 3.2.45
+      vue-router: 4.1.6_vue@3.2.45
 
   playgrounds/vue:
     specifiers:
@@ -2061,7 +2063,6 @@ packages:
 
   /@vue/devtools-api/6.4.5:
     resolution: {integrity: sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==}
-    dev: false
 
   /@vue/reactivity-transform/3.2.45:
     resolution: {integrity: sha512-BHVmzYAvM7vcU5WmuYqXpwaBHjsS8T63jlKGWVtHxAHIoMIlmaMyurUSEs1Zcg46M4AYT5MtB1U274/2aNzjJQ==}
@@ -6691,7 +6692,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.4.5
       vue: 3.2.45
-    dev: false
 
   /vue-template-compiler/2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
