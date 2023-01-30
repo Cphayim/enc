@@ -22,7 +22,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md}\"",
     "cs:add": "./scripts/changeset.ts --add",
-    "cs:version": "./scripts/changeset.ts --version"
+    "cs:version": "./scripts/changeset.ts --version",
+    "release": "pnpm build && pnpm -r publish"
   },
   "config": {
     "commitizen": {

@@ -1,7 +1,8 @@
 import { showLoadingToast, showToast } from 'vant'
 import 'vant/es/toast/style/index'
 
-import { useLoading as _useLoading, UseLoadingOptions } from '@cphayim-enc/vue'
+import { useLoading as _useLoading } from '@cphayim-enc/vue'
+import type { UseLoadingOptions } from '@cphayim-enc/vue'
 
 const DURATION = 3000
 
