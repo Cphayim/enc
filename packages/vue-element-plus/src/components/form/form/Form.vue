@@ -20,7 +20,7 @@ type Props = {
   /**
    * 表单数据
    */
-  data: Record<string, any>
+  data?: Record<string, any>
   /**
    * 表单项
    */
@@ -120,7 +120,7 @@ const locale = computed(() => (props.locale === 'en' ? en : zhCn))
             <el-col v-if="!item.hidden" :span="item.col || 24" :style="rowGutterStyle">
               <div :style="{ width: `${(item.scale ?? 1) * 100}%` }">
                 <EncFormItem
-                  :modelValue="data[item.name]"
+                  :modelValue="props.data?.[item.name]"
                   @update:modelValue="(value: any) => handleValueChange(item.name, value)"
                   :item="item"
                 >
