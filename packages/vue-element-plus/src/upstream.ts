@@ -1,2 +1,8 @@
 export * from '@cphayim-enc/base'
-export { useEventLock } from '@cphayim-enc/vue'
+export {
+  // exclude hooks that have been extended in the current package
+  useEventLock,
+  useEmitter,
+  useFormData,
+  useFormItems,
+} from '@cphayim-enc/vue'
