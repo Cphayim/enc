@@ -10,6 +10,7 @@ import {
   isNone,
   log,
   randomStr,
+  sleep,
   toArray,
 } from '..'
 
@@ -83,4 +84,8 @@ it(`should be able to delay a function`, async () => {
 it(`should be to array`, () => {
   expect(toArray(1)).toEqual([1])
   expect(toArray([1])).toEqual([1])
+})
+
+it(`should be return promise`, () => {
+  expect(sleep(0)).toBeInstanceOf(Promise)
 })
