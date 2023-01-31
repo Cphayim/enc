@@ -27,7 +27,7 @@ const DEFAULT_OPTIONS: Omit<TimeFormItem, Exclude<keyof BaseFormItem, 'placehold
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
 
 // 仅时间值需要适配，element-plus 接收的仍然是含有 Date 的日期
-// 而我们输入或输出的可能是仅时间的字符串 “12:00”
+// 而我们输入或输出的是仅时间的字符串 “12:00”
 const _value = computed({
   get() {
     if (!props.modelValue) return undefined
@@ -54,6 +54,7 @@ const _value = computed({
     :readonly="item.readonly"
     :disabled="item.disabled"
     :placeholder="item.placeholder"
+    :clearable="item.clearable"
     :format="TIME_TYPE_FORMAT_MAP[item.timeType!]"
   />
 </template>

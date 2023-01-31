@@ -11,7 +11,7 @@ import type { BaseFormItem, DateFormItem } from '@cphayim-enc/base'
 defineOptions({ name: 'EncDateFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: DateFormItem
 }>()
 
@@ -31,14 +31,14 @@ const dateDisplayFormat = computed(() => item.value.dateDisplayFormat ?? item.va
 const _value = useVModel(props, 'modelValue')
 
 const dateMinDate = computed(() =>
-  typeof item.value.dateMinDate === 'string'
-    ? new Date(item.value.dateMinDate)
-    : item.value.dateMinDate,
+  item.value.dateMinDate instanceof Date
+    ? item.value.dateMinDate
+    : dayjs(item.value.dateMinDate, item.value.dateFormat).toDate(),
 )
 const dateMaxDate = computed(() =>
-  typeof item.value.dateMaxDate === 'string'
-    ? new Date(item.value.dateMaxDate)
-    : item.value.dateMaxDate,
+  item.value.dateMaxDate instanceof Date
+    ? item.value.dateMaxDate
+    : dayjs(item.value.dateMaxDate, item.value.dateFormat).toDate(),
 )
 
 const handleDisableDate = (date: Date) => {
@@ -56,6 +56,7 @@ const handleDisableDate = (date: Date) => {
     :format="dateDisplayFormat"
     :readonly="item.readonly"
     :disabled="item.disabled"
+    :clearable="item.clearable"
     :placeholder="item.placeholder"
     :range-separator="item.dateRangeSeparator"
     :start-placeholder="item.dateRangeStartPlaceholder"

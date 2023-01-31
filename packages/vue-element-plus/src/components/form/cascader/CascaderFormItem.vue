@@ -10,7 +10,7 @@ import type { BaseFormItem, CascaderFormItem } from '@cphayim-enc/base'
 defineOptions({ name: 'EncCascaderFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: CascaderFormItem
 }>()
 
@@ -44,6 +44,7 @@ const _cascaderProps = computed(() => {
     :readonly="item.readonly"
     :disabled="item.disabled"
     :props="_cascaderProps"
+    :clearable="item.clearable"
   />
 </template>
 

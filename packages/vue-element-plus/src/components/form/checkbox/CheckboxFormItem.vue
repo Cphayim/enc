@@ -11,14 +11,14 @@ import type { BaseFormItem, CheckboxFormItem, CheckboxOptions } from '@cphayim-e
 defineOptions({ name: 'EncCheckboxFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: CheckboxFormItem
 }>()
 
 const DEFAULT_OPTIONS: Omit<CheckboxFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
   placeholder: '请选择',
   checkboxType: 'single',
-  checkboxSingleLabel: '',
+  checkboxSingleLabel: undefined,
   checkboxGroupOptions: [],
   checkboxGroupMax: 0,
 }

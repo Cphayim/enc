@@ -10,7 +10,7 @@ import type { BaseFormItem, InputFormItem } from '@cphayim-enc/base'
 defineOptions({ name: 'EncInputFormItem' })
 
 const props = defineProps<{
-  modelValue: any
+  modelValue?: any
   item: InputFormItem
 }>()
 

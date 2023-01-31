@@ -13,8 +13,7 @@ export function useLoading<T extends unknown[]>(
 ): (...args: T) => Promise<void> {
   return _useLoading(fn, {
     onLoading: (message) => {
-      const flag = ElMessage({ type: 'info', message, duration: 0, icon: Loading })
-      flag.close()
+      return ElMessage({ type: 'info', message, duration: 0, icon: Loading })
     },
     onClearLoading: (flag: MessageHandler) => {
       flag.close()

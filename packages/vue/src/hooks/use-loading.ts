@@ -62,15 +62,23 @@ export function useLoading<T extends unknown[]>(
     onError,
   }: UseLoadingOptions = DEFAULT_OPTIONS,
 ): (...args: T) => Promise<void> {
-  fn = useLock ? useEventLock(fn) : fn
+  if (useLock) {
+    fn = useEventLock(fn)
+  }
+
   return async (...args) => {
     const flag = onLoading?.(message)
     try {
       await fn(...args)
+
       onClearLoading?.(flag)
-      successMessage && onSuccess?.(successMessage)
+
+      if (successMessage) {
+        onSuccess?.(successMessage)
+      }
     } catch (err: any) {
       onClearLoading?.(flag)
+
       if (errorMessage || err.message) {
         onError?.(errorMessage || err.message)
       }

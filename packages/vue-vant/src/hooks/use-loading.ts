@@ -12,7 +12,7 @@ export function useLoading<T extends unknown[]>(
 ): (...args: T) => Promise<void> {
   return _useLoading(fn, {
     onLoading: (message) => {
-      showLoadingToast(message as string)
+      return showLoadingToast(message as string)
     },
     onClearLoading: (flag: ReturnType<typeof showToast>) => {
       flag.close()

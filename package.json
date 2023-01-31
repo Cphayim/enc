@@ -40,7 +40,9 @@
     ]
   },
   "dependencies": {
-    "@cphayim-enc/test-utils": "workspace:*"
+    "@cphayim-enc/test-utils": "workspace:*",
+    "element-plus": "^2.2.28",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
@@ -76,7 +78,6 @@
     "vite": "^4.0.4",
     "vite-plugin-dts": "^1.7.2",
     "vitest": "^0.28.3",
-    "vue": "^3.2.45",
     "vue-tsc": "^1.0.24"
   }
 }
