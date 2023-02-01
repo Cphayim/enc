@@ -1,6 +1,14 @@
 ## Changelog
 
-### 0.1.8 (2023-01-30)
+### 0.1.8 (2023-02-01)
+
+#### Bug fixes
+
+**@cphayim-enc/vue-vant**
+
+- fixed not export `useLoading` hook
+
+### 0.1.8 (2023-02-01)
 
 #### Bug fixes
 
