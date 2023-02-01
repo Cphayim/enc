@@ -1,16 +1,24 @@
 ## Changelog
 
-### 0.1.8 (2023-01-30)
+### 0.1.8 (2023-02-01)
+
+#### Bug fixes
+
+**@cphayim-enc/vue-vant**
+
+- fixed not export `useLoading` hook [#31](https://github.com/Cphayim/enc/pull/31)
+
+### 0.1.8 (2023-02-01)
 
 #### Bug fixes
 
 **@cphayim-enc/vue-element-plus**
 
-- fixed the missing return flag of the default `onLoading` in `useLoading` hook
+- fixed the missing return flag of the default `onLoading` in `useLoading` hook [#19](https://github.com/Cphayim/enc/pull/19)
 
 **@cphayim-enc/vue-vant**
 
-- fixed the missing return flag of the default `onLoading` in `useLoading` hook
+- fixed the missing return flag of the default `onLoading` in `useLoading` hook [#19](https://github.com/Cphayim/enc/pull/19)
 
 ### 0.1.7 (2023-01-30)
 
