@@ -95,7 +95,7 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
           :border="!hideHeaderBorder"
         >
           <template v-if="backArrow" #left>
-            <van-icon name="arrow-left" size="18" @click="handleBack" />
+            <van-icon name="arrow-left" class="enc-text-[18px]" @click="handleBack" />
           </template>
           <template v-else #left>
             <slot name="header-left" />
