@@ -6,7 +6,7 @@
 
 **@cphayim-enc/vue-vant**
 
-- 修复了 `useLoading` hook 未导出问题
+- 修复了 `useLoading` hook 未导出问题 [#31](https://github.com/Cphayim/enc/pull/31)
 
 ### 0.1.8 (2023-02-01)
 
@@ -14,11 +14,11 @@
 
 **@cphayim-enc/vue-element-plus**
 
-- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记
+- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记 [#19](https://github.com/Cphayim/enc/pull/19)
 
 **@cphayim-enc/vue-vant**
 
-- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记
+- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记 [#19](https://github.com/Cphayim/enc/pull/19)
 
 ### 0.1.7 (2023-01-30)
 
