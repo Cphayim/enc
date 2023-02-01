@@ -8,7 +8,7 @@ const DURATION = 3000
 
 export function useLoading<T extends unknown[]>(
   fn: (...args: T) => void | Promise<void>,
-  options: UseLoadingOptions,
+  options?: UseLoadingOptions,
 ): (...args: T) => Promise<void> {
   return _useLoading(fn, {
     onLoading: (message) => {
