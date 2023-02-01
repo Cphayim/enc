@@ -47,6 +47,8 @@ const handleFieldClick = useEventLock(() => {
 })
 
 const slots = useSlots()
+
+const isRequired = computed(() => item.value.rules?.some((rule) => rule.required))
 </script>
 
 <template>
@@ -65,6 +67,7 @@ const slots = useSlots()
     :maxlength="item.inputMaxLength"
     autosize
     show-word-limit
+    :required="isRequired"
     @click="handleFieldClick"
   >
     <template v-if="slots.label" #label><slot name="label" /></template>
