@@ -33,8 +33,10 @@ export function usingSFCWithInstall(
   if (isSFCWithInstall(components)) {
     app.use(components)
   } else if (Array.isArray(components)) {
-    components.forEach((component) => app.use(component))
+    components.forEach((component) => isSFCWithInstall(component) && app.use(component))
   } else {
-    Object.values(components).forEach((component) => app.use(component))
+    Object.values(components).forEach(
+      (component) => isSFCWithInstall(component) && app.use(component),
+    )
   }
 }
