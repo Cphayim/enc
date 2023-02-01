@@ -2,21 +2,22 @@ import { describe, expect, it, vi } from 'vitest'
 import { createConsoleSpy } from '@cphayim-enc/test-utils'
 
 const closeFn = vi.fn()
-const ElMessageSpy = vi.fn((_: any) => ({ close: closeFn }))
+const showToastSpy = vi.fn((_: any) => ({ close: closeFn }))
 
-vi.mock('element-plus', async () => {
-  const module = await vi.importActual<typeof import('element-plus')>('element-plus')
+vi.mock('vant', async () => {
+  const module = await vi.importActual<typeof import('vant')>('vant')
 
   return {
     ...module,
-    ElMessage: ElMessageSpy,
+    showToast: showToastSpy,
+    showLoadingToast: showToastSpy,
   }
 })
 
 const { useLoading } = await import('../use-loading')
 
 describe('useLoading', async () => {
-  it('should use ElMessage on success', async () => {
+  it('should use showToast on success', async () => {
     createConsoleSpy()
 
     const fn = vi.fn()
@@ -27,16 +28,13 @@ describe('useLoading', async () => {
     })
     await wrappedFn()
     expect(fn).toHaveBeenCalled()
-    expect(ElMessageSpy).toBeCalledTimes(2) // loading + success
-    expect(ElMessageSpy.mock.calls[0][0]).toMatchObject({ message: 'test loading', type: 'info' })
+    expect(showToastSpy).toBeCalledTimes(2) // loading + success
+    expect(showToastSpy.mock.calls[0][0]).toMatchObject('test loading')
     expect(closeFn).toHaveBeenCalled()
-    expect(ElMessageSpy.mock.calls[1][0]).toMatchObject({
-      message: 'test success',
-      type: 'success',
-    })
+    expect(showToastSpy.mock.calls[1][0]).toMatchObject({ message: 'test success' })
   })
 
-  it('should use ElMessage on error', async () => {
+  it('should use showToast on error', async () => {
     createConsoleSpy()
 
     const fn = vi.fn(() => {
@@ -49,12 +47,9 @@ describe('useLoading', async () => {
     })
     await wrappedFn()
     expect(fn).toHaveBeenCalled()
-    expect(ElMessageSpy).toBeCalledTimes(2) // loading + error
-    expect(ElMessageSpy.mock.calls[0][0]).toMatchObject({ message: 'test loading', type: 'info' })
+    expect(showToastSpy).toBeCalledTimes(2) // loading + error
+    expect(showToastSpy.mock.calls[0][0]).toMatchObject('test loading')
     expect(closeFn).toHaveBeenCalled()
-    expect(ElMessageSpy.mock.calls[1][0]).toMatchObject({
-      message: 'test error',
-      type: 'error',
-    })
+    expect(showToastSpy.mock.calls[1][0]).toMatchObject({ message: 'test error' })
   })
 })
