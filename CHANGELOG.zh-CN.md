@@ -1,5 +1,17 @@
 ## 更新日志
 
+### 0.1.8 (2023-01-30)
+
+#### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记
+
+**@cphayim-enc/vue-vant**
+
+- 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记
+
 ### 0.1.7 (2023-01-30)
 
 #### Features
