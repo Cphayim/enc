@@ -29,7 +29,7 @@ describe('useLoading', async () => {
     await wrappedFn()
     expect(fn).toHaveBeenCalled()
     expect(showToastSpy).toBeCalledTimes(2) // loading + success
-    expect(showToastSpy.mock.calls[0][0]).toMatchObject('test loading')
+    expect(showToastSpy.mock.calls[0][0]).toMatchObject({ message: 'test loading' })
     expect(closeFn).toHaveBeenCalled()
     expect(showToastSpy.mock.calls[1][0]).toMatchObject({ message: 'test success' })
   })
@@ -48,7 +48,7 @@ describe('useLoading', async () => {
     await wrappedFn()
     expect(fn).toHaveBeenCalled()
     expect(showToastSpy).toBeCalledTimes(2) // loading + error
-    expect(showToastSpy.mock.calls[0][0]).toMatchObject('test loading')
+    expect(showToastSpy.mock.calls[0][0]).toMatchObject({ message: 'test loading' })
     expect(closeFn).toHaveBeenCalled()
     expect(showToastSpy.mock.calls[1][0]).toMatchObject({ message: 'test error' })
   })

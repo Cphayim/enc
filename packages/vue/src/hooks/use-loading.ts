@@ -25,6 +25,11 @@ export type UseLoadingOptions = {
    */
   errorMessage?: string
   /**
+   * 成功或失败消息持续时间，毫秒
+   * @default 3000
+   */
+  duration?: number
+  /**
    * 执行 loading 的回调函数
    */
   onLoading?: (message?: string) => any | Promise<any>
