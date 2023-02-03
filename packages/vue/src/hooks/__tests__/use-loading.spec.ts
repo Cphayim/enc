@@ -5,9 +5,7 @@ import { useLoading } from '../use-loading'
 import { createConsoleSpy } from '@cphayim-enc/test-utils'
 
 describe('useLoading', () => {
-  const fn = vi.fn().mockImplementation(async () => {
-    await sleep(1)
-  })
+  const fn = vi.fn().mockImplementation(async () => sleep(1))
 
   it('should be able to lock ', () => {
     const wrappedFn = useLoading(fn)
