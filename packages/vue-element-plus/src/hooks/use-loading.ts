@@ -5,7 +5,7 @@ import { Loading } from '@element-plus/icons-vue'
 import { useLoading as _useLoading } from '@cphayim-enc/vue'
 import type { UseLoadingOptions } from '@cphayim-enc/vue'
 
-const DURATION = 3000
+const DEFAULT_DURATION = 3000
 
 export function useLoading<T extends unknown[]>(
   fn: (...args: T) => void | Promise<void>,
@@ -19,10 +19,10 @@ export function useLoading<T extends unknown[]>(
       flag.close()
     },
     onSuccess: (message) => {
-      ElMessage({ type: 'success', message, duration: DURATION })
+      ElMessage({ type: 'success', message, duration: options?.duration ?? DEFAULT_DURATION })
     },
     onError: (message) => {
-      ElMessage({ type: 'error', message, duration: DURATION })
+      ElMessage({ type: 'error', message, duration: options?.duration ?? DEFAULT_DURATION })
     },
     ...options,
   })
