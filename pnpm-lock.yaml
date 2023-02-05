@@ -107,6 +107,7 @@ importers:
     specifiers:
       '@cphayim-enc/base': workspace:*
       '@cphayim-enc/shared': workspace:*
+      '@vueuse/core': ^9.12.0
       mitt: ^3.0.0
       vue: ^3.2.45
     dependencies:
@@ -114,6 +115,7 @@ importers:
       '@cphayim-enc/shared': link:../shared
       mitt: 3.0.0
     devDependencies:
+      '@vueuse/core': 9.12.0_vue@3.2.45
       vue: 3.2.45
 
   packages/vue-element-plus:
