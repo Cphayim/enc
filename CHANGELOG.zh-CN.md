@@ -1,16 +1,49 @@
-## 更新日志
+# 更新日志
 
-### 0.1.9 (2023-02-01)
+## 0.1.10 (2023-02-07)
 
-#### Bug fixes
+### Features
+
+**@cphayim-enc/vue**
+
+- 添加基本 `useConfirm` hook [#34](https://github.com/Cphayim/enc/pull/34)
+- 添加 `usePagination` hook [#35](https://github.com/Cphayim/enc/pull/35)
+
+**@cphayim-enc/vue-element-plus**
+
+- 添加 `useConfirm` hook [#34](https://github.com/Cphayim/enc/pull/34)
+
+**@cphayim-enc/vue-vant**
+
+- 添加 `useConfirm` hook [#34](https://github.com/Cphayim/enc/pull/34)
+- `EncInputFormItem` 支持显示必填红点 [#33](https://github.com/Cphayim/enc/pull/33)
+
+### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+- `useLoading` 可选参数 [#32](https://github.com/Cphayim/enc/pull/32)
+
+**@cphayim-enc/vue-vant**
+
+- `useLoading` 可选参数 [#32](https://github.com/Cphayim/enc/pull/32)
+- `EncLayout` icon 支持相对值转换 [#32](https://github.com/Cphayim/enc/pull/32)
+
+### Dependencies
+
+更新依赖 [#36](https://github.com/Cphayim/enc/pull/36), [#39](https://github.com/Cphayim/enc/pull/39)
+
+## 0.1.9 (2023-02-01)
+
+### Bug fixes
 
 **@cphayim-enc/vue-vant**
 
 - 修复了 `useLoading` hook 未导出问题 [#31](https://github.com/Cphayim/enc/pull/31)
 
-### 0.1.8 (2023-02-01)
+## 0.1.8 (2023-02-01)
 
-#### Bug fixes
+### Bug fixes
 
 **@cphayim-enc/vue-element-plus**
 
@@ -20,9 +53,9 @@
 
 - 修复 `useLoading` hook 默认的 `onLoading` 丢失的返回标记 [#19](https://github.com/Cphayim/enc/pull/19)
 
-### 0.1.7 (2023-01-30)
+## 0.1.7 (2023-01-30)
 
-#### Features
+### Features
 
 **@cphayim-enc/vue**
 
@@ -39,23 +72,23 @@
 - 添加 `EncLayout` 组件 [#26](https://github.com/Cphayim/enc/pull/26)
 - 添加 `EncRouterTransition` 组件 [#26](https://github.com/Cphayim/enc/pull/26)
 
-### 0.1.1 (2022-12-31)
+## 0.1.1 (2022-12-31)
 
-#### Features
+### Features
 
 **@cphayim-enc/base**
 
 - `CascaderFormItemOption` 添加 `disabled` 属性
 
-#### Bug fixes
+### Bug fixes
 
 **@cphayim-enc/vue-element-plus, @cphayim-enc/vue-vant**
 
 - 延迟执行 `EncForm.clearValidate` 方法 [#2](https://github.com/Cphayim/enc/pull/2)
 
-### 0.1.0 (2022-12-30)
+## 0.1.0 (2022-12-30)
 
-#### Features
+### Features
 
 [#1](https://github.com/Cphayim/enc/pull/1)
 
