@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { VisualFormEditorConfig } from '../props'
+import type { CodeFormEditorConfig } from '../props'
 
-defineOptions({ name: 'EncVisualFormEditor' })
+defineOptions({ name: 'EncCodeFormEditor' })
 
 type Props = {
-  config: VisualFormEditorConfig
+  config: CodeFormEditorConfig
 }
-const props = defineProps<Props>()
+defineProps<Props>()
 </script>
 
 <template>

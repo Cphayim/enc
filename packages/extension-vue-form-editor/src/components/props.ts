@@ -1,5 +1,3 @@
-import type { FormItemUnion } from '@cphayim-enc/base'
-
 export type FormEditorConfig = VisualFormEditorConfig | CodeFormEditorConfig
 
 export interface BaseFormEditorConfig {
@@ -7,12 +5,7 @@ export interface BaseFormEditorConfig {
    * 表单编辑器的模式
    * @default 'visual'
    */
-  mode?: string
-  /**
-   * 表单编辑器中的 formItems 数组
-   * @default []
-   */
-  formItems?: FormItemUnion[]
+  mode: string
   /**
    * 是否启用“预览”功能
    */
@@ -26,9 +19,9 @@ export interface BaseFormEditorConfig {
 }
 
 export interface VisualFormEditorConfig extends BaseFormEditorConfig {
-  mode?: 'visual'
+  mode: 'visual'
 }
 
 export interface CodeFormEditorConfig extends BaseFormEditorConfig {
-  mode?: 'code'
+  mode: 'code'
 }

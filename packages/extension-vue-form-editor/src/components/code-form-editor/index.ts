@@ -1,4 +1,4 @@
 import { withInstall } from '@cphayim-enc/vue'
-import VisualFormEditor from './VisualFormEditor.vue'
+import CodeFormEditor from './CodeFormEditor.vue'
 
-export const EncVisualFormEditor = withInstall(VisualFormEditor)
+export const EncCodeFormEditor = withInstall(CodeFormEditor)

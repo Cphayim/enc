@@ -6,7 +6,7 @@ defineOptions({ name: 'EncVisualFormEditor' })
 type Props = {
   config: VisualFormEditorConfig
 }
-const props = defineProps<Props>()
+defineProps<Props>()
 </script>
 
 <template>
