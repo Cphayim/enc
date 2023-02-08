@@ -91,6 +91,23 @@ importers:
       '@cphayim-enc/shared': link:../shared
       image-conversion: 2.1.1
 
+  packages/extension-vue-form-editor:
+    specifiers:
+      '@cphayim-enc/base': workspace:*
+      '@cphayim-enc/shared': workspace:*
+      '@cphayim-enc/vue': workspace:*
+      '@vueuse/core': ^9.12.0
+      vue: ^3.2.47
+      vue-router: ^4.1.6
+    dependencies:
+      '@cphayim-enc/base': link:../base
+      '@cphayim-enc/shared': link:../shared
+      '@cphayim-enc/vue': link:../vue
+    devDependencies:
+      '@vueuse/core': 9.12.0_vue@3.2.47
+      vue: 3.2.47
+      vue-router: 4.1.6_vue@3.2.47
+
   packages/react:
     specifiers:
       '@cphayim-enc/shared': workspace:*

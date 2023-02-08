@@ -25,6 +25,10 @@
       "path": "packages/vue-vant"
     },
     {
+      "name": "📦 @enc/extension-vue-form-editor",
+      "path": "packages/extension-vue-form-editor"
+    },
+    {
       "name": "📦 @playground/vue",
       "path": "playgrounds/vue"
     }
