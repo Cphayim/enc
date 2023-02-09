@@ -1,14 +1,15 @@
 import { describe, expect, it } from 'vitest'
 
 import { getFileNameFromUrl } from '@cphayim-enc/shared'
+import { createConsoleSpy } from '@cphayim-enc/test-utils'
+
 import {
   defaultUploadTransformer,
   createStringUploadTransformer,
   verifyUploadedFile,
   UploadFormItem,
   UploadTransformerHelper,
-} from '../../form/UploadFormItem'
-import { createConsoleSpy } from '@cphayim-enc/test-utils'
+} from '..'
 
 it(`should be able verify a uploadedFile`, () => {
   expect(() => verifyUploadedFile({ url: 'https://test.com/a.png' })).not.toThrowError()

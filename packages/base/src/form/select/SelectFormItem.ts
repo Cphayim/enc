@@ -1,4 +1,4 @@
-import type { PopupFormItem } from './PopupFormItem'
+import type { PopupFormItem } from '../popup'
 
 /**
  * 选择表单项类型

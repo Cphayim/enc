@@ -1,13 +1,13 @@
-import type { CascaderFormItem } from './CascaderFormItem'
-import type { CheckboxFormItem } from './CheckboxFormItem'
-import type { CustomFormItem } from './CustomFormItem'
-import type { DateFormItem } from './DateFormItem'
-import type { InputFormItem } from './InputFormItem'
-import type { RadioFormItem } from './RadioFormItem'
-import type { SelectFormItem } from './SelectFormItem'
-import type { SwitchFormItem } from './SwitchFormItem'
-import type { TimeFormItem } from './TimeFormItem'
-import type { UploadFormItem } from './UploadFormItem'
+import type { CascaderFormItem } from './cascader'
+import type { CheckboxFormItem } from './checkbox'
+import type { CustomFormItem } from './custom'
+import type { DateFormItem } from './date'
+import type { InputFormItem } from './input'
+import type { RadioFormItem } from './radio'
+import type { SelectFormItem } from './select'
+import type { SwitchFormItem } from './switch'
+import type { TimeFormItem } from './time'
+import type { UploadFormItem } from './upload'
 
 export type FormItemUnion<F = string, E = any> =
   | InputFormItem<F, E>
@@ -35,26 +35,15 @@ export type OmitPartialFormItem = Partial<
     Omit<CustomFormItem, 'type' | 'name'>
 >
 
-export type FormProps = {
-  /**
-   * 表单数据键值
-   */
-  data: Record<string, any>
-  /**
-   * 表单项数组
-   */
-  items: FormItemUnion[]
-}
-
-export * from './BaseFormItem'
-export * from './InputFormItem'
-export * from './PopupFormItem'
-export * from './SelectFormItem'
-export * from './CascaderFormItem'
-export * from './DateFormItem'
-export * from './TimeFormItem'
-export * from './UploadFormItem'
-export * from './SwitchFormItem'
-export * from './RadioFormItem'
-export * from './CheckboxFormItem'
-export * from './CustomFormItem'
+export * from './base'
+export * from './input'
+export * from './popup'
+export * from './select'
+export * from './cascader'
+export * from './date'
+export * from './time'
+export * from './upload'
+export * from './switch'
+export * from './radio'
+export * from './checkbox'
+export * from './custom'

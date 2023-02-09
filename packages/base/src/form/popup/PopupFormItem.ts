@@ -1,4 +1,4 @@
-import type { BaseFormItem } from './BaseFormItem'
+import type { BaseFormItem } from '../base'
 
 /**
  * 弹出层表单项类型

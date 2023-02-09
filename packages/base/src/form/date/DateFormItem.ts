@@ -1,4 +1,4 @@
-import type { PopupFormItem } from './PopupFormItem'
+import type { PopupFormItem } from '../popup'
 
 /**
  * 日期选择器表单项

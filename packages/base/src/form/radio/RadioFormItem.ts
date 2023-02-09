@@ -1,5 +1,4 @@
-import { log } from '@cphayim-enc/shared'
-import type { BaseFormItem } from './BaseFormItem'
+import type { BaseFormItem } from '../base'
 
 /**
  * 单选框表单项类型
@@ -29,11 +28,4 @@ export type RadioOptions = {
    * 是否禁用该项
    */
   disabled?: boolean
-}
-
-// 校验单选框表单项
-export function verifyRadioFormItem(item: RadioFormItem) {
-  if (!item.radioOptions || !item.radioOptions.length) {
-    log.warn(`RadioFormItem.radioOptions is empty`)
-  }
 }
