@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { defineComponent } from 'vue'
 
 import { EncFormPreview } from '..'
-import { defineComponent } from 'vue'
 
 describe('FormPreview.vue', () => {
   it('should be render preview', () => {
