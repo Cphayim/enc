@@ -17,6 +17,10 @@ type Props = {
    * 预览用的 EncForm 组件
    */
   encFormComponent: any
+  /**
+   * 需要透传给预览用的 EncForm 组件的额外 props
+   */
+  encFormProps?: Record<string, any>
 }
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
@@ -32,7 +36,7 @@ const comp = computed(() => {
 </script>
 
 <template>
-  <component :is="comp" :data="formData" :items="formItems" />
+  <component :is="comp" v-bind="props.encFormProps" :data="formData" :items="formItems" />
 </template>
 
 <style></style>

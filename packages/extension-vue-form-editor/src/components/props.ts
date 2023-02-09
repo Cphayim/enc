@@ -16,6 +16,10 @@ export interface BaseFormEditorConfig {
    * 你可以传入任何一个 @cphayim-enc/vue 下的 ui-package 所提供的 EncForm 组件
    */
   encFormComponent?: any
+  /**
+   * 需要透传给预览用的 EncForm 组件的额外 props
+   */
+  encFormProps?: Record<string, any>
 }
 
 export interface VisualFormEditorConfig extends BaseFormEditorConfig {
