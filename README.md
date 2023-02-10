@@ -8,3 +8,8 @@
 [![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-f49033.svg)](https://pnpm.io/)
 
 </div>
+
+
+## Changelogs
+
+[CHANGELOG.md](./CHANGELOG.md)
