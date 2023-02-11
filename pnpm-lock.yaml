@@ -180,6 +180,7 @@ importers:
   playgrounds/vue:
     specifiers:
       '@cphayim-enc/base': workspace:*
+      '@cphayim-enc/extension-vue-form-editor': workspace:^0.1.10
       '@cphayim-enc/vue-element-plus': workspace:*
       '@cphayim-enc/vue-vant': workspace:*
       '@element-plus/icons-vue': ^2.1.0
@@ -189,6 +190,7 @@ importers:
       vue-router: ^4.1.6
     dependencies:
       '@cphayim-enc/base': link:../../packages/base
+      '@cphayim-enc/extension-vue-form-editor': link:../../packages/extension-vue-form-editor
       '@cphayim-enc/vue-element-plus': link:../../packages/vue-element-plus
       '@cphayim-enc/vue-vant': link:../../packages/vue-vant
       '@element-plus/icons-vue': 2.1.0_vue@3.2.47

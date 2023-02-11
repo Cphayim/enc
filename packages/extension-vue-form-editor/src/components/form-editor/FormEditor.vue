@@ -1,31 +1,27 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
-
 import type { FormItemUnion } from '@cphayim-enc/base'
 
 import type { FormEditorConfig } from '../props'
 import { EncVisualFormEditor } from '../visual-form-editor'
 import { EncCodeFormEditor } from '../code-form-editor'
+import { useFormItems } from '@cphayim-enc/vue'
 
 defineOptions({ name: 'EncFormEditor' })
 
 type Props = {
   /**
-   * 表单编辑器中的 formItems 数组
+   * 初始化表单编辑器中的 formItems 数组
    * @default []
    */
-  items?: FormItemUnion[]
+  initItems?: FormItemUnion[]
   /**
    * 表单编辑器配置项
    */
   config?: FormEditorConfig
 }
-const props = withDefaults(defineProps<Props>(), {
-  config: () => ({ mode: 'visual' }),
-})
-const emit = defineEmits<(e: 'update:items', v: FormItemUnion[]) => void>()
+const props = withDefaults(defineProps<Props>(), { config: () => ({ mode: 'visual' }) })
 
-const formItems = useVModel(props, 'items', emit)
+const { formItems } = useFormItems(props.initItems ?? [])
 </script>
 
 <template>
@@ -40,5 +36,8 @@ const formItems = useVModel(props, 'items', emit)
 
 <style>
 .enc-form-editor-wrap {
+  > * {
+    @apply enc-box-border;
+  }
 }
 </style>

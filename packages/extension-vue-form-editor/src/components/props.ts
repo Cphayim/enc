@@ -1,3 +1,5 @@
+import type { FormEditorBizFeature, FormEditorPresetFeature } from '@cphayim-enc/base'
+
 export type FormEditorConfig = VisualFormEditorConfig | CodeFormEditorConfig
 
 export interface BaseFormEditorConfig {
@@ -24,6 +26,14 @@ export interface BaseFormEditorConfig {
 
 export interface VisualFormEditorConfig extends BaseFormEditorConfig {
   mode: 'visual'
+  /**
+   * 启用的预设功能，没有传递则全开
+   */
+  presetFeatures?: FormEditorPresetFeature[]
+  /**
+   * 启用的业务功能
+   */
+  bizFeatures?: FormEditorBizFeature[]
 }
 
 export interface CodeFormEditorConfig extends BaseFormEditorConfig {

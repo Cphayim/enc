@@ -4,7 +4,7 @@ import type { CodeFormEditorConfig } from '../props'
 defineOptions({ name: 'EncCodeFormEditor' })
 
 type Props = {
-  config: CodeFormEditorConfig
+  config?: CodeFormEditorConfig
 }
 defineProps<Props>()
 </script>

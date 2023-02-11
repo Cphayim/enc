@@ -5,3 +5,76 @@
 
 :root {
 }
+
+[data-col-span='1'] {
+  @apply enc-w-1/24;
+}
+[data-col-span='2'] {
+  @apply enc-w-2/24;
+}
+[data-col-span='3'] {
+  @apply enc-w-3/24;
+}
+[data-col-span='4'] {
+  @apply enc-w-4/24;
+}
+[data-col-span='5'] {
+  @apply enc-w-5/24;
+}
+[data-col-span='6'] {
+  @apply enc-w-6/24;
+}
+[data-col-span='7'] {
+  @apply enc-w-7/24;
+}
+[data-col-span='8'] {
+  @apply enc-w-8/24;
+}
+[data-col-span='9'] {
+  @apply enc-w-9/24;
+}
+[data-col-span='10'] {
+  @apply enc-w-10/24;
+}
+[data-col-span='11'] {
+  @apply enc-w-11/24;
+}
+[data-col-span='12'] {
+  @apply enc-w-12/24;
+}
+[data-col-span='13'] {
+  @apply enc-w-13/24;
+}
+[data-col-span='14'] {
+  @apply enc-w-14/24;
+}
+[data-col-span='15'] {
+  @apply enc-w-15/24;
+}
+[data-col-span='16'] {
+  @apply enc-w-16/24;
+}
+[data-col-span='17'] {
+  @apply enc-w-17/24;
+}
+[data-col-span='18'] {
+  @apply enc-w-18/24;
+}
+[data-col-span='19'] {
+  @apply enc-w-19/24;
+}
+[data-col-span='20'] {
+  @apply enc-w-20/24;
+}
+[data-col-span='21'] {
+  @apply enc-w-21/24;
+}
+[data-col-span='22'] {
+  @apply enc-w-22/24;
+}
+[data-col-span='23'] {
+  @apply enc-w-23/24;
+}
+[data-col-span='24'] {
+  @apply enc-w-24/24;
+}
