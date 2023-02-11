@@ -6,7 +6,9 @@ export type BizBaseExtra = {
    */
   biz: true
   /**
-   * 业务表单控件名（业务表单控件可能是组合式控件，即由多个常规控件组合，此时应为组名）
+   * 业务表单控件名
+   *
+   * 业务表单控件可能是组合式控件，即由多个常规控件组合，此时应为组名
    */
   bizName: string
 }
@@ -18,7 +20,7 @@ export type BizPlaceHolderExtra = BizBaseExtra & {
   /**
    * 显示在表单编辑器上的 label 名称
    */
-  bizPlaceHolderLabel: string
+  bizLabel: string
 }
 
 /**
@@ -27,6 +29,9 @@ export type BizPlaceHolderExtra = BizBaseExtra & {
 export type BizRealExtra = BizBaseExtra & {
   /**
    * 业务表单控件字段名
+   *
+   * - 当业务表单控件仅包含一个常规控件时，可以与 `bizName` 相同
+   * - 当业务表单控件包含多个常规控件时，应为表示常规控件在组中的名称
    */
   bizField: string
   /**

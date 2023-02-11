@@ -5,7 +5,7 @@ import type { BizFormItemUnion, BizPlaceHolderExtra, BizRealExtra } from './BizF
  *
  * 由业务侧定义，如果没有传递，业务侧需要在出入口处自行转换配置项
  */
-export type BizTransform = {
+export type BizTransformer = {
   /**
    * "占位项" => "实际项" | "实际项"[]
    *

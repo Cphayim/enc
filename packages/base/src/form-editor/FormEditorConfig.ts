@@ -1,8 +1,9 @@
-import type { FormEditorPresetFeature } from './FormEditorFeature'
+import type { FormEditorPreset } from './FormEditorPreset'
+import type { FormEditorBizFeature } from './FormEditorBiz'
 
 export type FormEditorConfig = VisualFormEditorConfig | CodeFormEditorConfig
 
-export interface BaseFormEditorConfig {
+interface BaseFormEditorConfig {
   /**
    * 表单编辑器的模式
    * @default 'visual'
@@ -32,9 +33,11 @@ export interface VisualFormEditorConfig extends BaseFormEditorConfig {
   /**
    * 启用的预设功能，没有传递则全开
    */
-  presetFeatures?: FormEditorPresetFeature[]
-
-  // bizFeatures?
+  presets?: FormEditorPreset[]
+  /**
+   * 启用的业务功能
+   */
+  bizFeatures?: FormEditorBizFeature[]
 }
 
 /**
