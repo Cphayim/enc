@@ -39,7 +39,9 @@ export function randomStr(length: number) {
 }
 
 export function deepClone<T>(obj: T): T {
-  return JSON.parse(JSON.stringify(obj))
+  return typeof structuredClone !== 'undefined'
+    ? structuredClone(obj)
+    : JSON.parse(JSON.stringify(obj))
 }
 
 export function getFileNameFromUrl(url: string) {
