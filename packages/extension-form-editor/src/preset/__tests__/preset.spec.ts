@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import type { FormItemUnion } from '../../form'
-import { FormEditorPreset } from '../FormEditorPreset'
+
+import type { FormItemUnion } from '@cphayim-enc/base'
+
+import { FormEditorPreset } from '../../FormEditorPreset'
 import { getPresetFeature } from '../preset'
 
 function isFormItem(item: FormItemUnion): item is FormItemUnion {

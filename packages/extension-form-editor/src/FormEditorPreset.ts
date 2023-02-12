@@ -1,4 +1,4 @@
-import type { FormItemUnion } from '../form'
+import type { FormItemUnion } from '@cphayim-enc/base'
 
 /**
  * 表单编辑器预设

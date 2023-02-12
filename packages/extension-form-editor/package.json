@@ -1,0 +1,43 @@
+{
+  "name": "@cphayim-enc/extension-form-editor",
+  "version": "0.1.10",
+  "description": "",
+  "keywords": [],
+  "author": "Cphayim <i@cphayim.me>",
+  "homepage": "https://github.com/Cphayim/enc#readme",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --mode=development --watch",
+    "build": "vite build",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "dependencies": {
+    "@cphayim-enc/base": "workspace:*",
+    "@cphayim-enc/shared": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cphayim/enc.git",
+    "directory": "packages/extension-form-editor"
+  },
+  "bugs": {
+    "url": "https://github.com/Cphayim/enc/issues"
+  }
+}

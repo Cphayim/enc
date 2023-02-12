@@ -1,4 +1,4 @@
-import type { BizPlaceHolderExtra, BizTransformer } from '../biz-form'
+import type { BizPlaceHolderExtra, BizTransformer } from '@cphayim-enc/base'
 
 /**
  * 表单编辑器业务功能
