@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@cphayim-enc/base": "workspace:*",
+    "@cphayim-enc/extension-form-editor": "workspace:*",
     "@cphayim-enc/shared": "workspace:*",
     "@cphayim-enc/vue": "workspace:*"
   },
