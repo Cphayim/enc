@@ -14,7 +14,7 @@ const initItems: FormItemUnion[] = [
 </script>
 
 <template>
-  <div>
+  <div class="p-[20px] rounded-[10px] m-[50px] shadow-md bg-white">
     <EncFormEditor :config="formEditorConfig" :initItems="initItems"></EncFormEditor>
   </div>
 </template>

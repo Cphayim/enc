@@ -19,5 +19,6 @@ export const createEncExtensionFormEditor = ({
 
 export default createEncExtensionFormEditor()
 
+export * from '@cphayim-enc/extension-form-editor'
 export * from './hooks'
 export * from './components'

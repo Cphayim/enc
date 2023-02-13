@@ -38,6 +38,18 @@ export interface VisualFormEditorConfig extends BaseFormEditorConfig {
    * 启用的业务功能
    */
   bizFeatures?: FormEditorBizFeature[]
+  /**
+   * 随机字段名
+   *
+   * 启用随机字段名后控件 name 不可编辑
+   */
+  randomName?: boolean
+  /**
+   * 随机字段名长度
+   *
+   * @default 8
+   */
+  randomNameLength?: number
 }
 
 /**

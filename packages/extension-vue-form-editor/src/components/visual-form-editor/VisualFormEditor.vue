@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useVModel } from '@vueuse/core'
+import { DndProvider } from 'vue3-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
+import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
 import { useEmitter } from '@cphayim-enc/vue'
 
-import type { VisualFormEditorConfig } from '../props'
-import { DEFAULT_VISUAL_FORM_EDITOR_CONFIG } from '.'
-import LeftWidgetPanel from './_internals/LeftWidgetPanel.vue'
-import CenterMainPanel from './_internals/CenterMainPanel.vue'
-import RightDetailPanel from './_internals/RightDetailPanel.vue'
+import { DEFAULT_VISUAL_FORM_EDITOR_CONFIG, VisualFormEditorInternalEvents } from '.'
+import { EncVisualFormEditorLeftPanel } from './left-panel'
+import { EncVisualFormEditorCenterPanel } from './center-panel'
+import { EncVisualFormEditorRightPanel } from './right-panel'
 
 defineOptions({ name: 'EncVisualFormEditor' })
 
@@ -36,20 +38,22 @@ const config = computed<VisualFormEditorConfig>(() => ({
 }))
 
 // 发布/订阅器
-const emitter = useEmitter()
+const emitter = useEmitter<VisualFormEditorInternalEvents>()
 </script>
 
 <template>
-  <div class="enc-visual-form-editor">
-    <LeftWidgetPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
-    <CenterMainPanel
-      v-model:items="formItems"
-      :config="config"
-      :emitter="emitter"
-      class="enc-flex-1"
-    />
-    <RightDetailPanel :emitter="emitter" class="enc-flex-shrink-0" />
-  </div>
+  <DndProvider :backend="HTML5Backend">
+    <div class="enc-visual-form-editor">
+      <EncVisualFormEditorLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
+      <EncVisualFormEditorCenterPanel
+        v-model:items="formItems"
+        :config="config"
+        :emitter="emitter"
+        class="enc-flex-1"
+      />
+      <EncVisualFormEditorRightPanel :emitter="emitter" class="enc-flex-shrink-0" />
+    </div>
+  </DndProvider>
 </template>
 
 <style>

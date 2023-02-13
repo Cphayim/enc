@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { FormItemUnion } from '@cphayim-enc/base'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import { useFormItems } from '@cphayim-enc/vue'
 
-import type { FormEditorConfig } from '../props'
 import { EncVisualFormEditor } from '../visual-form-editor'
 import { EncCodeFormEditor } from '../code-form-editor'
-import { useFormItems } from '@cphayim-enc/vue'
 
 defineOptions({ name: 'EncFormEditor' })
 

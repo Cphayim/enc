@@ -29,7 +29,9 @@
     "@cphayim-enc/base": "workspace:*",
     "@cphayim-enc/extension-form-editor": "workspace:*",
     "@cphayim-enc/shared": "workspace:*",
-    "@cphayim-enc/vue": "workspace:*"
+    "@cphayim-enc/vue": "workspace:*",
+    "react-dnd-html5-backend": "^16.0.1",
+    "vue3-dnd": "^2.0.2"
   },
   "devDependencies": {
     "@vueuse/core": "^9.12.0",

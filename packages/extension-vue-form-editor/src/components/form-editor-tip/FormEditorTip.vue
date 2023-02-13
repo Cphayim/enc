@@ -10,7 +10,7 @@ const props = defineProps<{ content: string }>()
 
 <style>
 .enc-form-editor-tip {
-  @apply enc-p-[4px] enc-border-2 enc-border-dotted enc-border-green-700 enc-rounded-[4px] enc-m-0 enc-mx-[5px] enc-mb-[15px];
-  @apply enc-text-[14px] enc-text-green-700 enc-bg-green-700 enc-bg-opacity-20;
+  @apply enc-px-[10px] enc-py-[5px] enc-rounded-[4px] enc-m-0 enc-mb-[15px];
+  @apply enc-text-[14px] enc-text-green-700 enc-text-opacity-70 enc-bg-green-500 enc-bg-opacity-20;
 }
 </style>
