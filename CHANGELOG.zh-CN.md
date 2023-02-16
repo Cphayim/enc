@@ -1,5 +1,13 @@
 # 更新日志
 
+## 0.1.11 (2023-02-16)
+
+### Features
+
+**@cphayim-enc/vue-vant**
+
+- `EncLayout` 组件添加 `onBack` props, 它能够定义 `backArrow` 的处理逻辑 [#47](https://github.com/Cphayim/enc/pull/47)
+
 ## 0.1.10 (2023-02-07)
 
 ### Features
