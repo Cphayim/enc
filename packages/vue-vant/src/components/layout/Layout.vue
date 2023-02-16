@@ -21,6 +21,7 @@ defineOptions({ name: 'EncLayout' })
 type LayoutProps = {
   title?: string // 头部标题
   backArrow?: boolean // 头部显示返回箭头
+  onBack?: () => any // 当点击头部返回箭头时触发，覆盖默认行为
   hideHeaderBorder?: boolean // 隐藏头部底边
   hideHeader?: boolean // 隐藏头部
   showTabBar?: boolean // 显示 tabBar
@@ -41,7 +42,10 @@ const hasHeader = computed(() => !props.hideHeader)
 const hasFooter = computed(() => !!slots.footer)
 
 const router = useRouter()
-const handleBack = () => router.back()
+const handleBack = () => {
+  if (props.onBack) props.onBack()
+  else router.back()
+}
 
 const main = ref<Element>()
 const scrollTop = ref(0)
