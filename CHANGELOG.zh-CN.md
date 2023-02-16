@@ -8,6 +8,10 @@
 
 - `EncLayout` 组件添加 `onBack` props, 它能够定义 `backArrow` 的处理逻辑 [#47](https://github.com/Cphayim/enc/pull/47)
 
+### Dependencies
+
+更新依赖 [#41](https://github.com/Cphayim/enc/pull/41), [#43](https://github.com/Cphayim/enc/pull/43)
+
 ## 0.1.10 (2023-02-07)
 
 ### Features

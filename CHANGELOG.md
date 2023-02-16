@@ -8,6 +8,10 @@
 
 - `EncLayout` component add `onBack` props, can use it to define the logic of `backArrow` [#47](https://github.com/Cphayim/enc/pull/47)
 
+### Dependencies
+
+Update dependencies [#41](https://github.com/Cphayim/enc/pull/41), [#43](https://github.com/Cphayim/enc/pull/43)
+
 ## 0.1.10 (2023-02-07)
 
 ### Features
