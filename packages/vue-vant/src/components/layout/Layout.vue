@@ -105,6 +105,10 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
             <slot name="header-left" />
           </template>
 
+          <template v-if="slots['header-title']" #title>
+            <slot name="header-title" />
+          </template>
+
           <template #right>
             <slot name="header-right" />
           </template>
