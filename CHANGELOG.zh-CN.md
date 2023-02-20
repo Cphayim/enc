@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.1.12 (2023-02-20)
+
+### Features
+
+**@cphayim-enc/vue-vant**
+
+- `EncLayout` 组件添加 `header-title` 插槽 [#50](https://github.com/Cphayim/enc/pull/50)
+
+### Dependencies
+
+更新依赖 [#46](https://github.com/Cphayim/enc/pull/46), [#49](https://github.com/Cphayim/enc/pull/49)
+
 ## 0.1.11 (2023-02-16)
 
 ### Features
