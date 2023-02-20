@@ -31,7 +31,7 @@
     "mitt": "^3.0.0"
   },
   "devDependencies": {
-    "@vueuse/core": "^9.12.0",
+    "@vueuse/core": "^9.13.0",
     "vue": "^3.2.47"
   },
   "peerDependencies": {
