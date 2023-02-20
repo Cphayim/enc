@@ -10,7 +10,7 @@
 
 ### Dependencies
 
-更新依赖 [#49](https://github.com/Cphayim/enc/pull/49)
+更新依赖 [#46](https://github.com/Cphayim/enc/pull/46), [#49](https://github.com/Cphayim/enc/pull/49)
 
 ## 0.1.11 (2023-02-16)
 
