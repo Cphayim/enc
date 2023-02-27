@@ -1,2 +1,2 @@
-export * from './preset'
-export * from './preset-group'
+export { getPresetFeature } from './preset'
+export { getPresetFeatureGroups } from './preset-group'

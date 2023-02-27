@@ -40,10 +40,14 @@ watchEffect(() => {
 watchEffect(() => {
   console.log(JSON.parse(JSON.stringify(formData.value)))
 })
+
+const handleBack = () => {
+  //
+}
 </script>
 
 <template>
-  <EncLayout title="EncForm" back-arrow>
+  <EncLayout title="EncForm" back-arrow :on-back="handleBack">
     <EncForm v-model:data="formData" :items="formItems" size="default" />
   </EncLayout>
 </template>

@@ -118,7 +118,7 @@ importers:
       react-dnd-html5-backend: 16.0.1
       vue3-dnd: 2.0.2_vue@3.2.47
     devDependencies:
-      '@vueuse/core': 9.12.0_vue@3.2.47
+      '@vueuse/core': 9.13.0_vue@3.2.47
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
 

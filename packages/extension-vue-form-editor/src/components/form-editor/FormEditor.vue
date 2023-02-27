@@ -20,24 +20,43 @@ type Props = {
   config?: FormEditorConfig
 }
 const props = withDefaults(defineProps<Props>(), { config: () => ({ mode: 'visual' }) })
+const emit = defineEmits<{
+  (e: 'confirm', items: FormItemUnion[]): void
+}>()
 
 const { formItems } = useFormItems(props.initItems ?? [])
+
+const getItems = () => formItems.value
+defineExpose({ getItems })
+
+const handleConfirm = () => {
+  emit('confirm', getItems())
+  console.log(getItems())
+}
 </script>
 
 <template>
-  <div class="enc-form-editor-wrap">
+  <div class="enc-form-editor">
     <component
       :is="props.config.mode === 'visual' ? EncVisualFormEditor : EncCodeFormEditor"
       v-model:items="formItems"
       :config="props.config"
+      ref="formEditorInstRef"
     ></component>
+    <div class="enc-flex enc-justify-center">
+      <div @click="handleConfirm" class="enc-form-editor-opt-btn enc-bg-blue-400">获取配置项</div>
+    </div>
   </div>
 </template>
 
 <style>
-.enc-form-editor-wrap {
+.enc-form-editor {
+  @apply enc-select-none;
   > * {
     @apply enc-box-border;
+  }
+  .enc-form-editor-opt-btn {
+    @apply enc-px-[15px] enc-py-[8px] enc-text-center enc-text-[14px] enc-text-white enc-rounded enc-clickable;
   }
 }
 </style>

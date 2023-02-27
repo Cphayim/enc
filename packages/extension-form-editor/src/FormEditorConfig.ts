@@ -39,17 +39,21 @@ export interface VisualFormEditorConfig extends BaseFormEditorConfig {
    */
   bizFeatures?: FormEditorBizFeature[]
   /**
-   * 随机字段名
+   * 仅使用随机字段名
    *
-   * 启用随机字段名后控件 name 不可编辑
+   * 启用后控件 name 不可编辑
    */
-  randomName?: boolean
+  randomNameOnly?: boolean
   /**
    * 随机字段名长度
    *
    * @default 8
    */
   randomNameLength?: number
+  /**
+   * formItem 为空时的提示文字
+   */
+  formItemEmptyText?: string
 }
 
 /**

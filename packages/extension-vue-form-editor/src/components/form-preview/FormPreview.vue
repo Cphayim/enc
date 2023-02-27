@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { formData, formItems } = useForm({}, toRef(props, 'items'))
 
-const comp = computed(() => {
+const EncForm = computed(() => {
   if (props.encFormComponent?.name !== 'EncForm')
     throw Error(createErrorMessage('props encFormComponent must be a EncForm component'))
   return props.encFormComponent
@@ -36,7 +36,7 @@ const comp = computed(() => {
 </script>
 
 <template>
-  <component :is="comp" v-bind="props.encFormProps" :data="formData" :items="formItems" />
+  <component :is="EncForm" v-bind="props.encFormProps" :data="formData" :items="formItems" />
 </template>
 
 <style></style>

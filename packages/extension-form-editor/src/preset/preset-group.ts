@@ -1,6 +1,9 @@
 import { FormEditorPreset } from '../FormEditorPreset'
 import { getPresetFeature } from './preset'
 
+/**
+ * 获取在 presetSet 中启用的预设功能分组列表
+ */
 export function getPresetFeatureGroups(presetSet: Set<FormEditorPreset>) {
   return [
     {

@@ -34,7 +34,25 @@ export type FormEditorPresetFeature = {
    */
   presetLabel: string
   /**
+   * 预设描述
+   */
+  presetDesc?: string
+  /**
    * 获取 FormItem
    */
-  getItem: <F extends string>(name: F, label: string) => FormItemUnion<F>
+  getItem: <F extends string>(name: F, label?: string) => FormItemUnion<F>
+}
+
+/**
+ * 表单编辑器预设功能分组
+ */
+export type FormEditorPresetFeatureGroup = {
+  /**
+   * 分组名称
+   */
+  groupName: string
+  /**
+   * 预设功能列表
+   */
+  features: FormEditorPresetFeature[]
 }

@@ -20,7 +20,6 @@
   /* 同上 */
   --enc-animation-rate: 1;
 
-  /* 颜色及大小等 css 变量请参照 boilerplate 集成的 UI 框架，例如 vant 或 varlet 文档 */
   --enc-background-color: #f5f5f5;
   --enc-primary-color: #409eff;
 

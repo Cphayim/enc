@@ -22,5 +22,13 @@ module.exports = {
       width: columns,
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.clickable': {
+          '@apply enc-cursor-pointer active:enc-brightness-75': {},
+        },
+      })
+    }),
+  ],
 }

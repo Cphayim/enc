@@ -2,6 +2,8 @@ import type { App, Plugin } from 'vue'
 
 import { CreateEncOptions, usingSFCWithInstall } from '@cphayim-enc/vue'
 
+import './icons/iconfont.js'
+
 import './styles'
 import * as componentMap from './components'
 

@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { DndProvider } from 'vue3-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import { isNone, randomStr } from '@cphayim-enc/shared'
 import { useEmitter } from '@cphayim-enc/vue'
+import { isPresetFeature, VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
-import { DEFAULT_VISUAL_FORM_EDITOR_CONFIG, VisualFormEditorInternalEvents } from '.'
+import {
+  DEFAULT_VISUAL_FORM_EDITOR_CONFIG,
+  VisualFormEditorInternalEvents,
+  VisualFormEditorSelectedItem,
+} from '.'
 import { EncVisualFormEditorLeftPanel } from './left-panel'
 import { EncVisualFormEditorCenterPanel } from './center-panel'
 import { EncVisualFormEditorRightPanel } from './right-panel'
@@ -37,21 +42,90 @@ const config = computed<VisualFormEditorConfig>(() => ({
   ...props.config,
 }))
 
-// 发布/订阅器
+// 内部发布/订阅器
 const emitter = useEmitter<VisualFormEditorInternalEvents>()
+
+const handleAddItem = ({ item, index }: VisualFormEditorInternalEvents['add-item']) => {
+  formItems.value.splice(index, 0, item)
+}
+const handleRemoveItem = ({ index }: VisualFormEditorInternalEvents['remove-item']) => {
+  // 删除时移除选中状态
+  emitter.emit('select-item', { type: 'unselect' })
+  formItems.value.splice(index, 1)
+}
+const handleMoveItem = ({ oldIndex, newIndex }: VisualFormEditorInternalEvents['move-item']) => {
+  const dragItem = formItems.value[oldIndex]
+  handleRemoveItem({ index: oldIndex })
+  handleAddItem({ index: newIndex, item: dragItem })
+}
+
+const handleAddItemByFeature = ({
+  oldIndex,
+  index,
+  feature,
+}: VisualFormEditorInternalEvents['add-item-by-feature']) => {
+  if (!isNone(oldIndex)) handleRemoveItem({ index: oldIndex })
+
+  // 直接点击左侧面板的功能按钮触发不存在 index，添加到尾部
+  if (isNone(index)) index = formItems.value.length
+  const rStr = randomStr(config.value.randomNameLength ?? 8)
+  const item = isPresetFeature(feature)
+    ? feature.getItem(rStr)
+    : feature.bizTransform.toPlaceHolder([], rStr)
+  handleAddItem({ index, item })
+  emitter.emit('select-item', { type: 'adding', item, index })
+}
+
+emitter.on('add-item', handleAddItem)
+emitter.on('remove-item', handleRemoveItem)
+emitter.on('move-item', handleMoveItem)
+emitter.on('add-item-by-feature', handleAddItemByFeature)
+
+const selectedItem = ref<VisualFormEditorSelectedItem>()
+emitter.on('select-item', (payload) => {
+  if (payload.type === 'unselect') {
+    selectedItem.value = undefined
+  } else {
+    selectedItem.value = payload
+    if (payload.type === 'adding' || payload.type === 'removing') {
+      setTimeout(() => {
+        selectedItem.value = undefined
+        payload.callback?.()
+      }, 300)
+    }
+  }
+})
+
+watch(
+  selectedItem,
+  (selectedItem) => {
+    if (selectedItem) {
+      formItems.value[selectedItem.index] = selectedItem.item
+    }
+  },
+  { deep: true },
+)
 </script>
 
 <template>
   <DndProvider :backend="HTML5Backend">
     <div class="enc-visual-form-editor">
+      <!-- left features panel -->
       <EncVisualFormEditorLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
+      <!-- center items panel -->
       <EncVisualFormEditorCenterPanel
         v-model:items="formItems"
         :config="config"
         :emitter="emitter"
+        :selectedItem="selectedItem"
         class="enc-flex-1"
       />
-      <EncVisualFormEditorRightPanel :emitter="emitter" class="enc-flex-shrink-0" />
+      <!-- right detail edit panel -->
+      <EncVisualFormEditorRightPanel
+        :config="config"
+        v-model:selectedItem="selectedItem"
+        class="enc-flex-shrink-0"
+      />
     </div>
   </DndProvider>
 </template>
