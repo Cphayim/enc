@@ -11,5 +11,5 @@ export type FormEditorBizFeature = Pick<BizPlaceHolderExtra, 'bizName' | 'bizLab
   /**
    * "占位项" <=> "实际项" | "实际项"[] 的转换器
    */
-  bizTransform: BizTransformer
+  bizTransformer: BizTransformer
 }

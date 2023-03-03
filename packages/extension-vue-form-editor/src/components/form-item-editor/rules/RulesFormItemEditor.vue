@@ -2,7 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 
-import type { FormItemRule, FormItemUnion } from '@cphayim-enc/base'
+import type { FormItemRule, BaseFormItem } from '@cphayim-enc/base'
 import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
@@ -15,7 +15,7 @@ defineOptions({ name: 'EncBaseFormItemEditor' })
 
 const props = defineProps<{
   config: VisualFormEditorConfig
-  modelValue: FormItemUnion
+  modelValue: BaseFormItem
 }>()
 
 const modelValue = useVModel(props, 'modelValue')

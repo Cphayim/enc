@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useDrop } from 'vue3-dnd'
+import { useDrop } from '@ombro/dnd-vue'
 
 import type { VisualFormEditorInternalEmitter } from '..'
 import { DnDTypes, DragFeature } from '../dnd'
@@ -36,19 +36,16 @@ const handleAddItemByFeature = (item: DragFeature) => {
 </script>
 
 <template>
-  <div ref="drop" class="enc-form-editor-empty" :class="{ adding: dropCollect.isAdding }">
+  <div ref="drop" class="enc-vfe-empty" :class="{ 'enc-vfe-adding': dropCollect.isAdding }">
     <span>{{ emptyText }}</span>
   </div>
 </template>
 
 <style>
-.enc-form-editor-empty {
+.enc-vfe-empty {
   @apply enc-flex-1 enc-flex enc-flex-col enc-justify-center enc-items-center;
   @apply enc-py-[150px] enc-border-dashed enc-rounded-[10px];
   @apply enc-text-[14px];
   @apply enc-border-gray-300 enc-text-gray-400;
-  &.adding {
-    @apply enc-border-green-500 enc-text-green-500 enc-bg-green-500 enc-bg-opacity-20;
-  }
 }
 </style>

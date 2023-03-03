@@ -24,7 +24,7 @@ const createConfig = (randomNameOnly = false): VisualFormEditorConfig => {
 }
 
 describe('BaseFormItemEditor.vue', () => {
-  it('should render', () => {
+  it('should render EncForm', () => {
     const modelValue = createItem()
     const wrapper = mount(() => (
       <EncBaseFormItemEditor v-model={modelValue} config={createConfig()} />

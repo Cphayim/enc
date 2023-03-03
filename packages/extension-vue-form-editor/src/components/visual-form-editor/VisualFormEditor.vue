@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
-import { DndProvider } from 'vue3-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
+import { HTML5Backend } from '@ombro/dnd-backend'
+import { DndProvider } from '@ombro/dnd-vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { isNone, randomStr } from '@cphayim-enc/shared'
@@ -30,8 +30,15 @@ type Props = {
    * 表单编辑器配置项
    */
   config?: VisualFormEditorConfig
+  /**
+   * dnd backend
+   * @default HTML5Backend
+   */
+  backend?: any
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  backend: () => HTML5Backend,
+})
 
 const emit = defineEmits<(e: 'update:items', v: FormItemUnion[]) => void>()
 
@@ -71,7 +78,7 @@ const handleAddItemByFeature = ({
   const rStr = randomStr(config.value.randomNameLength ?? 8)
   const item = isPresetFeature(feature)
     ? feature.getItem(rStr)
-    : feature.bizTransform.toPlaceHolder([], rStr)
+    : feature.bizTransformer.toPlaceHolder([], rStr)
   handleAddItem({ index, item })
   emitter.emit('select-item', { type: 'adding', item, index })
 }
@@ -108,8 +115,8 @@ watch(
 </script>
 
 <template>
-  <DndProvider :backend="HTML5Backend">
-    <div class="enc-visual-form-editor">
+  <DndProvider :backend="props.backend">
+    <div class="enc-vfe">
       <!-- left features panel -->
       <EncVisualFormEditorLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
       <!-- center items panel -->
@@ -131,7 +138,19 @@ watch(
 </template>
 
 <style>
-.enc-visual-form-editor {
+.enc-vfe {
   @apply enc-flex enc-min-h-[800px];
+  &-selected {
+    @apply enc-border-blue-500 enc-text-blue-500 enc-bg-blue-500 enc-bg-opacity-20;
+  }
+  &-moving {
+    @apply enc-border-yellow-500 enc-text-yellow-500 enc-bg-yellow-500 enc-bg-opacity-20;
+  }
+  &-adding {
+    @apply enc-border-green-500 enc-text-green-500 enc-bg-green-500 enc-bg-opacity-20;
+  }
+  &-removing {
+    @apply enc-border-red-500 enc-text-red-500 enc-bg-red-500 enc-bg-opacity-20;
+  }
 }
 </style>

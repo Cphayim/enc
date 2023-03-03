@@ -105,18 +105,18 @@ importers:
       '@cphayim-enc/extension-form-editor': workspace:*
       '@cphayim-enc/shared': workspace:*
       '@cphayim-enc/vue': workspace:*
+      '@ombro/dnd-backend': ^0.1.6
+      '@ombro/dnd-vue': ^0.1.6
       '@vueuse/core': ^9.12.0
-      react-dnd-html5-backend: ^16.0.1
       vue: ^3.2.47
       vue-router: ^4.1.6
-      vue3-dnd: ^2.0.2
     dependencies:
       '@cphayim-enc/base': link:../base
       '@cphayim-enc/extension-form-editor': link:../extension-form-editor
       '@cphayim-enc/shared': link:../shared
       '@cphayim-enc/vue': link:../vue
-      react-dnd-html5-backend: 16.0.1
-      vue3-dnd: 2.0.2_vue@3.2.47
+      '@ombro/dnd-backend': 0.1.6
+      '@ombro/dnd-vue': 0.1.6_vue@3.2.47
     devDependencies:
       '@vueuse/core': 9.13.0_vue@3.2.47
       vue: 3.2.47
@@ -1417,6 +1417,25 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.14.0
     dev: true
+
+  /@ombro/dnd-backend/0.1.6:
+    resolution: {integrity: sha512-pElYT1FeVksPI/PP+qS8ewSb83KwBXFlz59zI2Tm/PV3r+6OtrD+Bb34jzaVPm3deOkmQHsT3svZqEz11QgkCA==}
+    dependencies:
+      react-dnd-html5-backend: 16.0.1
+      react-dnd-test-backend: 16.0.1
+      react-dnd-touch-backend: 16.0.1
+    dev: false
+
+  /@ombro/dnd-vue/0.1.6_vue@3.2.47:
+    resolution: {integrity: sha512-N1mZn/FYsQgBtnIv+jXB7yuFfsWexTE+akVH8IT/P9IjRRe7tXPDo2YJRUSQrUkD4jy99zzfn62+EDsX6yiZ8A==}
+    peerDependencies:
+      vue: ^3.2.25
+    dependencies:
+      vue: 3.2.47
+      vue3-dnd: 2.0.2_vue@3.2.47
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: false
 
   /@ombro/eslint-config-typescript/0.1.3_cxk2izsnbljdhebs7ezdbimyva:
     resolution: {integrity: sha512-YebskA0WnqKUDjmkGn1UZEdH9/tPOFGE3B5ltXci7GZSY/gZtN+xQ14GwVCIDXCtmBYObewGogBAFPDxAHyOPA==}
@@ -5548,6 +5567,19 @@ packages:
   /react-dnd-html5-backend/16.0.1:
     resolution: {integrity: sha512-Wu3dw5aDJmOGw8WjH1I1/yTH+vlXEL4vmjk5p+MHxP8HuHJS1lAGeIdG/hze1AvNeXWo/JgULV87LyQOr+r5jw==}
     dependencies:
+      dnd-core: 16.0.1
+    dev: false
+
+  /react-dnd-test-backend/16.0.1:
+    resolution: {integrity: sha512-sUsQKMmoachP3AGaHLZD4JZWq2dHPoiLRG3YVuC0gXJtGENk3PVR+uRIrml7BEnnTyv+RVeoNK2ziL38Ggh8cw==}
+    dependencies:
+      dnd-core: 16.0.1
+    dev: false
+
+  /react-dnd-touch-backend/16.0.1:
+    resolution: {integrity: sha512-NonoCABzzjyWGZuDxSG77dbgMZ2Wad7eQiCd/ECtsR2/NBLTjGksPUx9UPezZ1nQ/L7iD130Tz3RUshL/ClKLA==}
+    dependencies:
+      '@react-dnd/invariant': 4.0.2
       dnd-core: 16.0.1
     dev: false
 

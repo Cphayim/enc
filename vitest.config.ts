@@ -13,7 +13,7 @@ export default defineConfig({
     restoreMocks: true,
     environment: 'jsdom',
     deps: {
-      inline: ['element-plus', 'vant'],
+      inline: ['element-plus', 'vant', 'vue3-dnd'],
     },
     // setupFiles: ['./vitest.setup.ts'],
     transformMode: {

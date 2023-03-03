@@ -16,7 +16,7 @@ const formEditorConfig: FormEditorConfig = {
       bizName: 'ItemUnitPriceQuantity',
       bizLabel: '报价组合控件',
       bizDesc: '物品+单价+数量',
-      bizTransform: {
+      bizTransformer: {
         toReal: (_, random) => {
           return [
             {

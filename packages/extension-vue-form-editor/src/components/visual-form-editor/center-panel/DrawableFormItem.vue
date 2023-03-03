@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { toRefs } from '@vueuse/core'
-import { DropTargetMonitor, useDrag, useDrop, XYCoord } from 'vue3-dnd'
+import { DropTargetMonitor, useDrag, useDrop, XYCoord } from '@ombro/dnd-vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { useEventLock } from '@cphayim-enc/vue'
@@ -148,11 +148,16 @@ const handleRemove = useEventLock(() => {
 </script>
 
 <template>
-  <div :data-col-span="props.item.col ?? 24" class="enc-drawable-form-item">
+  <div :data-col-span="props.item.col ?? 24" class="enc-vfe-drawable-form-item-wrap">
     <div
       :class="[
-        'item-inner',
-        { selected: isSelected, moving: isMoving, adding: isAdding, removing: isRemoving },
+        'enc-vfe-drawable-form-item',
+        {
+          'enc-vfe-selected': isSelected,
+          'enc-vfe-moving': isMoving,
+          'enc-vfe-adding': isAdding,
+          'enc-vfe-removing': isRemoving,
+        },
       ]"
       :data-handler-id="dropCollect.handlerId"
       :ref="(setRef as any)"
@@ -167,28 +172,14 @@ const handleRemove = useEventLock(() => {
 </template>
 
 <style>
-.enc-drawable-form-item {
+.enc-vfe-drawable-form-item-wrap {
   @apply enc-p-[5px];
-
-  .item-inner {
-    @apply enc-flex;
-    @apply enc-leading-[40px] enc-px-[10px] enc-border-solid enc-border-opacity-50 enc-rounded-[6px];
-    @apply enc-text-[14px] enc-cursor-pointer;
-    @apply enc-transition-all enc-duration-300;
-    @apply enc-border-gray-300 enc-text-gray-500;
-
-    &.selected {
-      @apply enc-border-blue-500 enc-text-blue-500 enc-bg-blue-500 enc-bg-opacity-20;
-    }
-    &.moving {
-      @apply enc-border-yellow-500 enc-text-yellow-500 enc-bg-yellow-500 enc-bg-opacity-20;
-    }
-    &.adding {
-      @apply enc-border-green-500 enc-text-green-500 enc-bg-green-500 enc-bg-opacity-20;
-    }
-    &.removing {
-      @apply enc-border-red-500 enc-text-red-500 enc-bg-red-500 enc-bg-opacity-20;
-    }
-  }
+}
+.enc-vfe-drawable-form-item {
+  @apply enc-flex;
+  @apply enc-leading-[40px] enc-px-[10px] enc-border-solid enc-border-opacity-50 enc-rounded-[6px];
+  @apply enc-text-[14px] enc-cursor-pointer;
+  @apply enc-transition-all enc-duration-300;
+  @apply enc-border-gray-300 enc-text-gray-500;
 }
 </style>

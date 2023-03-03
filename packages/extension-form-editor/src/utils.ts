@@ -1,5 +1,5 @@
-import { isNone } from '@cphayim-enc/shared'
-import { isFunction, isObject, isString } from '@vue/shared'
+import { isFunction, isNone, isObject, isString } from '@cphayim-enc/shared'
+
 import type { FormEditorBizFeature } from './FormEditorBiz'
 import type { FormEditorPresetFeature } from './FormEditorPreset'
 
@@ -17,6 +17,6 @@ export function isBizFeature(feature: any): feature is FormEditorBizFeature {
     !isNone(feature) &&
     isString(feature.bizName) &&
     isString(feature.bizLabel) &&
-    isObject(feature.bizTransform)
+    isObject(feature.bizTransformer)
   )
 }
