@@ -169,7 +169,7 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
 
 /* vant 头部使用自定义安全区变量高度 */
 .van-safe-area-top {
-  padding-top: var(--safe-area-inset-top);
+  padding-top: var(--enc-safe-area-inset-top);
 }
 </style>
 
