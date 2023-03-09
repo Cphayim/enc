@@ -36,9 +36,7 @@ type Props = {
    */
   backend?: any
 }
-const props = withDefaults(defineProps<Props>(), {
-  backend: () => HTML5Backend,
-})
+const props = defineProps<Props>()
 
 const emit = defineEmits<(e: 'update:items', v: FormItemUnion[]) => void>()
 
@@ -115,7 +113,7 @@ watch(
 </script>
 
 <template>
-  <DndProvider :backend="props.backend">
+  <DndProvider :backend="props.backend || HTML5Backend">
     <div class="enc-vfe">
       <!-- left features panel -->
       <EncVisualFormEditorLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
