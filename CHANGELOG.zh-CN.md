@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.1.13 (2023-03-09)
+
+### Bug fixes
+
+**@cphayim-enc/vue-vant**
+
+- 修复了 `EncLayout` 组件头部安全区域在安卓上失效问题 [#56](https://github.com/Cphayim/enc/pull/56)
+
+### Dependencies
+
+Update dependencies [#52](https://github.com/Cphayim/enc/pull/52), [#54](https://github.com/Cphayim/enc/pull/54)
+
 ## 0.1.12 (2023-02-20)
 
 ### Features
