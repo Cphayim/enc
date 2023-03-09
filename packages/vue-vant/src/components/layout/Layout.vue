@@ -87,7 +87,7 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
 </script>
 
 <template>
-  <div class="enc-layout-[vant]" :class="{ 'android-p2v-ignore': isAndroid }">
+  <div class="enc-layout-[vant]" :class="{ 'enc-android-p2v-ignore': isAndroid }">
     <!-- header -->
     <div v-if="hasHeader" class="enc-layout-[vant]__header">
       <slot name="header">
@@ -160,6 +160,17 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
   --enc-layout-header-background: var(--enc-primary-color);
   --enc-layout-header-text-color: #fff;
 }
+
+.enc-android-p2v-ignore {
+  /* 很多安卓设备没有 env(safe-area) 系列环境变量，使用固定顶部安全区  */
+  --enc-safe-area-inset-top: 30px;
+  /* 安卓底部存在虚拟按键条，无需适配 */
+}
+
+/* vant 头部使用自定义安全区变量高度 */
+.van-safe-area-top {
+  padding-top: var(--safe-area-inset-top);
+}
 </style>
 
 <style>
@@ -174,12 +185,6 @@ const isAndroid = ref(props.platform === 'auto' ? platform.Android : props.platf
   height: 100vh;
   overflow: hidden;
   background-color: var(--enc-background-color);
-
-  &.android-p2v-ignore {
-    /* 很多安卓设备没有 env(safe-area) 系列环境变量，使用固定顶部安全区  */
-    --enc-safe-area-inset-top: 25px;
-    /* 安卓底部存在虚拟按键条，无需适配 */
-  }
 }
 
 .enc-layout-\[vant\]__header {
