@@ -6,11 +6,10 @@ import { formEditorTips, VisualFormEditorConfig } from '@cphayim-enc/extension-f
 import { EncFormEditorTip } from '../../form-editor-tip'
 import {
   EncBaseFormItemEditor,
-  EncInputFormItemEditor,
   EncRulesFormItemEditor,
+  typeFormItemEditorComponentMap,
 } from '../../form-item-editor'
 import type { VisualFormEditorSelectedItem } from '..'
-import type { FormItemUnion } from '@cphayim-enc/base'
 
 defineOptions({ name: 'EncVisualFormEditorRightPanel' })
 
@@ -20,19 +19,6 @@ const props = defineProps<{
 }>()
 
 const selectedItem = useVModel(props, 'selectedItem')
-
-const CompMap: Record<FormItemUnion['type'], any> = {
-  input: EncInputFormItemEditor,
-  select: null,
-  cascader: null,
-  date: null,
-  time: null,
-  upload: null,
-  switch: null,
-  radio: null,
-  checkbox: null,
-  custom: null,
-}
 </script>
 
 <template>
@@ -43,7 +29,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
         <EncBaseFormItemEditor v-model="selectedItem.item" :config="props.config" />
         <EncRulesFormItemEditor v-model="selectedItem.item" :config="props.config" />
         <component
-          :is="CompMap[selectedItem.item.type]"
+          :is="typeFormItemEditorComponentMap[selectedItem.item.type]"
           v-model="selectedItem.item"
           :config="props.config"
         />

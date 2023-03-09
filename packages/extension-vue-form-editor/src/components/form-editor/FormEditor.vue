@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FormItemUnion } from '@cphayim-enc/base'
-import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 import { useFormItems } from '@cphayim-enc/vue'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncVisualFormEditor } from '../visual-form-editor'
 import { EncCodeFormEditor } from '../code-form-editor'
@@ -27,12 +27,13 @@ const emit = defineEmits<{
 const { formItems } = useFormItems(props.initItems ?? [])
 
 const getItems = () => formItems.value
-defineExpose({ getItems })
 
 const handleConfirm = () => {
   emit('confirm', getItems())
   console.log(getItems())
 }
+
+defineExpose({ getItems })
 </script>
 
 <template>

@@ -21,7 +21,7 @@ const modelValue = useVModel(props, 'modelValue')
 
 const { EncForm, formRef, formItems, updateItem } = useEditorItems(INPUT_ITEMS, props.config)
 watchEffect(() => {
-  updateItem('inputRows', { hidden: modelValue.value?.inputType === 'textarea' })
+  updateItem('inputRows', { hidden: modelValue.value?.inputType !== 'textarea' })
 })
 </script>
 

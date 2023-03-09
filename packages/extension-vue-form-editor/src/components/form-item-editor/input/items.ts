@@ -3,7 +3,7 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 export const INPUT_ITEMS: FormItemUnion[] = [
   {
     name: 'inputType',
-    label: '类型',
+    label: '输入类型',
     type: 'select',
     selectOptions: [
       { label: '单行输入', value: 'text' },
@@ -14,16 +14,16 @@ export const INPUT_ITEMS: FormItemUnion[] = [
     rules: [{ required: true, message: '必填项' }],
   },
   {
-    name: 'inputMaxLength',
-    label: '最大长度',
-    type: 'input',
-    inputType: 'number',
-  },
-  {
     name: 'inputRows',
-    label: '行数',
+    label: '显示行数',
     type: 'input',
     inputType: 'number',
     hidden: true,
+  },
+  {
+    name: 'inputMaxLength',
+    label: '长度限制',
+    type: 'input',
+    inputType: 'number',
   },
 ]

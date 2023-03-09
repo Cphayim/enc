@@ -74,6 +74,22 @@ const formEditorConfig: FormEditorConfig = {
 const initItems: FormItemUnion[] = [
   { name: 'name', label: '姓名', type: 'input', col: 12, rules: [{ required: true }] },
   { name: 'age', label: '年龄', type: 'input', col: 12 },
+  {
+    name: 'gender',
+    label: '性别',
+    type: 'select',
+    col: 12,
+    selectOptions: [
+      {
+        label: '男',
+        value: 1,
+      },
+      {
+        label: '女',
+        value: 2,
+      },
+    ],
+  },
   { name: 'occupation', label: '职业', type: 'select', col: 24 },
 ]
 </script>
