@@ -39,8 +39,8 @@ const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
 const uploadLimited = computed(() =>
   item.value.uploadMultiple ? item.value.uploadMultipleLimit : 1,
 )
-const uploadAccept = computed(() =>
-  item.value.uploadAccept ?? item.value.uploadType === 'image' ? 'image/*' : '*',
+const uploadAccept = computed(
+  () => item.value.uploadAccept ?? (item.value.uploadType === 'image' ? 'image/*' : '*'),
 )
 
 const _uploadedFileList = computed<UploadedFile[]>({
