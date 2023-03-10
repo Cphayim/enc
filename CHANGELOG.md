@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.15 (2023-03-10)
+
+### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+- Fixed logical judgment of `uploadAccept` [#59](https://github.com/Cphayim/enc/pull/59)
+
+**@cphayim-enc/vue-vant**
+
+- Fixed logical judgment of `uploadAccept` [#59](https://github.com/Cphayim/enc/pull/59)
+
 ## 0.1.14 (2023-03-09)
 
 ### Dependencies
