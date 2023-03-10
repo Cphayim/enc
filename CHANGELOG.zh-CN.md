@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.1.15 (2023-03-10)
+
+### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+- 修复了 `uploadAccept` 逻辑判断 [#59](https://github.com/Cphayim/enc/pull/59)
+
+**@cphayim-enc/vue-vant**
+
+- 修复了 `uploadAccept` 逻辑判断 [#59](https://github.com/Cphayim/enc/pull/59)
+
 ## 0.1.14 (2023-03-09)
 
 ### Dependencies
