@@ -35,7 +35,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^9.13.0",
     "dayjs": "^1.11.7",
-    "element-plus": "^2.2.35",
+    "element-plus": "^2.3.0",
     "vue": "^3.2.47"
   },
   "peerDependencies": {
