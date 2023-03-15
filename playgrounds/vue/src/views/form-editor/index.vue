@@ -91,6 +91,7 @@ const initItems: FormItemUnion[] = [
     ],
   },
   { name: 'occupation', label: '职业', type: 'select', col: 24 },
+  { name: 'r', label: '单选框', type: 'radio', radioOptions: ['a', 'b', 'c'] },
 ]
 </script>
 

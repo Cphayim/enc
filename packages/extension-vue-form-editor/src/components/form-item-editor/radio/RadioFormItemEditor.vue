@@ -32,6 +32,16 @@ const handleAddOption = () => {
 const handleRemoveOption = (index: number) => {
   modelValue.value?.radioOptions?.splice(index, 1)
 }
+
+// (RadioLabelOrValue | RadioOptions)[] -> RadioOptions[]
+function initTransformRadioOptions() {
+  if (!modelValue.value) return
+  modelValue.value.radioOptions = modelValue.value.radioOptions?.map((option) =>
+    typeof option === 'object' ? option : { label: option?.toString(), value: option?.toString() },
+  )
+}
+
+initTransformRadioOptions()
 </script>
 
 <template>
