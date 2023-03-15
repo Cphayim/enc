@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     'prefer-const': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/valid-v-model': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-explicit-any': 'off',

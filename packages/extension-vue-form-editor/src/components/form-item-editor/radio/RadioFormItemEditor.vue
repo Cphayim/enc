@@ -1,46 +1,41 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
-import type { SelectFormItem } from '@cphayim-enc/base'
+import type { RadioFormItem, RadioOptions } from '@cphayim-enc/base'
 import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { useEditorItems } from '../../../hooks'
 import { EncEditorFieldset } from '../../editor-fieldset'
 import { COMMON_ENC_FORM_PROPS } from '../common'
-import { SELECT_ITEMS } from './items'
+import { RADIO_ITEMS } from './items'
+import EncRadioFormItemOptionEditor from './RadioFormItemOptionEditor.vue'
 
-import EncSelectFormItemOptionEditor from './SelectFormItemOptionEditor.vue'
-
-defineOptions({ name: 'EncSelectFormItemEditor' })
+defineOptions({ name: 'EncRadioFormItemEditor' })
 
 const props = defineProps<{
   config: VisualFormEditorConfig
-  modelValue?: SelectFormItem
+  modelValue?: RadioFormItem
 }>()
 
 const modelValue = useVModel(props, 'modelValue')
 
-const { EncForm, formRef, formItems, updateItem } = useEditorItems(SELECT_ITEMS, props.config)
-watchEffect(() => {
-  updateItem('selectMultipleLimit', { hidden: !modelValue.value?.selectMultiple })
-})
+const { EncForm, formRef, formItems } = useEditorItems(RADIO_ITEMS, props.config)
 
 const handleAddOption = () => {
   if (!modelValue.value) return
-  if (!modelValue.value.selectOptions) {
-    modelValue.value.selectOptions = []
+  if (!modelValue.value.radioOptions) {
+    modelValue.value.radioOptions = []
   }
-  modelValue.value.selectOptions?.push({ label: 'label', value: 'value' })
+  modelValue.value.radioOptions?.push({ label: 'label', value: 'value' })
 }
 const handleRemoveOption = (index: number) => {
-  modelValue.value?.selectOptions?.splice(index, 1)
+  modelValue.value?.radioOptions?.splice(index, 1)
 }
 </script>
 
 <template>
-  <EncEditorFieldset title="下拉选择配置">
+  <EncEditorFieldset title="单选框配置">
     <EncForm
       v-bind="COMMON_ENC_FORM_PROPS"
       v-model:data="modelValue"
@@ -59,11 +54,11 @@ const handleRemoveOption = (index: number) => {
         </span>
       </template>
 
-      <div v-if="modelValue?.selectOptions" class="enc-pt-[10px]">
-        <div v-for="(_, index) in modelValue.selectOptions" :key="index" class="enc-flex">
-          <EncSelectFormItemOptionEditor
+      <div v-if="modelValue?.radioOptions" class="enc-pt-[10px]">
+        <div v-for="(_, index) in modelValue.radioOptions" :key="index" class="enc-flex">
+          <EncRadioFormItemOptionEditor
             :config="props.config"
-            v-model="modelValue.selectOptions[index]"
+            v-model="(modelValue.radioOptions[index]) as RadioOptions"
           />
           <span
             @click="handleRemoveOption(index)"
