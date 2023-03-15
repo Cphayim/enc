@@ -1,4 +1,5 @@
 import type { FormItemUnion } from '@cphayim-enc/base'
+import { EncCheckboxFormItemEditor } from './checkbox'
 
 import { EncInputFormItemEditor } from './input'
 import { EncRadioFormItemEditor } from './radio'
@@ -14,7 +15,7 @@ export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> 
   upload: null,
   switch: EncSwitchFormItemEditor,
   radio: EncRadioFormItemEditor,
-  checkbox: null,
+  checkbox: EncCheckboxFormItemEditor,
   custom: null,
 }
 

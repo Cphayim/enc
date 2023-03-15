@@ -88,6 +88,7 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
   }),
   [FormEditorPreset.Checkbox]: createFeature(FormEditorPreset.Checkbox, {
     type: 'checkbox',
+    checkboxType: 'single',
   }),
   [FormEditorPreset.Date]: createFeature(FormEditorPreset.Date, {
     type: 'date',
