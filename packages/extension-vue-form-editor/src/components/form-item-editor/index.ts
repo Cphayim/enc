@@ -2,6 +2,7 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 
 import { EncInputFormItemEditor } from './input'
 import { EncSelectFormItemEditor } from './select'
+import { EncSwitchFormItemEditor } from './switch'
 
 export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItemEditor,
@@ -10,7 +11,7 @@ export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> 
   date: null,
   time: null,
   upload: null,
-  switch: null,
+  switch: EncSwitchFormItemEditor,
   radio: null,
   checkbox: null,
   custom: null,
