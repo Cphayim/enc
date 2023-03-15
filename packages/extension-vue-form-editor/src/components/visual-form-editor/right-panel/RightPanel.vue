@@ -25,9 +25,17 @@ const selectedItem = useVModel(props, 'selectedItem')
   <div class="enc-vfe-right-panel">
     <EncFormEditorTip :content="formEditorTips.right" />
     <template v-if="selectedItem && selectedItem.type === 'select'">
-      <div :key="selectedItem.index">
+      <!-- 不能编辑业务组合型控件配置 -->
+      <div v-if="selectedItem.item.extra?.biz" class="enc-text-[14px] enc-text-gray-500">
+        <span>无法编辑业务组合型控件的配置</span>
+      </div>
+
+      <div v-else :key="selectedItem.index">
+        <!-- base -->
         <EncBaseFormItemEditor v-model="selectedItem.item" :config="props.config" />
+        <!-- rule -->
         <EncRulesFormItemEditor v-model="selectedItem.item" :config="props.config" />
+        <!-- type self -->
         <component
           :is="typeFormItemEditorComponentMap[selectedItem.item.type]"
           v-model="selectedItem.item"
