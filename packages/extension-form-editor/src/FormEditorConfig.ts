@@ -1,6 +1,21 @@
 import type { FormEditorPreset } from './FormEditorPreset'
 import type { FormEditorBizFeature } from './FormEditorBiz'
 
+export enum FormEditorOperation {
+  /**
+   * 提交
+   */
+  Submit,
+  /**
+   * 预览
+   */
+  Preview,
+  /**
+   * 打印配置项到控制台
+   */
+  PrintItems,
+}
+
 export type FormEditorConfig = VisualFormEditorConfig | CodeFormEditorConfig
 
 interface BaseFormEditorConfig {
@@ -9,10 +24,6 @@ interface BaseFormEditorConfig {
    * @default 'visual'
    */
   mode: string
-  /**
-   * 是否启用“预览”功能
-   */
-  preview?: boolean
   /**
    * 预览用的 EncForm 组件（注意不是组件实例）
    *
@@ -23,6 +34,10 @@ interface BaseFormEditorConfig {
    * 需要透传给预览用的 EncForm 组件的额外 props
    */
   encFormProps?: Record<string, any>
+  /**
+   * 启用的操作项
+   */
+  operations?: FormEditorOperation[]
 }
 
 /**

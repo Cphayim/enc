@@ -2,6 +2,7 @@
 import { EncForm, FormItemUnion } from '@cphayim-enc/vue-element-plus'
 import {
   EncFormEditor,
+  FormEditorOperation,
   // FormEditorPreset,
   type FormEditorConfig,
 } from '@cphayim-enc/extension-vue-form-editor'
@@ -9,6 +10,11 @@ import {
 const formEditorConfig: FormEditorConfig = {
   mode: 'visual',
   encFormComponent: EncForm,
+  operations: [
+    FormEditorOperation.Submit,
+    FormEditorOperation.Preview,
+    FormEditorOperation.PrintItems,
+  ],
   randomNameOnly: true,
   // presets: [FormEditorPreset.Input],
   bizFeatures: [
