@@ -55,7 +55,7 @@ const handleRemoveOption = (index: number) => {
         </span>
       </template>
 
-      <template v-if="modelValue?.selectOptions">
+      <div class="enc-pt-[10px]" v-if="modelValue?.selectOptions">
         <div v-for="(_, index) in modelValue.selectOptions" :key="index" class="enc-flex">
           <EncSelectFormItemOptionEditor
             :config="props.config"
@@ -68,7 +68,7 @@ const handleRemoveOption = (index: number) => {
             <EncFormEditorIcon :name="FormEditorIcon.Remove" />
           </span>
         </div>
-      </template>
+      </div>
     </EncEditorFieldset>
   </EncEditorFieldset>
 </template>
