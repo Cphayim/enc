@@ -109,9 +109,11 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
   [FormEditorPreset.UploadImage]: createFeature(FormEditorPreset.UploadImage, {
     type: 'upload',
     uploadType: 'image',
+    uploadButtonText: '上传文件',
   }),
   [FormEditorPreset.UploadFile]: createFeature(FormEditorPreset.UploadFile, {
     type: 'upload',
     uploadType: 'file',
+    uploadButtonText: '上传文件',
   }),
 }

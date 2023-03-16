@@ -64,7 +64,7 @@ initTransformRadioOptions()
         </span>
       </template>
 
-      <div v-if="modelValue?.radioOptions" class="enc-pt-[10px]">
+      <div v-if="modelValue?.radioOptions && modelValue.radioOptions.length" class="enc-pt-[10px]">
         <div v-for="(_, index) in modelValue.radioOptions" :key="index" class="enc-flex">
           <EncRadioFormItemOptionEditor
             :config="props.config"

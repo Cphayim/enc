@@ -10,7 +10,7 @@ import {
 const formEditorConfig: FormEditorConfig = {
   encFormComponent: EncForm,
   operations: [
-    FormEditorOperation.Submit,
+    FormEditorOperation.Confirm,
     FormEditorOperation.Preview,
     FormEditorOperation.PrintItems,
   ],
@@ -101,11 +101,19 @@ const initItems: FormItemUnion[] = [
   { name: 'occupation', label: '职业', type: 'select', col: 24 },
   { name: 'r', label: '单选框', type: 'radio', radioOptions: ['a', 'b', 'c'] },
 ]
+
+const handleConfirm = (items: FormItemUnion[]) => {
+  console.log(items)
+}
 </script>
 
 <template>
   <div class="p-[20px] rounded-[10px] m-[50px] shadow-md bg-white">
-    <EncFormEditor :config="formEditorConfig" :initItems="initItems"></EncFormEditor>
+    <EncFormEditor
+      :config="formEditorConfig"
+      :initItems="initItems"
+      @confirm="handleConfirm"
+    ></EncFormEditor>
   </div>
 </template>
 

@@ -3,9 +3,9 @@ import type { FormEditorBizFeature } from './FormEditorBiz'
 
 export enum FormEditorOperation {
   /**
-   * 提交
+   * 确认
    */
-  Submit,
+  Confirm,
   /**
    * 预览
    */

@@ -12,7 +12,6 @@ import {
 import { EncFormPreview } from '../form-preview'
 import { EncFormEditPanel } from '../form-edit-panel'
 import { DEFAULT_FORM_EDITOR_CONFIG } from './config'
-import { deepClone } from '@cphayim-enc/shared'
 
 defineOptions({ name: 'EncFormEditor' })
 
@@ -49,12 +48,15 @@ const getFormItems = () =>
 
 const handleConfirm = () => {
   emit('confirm', getFormItems())
-  console.log(getFormItems())
 }
 
 const isPreview = ref(false)
 const handleTogglePreview = () => {
   isPreview.value = !isPreview.value
+}
+
+const handlePrint = () => {
+  console.log(getFormItems())
 }
 
 const hasOperation = (operation: FormEditorOperation) =>
@@ -86,15 +88,16 @@ defineExpose({ getFormItems })
     <!-- bottom operation area -->
     <div class="enc-form-editor-operation-box">
       <div
-        v-if="hasOperation(FormEditorOperation.Submit)"
+        v-if="hasOperation(FormEditorOperation.Confirm)"
         @click="handleConfirm"
         class="enc-form-editor-operation-btn"
       >
-        提交
+        确认
       </div>
       <div @click="handleTogglePreview" class="enc-form-editor-operation-btn">
         {{ isPreview ? '退出预览' : '预览' }}
       </div>
+      <div @click="handlePrint" class="enc-form-editor-operation-btn">获取配置项</div>
     </div>
   </div>
 </template>

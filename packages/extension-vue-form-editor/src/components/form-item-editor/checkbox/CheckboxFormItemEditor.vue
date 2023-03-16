@@ -74,7 +74,10 @@ initTransformCheckboxOptions()
         </span>
       </template>
 
-      <div v-if="modelValue?.checkboxGroupOptions" class="enc-pt-[10px]">
+      <div
+        v-if="modelValue?.checkboxGroupOptions && modelValue.checkboxGroupOptions.length"
+        class="enc-pt-[10px]"
+      >
         <div v-for="(_, index) in modelValue.checkboxGroupOptions" :key="index" class="enc-flex">
           <EncRadioFormItemOptionEditor
             :config="props.config"
