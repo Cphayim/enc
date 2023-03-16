@@ -7,6 +7,7 @@ import { EncRadioFormItemEditor } from './radio'
 import { EncSelectFormItemEditor } from './select'
 import { EncSwitchFormItemEditor } from './switch'
 import { EncTimeFormItemEditor } from './time'
+import { EncUploadFormItemEditor } from './upload'
 
 export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItemEditor,
@@ -14,7 +15,7 @@ export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> 
   cascader: null,
   date: EncDateFormItemEditor,
   time: EncTimeFormItemEditor,
-  upload: null,
+  upload: EncUploadFormItemEditor,
   switch: EncSwitchFormItemEditor,
   radio: EncRadioFormItemEditor,
   checkbox: EncCheckboxFormItemEditor,
