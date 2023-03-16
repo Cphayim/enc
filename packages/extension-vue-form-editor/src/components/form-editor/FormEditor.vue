@@ -45,9 +45,7 @@ const { formItems } = useFormItems(
 )
 
 const getFormItems = () =>
-  deepClone(
-    BizFeatureFormEditorTransformer.toReal(toRaw(formItems.value), config.value.bizFeatures ?? []),
-  )
+  BizFeatureFormEditorTransformer.toReal(toRaw(formItems.value), config.value.bizFeatures ?? [])
 
 const handleConfirm = () => {
   emit('confirm', getFormItems())

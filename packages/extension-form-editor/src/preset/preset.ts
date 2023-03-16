@@ -92,6 +92,8 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
   }),
   [FormEditorPreset.Date]: createFeature(FormEditorPreset.Date, {
     type: 'date',
+    dateType: 'date',
+    dateFormat: 'YYYY-MM-DD',
   }),
   [FormEditorPreset.Time]: createFeature(FormEditorPreset.Time, {
     type: 'time',

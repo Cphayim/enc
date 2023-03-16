@@ -55,4 +55,4 @@ export interface DateFormItem<F = string, E = any> extends PopupFormItem<F, E> {
   dateRangeEndPlaceholder?: string
 }
 
-export type DateFormItemType = 'date' | 'year-month' | 'month-day' | 'daterange'
+export type DateFormItemType = 'date' | 'daterange'
