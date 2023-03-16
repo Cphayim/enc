@@ -3,6 +3,7 @@ export * from './FormEditorPreset'
 export * from './FormEditorBiz'
 
 export * from './preset'
+export * from './biz'
 export * from './utils'
 
 export const formEditorTips = {
