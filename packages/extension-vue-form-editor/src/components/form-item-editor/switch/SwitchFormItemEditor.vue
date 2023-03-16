@@ -5,7 +5,7 @@ import type { SwitchFormItem } from '@cphayim-enc/base'
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
-import { EncEditorFieldset } from '../../editor-fieldset'
+import { EncFieldset } from '../../fieldset'
 import { COMMON_ENC_FORM_PROPS } from '../common'
 import { SWITCH_ITEMS } from './items'
 
@@ -22,14 +22,14 @@ const { EncForm, formRef, formItems } = useEditorItems(SWITCH_ITEMS, props.confi
 </script>
 
 <template>
-  <EncEditorFieldset title="开关配置">
+  <EncFieldset title="开关配置">
     <EncForm
       v-bind="COMMON_ENC_FORM_PROPS"
       v-model:data="modelValue"
       :items="formItems"
       ref="formRef"
     />
-  </EncEditorFieldset>
+  </EncFieldset>
 </template>
 
 <style></style>

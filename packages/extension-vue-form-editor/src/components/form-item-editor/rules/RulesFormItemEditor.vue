@@ -6,7 +6,7 @@ import type { FormItemRule, BaseFormItem } from '@cphayim-enc/base'
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
-import { EncEditorFieldset } from '../../editor-fieldset'
+import { EncFieldset } from '../../fieldset'
 import { COMMON_ENC_FORM_PROPS } from '../common'
 import { REQUIRED_RULE_ITEMS, PATTERN_RULE_ITEMS } from './items'
 import { isNone } from '@cphayim-enc/shared'
@@ -60,7 +60,7 @@ watch(
 </script>
 
 <template>
-  <EncEditorFieldset title="验证配置">
+  <EncFieldset title="验证配置">
     <EncForm
       v-bind="COMMON_ENC_FORM_PROPS"
       v-model:data="requiredRule"
@@ -73,7 +73,7 @@ watch(
       :items="patternRuleFormItems"
       ref="patternRuleFormRef"
     />
-  </EncEditorFieldset>
+  </EncFieldset>
 </template>
 
 <style></style>

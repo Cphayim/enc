@@ -6,7 +6,7 @@ import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { useEditorItems } from '../../../hooks'
-import { EncEditorFieldset } from '../../editor-fieldset'
+import { EncFieldset } from '../../fieldset'
 import { COMMON_ENC_FORM_PROPS } from '../common'
 import { RADIO_ITEMS } from './items'
 import EncRadioFormItemOptionEditor from './RadioFormItemOptionEditor.vue'
@@ -45,7 +45,7 @@ initTransformRadioOptions()
 </script>
 
 <template>
-  <EncEditorFieldset title="单选框配置">
+  <EncFieldset title="单选框配置">
     <EncForm
       v-bind="COMMON_ENC_FORM_PROPS"
       v-model:data="modelValue"
@@ -53,7 +53,7 @@ initTransformRadioOptions()
       ref="formRef"
     />
 
-    <EncEditorFieldset>
+    <EncFieldset>
       <template #title>
         <span class="enc-mr-[8px]">选项</span>
         <span
@@ -81,8 +81,8 @@ initTransformRadioOptions()
       <div v-else class="enc-py-[20px] enc-text-[14px] enc-text-gray-400 enc-text-center">
         暂无选项
       </div>
-    </EncEditorFieldset>
-  </EncEditorFieldset>
+    </EncFieldset>
+  </EncFieldset>
 </template>
 
 <style></style>

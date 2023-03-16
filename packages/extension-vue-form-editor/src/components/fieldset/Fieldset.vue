@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineOptions({ name: 'EncEditorFieldset' })
+defineOptions({ name: 'EncFieldset' })
 
 const props = defineProps<{ title?: string }>()
 </script>

@@ -6,7 +6,7 @@ import type { BaseFormItem } from '@cphayim-enc/base'
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
-import { EncEditorFieldset } from '../../editor-fieldset'
+import { EncFieldset } from '../../fieldset'
 import { COMMON_ENC_FORM_PROPS } from '../common'
 import { BASE_ITEMS } from './items'
 
@@ -26,14 +26,14 @@ watchEffect(() => {
 </script>
 
 <template>
-  <EncEditorFieldset title="基本配置">
+  <EncFieldset title="基本配置">
     <EncForm
       v-bind="COMMON_ENC_FORM_PROPS"
       v-model:data="modelValue"
       :items="formItems"
       ref="formRef"
     />
-  </EncEditorFieldset>
+  </EncFieldset>
 </template>
 
 <style></style>

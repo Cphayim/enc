@@ -12,7 +12,7 @@ import {
 import { DnDTypes, type DragFeature } from '../dnd'
 import type { FormEditorInternalEmitter } from '..'
 
-defineOptions({ name: 'EncVisualFormEditorDrawableFeature' })
+defineOptions({ name: 'EncDrawableFeature' })
 
 const props = defineProps<{
   feature: FormEditorPresetFeature | FormEditorBizFeature
@@ -52,7 +52,7 @@ const handleAdd = useEventLock(() => {
 
 <template>
   <div :data-col-span="colSpan">
-    <div @click="handleAdd" :ref="drag" class="enc-vfe-feature-btn">
+    <div @click="handleAdd" :ref="drag" class="enc-edit-panel-feature-btn">
       <span>{{ label }}</span>
       <span v-if="desc" class="enc-text-[12px] enc-text-gray-500 enc-font-light">{{ desc }}</span>
     </div>
@@ -60,7 +60,7 @@ const handleAdd = useEventLock(() => {
 </template>
 
 <style>
-.enc-vfe-feature-btn {
+.enc-edit-panel-feature-btn {
   @apply enc-flex enc-flex-col enc-items-center enc-justify-center;
   @apply enc-min-h-[40px] enc-py-[5px] enc-mb-[10px] enc-mx-[5px] enc-cursor-pointer enc-rounded-[4px];
   @apply enc-text-gray-500 enc-text-[14px] enc-bg-gray-100;

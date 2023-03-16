@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, toRaw } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { useFormItems } from '@cphayim-enc/vue'
@@ -10,8 +10,9 @@ import {
 } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormPreview } from '../form-preview'
-import { EncFormEditorEditPanel } from '../edit-panel'
+import { EncFormEditPanel } from '../form-edit-panel'
 import { DEFAULT_FORM_EDITOR_CONFIG } from './config'
+import { deepClone } from '@cphayim-enc/shared'
 
 defineOptions({ name: 'EncFormEditor' })
 
@@ -38,14 +39,15 @@ const config = computed(() => ({
 
 const { formItems } = useFormItems(
   BizFeatureFormEditorTransformer.toPlaceHolder(
-    props.initItems ?? [],
+    toRaw(props.initItems ?? []),
     config.value.bizFeatures ?? [],
   ),
 )
 
-const getFormItems = () => {
-  return BizFeatureFormEditorTransformer.toReal(formItems.value, config.value.bizFeatures ?? [])
-}
+const getFormItems = () =>
+  deepClone(
+    BizFeatureFormEditorTransformer.toReal(toRaw(formItems.value), config.value.bizFeatures ?? []),
+  )
 
 const handleConfirm = () => {
   emit('confirm', getFormItems())
@@ -76,11 +78,11 @@ defineExpose({ getFormItems })
 
     <!-- edit -->
     <template v-else>
-      <EncFormEditorEditPanel
+      <EncFormEditPanel
         v-model:items="formItems"
         :config="config"
         ref="formEditorInstRef"
-      ></EncFormEditorEditPanel>
+      ></EncFormEditPanel>
     </template>
 
     <!-- bottom operation area -->

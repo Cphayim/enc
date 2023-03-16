@@ -10,11 +10,11 @@ import { useEmitter } from '@cphayim-enc/vue'
 import { FormEditorConfig, isPresetFeature } from '@cphayim-enc/extension-form-editor'
 
 import type { FormEditorInternalEvents, FormEditorSelectedItem } from '.'
-import { EncFormEditorLeftPanel } from './left-panel'
-import { EncFormEditorCenterPanel } from './center-panel'
-import { EncFormEditorRightPanel } from './right-panel'
+import { EncLeftPanel } from './left-panel'
+import { EncCenterPanel } from './center-panel'
+import { EncRightPanel } from './right-panel'
 
-defineOptions({ name: 'EncFormEditorEditPanel' })
+defineOptions({ name: 'EncFormEditPanel' })
 
 type Props = {
   /**
@@ -107,11 +107,11 @@ watch(
 
 <template>
   <DndProvider :backend="props.backend || HTML5Backend">
-    <div class="enc-vfe">
+    <div class="enc-edit-panel">
       <!-- left features panel -->
-      <EncFormEditorLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
+      <EncLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
       <!-- center items panel -->
-      <EncFormEditorCenterPanel
+      <EncCenterPanel
         v-model:items="formItems"
         :config="config"
         :emitter="emitter"
@@ -119,7 +119,7 @@ watch(
         class="enc-flex-1"
       />
       <!-- right detail edit panel -->
-      <EncFormEditorRightPanel
+      <EncRightPanel
         :config="config"
         v-model:selectedItem="selectedItem"
         class="enc-flex-shrink-0"
@@ -129,7 +129,7 @@ watch(
 </template>
 
 <style>
-.enc-vfe {
+.enc-edit-panel {
   @apply enc-flex enc-min-h-[800px];
   &-selected {
     @apply enc-border-blue-500 enc-text-blue-500 enc-bg-blue-500 enc-bg-opacity-20;

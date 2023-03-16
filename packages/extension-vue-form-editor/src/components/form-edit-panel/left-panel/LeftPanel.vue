@@ -13,7 +13,7 @@ import { EncFormEditorTip } from '../../form-editor-tip'
 import type { FormEditorInternalEmitter } from '..'
 import DrawableFeature from './DrawableFeature.vue'
 
-defineOptions({ name: 'EncFormEditorLeftPanel' })
+defineOptions({ name: 'EncLeftPanel' })
 
 const props = defineProps<{
   config: FormEditorConfig
@@ -27,12 +27,12 @@ const bizFeatures = computed(() => props.config.bizFeatures)
 </script>
 
 <template>
-  <div class="enc-vfe-left-panel">
+  <div class="enc-edit-panel-left-panel">
     <EncFormEditorTip :content="formEditorTips.left" />
     <!-- preset features -->
     <template v-for="group in presetFeatureGroups" :key="group.groupName">
-      <div v-if="group.features.length" class="enc-vfe-feature-group">
-        <div class="enc-vfe-feature-group-name">{{ group.groupName }}</div>
+      <div v-if="group.features.length" class="enc-edit-panel-feature-group">
+        <div class="enc-edit-panel-feature-group-name">{{ group.groupName }}</div>
         <div class="enc-flex enc-flex-wrap">
           <template v-for="feature in group.features" :key="feature.presetName">
             <DrawableFeature :feature="feature" :emitter="props.emitter" />
@@ -41,8 +41,8 @@ const bizFeatures = computed(() => props.config.bizFeatures)
       </div>
     </template>
     <!-- biz features -->
-    <div v-if="bizFeatures" class="enc-vfe-feature-group">
-      <div class="enc-vfe-feature-group-name">业务组合型控件</div>
+    <div v-if="bizFeatures" class="enc-edit-panel-feature-group">
+      <div class="enc-edit-panel-feature-group-name">业务组合型控件</div>
       <div class="enc-flex enc-flex-wrap">
         <template v-for="feature in bizFeatures" :key="feature.presetName">
           <DrawableFeature :feature="feature" :emitter="props.emitter" />
@@ -53,13 +53,13 @@ const bizFeatures = computed(() => props.config.bizFeatures)
 </template>
 
 <style>
-.enc-vfe-left-panel {
+.enc-edit-panel-left-panel {
   @apply enc-w-[320px] enc-p-[20px] enc-border-0 enc-border-r enc-border-solid enc-border-gray-300;
 }
-.enc-vfe-feature-group {
+.enc-edit-panel-feature-group {
   @apply enc-mb-[16px] enc-mx-[-5px];
 }
-.enc-vfe-feature-group-name {
+.enc-edit-panel-feature-group-name {
   @apply enc-pl-[8px] enc-border-0 enc-border-solid enc-border-l-[3px] enc-border-blue-500;
   @apply enc-ml-[5px] enc-mb-[16px] enc-text-gray-600 enc-text-[16px] enc-leading-[16px];
 }

@@ -11,7 +11,7 @@ import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { DnDTypes, DragFeature, DragItem } from '../dnd'
 import type { FormEditorInternalEmitter, FormEditorSelectedItem } from '..'
 
-defineOptions({ name: 'EncVisualFormEditorDrawableFormItem' })
+defineOptions({ name: 'EncDrawableFormItem' })
 
 const props = defineProps<{
   item: FormItemUnion
@@ -148,15 +148,15 @@ const handleRemove = useEventLock(() => {
 </script>
 
 <template>
-  <div :data-col-span="props.item.col ?? 24" class="enc-vfe-drawable-form-item-wrap">
+  <div :data-col-span="props.item.col ?? 24" class="enc-edit-panel-drawable-form-item-wrap">
     <div
       :class="[
-        'enc-vfe-drawable-form-item',
+        'enc-edit-panel-drawable-form-item',
         {
-          'enc-vfe-selected': isSelected,
-          'enc-vfe-moving': isMoving,
-          'enc-vfe-adding': isAdding,
-          'enc-vfe-removing': isRemoving,
+          'enc-edit-panel-selected': isSelected,
+          'enc-edit-panel-moving': isMoving,
+          'enc-edit-panel-adding': isAdding,
+          'enc-edit-panel-removing': isRemoving,
         },
       ]"
       :data-handler-id="dropCollect.handlerId"
@@ -172,10 +172,10 @@ const handleRemove = useEventLock(() => {
 </template>
 
 <style>
-.enc-vfe-drawable-form-item-wrap {
+.enc-edit-panel-drawable-form-item-wrap {
   @apply enc-p-[5px];
 }
-.enc-vfe-drawable-form-item {
+.enc-edit-panel-drawable-form-item {
   @apply enc-flex;
   @apply enc-leading-[40px] enc-px-[10px] enc-border-solid enc-border-opacity-50 enc-rounded-[6px];
   @apply enc-text-[14px] enc-cursor-pointer;

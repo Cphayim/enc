@@ -10,7 +10,7 @@ import type { FormEditorInternalEmitter, FormEditorSelectedItem } from '..'
 import DrawableFormItem from './DrawableFormItem.vue'
 import EmptyContainer from './EmptyContainer.vue'
 
-defineOptions({ name: 'EncFormEditorCenterPanel' })
+defineOptions({ name: 'EncCenterPanel' })
 
 const props = defineProps<{
   items: FormItemUnion[]
@@ -23,7 +23,7 @@ const formItems = useVModel(props, 'items')
 </script>
 
 <template>
-  <div class="enc-vfe-center-panel">
+  <div class="enc-edit-panel-center-panel">
     <EncFormEditorTip :content="formEditorTips.center" />
     <div class="enc-flex enc-flex-wrap enc-mx-[-5px]">
       <EmptyContainer
@@ -46,7 +46,7 @@ const formItems = useVModel(props, 'items')
 </template>
 
 <style>
-.enc-vfe-center-panel {
+.enc-edit-panel-center-panel {
   @apply enc-p-[20px];
 }
 </style>

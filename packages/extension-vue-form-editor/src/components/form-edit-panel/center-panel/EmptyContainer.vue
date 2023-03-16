@@ -5,7 +5,7 @@ import { useDrop } from '@ombro/dnd-vue'
 import type { FormEditorInternalEmitter } from '..'
 import { DnDTypes, DragFeature } from '../dnd'
 
-defineOptions({ name: 'EncVisualFormEditorEmptyContainer' })
+defineOptions({ name: 'EncEmptyContainer' })
 
 const props = defineProps<{
   emitter: FormEditorInternalEmitter
@@ -36,13 +36,17 @@ const handleAddItemByFeature = (item: DragFeature) => {
 </script>
 
 <template>
-  <div ref="drop" class="enc-vfe-empty" :class="{ 'enc-vfe-adding': dropCollect.isAdding }">
+  <div
+    ref="drop"
+    class="enc-edit-panel-empty"
+    :class="{ 'enc-edit-panel-adding': dropCollect.isAdding }"
+  >
     <span>{{ emptyText }}</span>
   </div>
 </template>
 
 <style>
-.enc-vfe-empty {
+.enc-edit-panel-empty {
   @apply enc-flex-1 enc-flex enc-flex-col enc-justify-center enc-items-center;
   @apply enc-py-[150px] enc-border-dashed enc-rounded-[10px];
   @apply enc-text-[14px];

@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 
-import { EncEditorFieldset } from '..'
+import { EncFieldset } from '..'
 
-describe('EditorFieldset.vue', () => {
+describe('Fieldset.vue', () => {
   it('should render fieldset and legend', () => {
-    const wrapper = mount(() => <EncEditorFieldset title="标题" />)
+    const wrapper = mount(() => <EncFieldset title="标题" />)
     expect(wrapper.find('fieldset').exists()).toBe(true)
     expect(wrapper.find('legend').exists()).toBe(true)
     expect(wrapper.find('legend').text()).toBe('标题')
@@ -13,9 +13,9 @@ describe('EditorFieldset.vue', () => {
 
   it('should be able to render the default slot', () => {
     const wrapper = mount(() => (
-      <EncEditorFieldset title="标题">
+      <EncFieldset title="标题">
         <div class="child">child</div>
-      </EncEditorFieldset>
+      </EncFieldset>
     ))
     expect(wrapper.find('.child').exists()).toBe(true)
     expect(wrapper.find('.child').text()).toBe('child')
@@ -23,13 +23,13 @@ describe('EditorFieldset.vue', () => {
 
   it('should be able to render the title slot', () => {
     const wrapper = mount(() => (
-      <EncEditorFieldset
+      <EncFieldset
         title="标题"
         v-slots={{
           default: () => <div class="child">child</div>,
           title: () => <div class="title">title</div>,
         }}
-      ></EncEditorFieldset>
+      ></EncFieldset>
     ))
 
     expect(wrapper.find('.child').exists()).toBe(true)

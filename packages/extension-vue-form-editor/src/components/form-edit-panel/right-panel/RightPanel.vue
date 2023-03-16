@@ -11,7 +11,7 @@ import {
 } from '../../form-item-editor'
 import type { FormEditorSelectedItem } from '..'
 
-defineOptions({ name: 'EncFormEditorRightPanel' })
+defineOptions({ name: 'EncRightPanel' })
 
 const props = defineProps<{
   config: FormEditorConfig
@@ -22,7 +22,7 @@ const selectedItem = useVModel(props, 'selectedItem')
 </script>
 
 <template>
-  <div class="enc-vfe-right-panel">
+  <div class="enc-edit-panel-right-panel">
     <EncFormEditorTip :content="formEditorTips.right" />
     <template v-if="selectedItem && selectedItem.type === 'select'">
       <!-- 不能编辑业务组合型控件配置 -->
@@ -47,7 +47,7 @@ const selectedItem = useVModel(props, 'selectedItem')
 </template>
 
 <style>
-.enc-vfe-right-panel {
+.enc-edit-panel-right-panel {
   @apply enc-w-[400px] enc-p-[20px] enc-border-0 enc-border-l enc-border-solid enc-border-gray-300;
 }
 </style>

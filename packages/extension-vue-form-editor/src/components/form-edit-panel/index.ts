@@ -4,9 +4,9 @@ import type {
   FormEditorBizFeature,
 } from '@cphayim-enc/extension-form-editor'
 
-import EditPanel from './EditPanel.vue'
+import FormEditPanel from './FormEditPanel.vue'
 
-export const EncFormEditorEditPanel = withInstall(EditPanel)
+export const EncFormEditPanel = withInstall(FormEditPanel)
 
 export type FormEditorSelectedItem = {
   type: string
