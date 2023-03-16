@@ -56,6 +56,7 @@ const presetLabelMap: Record<FormEditorPreset, string> = {
   [FormEditorPreset.Checkbox]: '多选框',
   [FormEditorPreset.Date]: '日期选择',
   [FormEditorPreset.Time]: '时间选择',
+  [FormEditorPreset.DateRange]: '日期范围选择',
   [FormEditorPreset.UploadImage]: '图片上传',
   [FormEditorPreset.UploadFile]: '文件上传',
 }
@@ -98,6 +99,12 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
   [FormEditorPreset.Time]: createFeature(FormEditorPreset.Time, {
     type: 'time',
     timeType: 'hour-minute',
+  }),
+  [FormEditorPreset.DateRange]: createFeature(FormEditorPreset.DateRange, {
+    type: 'date',
+    dateType: 'daterange',
+    dateFormat: 'YYYY-MM-DD',
+    dateRangeSeparator: '-',
   }),
   [FormEditorPreset.UploadImage]: createFeature(FormEditorPreset.UploadImage, {
     type: 'upload',

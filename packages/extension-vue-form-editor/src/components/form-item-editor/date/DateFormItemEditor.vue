@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 import type { DateFormItem } from '@cphayim-enc/base'
@@ -18,7 +19,15 @@ const props = defineProps<{
 
 const modelValue = useVModel(props, 'modelValue')
 
-const { EncForm, formRef, formItems } = useEditorItems(DATE_ITEMS, props.config)
+const { EncForm, formRef, formItems, updateItem } = useEditorItems(DATE_ITEMS, props.config)
+
+const isRange = computed(() => modelValue.value?.dateType === 'daterange')
+
+watchEffect(() => {
+  updateItem('dateRangeSeparator', { hidden: !isRange.value })
+  updateItem('dateRangeStartPlaceholder', { hidden: !isRange.value })
+  updateItem('dateRangeEndPlaceholder', { hidden: !isRange.value })
+})
 </script>
 
 <template>

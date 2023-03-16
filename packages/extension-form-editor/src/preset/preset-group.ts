@@ -30,6 +30,7 @@ export function getPresetFeatureGroups(presetSet: Set<FormEditorPreset>) {
         FormEditorPreset.Checkbox,
         FormEditorPreset.Date,
         FormEditorPreset.Time,
+        FormEditorPreset.DateRange,
       ]),
     },
     {
