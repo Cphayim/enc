@@ -26,7 +26,13 @@ const props = withDefaults(defineProps<Props>(), {
   items: () => [],
 })
 
-const { formData, formItems } = useForm({}, toRef(props, 'items'))
+const { formData, formItems } = useForm({}, toRef(props, 'items'), {
+  commonItem: {
+    uploadSend: () => {
+      throw Error('预览模式下无法上传')
+    },
+  },
+})
 
 const EncForm = computed(() => {
   if (props.encFormComponent?.name !== 'EncForm')
