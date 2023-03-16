@@ -1,16 +1,37 @@
 # Changelog
 
+## 0.2.0 (2023-03-16)
+
+### Features
+
+**`@cphayim-enc/base`**
+
+- add `biz-form` related types [#42](https://github.com/Cphayim/enc/pull/42)
+
+**@cphayim-enc/extension-form-editor**
+
+- add `form-editor` related types [#42](https://github.com/Cphayim/enc/pull/42)
+- add `form-editor` related base config and helper function [#42](https://github.com/Cphayim/enc/pull/42)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- add `EncFormEditor` component [#42](https://github.com/Cphayim/enc/pull/42)
+
+### Dependencies
+
+Update dependencies [#62](https://github.com/Cphayim/enc/pull/62)
+
 ## 0.1.15 (2023-03-10)
 
 ### Bug fixes
 
 **@cphayim-enc/vue-element-plus**
 
-- Fixed logical judgment of `uploadAccept` [#59](https://github.com/Cphayim/enc/pull/59)
+- Fixed logical judgment of `uploadAccept` [#60](https://github.com/Cphayim/enc/pull/60)
 
 **@cphayim-enc/vue-vant**
 
-- Fixed logical judgment of `uploadAccept` [#59](https://github.com/Cphayim/enc/pull/59)
+- Fixed logical judgment of `uploadAccept` [#60](https://github.com/Cphayim/enc/pull/60)
 
 ## 0.1.14 (2023-03-09)
 
