@@ -10,13 +10,13 @@ import {
   isPresetFeature,
 } from '@cphayim-enc/extension-form-editor'
 import { DnDTypes, type DragFeature } from '../dnd'
-import type { VisualFormEditorInternalEmitter } from '..'
+import type { FormEditorInternalEmitter } from '..'
 
 defineOptions({ name: 'EncVisualFormEditorDrawableFeature' })
 
 const props = defineProps<{
   feature: FormEditorPresetFeature | FormEditorBizFeature
-  emitter: VisualFormEditorInternalEmitter
+  emitter: FormEditorInternalEmitter
 }>()
 
 const feature = toRef(props, 'feature')

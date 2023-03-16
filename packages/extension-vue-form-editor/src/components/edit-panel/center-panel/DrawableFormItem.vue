@@ -9,15 +9,15 @@ import { useEventLock } from '@cphayim-enc/vue'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { DnDTypes, DragFeature, DragItem } from '../dnd'
-import type { VisualFormEditorInternalEmitter, VisualFormEditorSelectedItem } from '..'
+import type { FormEditorInternalEmitter, FormEditorSelectedItem } from '..'
 
 defineOptions({ name: 'EncVisualFormEditorDrawableFormItem' })
 
 const props = defineProps<{
   item: FormItemUnion
   index: number
-  emitter: VisualFormEditorInternalEmitter
-  selectedItem?: VisualFormEditorSelectedItem
+  emitter: FormEditorInternalEmitter
+  selectedItem?: FormEditorSelectedItem
 }>()
 
 const [collect, drag] = useDrag({

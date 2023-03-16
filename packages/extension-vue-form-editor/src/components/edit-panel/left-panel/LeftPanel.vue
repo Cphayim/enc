@@ -10,14 +10,14 @@ import {
 } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorTip } from '../../form-editor-tip'
-import type { VisualFormEditorInternalEmitter } from '..'
+import type { FormEditorInternalEmitter } from '..'
 import DrawableFeature from './DrawableFeature.vue'
 
-defineOptions({ name: 'EncVisualFormEditorLeftPanel' })
+defineOptions({ name: 'EncFormEditorLeftPanel' })
 
 const props = defineProps<{
   config: FormEditorConfig
-  emitter: VisualFormEditorInternalEmitter
+  emitter: FormEditorInternalEmitter
 }>()
 
 const presetSet = computed<Set<FormEditorPreset>>(() => new Set(props.config.presets))

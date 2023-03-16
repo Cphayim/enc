@@ -4,11 +4,11 @@ import type {
   FormEditorBizFeature,
 } from '@cphayim-enc/extension-form-editor'
 
-import VisualFormEditor from './VisualFormEditor.vue'
+import EditPanel from './EditPanel.vue'
 
-export const EncVisualFormEditor = withInstall(VisualFormEditor)
+export const EncFormEditorEditPanel = withInstall(EditPanel)
 
-export type VisualFormEditorSelectedItem = {
+export type FormEditorSelectedItem = {
   type: string
   index: number
   item: FormItemUnion
@@ -20,7 +20,7 @@ export type VisualFormEditorSelectedItem = {
     }
 )
 
-export type VisualFormEditorInternalEvents = {
+export type FormEditorInternalEvents = {
   'add-item': { item: FormItemUnion; index: number; select?: boolean }
   'remove-item': { index: number; select?: boolean }
   'move-item': { oldIndex: number; newIndex: number }
@@ -33,7 +33,7 @@ export type VisualFormEditorInternalEvents = {
   // 'add': 添加的选中状态（显示添加效果），后续取消选中
   // 'remove': 移除的选中状态（显示移除效果），后续取消选中
   // 'unselect': 取消选中状态
-  'select-item': VisualFormEditorSelectedItem | { type: 'unselect' }
+  'select-item': FormEditorSelectedItem | { type: 'unselect' }
 }
 
-export type VisualFormEditorInternalEmitter = Emitter<VisualFormEditorInternalEvents>
+export type FormEditorInternalEmitter = Emitter<FormEditorInternalEvents>

@@ -6,17 +6,17 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 import { formEditorTips, type FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorTip } from '../../form-editor-tip'
-import type { VisualFormEditorInternalEmitter, VisualFormEditorSelectedItem } from '..'
+import type { FormEditorInternalEmitter, FormEditorSelectedItem } from '..'
 import DrawableFormItem from './DrawableFormItem.vue'
 import EmptyContainer from './EmptyContainer.vue'
 
-defineOptions({ name: 'EncVisualFormEditorCenterPanel' })
+defineOptions({ name: 'EncFormEditorCenterPanel' })
 
 const props = defineProps<{
   items: FormItemUnion[]
   config: FormEditorConfig
-  emitter: VisualFormEditorInternalEmitter
-  selectedItem?: VisualFormEditorSelectedItem
+  emitter: FormEditorInternalEmitter
+  selectedItem?: FormEditorSelectedItem
 }>()
 
 const formItems = useVModel(props, 'items')

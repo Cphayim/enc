@@ -9,13 +9,13 @@ import {
   EncRulesFormItemEditor,
   typeFormItemEditorComponentMap,
 } from '../../form-item-editor'
-import type { VisualFormEditorSelectedItem } from '..'
+import type { FormEditorSelectedItem } from '..'
 
-defineOptions({ name: 'EncVisualFormEditorRightPanel' })
+defineOptions({ name: 'EncFormEditorRightPanel' })
 
 const props = defineProps<{
   config: FormEditorConfig
-  selectedItem?: VisualFormEditorSelectedItem
+  selectedItem?: FormEditorSelectedItem
 }>()
 
 const selectedItem = useVModel(props, 'selectedItem')

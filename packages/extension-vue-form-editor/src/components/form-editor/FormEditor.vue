@@ -9,8 +9,8 @@ import {
   FormEditorOperation,
 } from '@cphayim-enc/extension-form-editor'
 
-import { EncVisualFormEditor } from '../form-editor-panel'
 import { EncFormPreview } from '../form-preview'
+import { EncFormEditorEditPanel } from '../edit-panel'
 import { DEFAULT_FORM_EDITOR_CONFIG } from './config'
 
 defineOptions({ name: 'EncFormEditor' })
@@ -76,11 +76,11 @@ defineExpose({ getFormItems })
 
     <!-- edit -->
     <template v-else>
-      <EncVisualFormEditor
+      <EncFormEditorEditPanel
         v-model:items="formItems"
         :config="config"
         ref="formEditorInstRef"
-      ></EncVisualFormEditor>
+      ></EncFormEditorEditPanel>
     </template>
 
     <!-- bottom operation area -->

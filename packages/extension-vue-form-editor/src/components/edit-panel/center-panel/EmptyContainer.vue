@@ -2,13 +2,13 @@
 import { computed } from 'vue'
 import { useDrop } from '@ombro/dnd-vue'
 
-import type { VisualFormEditorInternalEmitter } from '..'
+import type { FormEditorInternalEmitter } from '..'
 import { DnDTypes, DragFeature } from '../dnd'
 
 defineOptions({ name: 'EncVisualFormEditorEmptyContainer' })
 
 const props = defineProps<{
-  emitter: VisualFormEditorInternalEmitter
+  emitter: FormEditorInternalEmitter
   emptyText?: string
 }>()
 
