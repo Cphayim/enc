@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@cphayim-enc/base": "workspace:*",
-    "@cphayim-enc/extension-vue-form-editor": "workspace:^0.1.10",
+    "@cphayim-enc/extension-vue-form-editor": "workspace:*",
     "@cphayim-enc/vue-element-plus": "workspace:*",
     "@cphayim-enc/vue-vant": "workspace:*",
     "@element-plus/icons-vue": "^2.1.0",

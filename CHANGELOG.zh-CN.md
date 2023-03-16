@@ -1,16 +1,37 @@
 # 更新日志
 
+## 0.2.0 (2023-03-16)
+
+### Features
+
+**`@cphayim-enc/base`**
+
+- 添加 `biz-form` 相关类型 [#42](https://github.com/Cphayim/enc/pull/42)
+
+**@cphayim-enc/extension-form-editor**
+
+- 添加 `form-editor` 相关类型 [#42](https://github.com/Cphayim/enc/pull/42)
+- 添加 `form-editor` 相关基本配置和帮助函数 [#42](https://github.com/Cphayim/enc/pull/42)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- 添加 `EncFormEditor` 组件 [#42](https://github.com/Cphayim/enc/pull/42)
+
+### Dependencies
+
+更新依赖 [#62](https://github.com/Cphayim/enc/pull/62)
+
 ## 0.1.15 (2023-03-10)
 
 ### Bug fixes
 
 **@cphayim-enc/vue-element-plus**
 
-- 修复了 `uploadAccept` 逻辑判断 [#59](https://github.com/Cphayim/enc/pull/59)
+- 修复了 `uploadAccept` 逻辑判断 [#60](https://github.com/Cphayim/enc/pull/60)
 
 **@cphayim-enc/vue-vant**
 
-- 修复了 `uploadAccept` 逻辑判断 [#59](https://github.com/Cphayim/enc/pull/59)
+- 修复了 `uploadAccept` 逻辑判断 [#60](https://github.com/Cphayim/enc/pull/60)
 
 ## 0.1.14 (2023-03-09)
 
