@@ -45,6 +45,10 @@ type Props = {
    * 国际化
    */
   locale?: 'zh-cn' | 'en'
+  /**
+   * 是否禁用表单项的内边距
+   */
+  disablePadding?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -107,7 +111,7 @@ const locale = computed(() => (props.locale === 'en' ? en : zhCn))
 
 <template>
   <el-config-provider :locale="locale">
-    <div class="enc-form[ep]">
+    <div class="enc-form[ep]" :class="{ 'enc-disable-padding': props.disablePadding }">
       <el-form
         ref="formRef"
         :model="props.data"
@@ -144,5 +148,8 @@ const locale = computed(() => (props.locale === 'en' ? en : zhCn))
 <style>
 .enc-form\[ep\] {
   @apply enc-relative enc-p-[10px];
+  &.enc-disable-padding {
+    @apply enc-p-0;
+  }
 }
 </style>

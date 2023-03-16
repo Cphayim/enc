@@ -1,4 +1,5 @@
 export * from './types'
+export * from './type-utils'
 
 export const PKG_NAME = 'enc'
 
@@ -25,8 +26,12 @@ export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export function isNone(value: unknown): value is undefined | null {
-  return value === undefined || value === null
+export async function delayWrapper<T>(fn: () => T, delay: number) {
+  return new Promise<T>((resolve) => {
+    setTimeout(() => {
+      resolve(fn())
+    }, delay)
+  })
 }
 
 export function randomStr(length: number) {
@@ -39,21 +44,11 @@ export function randomStr(length: number) {
 }
 
 export function deepClone<T>(obj: T): T {
-  return JSON.parse(JSON.stringify(obj))
+  return typeof structuredClone !== 'undefined'
+    ? structuredClone(obj)
+    : JSON.parse(JSON.stringify(obj))
 }
 
 export function getFileNameFromUrl(url: string) {
   return url.split('#')[0].split('?')[0].split('/').pop()
-}
-
-export async function delayWrapper<T>(fn: () => T, delay: number) {
-  return new Promise<T>((resolve) => {
-    setTimeout(() => {
-      resolve(fn())
-    }, delay)
-  })
-}
-
-export function toArray<T>(value: T | T[]): T[] {
-  return Array.isArray(value) ? value : [value]
 }

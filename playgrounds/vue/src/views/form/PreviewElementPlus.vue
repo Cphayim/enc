@@ -36,7 +36,9 @@ watchEffect(() => {
 </script>
 
 <template>
-  <EncForm v-model:data="formData" :items="formItems" size="default" />
+  <div class="bg-white p-[20px] box-border">
+    <EncForm v-model:data="formData" :items="formItems" size="default" />
+  </div>
 </template>
 
 <style></style>

@@ -6,6 +6,7 @@
     "jsx": "preserve",
     "removeComments": false,
     "noEmitOnError": false, // vue-tsc required
+    "resolveJsonModule": true,
     "types": ["unplugin-vue-define-options/macros-global"]
   }
 }

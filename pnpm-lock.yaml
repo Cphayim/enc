@@ -91,6 +91,37 @@ importers:
       '@cphayim-enc/shared': link:../shared
       image-conversion: 2.1.1
 
+  packages/extension-form-editor:
+    specifiers:
+      '@cphayim-enc/base': workspace:*
+      '@cphayim-enc/shared': workspace:*
+    dependencies:
+      '@cphayim-enc/base': link:../base
+      '@cphayim-enc/shared': link:../shared
+
+  packages/extension-vue-form-editor:
+    specifiers:
+      '@cphayim-enc/base': workspace:*
+      '@cphayim-enc/extension-form-editor': workspace:*
+      '@cphayim-enc/shared': workspace:*
+      '@cphayim-enc/vue': workspace:*
+      '@ombro/dnd-backend': ^0.1.6
+      '@ombro/dnd-vue': ^0.1.6
+      '@vueuse/core': ^9.12.0
+      vue: ^3.2.47
+      vue-router: ^4.1.6
+    dependencies:
+      '@cphayim-enc/base': link:../base
+      '@cphayim-enc/extension-form-editor': link:../extension-form-editor
+      '@cphayim-enc/shared': link:../shared
+      '@cphayim-enc/vue': link:../vue
+      '@ombro/dnd-backend': 0.1.6
+      '@ombro/dnd-vue': 0.1.6_vue@3.2.47
+    devDependencies:
+      '@vueuse/core': 9.13.0_vue@3.2.47
+      vue: 3.2.47
+      vue-router: 4.1.6_vue@3.2.47
+
   packages/react:
     specifiers:
       '@cphayim-enc/shared': workspace:*
@@ -163,6 +194,7 @@ importers:
   playgrounds/vue:
     specifiers:
       '@cphayim-enc/base': workspace:*
+      '@cphayim-enc/extension-vue-form-editor': workspace:^0.1.10
       '@cphayim-enc/vue-element-plus': workspace:*
       '@cphayim-enc/vue-vant': workspace:*
       '@element-plus/icons-vue': ^2.1.0
@@ -172,6 +204,7 @@ importers:
       vue-router: ^4.1.6
     dependencies:
       '@cphayim-enc/base': link:../../packages/base
+      '@cphayim-enc/extension-vue-form-editor': link:../../packages/extension-vue-form-editor
       '@cphayim-enc/vue-element-plus': link:../../packages/vue-element-plus
       '@cphayim-enc/vue-vant': link:../../packages/vue-vant
       '@element-plus/icons-vue': 2.1.0_vue@3.2.47
@@ -508,7 +541,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -1386,6 +1418,25 @@ packages:
       fastq: 1.14.0
     dev: true
 
+  /@ombro/dnd-backend/0.1.6:
+    resolution: {integrity: sha512-pElYT1FeVksPI/PP+qS8ewSb83KwBXFlz59zI2Tm/PV3r+6OtrD+Bb34jzaVPm3deOkmQHsT3svZqEz11QgkCA==}
+    dependencies:
+      react-dnd-html5-backend: 16.0.1
+      react-dnd-test-backend: 16.0.1
+      react-dnd-touch-backend: 16.0.1
+    dev: false
+
+  /@ombro/dnd-vue/0.1.6_vue@3.2.47:
+    resolution: {integrity: sha512-N1mZn/FYsQgBtnIv+jXB7yuFfsWexTE+akVH8IT/P9IjRRe7tXPDo2YJRUSQrUkD4jy99zzfn62+EDsX6yiZ8A==}
+    peerDependencies:
+      vue: ^3.2.25
+    dependencies:
+      vue: 3.2.47
+      vue3-dnd: 2.0.2_vue@3.2.47
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: false
+
   /@ombro/eslint-config-typescript/0.1.3_cxk2izsnbljdhebs7ezdbimyva:
     resolution: {integrity: sha512-YebskA0WnqKUDjmkGn1UZEdH9/tPOFGE3B5ltXci7GZSY/gZtN+xQ14GwVCIDXCtmBYObewGogBAFPDxAHyOPA==}
     peerDependencies:
@@ -1439,6 +1490,26 @@ packages:
     resolution: {integrity: sha512-RWLBRvwaGEiE6nM8amNzkmy2FytV01sy/r8ZEuMdMflwp6DUZw3eKW4W7VJpv6KzEZqfEWGMse+3cWTAjPUKSw==}
     engines: {node: ^14.13.1 || >=16.0.0}
     dev: true
+
+  /@react-dnd/asap/4.0.1:
+    resolution: {integrity: sha512-kLy0PJDDwvwwTXxqTFNAAllPHD73AycE9ypWeln/IguoGBEbvFcPDbCV03G52bEcC5E+YgupBE0VzHGdC8SIXg==}
+    dev: false
+
+  /@react-dnd/asap/5.0.2:
+    resolution: {integrity: sha512-WLyfoHvxhs0V9U+GTsGilGgf2QsPl6ZZ44fnv0/b8T3nQyvzxidxsg/ZltbWssbsRDlYW8UKSQMTGotuTotZ6A==}
+    dev: false
+
+  /@react-dnd/invariant/3.0.1:
+    resolution: {integrity: sha512-blqduwV86oiKw2Gr44wbe3pj3Z/OsXirc7ybCv9F/pLAR+Aih8F3rjeJzK0ANgtYKv5lCpkGVoZAeKitKDaD/g==}
+    dev: false
+
+  /@react-dnd/invariant/4.0.2:
+    resolution: {integrity: sha512-xKCTqAK/FFauOM9Ta2pswIyT3D8AQlfrYdOi/toTPEhqCuAs1v5tcJ3Y08Izh1cJ5Jchwy9SeAXmMg6zrKs2iw==}
+    dev: false
+
+  /@react-dnd/shallowequal/3.0.1:
+    resolution: {integrity: sha512-XjDVbs3ZU16CO1h5Q3Ew2RPJqmZBDE/EVf1LYp6ePEffs3V/MX9ZbL5bJr8qiK5SbGmUMuDoaFgyKacYz8prRA==}
+    dev: false
 
   /@rollup/pluginutils/5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
@@ -2942,6 +3013,22 @@ packages:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
     dev: true
 
+  /dnd-core/15.1.2:
+    resolution: {integrity: sha512-EOec1LyJUuGRFg0LDa55rSRAUe97uNVKVkUo8iyvzQlcECYTuPblVQfRWXWj1OyPseFIeebWpNmKFy0h6BcF1A==}
+    dependencies:
+      '@react-dnd/asap': 4.0.1
+      '@react-dnd/invariant': 3.0.1
+      redux: 4.2.1
+    dev: false
+
+  /dnd-core/16.0.1:
+    resolution: {integrity: sha512-HK294sl7tbw6F6IeuK16YSBUoorvHpY8RHO+9yFfaJyCDVb6n7PRcezrOEOa2SBCqiYpemh5Jx20ZcjKdFAVng==}
+    dependencies:
+      '@react-dnd/asap': 5.0.2
+      '@react-dnd/invariant': 4.0.2
+      redux: 4.2.1
+    dev: false
+
   /doctrine/3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
@@ -3567,7 +3654,6 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-    dev: true
 
   /fast-glob/3.2.12:
     resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
@@ -5478,6 +5564,25 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /react-dnd-html5-backend/16.0.1:
+    resolution: {integrity: sha512-Wu3dw5aDJmOGw8WjH1I1/yTH+vlXEL4vmjk5p+MHxP8HuHJS1lAGeIdG/hze1AvNeXWo/JgULV87LyQOr+r5jw==}
+    dependencies:
+      dnd-core: 16.0.1
+    dev: false
+
+  /react-dnd-test-backend/16.0.1:
+    resolution: {integrity: sha512-sUsQKMmoachP3AGaHLZD4JZWq2dHPoiLRG3YVuC0gXJtGENk3PVR+uRIrml7BEnnTyv+RVeoNK2ziL38Ggh8cw==}
+    dependencies:
+      dnd-core: 16.0.1
+    dev: false
+
+  /react-dnd-touch-backend/16.0.1:
+    resolution: {integrity: sha512-NonoCABzzjyWGZuDxSG77dbgMZ2Wad7eQiCd/ECtsR2/NBLTjGksPUx9UPezZ1nQ/L7iD130Tz3RUshL/ClKLA==}
+    dependencies:
+      '@react-dnd/invariant': 4.0.2
+      dnd-core: 16.0.1
+    dev: false
+
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
     dev: true
@@ -5550,9 +5655,14 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
+  /redux/4.2.1:
+    resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
+    dependencies:
+      '@babel/runtime': 7.20.6
+    dev: false
+
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}
@@ -6677,6 +6787,21 @@ packages:
       '@vue/runtime-dom': 3.2.47
       '@vue/server-renderer': 3.2.47_vue@3.2.47
       '@vue/shared': 3.2.47
+
+  /vue3-dnd/2.0.2_vue@3.2.47:
+    resolution: {integrity: sha512-DyS6D/LkM2vGFmQy8yhTNvjQfM7wjLO1aDirpM/WGmq3rMWEpzFNg+xrJj+BWxfNPJsmzkY3ZacbaWJUM1OKKg==}
+    peerDependencies:
+      vue: ^3.0.0-0 || ^2.6.0
+    dependencies:
+      '@react-dnd/invariant': 3.0.1
+      '@react-dnd/shallowequal': 3.0.1
+      dnd-core: 15.1.2
+      fast-deep-equal: 3.1.3
+      vue: 3.2.47
+      vue-demi: 0.13.11_vue@3.2.47
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: false
 
   /w3c-xmlserializer/4.0.0:
     resolution: {integrity: sha512-d+BFHzbiCx6zGfz0HyQ6Rg69w9k19nviJspaj4yNscGjrHu94sVP+aRm75yEbCh+r2/yR+7q6hux9LVtbuTGBw==}

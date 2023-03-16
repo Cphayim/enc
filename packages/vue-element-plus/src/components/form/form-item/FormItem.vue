@@ -64,7 +64,7 @@ const _value = useVModel(props, 'modelValue', emit)
 .enc-form-item\[ep\] {
   @apply enc-relative;
   .el-form-item {
-    @apply enc-pr-8;
+    /* @apply enc-pr-8; */
   }
   .el-select,
   .el-select-v2,

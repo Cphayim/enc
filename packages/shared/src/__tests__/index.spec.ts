@@ -7,11 +7,9 @@ import {
   deepClone,
   delayWrapper,
   getFileNameFromUrl,
-  isNone,
   log,
   randomStr,
   sleep,
-  toArray,
 } from '..'
 
 it('should be able to output prefixed logs', () => {
@@ -43,14 +41,6 @@ it(`should create a throw standard error function`, () => {
   expect(createThrowErrorFunction('test error message')).toThrowError(message)
 })
 
-it(`should be able to check if a value is none`, () => {
-  expect(isNone(undefined)).toBe(true)
-  expect(isNone(null)).toBe(true)
-  expect(isNone(0)).toBe(false)
-  expect(isNone('')).toBe(false)
-  expect(isNone({})).toBe(false)
-})
-
 it(`should be able to create a random string`, () => {
   expect(randomStr(6)).toHaveLength(6)
   expect(randomStr(0)).toHaveLength(32) // default length
@@ -79,11 +69,6 @@ it(`should be able to delay a function`, async () => {
   const result = await delayWrapper(fn, 1)
   expect(result).toBe(1)
   expect(fn).toBeCalled()
-})
-
-it(`should be to array`, () => {
-  expect(toArray(1)).toEqual([1])
-  expect(toArray([1])).toEqual([1])
 })
 
 it(`should be return promise`, () => {
