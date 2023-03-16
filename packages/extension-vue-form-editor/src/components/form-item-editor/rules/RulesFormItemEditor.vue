@@ -3,7 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 import type { FormItemRule, BaseFormItem } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
 import { EncEditorFieldset } from '../../editor-fieldset'
@@ -14,7 +14,7 @@ import { isNone } from '@cphayim-enc/shared'
 defineOptions({ name: 'EncBaseFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue: BaseFormItem
 }>()
 

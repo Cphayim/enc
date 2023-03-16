@@ -3,7 +3,7 @@
 import { useVModel } from '@vueuse/core'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
-import { formEditorTips, VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import { formEditorTips, type FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorTip } from '../../form-editor-tip'
 import type { VisualFormEditorInternalEmitter, VisualFormEditorSelectedItem } from '..'
@@ -14,7 +14,7 @@ defineOptions({ name: 'EncVisualFormEditorCenterPanel' })
 
 const props = defineProps<{
   items: FormItemUnion[]
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   emitter: VisualFormEditorInternalEmitter
   selectedItem?: VisualFormEditorSelectedItem
 }>()

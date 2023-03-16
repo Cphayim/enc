@@ -16,14 +16,10 @@ export enum FormEditorOperation {
   PrintItems,
 }
 
-export type FormEditorConfig = VisualFormEditorConfig | CodeFormEditorConfig
-
-interface BaseFormEditorConfig {
-  /**
-   * 表单编辑器的模式
-   * @default 'visual'
-   */
-  mode: string
+/**
+ * 可视化表单编辑器配置
+ */
+export interface FormEditorConfig {
   /**
    * 预览用的 EncForm 组件（注意不是组件实例）
    *
@@ -38,13 +34,6 @@ interface BaseFormEditorConfig {
    * 启用的操作项
    */
   operations?: FormEditorOperation[]
-}
-
-/**
- * 可视化表单编辑器配置
- */
-export interface VisualFormEditorConfig extends BaseFormEditorConfig {
-  mode: 'visual'
   /**
    * 启用的预设功能，没有传递则全开
    */
@@ -69,11 +58,4 @@ export interface VisualFormEditorConfig extends BaseFormEditorConfig {
    * formItem 为空时的提示文字
    */
   formItemEmptyText?: string
-}
-
-/**
- * 代码表单编辑器配置
- */
-export interface CodeFormEditorConfig extends BaseFormEditorConfig {
-  mode: 'code'
 }

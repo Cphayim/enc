@@ -7,13 +7,9 @@ import { DndProvider } from '@ombro/dnd-vue'
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { isNone, randomStr } from '@cphayim-enc/shared'
 import { useEmitter } from '@cphayim-enc/vue'
-import { isPresetFeature, VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import { FormEditorConfig, isPresetFeature } from '@cphayim-enc/extension-form-editor'
 
-import {
-  DEFAULT_VISUAL_FORM_EDITOR_CONFIG,
-  VisualFormEditorInternalEvents,
-  VisualFormEditorSelectedItem,
-} from '.'
+import type { VisualFormEditorInternalEvents, VisualFormEditorSelectedItem } from '.'
 import { EncVisualFormEditorLeftPanel } from './left-panel'
 import { EncVisualFormEditorCenterPanel } from './center-panel'
 import { EncVisualFormEditorRightPanel } from './right-panel'
@@ -29,23 +25,20 @@ type Props = {
   /**
    * 表单编辑器配置项
    */
-  config?: VisualFormEditorConfig
+  config: FormEditorConfig
   /**
    * dnd backend
    * @default HTML5Backend
    */
   backend?: any
 }
-const props = defineProps<Props>()
 
+const props = defineProps<Props>()
 const emit = defineEmits<(e: 'update:items', v: FormItemUnion[]) => void>()
 
 const formItems = useVModel(props, 'items', emit)
 
-const config = computed<VisualFormEditorConfig>(() => ({
-  ...DEFAULT_VISUAL_FORM_EDITOR_CONFIG,
-  ...props.config,
-}))
+const config = computed(() => props.config)
 
 // 内部发布/订阅器
 const emitter = useEmitter<VisualFormEditorInternalEvents>()

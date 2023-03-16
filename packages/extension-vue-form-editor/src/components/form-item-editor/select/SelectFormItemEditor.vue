@@ -3,7 +3,7 @@ import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 import type { SelectFormItem } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { useEditorItems } from '../../../hooks'
@@ -16,7 +16,7 @@ import EncSelectFormItemOptionEditor from './SelectFormItemOptionEditor.vue'
 defineOptions({ name: 'EncSelectFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: SelectFormItem
 }>()
 

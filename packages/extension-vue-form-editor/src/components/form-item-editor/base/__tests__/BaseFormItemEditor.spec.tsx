@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { ref } from 'vue'
 
 import type { BaseFormItem } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { createTestMockEncForm } from '../../../../__tests__/mock-enc-form'
 import { BASE_ITEMS } from '../items'
@@ -17,7 +17,7 @@ const createItem = () => {
   })
 }
 
-const createConfig = (randomNameOnly = false): VisualFormEditorConfig => {
+const createConfig = (randomNameOnly = false): FormEditorConfig => {
   return {
     mode: 'visual',
     randomNameOnly,

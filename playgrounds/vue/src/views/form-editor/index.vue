@@ -8,7 +8,6 @@ import {
 } from '@cphayim-enc/extension-vue-form-editor'
 
 const formEditorConfig: FormEditorConfig = {
-  mode: 'visual',
   encFormComponent: EncForm,
   operations: [
     FormEditorOperation.Submit,
@@ -29,6 +28,7 @@ const formEditorConfig: FormEditorConfig = {
               type: 'input',
               label: '物品',
               name: `item_${random}`,
+              col: 8,
               extra: {
                 biz: true,
                 bizName: 'ItemUnitPriceQuantity',
@@ -40,6 +40,7 @@ const formEditorConfig: FormEditorConfig = {
               type: 'input',
               label: '单价',
               name: `unitPrice_${random}`,
+              col: 8,
               extra: {
                 biz: true,
                 bizName: 'ItemUnitPriceQuantity',
@@ -51,6 +52,7 @@ const formEditorConfig: FormEditorConfig = {
               type: 'input',
               label: '数量',
               name: `quantity_${random}`,
+              col: 8,
               extra: {
                 biz: true,
                 bizName: 'ItemUnitPriceQuantity',

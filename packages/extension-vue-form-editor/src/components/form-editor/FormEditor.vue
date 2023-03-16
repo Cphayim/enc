@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { useFormItems } from '@cphayim-enc/vue'
-import { FormEditorConfig, FormEditorOperation } from '@cphayim-enc/extension-form-editor'
+import {
+  BizFeatureFormEditorTransformer,
+  FormEditorConfig,
+  FormEditorOperation,
+} from '@cphayim-enc/extension-form-editor'
 
-import { EncVisualFormEditor } from '../visual-form-editor'
-import { EncCodeFormEditor } from '../code-form-editor'
+import { EncVisualFormEditor } from '../form-editor-panel'
 import { EncFormPreview } from '../form-preview'
+import { DEFAULT_FORM_EDITOR_CONFIG } from './config'
 
 defineOptions({ name: 'EncFormEditor' })
 
@@ -22,20 +26,30 @@ type Props = {
    */
   config: FormEditorConfig
 }
-const props = withDefaults(defineProps<Props>(), { config: () => ({ mode: 'visual' }) })
+const props = withDefaults(defineProps<Props>(), { config: () => ({}) })
 const emit = defineEmits<{
   (e: 'confirm', items: FormItemUnion[]): void
 }>()
 
-const { formItems } = useFormItems(props.initItems ?? [])
+const config = computed(() => ({
+  ...DEFAULT_FORM_EDITOR_CONFIG,
+  ...props.config,
+}))
 
-const getItems = () => {
-  return formItems.value
+const { formItems } = useFormItems(
+  BizFeatureFormEditorTransformer.toPlaceHolder(
+    props.initItems ?? [],
+    config.value.bizFeatures ?? [],
+  ),
+)
+
+const getFormItems = () => {
+  return BizFeatureFormEditorTransformer.toReal(formItems.value, config.value.bizFeatures ?? [])
 }
 
 const handleConfirm = () => {
-  emit('confirm', getItems())
-  console.log(getItems())
+  emit('confirm', getFormItems())
+  console.log(getFormItems())
 }
 
 const isPreview = ref(false)
@@ -46,25 +60,27 @@ const handleTogglePreview = () => {
 const hasOperation = (operation: FormEditorOperation) =>
   props.config.operations?.includes(operation)
 
-defineExpose({ getItems })
+defineExpose({ getFormItems })
 </script>
 
 <template>
   <div class="enc-form-editor">
+    <!-- preview -->
     <template v-if="isPreview">
       <EncFormPreview
         :encFormComponent="props.config.encFormComponent"
         :encFormProps="props.config.encFormProps"
-        :items="getItems()"
+        :items="getFormItems()"
       />
     </template>
+
+    <!-- edit -->
     <template v-else>
-      <component
-        :is="props.config.mode === 'visual' ? EncVisualFormEditor : EncCodeFormEditor"
+      <EncVisualFormEditor
         v-model:items="formItems"
-        :config="props.config"
+        :config="config"
         ref="formEditorInstRef"
-      ></component>
+      ></EncVisualFormEditor>
     </template>
 
     <!-- bottom operation area -->

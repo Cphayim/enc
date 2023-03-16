@@ -3,7 +3,7 @@ import { computed, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 import type { CheckboxFormItem, RadioOptions } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { useEditorItems } from '../../../hooks'
@@ -15,7 +15,7 @@ import EncRadioFormItemOptionEditor from './CheckboxFormItemOptionEditor.vue'
 defineOptions({ name: 'EncCheckboxFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: CheckboxFormItem
 }>()
 

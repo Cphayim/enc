@@ -3,7 +3,7 @@ import { watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
 
 import type { InputFormItem } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
 import { EncEditorFieldset } from '../../editor-fieldset'
@@ -13,7 +13,7 @@ import { INPUT_ITEMS } from './items'
 defineOptions({ name: 'EncInputFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: InputFormItem
 }>()
 

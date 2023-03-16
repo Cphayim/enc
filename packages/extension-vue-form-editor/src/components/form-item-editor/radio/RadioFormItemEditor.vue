@@ -2,7 +2,7 @@
 import { useVModel } from '@vueuse/core'
 
 import type { RadioFormItem, RadioOptions } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
 import { useEditorItems } from '../../../hooks'
@@ -14,7 +14,7 @@ import EncRadioFormItemOptionEditor from './RadioFormItemOptionEditor.vue'
 defineOptions({ name: 'EncRadioFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: RadioFormItem
 }>()
 

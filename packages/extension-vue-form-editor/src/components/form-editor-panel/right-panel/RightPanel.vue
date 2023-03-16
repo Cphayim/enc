@@ -1,7 +1,7 @@
 <!-- 右侧详情面板 -->
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
-import { formEditorTips, VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import { formEditorTips, type FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorTip } from '../../form-editor-tip'
 import {
@@ -14,7 +14,7 @@ import type { VisualFormEditorSelectedItem } from '..'
 defineOptions({ name: 'EncVisualFormEditorRightPanel' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   selectedItem?: VisualFormEditorSelectedItem
 }>()
 

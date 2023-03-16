@@ -3,9 +3,9 @@ import { computed, onMounted, ref } from 'vue'
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { createErrorMessage } from '@cphayim-enc/shared'
 import { useFormItems } from '@cphayim-enc/vue'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
-export function useEditorItems(items: FormItemUnion[], config: VisualFormEditorConfig) {
+export function useEditorItems(items: FormItemUnion[], config: FormEditorConfig) {
   const EncForm = computed(() => {
     if (config.encFormComponent?.name !== 'EncForm')
       throw Error(createErrorMessage('props encFormComponent must be a EncForm component'))

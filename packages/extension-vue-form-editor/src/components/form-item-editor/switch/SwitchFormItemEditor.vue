@@ -2,7 +2,7 @@
 import { useVModel } from '@vueuse/core'
 
 import type { SwitchFormItem } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
 import { EncEditorFieldset } from '../../editor-fieldset'
@@ -12,7 +12,7 @@ import { SWITCH_ITEMS } from './items'
 defineOptions({ name: 'EncSwitchFormItemEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: SwitchFormItem
 }>()
 

@@ -1,7 +1,5 @@
 import { Emitter, FormItemUnion, withInstall } from '@cphayim-enc/vue'
-import {
-  type VisualFormEditorConfig,
-  FormEditorPreset,
+import type {
   FormEditorPresetFeature,
   FormEditorBizFeature,
 } from '@cphayim-enc/extension-form-editor'
@@ -9,14 +7,6 @@ import {
 import VisualFormEditor from './VisualFormEditor.vue'
 
 export const EncVisualFormEditor = withInstall(VisualFormEditor)
-
-export const DEFAULT_VISUAL_FORM_EDITOR_CONFIG: VisualFormEditorConfig = {
-  mode: 'visual',
-  // default enable all
-  presets: Object.values(FormEditorPreset),
-  randomNameOnly: false,
-  randomNameLength: 8,
-}
 
 export type VisualFormEditorSelectedItem = {
   type: string
@@ -45,4 +35,5 @@ export type VisualFormEditorInternalEvents = {
   // 'unselect': 取消选中状态
   'select-item': VisualFormEditorSelectedItem | { type: 'unselect' }
 }
+
 export type VisualFormEditorInternalEmitter = Emitter<VisualFormEditorInternalEvents>

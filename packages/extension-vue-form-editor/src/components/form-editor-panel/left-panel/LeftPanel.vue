@@ -3,7 +3,7 @@
 import { computed } from 'vue'
 
 import {
-  type VisualFormEditorConfig,
+  type FormEditorConfig,
   type FormEditorPreset,
   getPresetFeatureGroups,
   formEditorTips,
@@ -16,7 +16,7 @@ import DrawableFeature from './DrawableFeature.vue'
 defineOptions({ name: 'EncVisualFormEditorLeftPanel' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   emitter: VisualFormEditorInternalEmitter
 }>()
 

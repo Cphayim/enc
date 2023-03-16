@@ -2,7 +2,7 @@
 import { useVModel } from '@vueuse/core'
 
 import type { CheckboxOptions } from '@cphayim-enc/base'
-import type { VisualFormEditorConfig } from '@cphayim-enc/extension-form-editor'
+import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useEditorItems } from '../../../hooks'
 import { COMMON_ENC_FORM_PROPS } from '../common'
@@ -11,7 +11,7 @@ import { CHECKBOX_OPTION_ITEMS } from './items'
 defineOptions({ name: 'EncCheckboxFormItemOptionEditor' })
 
 const props = defineProps<{
-  config: VisualFormEditorConfig
+  config: FormEditorConfig
   modelValue?: CheckboxOptions
 }>()
 
