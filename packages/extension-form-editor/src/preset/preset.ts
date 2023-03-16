@@ -97,6 +97,7 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
   }),
   [FormEditorPreset.Time]: createFeature(FormEditorPreset.Time, {
     type: 'time',
+    timeType: 'hour-minute',
   }),
   [FormEditorPreset.UploadImage]: createFeature(FormEditorPreset.UploadImage, {
     type: 'upload',

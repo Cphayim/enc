@@ -6,13 +6,14 @@ import { EncInputFormItemEditor } from './input'
 import { EncRadioFormItemEditor } from './radio'
 import { EncSelectFormItemEditor } from './select'
 import { EncSwitchFormItemEditor } from './switch'
+import { EncTimeFormItemEditor } from './time'
 
 export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> = {
   input: EncInputFormItemEditor,
   select: EncSelectFormItemEditor,
   cascader: null,
   date: EncDateFormItemEditor,
-  time: null,
+  time: EncTimeFormItemEditor,
   upload: null,
   switch: EncSwitchFormItemEditor,
   radio: EncRadioFormItemEditor,
