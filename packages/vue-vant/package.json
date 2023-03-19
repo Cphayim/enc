@@ -34,7 +34,7 @@
   "devDependencies": {
     "@vueuse/core": "^9.13.0",
     "dayjs": "^1.11.7",
-    "vant": "^4.1.0",
+    "vant": "^4.1.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
