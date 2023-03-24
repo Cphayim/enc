@@ -44,9 +44,12 @@ export function randomStr(length: number) {
 }
 
 export function deepClone<T>(obj: T): T {
-  return typeof structuredClone !== 'undefined'
-    ? structuredClone(obj)
-    : JSON.parse(JSON.stringify(obj))
+  // issue: Proxy objects have problems with structuredClone
+  // return typeof structuredClone !== 'undefined'
+  //   ? structuredClone(obj)
+  //   : JSON.parse(JSON.stringify(obj))
+
+  return JSON.parse(JSON.stringify(obj))
 }
 
 export function getFileNameFromUrl(url: string) {
