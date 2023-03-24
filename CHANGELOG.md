@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.1 (2023-03-24)
+
+### Bug fixes
+
+- `structuredClone` not support `Proxy` objects [#66](https://github.com/Cphayim/enc/pull/66)
+
+### Dependencies
+
+Update dependencies [#64](https://github.com/Cphayim/enc/pull/64)
+
 ## 0.2.0 (2023-03-16)
 
 ### Features

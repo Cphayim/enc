@@ -1,5 +1,15 @@
 # 更新日志
 
+## 0.2.1 (2023-03-24)
+
+### Bug fixes
+
+- `structuredClone` 不支持 `Proxy` 对象 [#66](https://github.com/Cphayim/enc/pull/66)
+
+### Dependencies
+
+更新依赖 [#64](https://github.com/Cphayim/enc/pull/64)
+
 ## 0.2.0 (2023-03-16)
 
 ### Features
