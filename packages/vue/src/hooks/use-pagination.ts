@@ -57,11 +57,24 @@ export function usePagination(options?: UsePaginationOptions) {
   })
 
   const pagination = ref<Pagination>(getInitPagination(true))
+
   /**
+   * 重置 pagination
    * @param init 是否使用初始化值来重置
    */
   const resetPagination = (init?: boolean) => {
     pagination.value = getInitPagination(init)
+  }
+
+  /**
+   * 重置 pagination，保留 pageSize
+   * @param init 是否使用初始化值来重置
+   */
+  const resetPaginationKeepPageSize = (init?: boolean) => {
+    pagination.value = {
+      ...getInitPagination(init),
+      pageSize: pagination.value.pageSize,
+    }
   }
 
   const search = useUrlSearchParams<PaginationSearchParams>(searchMode)
@@ -85,6 +98,7 @@ export function usePagination(options?: UsePaginationOptions) {
   return {
     pagination,
     resetPagination,
+    resetPaginationKeepPageSize,
     _search: search,
   }
 }

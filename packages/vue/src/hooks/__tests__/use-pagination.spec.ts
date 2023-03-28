@@ -19,7 +19,7 @@ describe('usePagination', () => {
   })
 
   it('should be able to change or reset value', () => {
-    const { pagination, resetPagination } = usePagination({
+    const { pagination, resetPagination, resetPaginationKeepPageSize } = usePagination({
       initPageNum: 10,
       initPageSize: 20,
     })
@@ -42,6 +42,24 @@ describe('usePagination', () => {
     expect(pagination.value).toContain({
       pageNum: 10,
       pageSize: 20,
+      total: 0,
+    })
+
+    pagination.value.pageSize = 100
+
+    // reset to default value, keep pageSize
+    resetPaginationKeepPageSize()
+    expect(pagination.value).toContain({
+      pageNum: 1,
+      pageSize: 100,
+      total: 0,
+    })
+
+    // reset to default value, keep pageSize
+    resetPaginationKeepPageSize(true)
+    expect(pagination.value).toContain({
+      pageNum: 10,
+      pageSize: 100,
       total: 0,
     })
   })
