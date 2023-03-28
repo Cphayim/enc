@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.2.2 (2023-03-28)
+
+### Features
+
+**`@cphayim-enc/vue`**
+
+- `usePagination` 导出函数 `resetPaginationKeepPageSize` [#68](https://github.com/Cphayim/enc/pull/68)
+
+### Dependencies
+
+更新依赖 [#69](https://github.com/Cphayim/enc/pull/69)
+
 ## 0.2.1 (2023-03-24)
 
 ### Bug fixes
