@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.2.3 (2023-03-28)
+
+### Bug fixes
+
+**`@cphayim-enc/vue`**
+
+**`@cphayim-enc/vue-element-plus`**
+
+**`@cphayim-enc/vue-vant`**
+
+- 导出 `usePagination` hook [#71](https://github.com/Cphayim/enc/pull/71)
+
 ## 0.2.2 (2023-03-28)
 
 ### Features
