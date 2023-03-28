@@ -5,4 +5,5 @@ export {
   useEmitter,
   useFormData,
   useFormItems,
+  usePagination,
 } from '@cphayim-enc/vue'
