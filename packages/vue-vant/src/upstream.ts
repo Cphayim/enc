@@ -1,9 +1,14 @@
 export * from '@cphayim-enc/base'
+
+// exclude that have been extended in the current package
 export {
-  // exclude hooks that have been extended in the current package
+  // hooks
   useEventLock,
   useEmitter,
   useFormData,
   useFormItems,
   usePagination,
+
+  // components
+  EncKeepAliveRouterView,
 } from '@cphayim-enc/vue'
