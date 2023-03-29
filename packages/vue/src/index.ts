@@ -2,6 +2,7 @@ export * from '@cphayim-enc/base'
 
 export * from './install'
 export * from './hooks'
+export * from './components'
 
 export type CreateEncOptions = {
   /**
