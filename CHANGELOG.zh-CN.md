@@ -1,5 +1,19 @@
 # 更新日志
 
+## 0.2.4 (2023-03-30)
+
+### Features
+
+**`@cphayim-enc/vue`**
+
+- 添加 `EncKeepAliveRouterView` 组件 [#73](https://github.com/Cphayim/enc/pull/73)
+
+### Adjusted
+
+**`@cphayim-enc/vue-element-plus`**
+
+- 默认提供更细的滚动条样式 [#74](https://github.com/Cphayim/enc/pull/74)
+
 ## 0.2.3 (2023-03-28)
 
 ### Bug fixes
