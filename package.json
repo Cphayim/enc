@@ -3,9 +3,9 @@
   "private": true,
   "author": "Cphayim <i@cphayim.me>",
   "engines": {
-    "node": "^14.13.1 || >=16.0.0"
+    "node": ">=16.0.0"
   },
-  "packageManager": "pnpm@7.31.0",
+  "packageManager": "pnpm@8.1.1",
   "workspaces": [
     "packages/*",
     "playgrounds/*"
