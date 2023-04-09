@@ -1,6 +1,7 @@
 import './style.css'
 
 export * from '@cphayim-enc/base'
+export { EncCSSVariables } from '@cphayim-enc/style'
 
 export * from './install'
 export * from './hooks'
