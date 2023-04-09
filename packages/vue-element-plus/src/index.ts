@@ -2,7 +2,7 @@ import type { App, Plugin } from 'vue'
 
 import { CreateEncOptions, usingSFCWithInstall } from '@cphayim-enc/vue'
 
-import './styles'
+import './style.css'
 import * as componentMap from './components'
 
 export const createEncElementPlus = ({ skipEncInstall = false }: CreateEncOptions = {}): Plugin => {

@@ -1,0 +1,42 @@
+{
+  "name": "@cphayim-enc/style",
+  "version": "0.2.4",
+  "description": "",
+  "keywords": [],
+  "author": "Cphayim <i@cphayim.me>",
+  "homepage": "https://github.com/Cphayim/enc#readme",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/style.js",
+  "types": "./dist/style.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/style.js",
+      "require": "./dist/style.cjs",
+      "types": "./dist/style.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --mode=development --watch",
+    "build": "vite build",
+    "build:debug": "export DEBUG=\"vite-plugin-dts:bundle\" && vite build",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "dependencies": {},
+  "peerDependenciesMeta": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cphayim/enc.git",
+    "directory": "packages/style"
+  },
+  "bugs": {
+    "url": "https://github.com/Cphayim/enc/issues"
+  }
+}

@@ -1,0 +1,10 @@
+/* enable tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --enc-vant-radio-size: 16px;
+  --enc-vant-checkbox-size: 16px;
+  --enc-vant-switch-size: 20px;
+}

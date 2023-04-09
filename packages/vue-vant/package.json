@@ -15,7 +15,11 @@
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./style": "./dist/index.css"
+    "./style": {
+      "import": "./dist/style.js",
+      "require": "./dist/style.cjs",
+      "types": "./dist/style.d.ts"
+    }
   },
   "files": [
     "dist"

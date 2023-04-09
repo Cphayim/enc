@@ -41,6 +41,6 @@ const _value = useVModel(props, 'modelValue')
 
 <style>
 .enc-switch {
-  font-size: var(--enc-switch-size);
+  font-size: var(--enc-vant-switch-size);
 }
 </style>

@@ -18,7 +18,7 @@
     "dev:pg": "turbo run dev --parallel --filter=@playground/*",
     "test:unit": "./scripts/unit-test.ts",
     "test:coverage": "./scripts/unit-test.ts --coverage",
-    "build": "turbo run build",
+    "build": "turbo run build --filter=@cphayim-enc/*",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md}\"",
     "cs:add": "./scripts/changeset.ts --add",
