@@ -1,5 +1,15 @@
 # 更新日志
 
+## 0.2.7 (2023-04-10)
+
+### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+**@cphayim-enc/vue-vant**
+
+- 导出上游组件 [#85](https://github.com/Cphayim/enc/pull/85)
+
 ## 0.2.6 (2023-04-10)
 
 ### Features
