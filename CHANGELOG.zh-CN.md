@@ -1,5 +1,28 @@
 # 更新日志
 
+## 0.2.5 (2023-04-09)
+
+### Adjusted
+
+**@cphayim-enc/style**
+
+**@cphayim-enc/vue**
+
+**@cphayim-enc/vue-element-plus**
+
+**@cphayim-enc/vue-vant**
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- `@cphayim-enc/style` 成为新的公共层包（同 `@cphayim-enc/base` 位于一层），此包仅包含样式，不含逻辑代码 [#79](https://github.com/Cphayim/enc/pull/79)
+- 框架层包依赖 `@cphayim-enc/style`，并附带自己的样式 [#79](https://github.com/Cphayim/enc/pull/79)
+- UI 层包依赖 `@cphayim-enc/{framework}/style`，并附带自己的样式 [#79](https://github.com/Cphayim/enc/pull/79)
+- 优化了包的 `./style` 导出，将包含上层的所有样式（例如导入 UI 层包的 `./style`，将同时导入 `@cphayim-enc/style` 以及 UI 层包对应的框架层包样式） [#79](https://github.com/Cphayim/enc/pull/79)
+
+### Dependencies
+
+更新依赖 [#77](https://github.com/Cphayim/enc/pull/77), [#78](https://github.com/Cphayim/enc/pull/78)
+
 ## 0.2.4 (2023-03-30)
 
 ### Features
