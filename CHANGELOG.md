@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.2.5 (2023-04-09)
+
+### Adjusted
+
+**@cphayim-enc/style**
+
+**@cphayim-enc/vue**
+
+**@cphayim-enc/vue-element-plus**
+
+**@cphayim-enc/vue-vant**
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- `@cphayim-enc/style` becomes the new common style package (located in the same layer as `@cphayim-enc/base`), which only contains styles and not logic code. [#79](https://github.com/Cphayim/enc/pull/79)
+- The framework layer package depends on `@cphayim-enc/style` and includes its own styles. [#79](https://github.com/Cphayim/enc/pull/79)
+- The UI layer package depends on `@cphayim-enc/{framework}/style` and includes its own styles. [#79](https://github.com/Cphayim/enc/pull/79)
+- Optimized the `./style` export of the packages to include all styles from the upper layer (for example, importing the `./style` of a UI layer package will also import the styles from `@cphayim-enc/style` and the corresponding framework layer package). [#79](https://github.com/Cphayim/enc/pull/79)
+
+### Dependencies
+
+Update dependencies [#77](https://github.com/Cphayim/enc/pull/77), [#78](https://github.com/Cphayim/enc/pull/78)
+
 ## 0.2.4 (2023-03-30)
 
 ### Features
