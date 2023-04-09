@@ -12,4 +12,5 @@ export {
 
   // components
   EncKeepAliveRouterView,
+  EncTransition,
 } from '@cphayim-enc/vue'
