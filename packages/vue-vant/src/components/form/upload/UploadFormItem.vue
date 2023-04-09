@@ -130,7 +130,7 @@ const handleFileUploadTask = async (file: File | File[]): Promise<never> => {
 
 <style>
 .enc-upload {
-  font-size: var(--enc-switch-size);
+  font-size: var(--enc-vant-switch-size);
   .van-cell {
     &::after {
       @apply enc-hidden;

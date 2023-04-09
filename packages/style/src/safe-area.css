@@ -1,0 +1,8 @@
+:root {
+  /* 页面安全距离，兼容全面屏，默认为 iOS 的自带环境变量 */
+  /* 如果要兼容安卓全面屏，需使用 js 计算后修改此变量的值，UI Package 自己实现 */
+  --enc-safe-area-inset-top: env(safe-area-inset-top);
+  --enc-safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --enc-safe-area-inset-left: env(safe-area-inset-left);
+  --enc-safe-area-inset-right: env(safe-area-inset-right);
+}

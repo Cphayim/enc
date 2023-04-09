@@ -1,0 +1,38 @@
+:root {
+  --enc-scrollbar-size: 5px;
+  --enc-scrollbar-color: rgba(0, 0, 0, 0.3);
+  --enc-scrollbar-hover-color: rgba(0, 0, 0, 0.8);
+  --enc-scrollbar-inactive-color: rgba(0, 0, 0, 0.2);
+  --enc-scrollbar-border-width: 0px;
+  --enc-scrollbar-border-style: solid;
+  --enc-scrollbar-border-color: transparent;
+  --enc-scrollbar-border-radius: 50%;
+  --enc-scrollbar-track-color: transparent;
+}
+
+/* 只设置 PC 端默认滚动条样式 */
+@media only screen and (min-width: 768px) {
+  :root {
+    overflow-y: overlay;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: var(--enc-scrollbar-size);
+    height: var(--enc-scrollbar-size);
+  }
+  ::-webkit-scrollbar-thumb {
+    border: var(--enc-scrollbar-border-width) var(--enc-scrollbar-border-style)
+      var(--enc-scrollbar-border-color);
+    border-radius: var(--enc-scrollbar-border-radius);
+    background-color: var(--enc-scrollbar-color);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--enc-scrollbar-hover-color);
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background-color: var(--enc-scrollbar-inactive-color);
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--enc-scrollbar-track-color);
+  }
+}

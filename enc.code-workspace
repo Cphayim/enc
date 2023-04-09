@@ -13,6 +13,10 @@
       "path": "packages/base"
     },
     {
+      "name": "📦 @enc/style",
+      "path": "packages/style"
+    },
+    {
       "name": "📦 @enc/vue",
       "path": "packages/vue"
     },
@@ -33,7 +37,7 @@
       "path": "packages/extension-vue-form-editor"
     },
     {
-      "name": "📦 @playground/vue",
+      "name": "📺 @playground/vue",
       "path": "playgrounds/vue"
     }
   ],

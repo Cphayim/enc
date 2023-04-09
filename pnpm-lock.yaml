@@ -177,6 +177,8 @@ importers:
 
   packages/shared: {}
 
+  packages/style: {}
+
   packages/test-utils: {}
 
   packages/vue:
@@ -187,6 +189,9 @@ importers:
       '@cphayim-enc/shared':
         specifier: workspace:*
         version: link:../shared
+      '@cphayim-enc/style':
+        specifier: workspace:*
+        version: link:../style
       mitt:
         specifier: ^3.0.0
         version: 3.0.0

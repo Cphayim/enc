@@ -54,6 +54,6 @@ const _value = useVModel(props, 'modelValue')
 
 <style>
 .enc-radio {
-  --van-radio-size: var(--enc-radio-size);
+  --van-radio-size: var(--enc-vant-radio-size);
 }
 </style>
