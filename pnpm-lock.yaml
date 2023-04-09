@@ -211,6 +211,9 @@ importers:
       '@cphayim-enc/shared':
         specifier: workspace:*
         version: link:../shared
+      '@cphayim-enc/style':
+        specifier: workspace:*
+        version: link:../style
       '@cphayim-enc/vue':
         specifier: workspace:*
         version: link:../vue
@@ -239,6 +242,9 @@ importers:
       '@cphayim-enc/shared':
         specifier: workspace:*
         version: link:../shared
+      '@cphayim-enc/style':
+        specifier: workspace:*
+        version: link:../style
       '@cphayim-enc/vue':
         specifier: workspace:*
         version: link:../vue

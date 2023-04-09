@@ -6,7 +6,7 @@ import { createBuild, genStylePlugin } from '../../scripts/vite.base.config'
 export default defineConfig(({ mode }) => {
   const config: UserConfigExport = {
     build: createBuild({ mode, root: __dirname, external: ['vue', '@vueuse/core'] }),
-    plugins: [vue(), genStylePlugin({ preImports: ['@cphayim-enc/style'] })],
+    plugins: [vue(), genStylePlugin({ preImports: ['@cphayim-enc/style/style'] })],
   }
 
   // after the build, use vue-tsc to generate the type declaration file
