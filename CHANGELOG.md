@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.6 (2023-04-10)
+
+### Features
+
+**@cphayim-enc/style**
+
+- export `EncCSSVariables` [#81](https://github.com/Cphayim/enc/pull/81)
+
+**`@cphayim-enc/vue`**
+
+- add `EncTransition`, can now use `EncTransition.Fade` and `EncTransition.Slide` components [#81](https://github.com/Cphayim/enc/pull/81)
+
 ## 0.2.5 (2023-04-09)
 
 ### Adjusted

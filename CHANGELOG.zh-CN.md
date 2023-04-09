@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.2.6 (2023-04-10)
+
+### Features
+
+**@cphayim-enc/style**
+
+- 导出 `EncCSSVariables` [#81](https://github.com/Cphayim/enc/pull/81)
+
+**`@cphayim-enc/vue`**
+
+- 添加 `EncTransition`, 现在可以使用 `EncTransition.Fade` 和 `EncTransition.Slide` 组件 [#81](https://github.com/Cphayim/enc/pull/81)
+
 ## 0.2.5 (2023-04-09)
 
 ### Adjusted
