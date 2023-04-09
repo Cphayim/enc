@@ -1,5 +1,5 @@
 export * from '@cphayim-enc/base'
-export * from '@cphayim-enc/style'
+export { EncCSSVariables } from '@cphayim-enc/style'
 
 // exclude that have been extended in the current package
 export {

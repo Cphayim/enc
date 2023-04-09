@@ -5,7 +5,9 @@ defineOptions({ name: 'EncTransition' })
 </script>
 
 <template>
-  <Transition></Transition>
+  <Transition v-bind="$attrs">
+    <slot />
+  </Transition>
 </template>
 
 <style></style>
