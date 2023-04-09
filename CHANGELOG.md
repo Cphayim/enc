@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.8 (2023-04-10)
+
+### Bug fixes
+
+**@cphayim-enc/vue-element-plus**
+
+**@cphayim-enc/vue-vant**
+
+- export upstream components [#85](https://github.com/Cphayim/enc/pull/85)
+
 ## 0.2.6 (2023-04-10)
 
 ### Features
