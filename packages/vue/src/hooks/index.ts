@@ -5,9 +5,9 @@ export * from './use-emitter'
 export * from './use-pagination'
 export {
   useCountEvent,
-  CountEventHandler,
-  CountEventHandlerMap,
-  UseCountEventOptions,
+  type CountEventHandler,
+  type CountEventHandlerMap,
+  type UseCountEventOptions,
 } from './use-count-event'
 
 export * from './use-form-data'
