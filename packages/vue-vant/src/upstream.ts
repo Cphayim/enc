@@ -9,6 +9,7 @@ export {
   useFormData,
   useFormItems,
   usePagination,
+  useCountEvent,
 
   // components
   EncKeepAliveRouterView,
