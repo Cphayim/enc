@@ -42,7 +42,7 @@
     }
   ],
   "settings": {
-    "typescript.tsdk": "✨ enc-monorepo/node_modules/typescript/lib",
+    "typescript.tsdk": "node_modules/typescript/lib",
     "cSpell.words": ["daterange"]
   }
 }
