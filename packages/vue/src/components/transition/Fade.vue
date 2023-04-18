@@ -7,9 +7,25 @@ import { TimingFunction, useDuration, useTimingFunction } from './hooks'
 defineOptions({ name: 'EncFadeTransition' })
 
 type Props = {
+  /**
+   * 动画时长
+   * @default EncCSSVariables.TransitionDuration
+   */
   duration?: number | string
+  /**
+   * 动画曲线
+   * @default EncCSSVariables.TransitionTimingFunction
+   */
   timingFunction?: TimingFunction
+  /**
+   * 过渡模式
+   * @default 'out-in'
+   */
   mode?: 'in-out' | 'out-in'
+  /**
+   * 是否在首次渲染时触发动画
+   * @default true
+   */
   appear?: boolean
 }
 
