@@ -3,8 +3,7 @@ import {
   BizPlaceHolderExtra,
   BizRealExtra,
   FormItemUnion,
-  isBizFormItemPlaceholder,
-  isBizFormItemReal,
+  BizFormHelper,
 } from '@cphayim-enc/base'
 import { createErrorMessage, randomStr } from '@cphayim-enc/shared'
 
@@ -26,7 +25,7 @@ export class BizFeatureFormEditorTransformer {
     const transformedItems: (FormItemUnion | BizFormItemUnion<BizPlaceHolderExtra>)[] = []
 
     uniqueItems.forEach((item) => {
-      if (!isBizFormItemReal(item)) {
+      if (!BizFormHelper.isBizFormItemReal(item)) {
         // FormItemUnion | BizFormItemUnion<BizPlaceholderExtra>
         transformedItems.push(item)
       } else {
@@ -62,7 +61,7 @@ export class BizFeatureFormEditorTransformer {
     const transformedItems: (FormItemUnion | BizFormItemUnion<BizRealExtra>)[] = []
 
     items.forEach((item) => {
-      if (!isBizFormItemPlaceholder(item)) {
+      if (!BizFormHelper.isBizFormItemPlaceholder(item)) {
         // FormItemUnion | BizFormItemUnion<BizRealExtra>
         transformedItems.push(item)
       } else {
@@ -95,7 +94,7 @@ export class BizFeatureFormEditorTransformer {
 function deduplicate(items: FormItemUnion[]) {
   const set = new Set<string>()
   return items.filter((item) => {
-    if (!isBizFormItemReal(item)) return true
+    if (!BizFormHelper.isBizFormItemReal(item)) return true
 
     // 同一组 biz 控件有着相同的 bizName 和 bizKey，只保留一个
     const flag = item.extra!.bizName + item.extra!.bizKey
