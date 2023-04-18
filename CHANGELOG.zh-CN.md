@@ -1,5 +1,22 @@
 # 更新日志
 
+## 0.2.9 (2023-04-18)
+
+### Features
+
+**@cphayim-enc/base**
+
+- `BizFormHelper` 提供了一些工具函数 [#92](https://github.com/Cphayim/enc/pull/92)
+
+**@cphayim-enc/vue**
+
+- 添加 `useCountEvent` 钩子，它维护一个内部计数，每次调用返回的包装函数时，计数都会递增。 当存在匹配的 compareNumber 时，会触发对应的回调函数 [#88](https://github.com/Cphayim/enc/pull/88)
+- 添加 `EncTransition.Zoom` 组件 [#91](https://github.com/Cphayim/enc/pull/91)
+
+### Dependencies
+
+Update dependencies [#82](https://github.com/Cphayim/enc/pull/82)
+
 ## 0.2.8 (2023-04-10)
 
 ### Bug fixes

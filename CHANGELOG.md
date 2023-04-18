@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.9 (2023-04-18)
+
+### Features
+
+**@cphayim-enc/base**
+
+- `BizFormHelper` provides some utility functions [#92](https://github.com/Cphayim/enc/pull/92)
+
+**@cphayim-enc/vue**
+
+- add `useCountEvent` hook, it maintains an internal count, and each time the returned wrapped function is called, the count will be incremented. When a matching compareNumber exists, the corresponding callback function will be triggered [#88](https://github.com/Cphayim/enc/pull/88)
+- add `EncTransition.Zoom` component [#91](https://github.com/Cphayim/enc/pull/91)
+
+### Dependencies
+
+Update dependencies [#82](https://github.com/Cphayim/enc/pull/82)
+
 ## 0.2.8 (2023-04-10)
 
 ### Bug fixes
