@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, TransitionProps } from 'vue'
 import { EncCSSVariables } from '@cphayim-enc/style'
 
 import { TimingFunction, useDuration, useTimingFunction } from './hooks'
@@ -45,11 +45,11 @@ const props = withDefaults(defineProps<Props>(), {
   mode: 'out-in',
   appear: true,
 })
-defineEmits<{
-  beforeEnter: (el: HTMLElement) => void
-  afterEnter: (el: HTMLElement) => void
-  beforeLeave: (el: HTMLElement) => void
-  afterLeave: (el: HTMLElement) => void
+const emit = defineEmits<{
+  (e: 'beforeEnter', el: Element): void
+  (e: 'afterEnter', el: Element): void
+  (e: 'beforeLeave', el: Element): void
+  (e: 'afterLeave', el: Element): void
 }>()
 
 const duration = useDuration(props)
@@ -62,22 +62,25 @@ const cssVars = computed(() => ({
   [EncCSSVariables.TransitionTimingFunction]: timingFunction.value,
   [EncCSSVariables.AnimationTimingFunction]: timingFunction.value,
 }))
+
+const transitionProps = computed<TransitionProps>(() => ({
+  name: transitionName.value,
+  css: true,
+  mode: props.mode,
+  appear: props.appear,
+  style: cssVars.value,
+  class: { 'enc-fade': props.fade },
+  onBeforeEnter: (el) => emit('beforeEnter', el),
+  onAfterEnter: (el) => emit('afterEnter', el),
+  onBeforeLeave: (el) => emit('beforeLeave', el),
+  onAfterLeave: (el) => emit('afterLeave', el),
+}))
 </script>
 
 <template>
-  <Transition
-    :name="transitionName"
-    :mode="props.mode"
-    :appear="props.appear"
-    :style="cssVars"
-    :class="{ 'enc-fade': props.fade }"
-    @beforeEnter="(e: unknown) => $emit('beforeEnter', e)"
-    @afterEnter="(e: unknown) => $emit('afterEnter', e)"
-    @beforeLeave="(e: unknown) => $emit('beforeLeave', e)"
-    @afterLeave="(e: unknown) => $emit('afterLeave', e)"
-  >
+  <transition v-bind="transitionProps">
     <slot />
-  </Transition>
+  </transition>
 </template>
 
 <style>
