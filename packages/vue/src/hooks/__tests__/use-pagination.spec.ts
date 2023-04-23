@@ -1,15 +1,15 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, Mock, vi } from 'vitest'
 import { isRef, nextTick, reactive } from 'vue'
-
-const useSearchSpy = vi.fn().mockImplementation(() => reactive({ test: 1 }))
+import { useUrlSearchParams } from '@vueuse/core'
+import { usePagination } from '../use-pagination'
 
 vi.mock('@vueuse/core', () => {
   return {
-    useUrlSearchParams: useSearchSpy,
+    useUrlSearchParams: vi.fn().mockImplementation(() => reactive({ test: 1 })),
   }
 })
 
-import { usePagination } from '../use-pagination'
+const useSearchSpy = useUrlSearchParams as Mock<any, any>
 
 describe('usePagination', () => {
   it('should return a ref pagination', () => {
