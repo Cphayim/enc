@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.10 (2023-04-26)
+
+### Dependencies
+
+Update dependencies [#95](https://github.com/Cphayim/enc/pull/95), [#96](https://github.com/Cphayim/enc/pull/96)
+
 ## 0.2.9 (2023-04-18)
 
 ### Features

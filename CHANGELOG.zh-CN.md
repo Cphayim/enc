@@ -1,5 +1,11 @@
 # 更新日志
 
+## 0.2.10 (2023-04-26)
+
+### Dependencies
+
+更新依赖 [#95](https://github.com/Cphayim/enc/pull/95), [#96](https://github.com/Cphayim/enc/pull/96)
+
 ## 0.2.9 (2023-04-18)
 
 ### Features
@@ -15,7 +21,7 @@
 
 ### Dependencies
 
-Update dependencies [#82](https://github.com/Cphayim/enc/pull/82)
+更新依赖 [#82](https://github.com/Cphayim/enc/pull/82)
 
 ## 0.2.8 (2023-04-10)
 
