@@ -18,7 +18,7 @@
     "@cphayim-enc/vue-element-plus": "workspace:*",
     "@cphayim-enc/vue-vant": "workspace:*",
     "@element-plus/icons-vue": "^2.1.0",
-    "@vueuse/core": "^9.13.0",
+    "@vueuse/core": "^10.1.2",
     "element-plus": "^2.3.4",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
