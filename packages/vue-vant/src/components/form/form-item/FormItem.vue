@@ -37,8 +37,8 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   switch: EncSwitchFormItem,
   radio: EncRadioFormItem,
   checkbox: EncCheckboxFormItem,
+  rate: null,
   custom: null,
-  // 'biz-placeholder': null,
 }
 
 const comp = computed(() => CompMap[props.item.type])
