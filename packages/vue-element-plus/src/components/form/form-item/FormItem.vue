@@ -16,6 +16,7 @@ import { EncUploadFormItem } from '../upload'
 import { EncSwitchFormItem } from '../switch'
 import { EncCheckboxFormItem } from '../checkbox'
 import { EncRadioFormItem } from '../radio'
+import { EncRateFormItem } from '../rate'
 
 defineOptions({ name: 'EncFormItem', inheritAttrs: false })
 
@@ -38,7 +39,7 @@ const CompMap: Record<FormItemUnion['type'], any> = {
   switch: EncSwitchFormItem,
   radio: EncRadioFormItem,
   checkbox: EncCheckboxFormItem,
-  rate: null,
+  rate: EncRateFormItem,
   custom: null,
 }
 

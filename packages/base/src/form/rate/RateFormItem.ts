@@ -17,7 +17,7 @@ export interface RateFormItem<F = string, E = any> extends BaseFormItem<F, E> {
    * 是否允许半选
    * @default false
    */
-  rateAllowHalf: false
+  rateAllowHalf?: false
   /**
    * 选中时颜色
    * @default '#F7BA2A'
@@ -28,6 +28,16 @@ export interface RateFormItem<F = string, E = any> extends BaseFormItem<F, E> {
    * @default #C6D1DE
    */
   rateVoidColor?: string
+  /**
+   * 是否显示文本
+   * @default false
+   */
+  rateShowText?: boolean
+  /**
+   * 显示文本的格式化函数
+   * @default `(score) => `${score}分``
+   */
+  rateTextFormatter?: (score: number) => string
   /**
    * 星星数量对应的文本
    *

@@ -149,6 +149,14 @@ const DEFAULT_FORM_ITEMS: FormItemUnion[] = [
     switchActiveValue: 'on',
     switchInactiveValue: 'off',
   },
+  {
+    label: '商铺评分',
+    type: 'rate',
+    name: 'rate',
+    col: 12,
+    rateMax: 10,
+    rateShowText: true,
+  },
 ]
 
 const formItems = useLocalStorage<FormItemUnion[]>(FORM_ITEMS_STORE_KEY, DEFAULT_FORM_ITEMS)
