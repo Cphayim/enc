@@ -48,8 +48,7 @@ const handleAddItemByFeature = (item: DragFeature) => {
 <style>
 .enc-edit-panel-empty {
   @apply enc-flex-1 enc-flex enc-flex-col enc-justify-center enc-items-center;
-  @apply enc-py-[150px] enc-border-dashed enc-rounded-[10px];
-  @apply enc-text-[14px];
-  @apply enc-border-gray-300 enc-text-gray-400;
+  @apply enc-py-[150px] enc-border-dashed enc-border-gray-300 enc-border enc-rounded-[10px];
+  @apply enc-text-[14px] enc-text-gray-400;
 }
 </style>

@@ -164,7 +164,10 @@ const handleRemove = useEventLock(() => {
       @click.stop="handleSelectItem"
     >
       <span class="enc-flex-1 enc-truncate">{{ props.item.label }}</span>
-      <span @click.stop="handleRemove" class="enc-text-[18px] hover:enc-text-red-500">
+      <span
+        @click.stop="handleRemove"
+        class="enc-flex enc-justify-center enc-items-center enc-text-[18px] hover:enc-text-red-500"
+      >
         <EncFormEditorIcon :name="FormEditorIcon.Remove" />
       </span>
     </div>
@@ -177,7 +180,7 @@ const handleRemove = useEventLock(() => {
 }
 .enc-edit-panel-drawable-form-item {
   @apply enc-flex;
-  @apply enc-leading-[40px] enc-px-[10px] enc-border-solid enc-border-opacity-50 enc-rounded-[6px];
+  @apply enc-leading-[40px] enc-px-[10px] enc-border enc-border-solid enc-border-opacity-50 enc-rounded-[6px];
   @apply enc-text-[14px] enc-cursor-pointer;
   @apply enc-transition-all enc-duration-300;
   @apply enc-border-gray-300 enc-text-gray-500;
