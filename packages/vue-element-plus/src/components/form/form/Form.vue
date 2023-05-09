@@ -38,9 +38,15 @@ type Props = {
    */
   colGutter?: number
   /**
-   * 左侧标题宽度 px，默认 100
+   * 左侧标题宽度
+   * @default '100px'
    */
-  labelWidth?: number
+  labelWidth?: number | string
+  /**
+   * 标签的位置
+   * @default 'right'
+   */
+  labelPosition?: 'left' | 'right' | 'top'
   /**
    * 国际化
    */
@@ -55,7 +61,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'default',
   rowGutter: 8,
   colGutter: 10,
-  labelWidth: 100,
+  labelWidth: '100px',
   locale: 'zh-cn',
 })
 
@@ -116,8 +122,9 @@ const locale = computed(() => (props.locale === 'en' ? en : zhCn))
         ref="formRef"
         :model="props.data"
         :label-width="props.labelWidth"
-        @submit.prevent
+        :label-position="props.labelPosition"
         :size="props.size"
+        @submit.prevent
       >
         <el-row :gutter="props.colGutter * 2">
           <template v-for="item in props.items" :key="item.name">

@@ -13,10 +13,10 @@ export type CreateOptions = {
   external?: (string | RegExp)[]
 }
 
-export const createBuild = ({ root, external }: CreateOptions) => {
+export const createBuild = ({ root, external, mode }: CreateOptions) => {
   const build: BuildOptions = {
     outDir: resolve(root, 'dist'),
-    emptyOutDir: true,
+    emptyOutDir: mode === 'production',
     sourcemap: true,
     lib: {
       entry: resolve(root, 'src/index.ts'),

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 import { Form as VanForm } from 'vant'
 import 'vant/es/form/style/index'
 
@@ -7,6 +7,7 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 import { delayWrapper } from '@cphayim-enc/shared'
 
 import { EncFormItem } from '../form-item'
+import { FormInternalConfig, FORM_INTERNAL_CONFIG_KEY } from './provide'
 
 defineOptions({ name: 'EncForm', inheritAttrs: false })
 
@@ -19,6 +20,16 @@ type Props = {
    * 表单项
    */
   items: FormItemUnion[]
+  /**
+   * 左侧标题宽度
+   * @default '6.2em'
+   */
+  labelWidth?: number | string
+  /**
+   * 标签的位置
+   * @default 'right'
+   */
+  labelPosition?: 'left' | 'right' | 'top'
 }
 
 const props = withDefaults(defineProps<Props>(), {})
@@ -26,6 +37,12 @@ const props = withDefaults(defineProps<Props>(), {})
 const emit = defineEmits<{
   (e: 'update:data', values: any): void
 }>()
+
+// 提供给 form-item 组件使用
+provide<FormInternalConfig>(FORM_INTERNAL_CONFIG_KEY, {
+  labelWidth: props.labelWidth,
+  labelPosition: props.labelPosition,
+})
 
 const formRef = ref<any>()
 
