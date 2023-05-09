@@ -4,6 +4,8 @@ import type { CustomFormItem } from './custom'
 import type { DateFormItem } from './date'
 import type { InputFormItem } from './input'
 import type { RadioFormItem } from './radio'
+import type { RateFormItem } from './rate'
+
 import type { SelectFormItem } from './select'
 import type { SwitchFormItem } from './switch'
 import type { TimeFormItem } from './time'
@@ -19,6 +21,7 @@ export type FormItemUnion<F = string, E = any> =
   | SwitchFormItem<F, E>
   | RadioFormItem<F, E>
   | CheckboxFormItem<F, E>
+  | RateFormItem<F, E>
   | CustomFormItem<F, E>
 
 // Used for default configuration
@@ -32,6 +35,7 @@ export type OmitPartialFormItem = Partial<
     Omit<SwitchFormItem, 'type' | 'name'> &
     Omit<RadioFormItem, 'type' | 'name'> &
     Omit<CheckboxFormItem, 'type' | 'name'> &
+    Omit<RateFormItem, 'type' | 'name'> &
     Omit<CustomFormItem, 'type' | 'name'>
 >
 
@@ -46,4 +50,5 @@ export * from './upload'
 export * from './switch'
 export * from './radio'
 export * from './checkbox'
+export * from './rate'
 export * from './custom'
