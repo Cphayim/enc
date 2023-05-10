@@ -75,12 +75,6 @@ export interface BaseFormItem<F = string, E = any> {
    * @default 'left'
    */
   align?: FormItemAlign
-  /**
-   * label 标签对齐方式
-   *
-   * 默认值：由 UI package 决定，通常 PC 端为 'right'，移动端为 'left'
-   */
-  labelAlign?: FormItemAlign
 }
 
 /**

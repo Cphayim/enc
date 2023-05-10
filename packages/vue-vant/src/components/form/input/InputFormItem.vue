@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, inject, useSlots } from 'vue'
 import { useVModel } from '@vueuse/core'
 import { Field as VanField } from 'vant'
 import 'vant/es/field/style/index'
 
 import type { BaseFormItem, InputFormItem } from '@cphayim-enc/base'
 import { useEventLock } from '@cphayim-enc/vue'
+
+import {
+  DEFAULT_FORM_INTERNAL_CONFIG,
+  FormInternalConfig,
+  FORM_INTERNAL_CONFIG_KEY,
+} from '../form/provide'
 
 defineOptions({ name: 'EncInputFormItem' })
 
@@ -48,6 +54,18 @@ const handleFieldClick = useEventLock(() => {
 
 const slots = useSlots()
 
+const formInternalConfig = inject<FormInternalConfig>(
+  FORM_INTERNAL_CONFIG_KEY,
+  DEFAULT_FORM_INTERNAL_CONFIG,
+)
+const labelWidth = computed(() => formInternalConfig.labelWidth)
+const labelAlign = computed(() => formInternalConfig.labelPosition)
+const inputAlign = computed(() => {
+  if (item.value.align) return item.value.align
+  if (labelAlign.value === 'top') return 'left'
+  return item.value.inputType === 'textarea' ? 'left' : 'right'
+})
+
 const isRequired = computed(() => item.value.rules?.some((rule) => rule.required))
 </script>
 
@@ -61,7 +79,9 @@ const isRequired = computed(() => item.value.rules?.some((rule) => rule.required
     :placeholder="item.placeholder"
     :is-link="props._isLink"
     :rules="rules"
-    :input-align="item.align ?? item.inputType === 'textarea' ? 'left' : 'right'"
+    :label-width="labelWidth"
+    :label-align="labelAlign"
+    :input-align="inputAlign"
     :type="item.inputType"
     :rows="item.inputRows"
     :maxlength="item.inputMaxLength"
