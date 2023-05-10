@@ -2,20 +2,22 @@
 import { computed } from 'vue'
 import { useVModel } from '@vueuse/core'
 
-import { ElRate } from 'element-plus'
-import 'element-plus/es/components/rate/style/css'
+import { Rate as VanRate } from 'vant'
+import 'vant/es/rate/style/index'
 
 import type { BaseFormItem, RateFormItem } from '@cphayim-enc/base'
+
+import { EncInputFormItem } from '../input'
 
 defineOptions({ name: 'EncRateFormItem' })
 
 const props = defineProps<{
-  modelValue?: any
-  item: BaseFormItem
+  modelValue: any
+  item: RateFormItem
 }>()
 
 const DEFAULT_OPTIONS: Omit<RateFormItem, Exclude<keyof BaseFormItem, 'placeholder'>> = {
-  placeholder: '请选择',
+  placeholder: '未评分',
   rateMax: 5,
   rateAllowHalf: false,
   rateColor: '#F7BA2A',
@@ -23,12 +25,9 @@ const DEFAULT_OPTIONS: Omit<RateFormItem, Exclude<keyof BaseFormItem, 'placehold
   rateShowText: false,
   rateTextFormatter: (score) => `${score} 分`,
 }
-
 const item = computed(() => ({ ...DEFAULT_OPTIONS, ...props.item }))
 
 const _value = useVModel(props, 'modelValue')
-
-const colors = computed<string[]>(() => new Array(item.value.rateMax).fill(item.value.rateColor))
 
 const currentText = computed(() => {
   if (!_value.value) return
@@ -37,18 +36,28 @@ const currentText = computed(() => {
 </script>
 
 <template>
-  <el-rate
-    v-model="_value"
-    :readonly="item.readonly"
-    :disabled="item.disabled"
-    :max="item.rateMax"
-    :allow-half="item.rateAllowHalf"
-    :colors="colors"
-    :void-color="item.rateVoidColor"
-  />
-  <span v-if="item.rateShowText" class="enc-ml-[5px] enc-text-gray-600 enc-text-[14px]">
-    {{ currentText }}
-  </span>
+  <div class="enc-rate">
+    <EncInputFormItem :modelValue="currentText" :item="(item as any)" _readonly />
+    <div class="enc-rate-content">
+      <van-rate
+        v-model="_value"
+        :count="item.rateMax"
+        :color="item.rateColor"
+        :void-color="item.rateVoidColor"
+      />
+    </div>
+  </div>
 </template>
 
-<style></style>
+<style>
+.enc-rate {
+  .van-cell {
+    &::after {
+      @apply enc-hidden;
+    }
+  }
+}
+.enc-rate-content {
+  @apply enc-px-[16px] enc-pb-[10px];
+}
+</style>
