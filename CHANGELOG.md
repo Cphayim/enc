@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.2.11 (2023-05-10)
+
+### Features
+
+**@cphayim-enc/base**
+
+- defines the `RateFormItem` interface [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/vue-element-plus**
+**@cphayim-enc/vue-vant**
+
+- `EncForm` component adds props `labelPosition`, allowing to set it to `top` to make the label and form controls vertically arranged [#102](https://github.com/Cphayim/enc/pull/102)
+- added `EncRateFormItem` component to implement `RateFormItem` [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-form-editor**
+
+- add rate preset [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- support rate in `EncFormEditor` component [#103](https://github.com/Cphayim/enc/pull/103)
+
+## Bug fixes
+
+**@cphayim-enc/style**
+
+- fixed scrollbar rounding style issues [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- fix style issues that could be caused by externally resetting styles [#101](https://github.com/Cphayim/enc/pull/101)
+
 ## 0.2.10 (2023-04-26)
 
 ### Dependencies

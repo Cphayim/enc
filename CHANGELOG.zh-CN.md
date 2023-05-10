@@ -1,5 +1,37 @@
 # 更新日志
 
+## 0.2.11 (2023-05-10)
+
+### Features
+
+**@cphayim-enc/base**
+
+- 定义了 `RateFormItem` 接口 [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/vue-element-plus**
+**@cphayim-enc/vue-vant**
+
+- `EncForm` 组件新增 props `labelPosition`，允许设置为 `top` 使 label 和表单控件垂直排列 [#102](https://github.com/Cphayim/enc/pull/102)
+- 新增了 `EncRateFormItem` 组件，实现 `RateFormItem` [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-form-editor**
+
+- 添加了 rate 的预设 [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- `EncFormEditor` 组件支持 `rate` [#103](https://github.com/Cphayim/enc/pull/103)
+
+## Bug fixes
+
+**@cphayim-enc/style**
+
+- 修复滚动条圆角样式问题 [#103](https://github.com/Cphayim/enc/pull/103)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- 修复外部重置样式可能导致的样式问题 [#101](https://github.com/Cphayim/enc/pull/101)
+
 ## 0.2.10 (2023-04-26)
 
 ### Dependencies
