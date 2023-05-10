@@ -42,7 +42,7 @@ const bizFeatures = computed(() => props.config.bizFeatures)
     </template>
     <!-- biz features -->
     <div v-if="bizFeatures" class="enc-edit-panel-feature-group">
-      <div class="enc-edit-panel-feature-group-name">业务组合型控件</div>
+      <div class="enc-edit-panel-feature-group-name">业务/组合型控件</div>
       <div class="enc-flex enc-flex-wrap">
         <template v-for="feature in bizFeatures" :key="feature.presetName">
           <DrawableFeature :feature="feature" :emitter="props.emitter" />

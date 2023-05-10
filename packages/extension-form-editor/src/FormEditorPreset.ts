@@ -17,6 +17,7 @@ export enum FormEditorPreset {
   Date = 'date', // 日期选择
   Time = 'time', // 时间选择
   DateRange = 'dateRange', // 日期范围选择
+  Rate = 'rate', // 评分
   // DateTime, // 日期时间选择
   UploadImage = 'uploadImage', // 图片上传
   UploadFile = 'uploadFile', // 文件上传

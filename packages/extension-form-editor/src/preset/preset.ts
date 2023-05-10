@@ -57,6 +57,7 @@ const presetLabelMap: Record<FormEditorPreset, string> = {
   [FormEditorPreset.Date]: '日期选择',
   [FormEditorPreset.Time]: '时间选择',
   [FormEditorPreset.DateRange]: '日期范围选择',
+  [FormEditorPreset.Rate]: '评分',
   [FormEditorPreset.UploadImage]: '图片上传',
   [FormEditorPreset.UploadFile]: '文件上传',
 }
@@ -105,6 +106,10 @@ const presetFeatureMap: Record<FormEditorPreset, FormEditorPresetFeature> = {
     dateType: 'daterange',
     dateFormat: 'YYYY-MM-DD',
     dateRangeSeparator: '-',
+  }),
+  [FormEditorPreset.Rate]: createFeature(FormEditorPreset.Rate, {
+    type: 'rate',
+    rateMax: 5,
   }),
   [FormEditorPreset.UploadImage]: createFeature(FormEditorPreset.UploadImage, {
     type: 'upload',
