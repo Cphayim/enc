@@ -33,7 +33,7 @@
   --enc-scrollbar-border-width: 0px;
   --enc-scrollbar-border-style: solid;
   --enc-scrollbar-border-color: transparent;
-  --enc-scrollbar-border-radius: 50%;
+  --enc-scrollbar-border-radius: 5px;
   --enc-scrollbar-track-color: transparent;
 }
 
