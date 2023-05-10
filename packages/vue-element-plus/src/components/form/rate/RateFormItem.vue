@@ -34,6 +34,7 @@ const currentText = computed(() => {
   if (!_value.value) return
   return item.value.rateTexts?.[_value.value - 1] || item.value.rateTextFormatter!(_value.value)
 })
+const rateMax = computed(() => (item.value.rateMax ? Math.abs(~~item.value.rateMax) : undefined))
 </script>
 
 <template>
@@ -41,7 +42,7 @@ const currentText = computed(() => {
     v-model="_value"
     :readonly="item.readonly"
     :disabled="item.disabled"
-    :max="item.rateMax"
+    :max="rateMax"
     :allow-half="item.rateAllowHalf"
     :colors="colors"
     :void-color="item.rateVoidColor"

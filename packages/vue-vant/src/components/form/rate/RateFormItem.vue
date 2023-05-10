@@ -33,6 +33,7 @@ const currentText = computed(() => {
   if (!_value.value) return
   return item.value.rateTexts?.[_value.value - 1] || item.value.rateTextFormatter!(_value.value)
 })
+const rateMax = computed(() => (item.value.rateMax ? Math.abs(~~item.value.rateMax) : undefined))
 </script>
 
 <template>
@@ -41,7 +42,7 @@ const currentText = computed(() => {
     <div class="enc-rate-content">
       <van-rate
         v-model="_value"
-        :count="item.rateMax"
+        :count="rateMax"
         :color="item.rateColor"
         :void-color="item.rateVoidColor"
       />

@@ -4,6 +4,7 @@ import { EncCheckboxFormItemEditor } from './checkbox'
 import { EncDateFormItemEditor } from './date'
 import { EncInputFormItemEditor } from './input'
 import { EncRadioFormItemEditor } from './radio'
+import { EncRateFormItemEditor } from './rate'
 import { EncSelectFormItemEditor } from './select'
 import { EncSwitchFormItemEditor } from './switch'
 import { EncTimeFormItemEditor } from './time'
@@ -20,7 +21,7 @@ export const typeFormItemEditorComponentMap: Record<FormItemUnion['type'], any> 
   switch: EncSwitchFormItemEditor,
   radio: EncRadioFormItemEditor,
   checkbox: EncCheckboxFormItemEditor,
-  rate: null,
+  rate: EncRateFormItemEditor,
   custom: null,
 }
 
