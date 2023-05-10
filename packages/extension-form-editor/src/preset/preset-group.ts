@@ -31,6 +31,7 @@ export function getPresetFeatureGroups(presetSet: Set<FormEditorPreset>) {
         FormEditorPreset.Date,
         FormEditorPreset.Time,
         FormEditorPreset.DateRange,
+        FormEditorPreset.Rate,
       ]),
     },
     {

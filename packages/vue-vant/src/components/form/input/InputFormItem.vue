@@ -22,6 +22,10 @@ const props = defineProps<{
   _readonly?: boolean
   // 内部属性，当选择器组件引用该组件时，该值为 true
   _isLink?: boolean
+  // 内部属性，控制 label 的位置，优先级大于 form provide
+  _labelAlign?: 'top' | 'left' | 'right'
+  // 内部属性，隐藏 input 框（包括高度）
+  _hideInput?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -59,7 +63,7 @@ const formInternalConfig = inject<FormInternalConfig>(
   DEFAULT_FORM_INTERNAL_CONFIG,
 )
 const labelWidth = computed(() => formInternalConfig.labelWidth)
-const labelAlign = computed(() => formInternalConfig.labelPosition)
+const labelAlign = computed(() => props._labelAlign ?? formInternalConfig.labelPosition)
 const inputAlign = computed(() => {
   if (item.value.align) return item.value.align
   if (labelAlign.value === 'top') return 'left'
@@ -89,13 +93,24 @@ const isRequired = computed(() => item.value.rules?.some((rule) => rule.required
     show-word-limit
     :required="isRequired"
     @click="handleFieldClick"
+    :class="{ 'enc-hidden-input': props._hideInput }"
   >
     <template v-if="slots.label" #label><slot name="label" /></template>
-    <template v-if="slots.input" #input><slot name="input" /></template>
+
+    <template v-if="props._hideInput" #input></template>
+    <template v-else-if="slots.input" #input><slot name="input" /></template>
+
     <template v-if="slots.leftIcon" #left-icon><slot name="left-icon" /></template>
     <template v-if="slots.rightIcon" #right-icon><slot name="right-icon" /></template>
     <template v-if="slots.button" #button><slot name="button" /></template>
   </van-field>
 </template>
 
-<style></style>
+<style>
+.enc-hidden-input {
+  /* --van-cell-line-height: 0; */
+  .van-field__control--custom {
+    @apply enc-hidden;
+  }
+}
+</style>

@@ -109,8 +109,8 @@ const handleFileUploadTask = async (file: File | File[]): Promise<never> => {
       :modelValue="_uploadedFileList.map((i) => i.url).join(',')"
       :item="(item as any)"
       _readonly
+      _hideInput
     >
-      <template #input></template>
     </EncInputFormItem>
 
     <div class="enc-upload-content">
