@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.12 (2023-05-11)
+
+### Features
+
+**@cphayim-enc/vue-element-plus**
+
+- `EncCascaderFormItem` component supports `cascaderFilterable` property [#105](https://github.com/Cphayim/enc/pull/105)
+
 ## 0.2.11 (2023-05-10)
 
 ### Features

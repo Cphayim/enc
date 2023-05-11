@@ -1,5 +1,13 @@
 # 更新日志
 
+## 0.2.12 (2023-05-11)
+
+### Features
+
+**@cphayim-enc/vue-element-plus**
+
+- `EncCascaderFormItem` 组件支持 `cascaderFilterable` 属性 [#105](https://github.com/Cphayim/enc/pull/105)
+
 ## 0.2.11 (2023-05-10)
 
 ### Features
