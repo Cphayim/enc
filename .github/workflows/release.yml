@@ -44,7 +44,8 @@ jobs:
         run: |
           VERSION=$(git log -1 --pretty=%B | grep -o "v[0-9]\+\.[0-9]\+\.[0-9]\+")
           echo "VERSION=$VERSION"
-          git tag $VERSION
+          git tag $VERSION -m $VERSION
+          echo "Create tag $VERSION"
           git push origin $VERSION
 
       - name: Publish Packages to NPM
