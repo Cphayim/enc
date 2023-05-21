@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@vueuse/core": "^10.1.2",
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.1"
   },
   "peerDependencies": {
     "@vueuse/core": ">=8.0.0",
