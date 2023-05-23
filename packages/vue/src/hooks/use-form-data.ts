@@ -1,9 +1,9 @@
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 
 import { deepClone } from '@cphayim-enc/shared'
 
 export function useFormData<T extends Record<string, any>>(initData: T) {
-  const formData = ref<T>(getInitialData(initData))
+  const formData = ref<T>(getInitialData(initData)) as Ref<T>
   const resetData = () => {
     formData.value = getInitialData(initData)
   }
@@ -14,6 +14,6 @@ export function useFormData<T extends Record<string, any>>(initData: T) {
   }
 }
 
-function getInitialData<T>(originalData: T) {
+function getInitialData<T extends Record<string, any>>(originalData: T) {
   return deepClone(originalData)
 }

@@ -40,8 +40,8 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^10.1.2",
     "dayjs": "^1.11.7",
-    "element-plus": "^2.3.4",
-    "vue": "^3.2.47"
+    "element-plus": "^2.3.5",
+    "vue": "^3.3.4"
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.0.0",
