@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 
-import type { FormItemUnion, OmitPartialFormItem } from '@cphayim-enc/base'
+import type { FormItemUnion, PartialFormItemUnionWithoutNameAndType } from '@cphayim-enc/base'
 import { useFormData } from './use-form-data'
 import { useFormItems } from './use-form-items'
 
@@ -8,12 +8,12 @@ export type UseFormOptions = {
   /**
    * 默认表单配置项，将和 items 的每一项合并
    */
-  commonItem?: OmitPartialFormItem
+  commonItem?: PartialFormItemUnionWithoutNameAndType
   /**
    * 兼容字段，同 commonItem
    * @deprecated
    */
-  defaultProps?: OmitPartialFormItem
+  defaultProps?: PartialFormItemUnionWithoutNameAndType
 }
 
 /**

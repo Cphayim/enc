@@ -80,7 +80,7 @@ describe('BizFormHelper', () => {
     createFormItem({ biz: true, bizName: 'Biz2', bizKey: 'Biz2key1', bizField: 'Biz2Field2' }),
     createFormItem({ biz: true, bizName: 'Biz2', bizKey: 'Biz2key2', bizField: 'Biz2Field1' }), // second group
     createFormItem({ biz: true, bizName: 'Biz2', bizKey: 'Biz2key2', bizField: 'Biz2Field2' }),
-  ] as const
+  ]
 
   it('should be able to filter `BizFormItemUnion[]`', () => {
     // all `BizFormItemUnion`

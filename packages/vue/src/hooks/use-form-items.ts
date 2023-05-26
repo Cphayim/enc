@@ -1,11 +1,11 @@
 import { computed, isRef, ref, Ref, watchEffect } from 'vue'
 
-import type { FormItemUnion, OmitPartialFormItem } from '@cphayim-enc/base'
+import type { FormItemUnion, PartialFormItemUnionWithoutNameAndType } from '@cphayim-enc/base'
 import { createErrorMessage } from '@cphayim-enc/shared'
 
 export function useFormItems<F = string>(
   items: FormItemUnion<F>[] | Ref<FormItemUnion<F>[]>,
-  commonItem?: OmitPartialFormItem,
+  commonItem?: PartialFormItemUnionWithoutNameAndType,
 ) {
   const formItems = ref([]) as Ref<FormItemUnion<F>[]>
 
@@ -18,7 +18,7 @@ export function useFormItems<F = string>(
 
   const getItem = (name: F) => formItemsMap.value.get(name)
 
-  const updateItem = (name: F, updateItem: OmitPartialFormItem) => {
+  const updateItem = (name: F, updateItem: PartialFormItemUnionWithoutNameAndType) => {
     const item = getItem(name)
     if (item) {
       Object.assign(item, updateItem)
@@ -36,7 +36,7 @@ export function useFormItems<F = string>(
 
 function mergeItems<F>(
   items: FormItemUnion<F>[] = [],
-  commonItem: OmitPartialFormItem = {},
+  commonItem: PartialFormItemUnionWithoutNameAndType = {},
 ): FormItemUnion<F>[] {
   return items.map((item) => ({ ...commonItem, ...item }))
 }
