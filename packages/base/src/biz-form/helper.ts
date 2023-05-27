@@ -77,7 +77,7 @@ export class BizFormHelper {
 
   /**
    * 查找 `formData` 中的业务数据的值的分组，组名为 `bizKey`
-   * @deprecated
+   * @deprecated 已弃用，请用 `BizFormAnalyzer` 类的 `getDataAnalysisTree()` 方法替代
    * @param data 表单数据
    * @param items 表单项
    * @param bizName 业务名称
