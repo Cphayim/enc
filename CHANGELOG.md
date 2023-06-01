@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.2.13 (2023-06-01)
+
+### Features
+
+**@cphayim-enc/base**
+
+- The filter method provided by `BizFormHelper` supports `matchingRule`. [#107](https://github.com/Cphayim/enc/pull/107)
+- Optimized the structure of form item combination types. [#107](https://github.com/Cphayim/enc/pull/107)
+  - `OmitPartialFormItem` rename as `PartialFormItemIntersectionWithoutNameAndType`
+- Add `FormAnalyzer` and `BizFormAnalyzer`, Analyzer for complex form items [#107](https://github.com/Cphayim/enc/pull/107)
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- Add `FormEditorConfig.syncOptionsLabelAndValue` option to support key-value sync in edit panel with options (e.g. `Select`, `Checkbox`, `Redio`, etc.) [#107](https://github.com/Cphayim/enc/pull/107)
+- Add `FormEditorBizFeature.bizSingleton` option to limit the number of times `bizFeature` can be used in the editor [#107](https://github.com/Cphayim/enc/pull/107)
+
+### Dependencies
+
+Update dependencies [#108](https://github.com/Cphayim/enc/pull/108)
+
 ## 0.2.12 (2023-05-11)
 
 ### Features

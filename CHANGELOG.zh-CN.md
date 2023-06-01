@@ -1,5 +1,26 @@
 # 更新日志
 
+## 0.2.13 (2023-06-01)
+
+### Features
+
+**@cphayim-enc/base**
+
+- `BizFormHelper` 提供的过滤方法支持 `matchingRule` [#107](https://github.com/Cphayim/enc/pull/107)
+- 优化了表单项组合类型的结构 [#107](https://github.com/Cphayim/enc/pull/107)
+  - `OmitPartialFormItem` 重命名为 `PartialFormItemIntersectionWithoutNameAndType`
+- 添加 `FormAnalyzer` 和 `BizFormAnalyzer`，用于复杂表单项的分析器 [#107](https://github.com/Cphayim/enc/pull/107)
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- 添加 `FormEditorConfig.syncOptionsLabelAndValue` 选项，在含有选项的编辑面板中支持键值同步（例如 `Select`, `Checkbox`, `Redio` 等）[#107](https://github.com/Cphayim/enc/pull/107)
+- 添加 `FormEditorBizFeature.bizSingleton` 选项，用于限制 `bizFeature` 在编辑器中的使用次数 [#107](https://github.com/Cphayim/enc/pull/107)
+
+### Dependencies
+
+更新依赖 [#108](https://github.com/Cphayim/enc/pull/108)
+
 ## 0.2.12 (2023-05-11)
 
 ### Features
