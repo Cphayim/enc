@@ -2,13 +2,12 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   release:
     name: Release
-    if: "startsWith(github.event.head_commit.message, 'chore(release):')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,14 +38,6 @@ jobs:
 
       - name: Run compile and build packages
         run: pnpm build
-
-      - name: Push version tag
-        run: |
-          VERSION=$(git log -1 --pretty=%B | grep -o "v[0-9]\+\.[0-9]\+\.[0-9]\+")
-          echo "VERSION=$VERSION"
-          git tag $VERSION -m $VERSION
-          echo "Create tag $VERSION"
-          git push origin $VERSION
 
       - name: Publish Packages to NPM
         run: |
