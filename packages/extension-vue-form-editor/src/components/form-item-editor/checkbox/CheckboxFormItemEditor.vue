@@ -65,7 +65,7 @@ initTransformCheckboxOptions()
     <!-- 分组选项 -->
     <EncFieldset v-show="isGroup">
       <template #title>
-        <span class="enc-mr-[8px]">组选项</span>
+        <span class="enc-mr-[8px]">选项配置</span>
         <span
           @click="handleAddOption"
           class="enc-relative enc-z-20 enc-cursor-pointer enc-text-[16px] enc-leading-[24px] enc-text-gray-500 hover:enc-text-green-500"

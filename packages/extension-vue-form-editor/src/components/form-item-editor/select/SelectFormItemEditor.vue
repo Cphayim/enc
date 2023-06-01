@@ -32,7 +32,7 @@ const handleAddOption = () => {
   if (!modelValue.value.selectOptions) {
     modelValue.value.selectOptions = []
   }
-  modelValue.value.selectOptions?.push({ label: 'label', value: 'value' })
+  modelValue.value.selectOptions?.push({ label: '选项', value: '选项' })
 }
 const handleRemoveOption = (index: number) => {
   modelValue.value?.selectOptions?.splice(index, 1)
@@ -50,7 +50,7 @@ const handleRemoveOption = (index: number) => {
 
     <EncFieldset>
       <template #title>
-        <span class="enc-mr-[8px]">选项</span>
+        <span class="enc-mr-[8px]">选项配置</span>
         <span
           @click="handleAddOption"
           class="enc-relative enc-z-20 enc-cursor-pointer enc-text-[16px] enc-leading-[24px] enc-text-gray-500 hover:enc-text-green-500"

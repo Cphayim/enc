@@ -1,4 +1,4 @@
-import type { FormEditorPreset } from './FormEditorPreset'
+import { FormEditorPreset } from './FormEditorPreset'
 import type { FormEditorBizFeature } from './FormEditorBiz'
 
 export enum FormEditorOperation {
@@ -58,4 +58,23 @@ export interface FormEditorConfig {
    * formItem 为空时的提示文字
    */
   formItemEmptyText?: string
+  /**
+   * 是否同步 `options` 中的 `label` 和 `value`
+   *
+   * 这会影响到编辑器中所有含选项的配置行为
+   * - `true`: 禁用选项的 `value` 编辑，自动同步 `label` 的值到 `value`
+   * - `false`: 可以单独编辑 `label` 和 `value`
+   *
+   * @default false
+   */
+  syncOptionsLabelAndValue?: boolean
+}
+
+export const DEFAULT_FORM_EDITOR_CONFIG: FormEditorConfig = {
+  // default enable all
+  presets: Object.values(FormEditorPreset),
+  bizFeatures: [],
+  randomNameOnly: false,
+  randomNameLength: 8,
+  syncOptionsLabelAndValue: false,
 }

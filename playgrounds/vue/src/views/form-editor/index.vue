@@ -15,9 +15,11 @@ const formEditorConfig: FormEditorConfig = {
     FormEditorOperation.PrintItems,
   ],
   // randomNameOnly: true,
+  syncOptionsLabelAndValue: true,
   // presets: [FormEditorPreset.Input],
   bizFeatures: [
     {
+      bizSingleton: true,
       bizName: 'ItemUnitPriceQuantity',
       bizLabel: '报价组合控件',
       bizDesc: '物品+单价+数量',

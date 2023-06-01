@@ -12,4 +12,9 @@ export type FormEditorBizFeature = Pick<BizPlaceHolderExtra, 'bizName' | 'bizLab
    * "占位项" <=> "实际项" | "实际项"[] 的转换器
    */
   bizTransformer: BizTransformer
+  /**
+   * 是否为单例（编辑器将阻止该业务控件被添加多次）
+   * @default false
+   */
+  bizSingleton?: boolean
 }

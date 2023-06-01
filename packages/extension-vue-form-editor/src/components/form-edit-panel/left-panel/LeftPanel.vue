@@ -12,10 +12,12 @@ import {
 import { EncFormEditorTip } from '../../form-editor-tip'
 import type { FormEditorInternalEmitter } from '..'
 import DrawableFeature from './DrawableFeature.vue'
+import type { FormItemUnion } from '@cphayim-enc/base'
 
 defineOptions({ name: 'EncLeftPanel' })
 
 const props = defineProps<{
+  items: FormItemUnion[]
   config: FormEditorConfig
   emitter: FormEditorInternalEmitter
 }>()
@@ -29,23 +31,25 @@ const bizFeatures = computed(() => props.config.bizFeatures)
 <template>
   <div class="enc-edit-panel-left-panel">
     <EncFormEditorTip :content="formEditorTips.left" />
+
     <!-- preset features -->
     <template v-for="group in presetFeatureGroups" :key="group.groupName">
       <div v-if="group.features.length" class="enc-edit-panel-feature-group">
         <div class="enc-edit-panel-feature-group-name">{{ group.groupName }}</div>
         <div class="enc-flex enc-flex-wrap">
           <template v-for="feature in group.features" :key="feature.presetName">
-            <DrawableFeature :feature="feature" :emitter="props.emitter" />
+            <DrawableFeature :feature="feature" :emitter="props.emitter" :items="props.items" />
           </template>
         </div>
       </div>
     </template>
+
     <!-- biz features -->
     <div v-if="bizFeatures" class="enc-edit-panel-feature-group">
       <div class="enc-edit-panel-feature-group-name">业务/组合型控件</div>
       <div class="enc-flex enc-flex-wrap">
         <template v-for="feature in bizFeatures" :key="feature.presetName">
-          <DrawableFeature :feature="feature" :emitter="props.emitter" />
+          <DrawableFeature :feature="feature" :emitter="props.emitter" :items="props.items" />
         </template>
       </div>
     </div>

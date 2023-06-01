@@ -4,7 +4,7 @@ import { useVModel } from '@vueuse/core'
 import type { SelectFormItemOption } from '@cphayim-enc/base'
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
-import { useEditorItems } from '../../../hooks'
+import { useSyncOptionsEditorItems } from '../../../hooks'
 import { COMMON_ENC_FORM_PROPS } from '../common'
 import { SELECT_OPTION_ITEMS } from './items'
 
@@ -16,7 +16,11 @@ const props = defineProps<{
 }>()
 
 const modelValue = useVModel(props, 'modelValue')
-const { EncForm, formRef, formItems } = useEditorItems(SELECT_OPTION_ITEMS, props.config)
+const { EncForm, formRef, formItems } = useSyncOptionsEditorItems(
+  SELECT_OPTION_ITEMS,
+  props.config,
+  modelValue,
+)
 
 const encFormProps = { ...COMMON_ENC_FORM_PROPS, labelWidth: 40 }
 </script>
