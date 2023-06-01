@@ -66,10 +66,12 @@ const handleAddItemByFeature = ({
 
   // 直接点击左侧面板的功能按钮触发不存在 index，添加到尾部
   if (isNone(index)) index = formItems.value.length
+
   const rStr = randomStr(config.value.randomNameLength ?? 8)
   const item = isPresetFeature(feature)
     ? feature.getItem(rStr)
     : feature.bizTransformer.toPlaceHolder([], rStr)
+
   handleAddItem({ index, item })
   emitter.emit('select-item', { type: 'adding', item, index })
 }
@@ -109,7 +111,13 @@ watch(
   <DndProvider :backend="props.backend || HTML5Backend">
     <div class="enc-edit-panel">
       <!-- left features panel -->
-      <EncLeftPanel :config="config" :emitter="emitter" class="enc-flex-shrink-0" />
+      <EncLeftPanel
+        :config="config"
+        :items="formItems"
+        :emitter="emitter"
+        class="enc-flex-shrink-0"
+      />
+
       <!-- center items panel -->
       <EncCenterPanel
         v-model:items="formItems"
@@ -118,6 +126,7 @@ watch(
         :selectedItem="selectedItem"
         class="enc-flex-1"
       />
+
       <!-- right detail edit panel -->
       <EncRightPanel
         :config="config"
