@@ -5,6 +5,9 @@ import { createErrorMessage } from '@cphayim-enc/shared'
 import { useFormItems } from '@cphayim-enc/vue'
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
+/**
+ * 表单编辑器表单项
+ */
 export function useEditorItems(items: FormItemUnion[], config: FormEditorConfig) {
   const EncForm = computed(() => {
     if (config.encFormComponent?.name !== 'EncForm')

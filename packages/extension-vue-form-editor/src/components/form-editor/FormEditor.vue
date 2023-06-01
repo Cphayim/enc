@@ -5,13 +5,13 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 import { useFormItems } from '@cphayim-enc/vue'
 import {
   BizFeatureFormEditorTransformer,
+  DEFAULT_FORM_EDITOR_CONFIG,
   FormEditorConfig,
   FormEditorOperation,
 } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormPreview } from '../form-preview'
 import { EncFormEditPanel } from '../form-edit-panel'
-import { DEFAULT_FORM_EDITOR_CONFIG } from './config'
 
 defineOptions({ name: 'EncFormEditor' })
 

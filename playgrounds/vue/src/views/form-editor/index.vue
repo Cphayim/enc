@@ -15,6 +15,7 @@ const formEditorConfig: FormEditorConfig = {
     FormEditorOperation.PrintItems,
   ],
   // randomNameOnly: true,
+  syncOptionsLabelAndValue: true,
   // presets: [FormEditorPreset.Input],
   bizFeatures: [
     {
