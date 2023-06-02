@@ -68,6 +68,13 @@ export interface FormEditorConfig {
    * @default false
    */
   syncOptionsLabelAndValue?: boolean
+  /**
+   * 是否为表单编辑器输出的 FormItemUnion 打标记
+   * - __CREATED_BY_ENC_FORM_EDITOR__: ${ENC_VERSION}
+   *
+   * @default true
+   */
+  markItemCreatedByEditor?: boolean
 }
 
 export const DEFAULT_FORM_EDITOR_CONFIG: FormEditorConfig = {
@@ -77,4 +84,5 @@ export const DEFAULT_FORM_EDITOR_CONFIG: FormEditorConfig = {
   randomNameOnly: false,
   randomNameLength: 8,
   syncOptionsLabelAndValue: false,
+  markItemCreatedByEditor: true,
 }
