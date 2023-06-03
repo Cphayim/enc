@@ -1,4 +1,4 @@
-import type { PopupFormItem } from '../popup'
+import type { PopupFormItem } from './popup'
 
 /**
  * 纯时间表单项

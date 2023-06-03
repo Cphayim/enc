@@ -9,7 +9,7 @@ import {
   verifyUploadedFile,
   UploadFormItem,
   UploadTransformerHelper,
-} from '..'
+} from '../upload'
 
 it(`should be able verify a uploadedFile`, () => {
   expect(() => verifyUploadedFile({ url: 'https://test.com/a.png' })).not.toThrowError()

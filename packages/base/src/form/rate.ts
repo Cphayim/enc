@@ -1,4 +1,4 @@
-import type { BaseFormItem } from '../base'
+import type { BaseFormItem } from './base'
 
 /**
  * 评分表单项类型

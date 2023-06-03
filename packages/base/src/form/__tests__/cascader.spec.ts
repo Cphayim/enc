@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { CascaderFormItemOption, CascaderHelper } from '..'
+import { CascaderFormItemOption, CascaderHelper } from '../cascader'
 
 describe('CascaderHelper', () => {
   const cascaderOptions: CascaderFormItemOption[] = [

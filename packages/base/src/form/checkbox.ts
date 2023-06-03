@@ -1,4 +1,6 @@
-import type { BaseFormItem } from '../base'
+import { log } from '@cphayim-enc/shared'
+
+import type { BaseFormItem } from './base'
 
 /**
  * 多选框表单项类型
@@ -63,4 +65,16 @@ export type CheckboxOptions = {
    * 是否禁用该项
    */
   disabled?: boolean
+}
+
+export class CheckboxHelper {
+  static verifyCheckboxFormItem(item: CheckboxFormItem) {
+    if (item.checkboxType === 'group') {
+      if (!item.checkboxGroupOptions || !item.checkboxGroupOptions.length) {
+        log.warn(
+          `CheckboxFormItem.checkboxType -> 'group', but CheckboxFormItem.checkboxGroupLabels is empty`,
+        )
+      }
+    }
+  }
 }
