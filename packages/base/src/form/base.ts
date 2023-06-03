@@ -3,19 +3,19 @@
  */
 export interface BaseFormItem<F = string, E = any> {
   /**
-   * 控件类型（由 SubFormItem 定义类型收窄）
+   * 字段名
    */
-  type: string
+  name: F
   /**
    * 标签名
    */
   label: string
   /**
-   * 字段名
+   * 控件类型（由 SubFormItem 定义类型收窄）
    */
-  name: F
+  type: string
   /**
-   * 占位
+   * 占位符
    */
   placeholder?: string
   /**
@@ -44,12 +44,6 @@ export interface BaseFormItem<F = string, E = any> {
    */
   clearable?: boolean
   /**
-   * 额外内容，你可以在此存储一些特定业务场景的东西，比如 select 对应的枚举或字典值，上传地址等
-   *
-   * 组件不负责处理该内容，使用前自行转化为有效的组件 props
-   */
-  extra?: E
-  /**
    * 列宽/格: 1-24, 默认 24
    *
    * 例如两个 col 为 12 的控件，会占满同一行
@@ -75,6 +69,12 @@ export interface BaseFormItem<F = string, E = any> {
    * @default 'left'
    */
   align?: FormItemAlign
+  /**
+   * 额外内容，你可以在此存储一些特定业务场景的东西，比如 select 对应的枚举或字典值，上传地址等
+   *
+   * enc 提供的库 API 及组件不负责处理该内容
+   */
+  extra?: E
 }
 
 /**
