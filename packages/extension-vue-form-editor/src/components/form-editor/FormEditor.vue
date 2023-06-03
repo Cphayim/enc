@@ -8,6 +8,7 @@ import {
   DEFAULT_FORM_EDITOR_CONFIG,
   FormEditorConfig,
   FormEditorOperation,
+  markItemsCreatedByEditor,
 } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormPreview } from '../form-preview'
@@ -43,8 +44,15 @@ const { formItems } = useFormItems(
   ),
 )
 
-const getFormItems = () =>
-  BizFeatureFormEditorTransformer.toReal(toRaw(formItems.value), config.value.bizFeatures ?? [])
+const getFormItems = () => {
+  const allRealFormItems = BizFeatureFormEditorTransformer.toReal(
+    toRaw(formItems.value),
+    config.value.bizFeatures ?? [],
+  )
+  return config.value.markItemCreatedByEditor
+    ? markItemsCreatedByEditor(allRealFormItems)
+    : allRealFormItems
+}
 
 const handleConfirm = () => {
   emit('confirm', getFormItems())
