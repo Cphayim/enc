@@ -38,7 +38,7 @@ const config = computed(() => ({
 }))
 
 const { formItems } = useFormItems(
-  BizFeatureFormEditorTransformer.toPlaceHolder(
+  BizFeatureFormEditorTransformer.toShadow(
     toRaw(props.initItems ?? []),
     config.value.bizFeatures ?? [],
   ),
@@ -102,10 +102,20 @@ defineExpose({ getFormItems })
       >
         确认
       </div>
-      <div @click="handleTogglePreview" class="enc-form-editor-operation-btn">
+      <div
+        v-if="hasOperation(FormEditorOperation.Preview)"
+        @click="handleTogglePreview"
+        class="enc-form-editor-operation-btn"
+      >
         {{ isPreview ? '退出预览' : '预览' }}
       </div>
-      <div @click="handlePrint" class="enc-form-editor-operation-btn">获取配置项</div>
+      <div
+        v-if="hasOperation(FormEditorOperation.PrintItems)"
+        @click="handlePrint"
+        class="enc-form-editor-operation-btn"
+      >
+        打印配置项
+      </div>
     </div>
   </div>
 </template>

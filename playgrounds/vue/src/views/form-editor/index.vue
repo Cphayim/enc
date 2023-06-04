@@ -20,7 +20,7 @@ const formEditorConfig: FormEditorConfig = {
   bizFeatures: [
     {
       bizSingleton: true,
-      bizName: 'ItemUnitPriceQuantity',
+      bizClass: 'ItemPriceQuantity',
       bizLabel: '报价组合控件',
       bizDesc: '物品+单价+数量',
       bizTransformer: {
@@ -31,23 +31,23 @@ const formEditorConfig: FormEditorConfig = {
               label: '物品',
               name: `item_${random}`,
               col: 8,
-              extra: {
-                biz: true,
-                bizName: 'ItemUnitPriceQuantity',
-                bizField: 'item',
-                bizKey: random,
+              biz: {
+                bizType: 'real',
+                bizClass: 'ItemPriceQuantity',
+                bizSymbol: random,
+                bizName: 'item',
               },
             },
             {
               type: 'input',
               label: '单价',
-              name: `unitPrice_${random}`,
+              name: `price_${random}`,
               col: 8,
-              extra: {
-                biz: true,
-                bizName: 'ItemUnitPriceQuantity',
-                bizField: 'unitPrice',
-                bizKey: random,
+              biz: {
+                bizType: 'real',
+                bizClass: 'ItemPriceQuantity',
+                bizSymbol: random,
+                bizName: 'price',
               },
             },
             {
@@ -55,23 +55,23 @@ const formEditorConfig: FormEditorConfig = {
               label: '数量',
               name: `quantity_${random}`,
               col: 8,
-              extra: {
-                biz: true,
-                bizName: 'ItemUnitPriceQuantity',
-                bizField: 'quantity',
-                bizKey: random,
+              biz: {
+                bizType: 'real',
+                bizClass: 'ItemPriceQuantity',
+                bizSymbol: random,
+                bizName: 'quantity',
               },
             },
           ]
         },
-        toPlaceHolder: (_, random) => {
+        toShadow: (_, random) => {
           return {
             type: 'custom',
             name: `biz_${random}`,
             label: '报价组合控件',
-            extra: {
-              biz: true,
-              bizName: 'ItemUnitPriceQuantity',
+            biz: {
+              bizType: 'shadow',
+              bizClass: 'ItemPriceQuantity',
               bizLabel: '物品+单价+数量',
             },
           }

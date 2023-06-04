@@ -2,6 +2,8 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 
 /**
  * 表单编辑器预设
+ *
+ * 这不等同于 `FormItemUnion` 的 `type`
  */
 export enum FormEditorPreset {
   // 此处定义的是表单编辑器中使用的功能类型，不和 FormItem 的 type 一一对应
@@ -40,7 +42,7 @@ export type FormEditorPresetFeature = {
    */
   presetDesc?: string
   /**
-   * 获取 FormItem
+   * 获取 FormItem 的函数，传入 `name` 和 `label`
    */
   getItem: <F extends string>(name: F, label?: string) => FormItemUnion<F>
 }

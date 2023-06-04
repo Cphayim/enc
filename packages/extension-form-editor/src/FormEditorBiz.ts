@@ -1,11 +1,11 @@
-import type { BizPlaceHolderExtra, BizTransformer } from '@cphayim-enc/base'
+import type { ShadowBiz, BizTransformer } from '@cphayim-enc/base'
 
 /**
  * 表单编辑器业务功能
  */
-export type FormEditorBizFeature = Pick<BizPlaceHolderExtra, 'bizName' | 'bizLabel'> & {
+export type FormEditorBizFeature = Pick<ShadowBiz, 'bizClass' | 'bizLabel'> & {
   /**
-   * 业务描述
+   * 业务描述，显示在 bizLabel 下方
    */
   bizDesc?: string
   /**
@@ -13,7 +13,7 @@ export type FormEditorBizFeature = Pick<BizPlaceHolderExtra, 'bizName' | 'bizLab
    */
   bizTransformer: BizTransformer
   /**
-   * 是否为单例（编辑器将阻止该业务控件被添加多次）
+   * 是否单例（编辑器将阻止该业务控件被添加多次）
    * @default false
    */
   bizSingleton?: boolean

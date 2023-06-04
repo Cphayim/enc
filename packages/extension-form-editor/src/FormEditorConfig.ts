@@ -1,6 +1,9 @@
 import { FormEditorPreset } from './FormEditorPreset'
 import type { FormEditorBizFeature } from './FormEditorBiz'
 
+/**
+ * 表单编辑器可用的操作项
+ */
 export enum FormEditorOperation {
   /**
    * 确认
@@ -21,13 +24,13 @@ export enum FormEditorOperation {
  */
 export interface FormEditorConfig {
   /**
-   * 预览用的 EncForm 组件（注意不是组件实例）
+   * 预览用的 `EncForm` 组件（注意不是组件实例）
    *
-   * 你可以传入任何一个 @cphayim-enc/vue 下的 ui-package 所提供的 EncForm 组件
+   * 你可以传入任何一个 ui-package 所提供的 `EncForm` 组件
    */
   encFormComponent?: any
   /**
-   * 需要透传给预览用的 EncForm 组件的额外 props
+   * 需要透传给预览用的 `EncForm` 组件的额外 `props`
    */
   encFormProps?: Record<string, any>
   /**
@@ -45,7 +48,7 @@ export interface FormEditorConfig {
   /**
    * 仅使用随机字段名
    *
-   * 启用后控件 name 不可编辑
+   * 启用后控件 `name` 不可编辑
    */
   randomNameOnly?: boolean
   /**

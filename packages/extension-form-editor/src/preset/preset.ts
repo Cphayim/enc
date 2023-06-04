@@ -1,4 +1,4 @@
-import { BaseFormItem, ENC_VERSION, FormItemUnion } from '@cphayim-enc/base'
+import type { BaseFormItem, FormItemUnion } from '@cphayim-enc/base'
 import { deepClone } from '@cphayim-enc/shared'
 
 import { FormEditorPreset, FormEditorPresetFeature } from '../FormEditorPreset'
@@ -9,10 +9,6 @@ type SketchyFormItemUnion<T = FormItemUnion> = T extends BaseFormItem
 
 const COMMON_ITEM: Omit<BaseFormItem, 'name' | 'label' | 'type'> = {
   col: 24,
-  extra: {
-    createBy: 'form-editor',
-    encVersion: ENC_VERSION,
-  },
 }
 
 export function createGetItem(

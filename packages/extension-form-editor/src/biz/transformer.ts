@@ -1,9 +1,10 @@
 import {
   BizFormItemUnion,
-  BizPlaceHolderExtra,
-  BizRealExtra,
   FormItemUnion,
   BizFormHelper,
+  RealBiz,
+  ShadowBiz,
+  BizTransformer,
 } from '@cphayim-enc/base'
 import { createErrorMessage, randomStr } from '@cphayim-enc/shared'
 
@@ -13,38 +14,33 @@ export class BizFeatureFormEditorTransformer {
   private static RANDOM_STR_LENGTH = 6
 
   /**
-   * (FormItemUnion | BizFormItemUnion<BizRealExtra>)[] -> (FormItemUnion | BizFormItemUnion<BizPlaceholderExtra>)[]
+   * 把一组 `FormItemUnion` 中所有的 `BizFormItemUnion<RealBiz>` 转换为对应的 `BizFormItemUnion<ShadowBiz>`
+   *
+   * (FormItemUnion | BizFormItemUnion<RealBiz>)[] -> (FormItemUnion | BizFormItemUnion<ShadowBiz>)[]
    */
-  static toPlaceHolder(
-    items: (FormItemUnion | BizFormItemUnion<BizRealExtra>)[],
+  static toShadow(
+    items: (FormItemUnion | BizFormItemUnion<RealBiz>)[],
     bizFeatures: FormEditorBizFeature[],
-  ) {
-    // 有的业务控件可能由多个普通控件组合，先进行去重
-    // 根据 item.extra.bizName+item.extra.bizKey 去重
+  ): (FormItemUnion | BizFormItemUnion<ShadowBiz>)[] {
+    // 有的 `BizFormItemUnion<ShadowBiz>` 可能是多个 `BizFormItemUnion<RealBiz>`，先进行去重
+    // 根据 `RealBiz.bizSymbol` 实例标记去重
     const uniqueItems = deduplicate(items)
-    const transformedItems: (FormItemUnion | BizFormItemUnion<BizPlaceHolderExtra>)[] = []
+
+    const transformedItems: (FormItemUnion | BizFormItemUnion<ShadowBiz>)[] = []
 
     uniqueItems.forEach((item) => {
-      if (!BizFormHelper.isBizFormItemReal(item)) {
-        // FormItemUnion | BizFormItemUnion<BizPlaceholderExtra>
+      if (!BizFormHelper.isRealBizFormItem(item)) {
+        // FormItemUnion | BizFormItemUnion<ShadowBiz>
         transformedItems.push(item)
       } else {
         // BizFormItemUnion<BizRealExtra>
-        const { bizName } = item.extra!
-        const bizFeature = bizFeatures.find((bizFeature) => bizFeature.bizName === bizName)
-        if (!bizFeature) {
-          throw new Error(
-            createErrorMessage(
-              `BizFeatureFormEditorTransformer.toPlaceHolder error, no matching bizFeature was found, bizName: ${bizName}`,
-            ),
-          )
-        }
-        // 执行 toPlaceHolder 转换
-        const placeHolderItem = bizFeature.bizTransformer.toPlaceHolder(
+        const bizTransformer = getBizTransformerByBizClass(item.biz.bizClass, bizFeatures)
+        // 执行 `bizFeature` 上的 `BizTransformer.toShadow()` 转换
+        const shadowItem = bizTransformer.toShadow(
           item,
           randomStr(BizFeatureFormEditorTransformer.RANDOM_STR_LENGTH),
         )
-        transformedItems.push(placeHolderItem)
+        transformedItems.push(shadowItem)
       }
     })
 
@@ -52,32 +48,25 @@ export class BizFeatureFormEditorTransformer {
   }
 
   /**
-   * (FormItemUnion | BizFormItemUnion<BizPlaceholderExtra>)[] -> (FormItemUnion | BizFormItemUnion<BizRealExtra>)[]
+   * 把一组 `FormItemUnion` 中所有的 `BizFormItemUnion<ShadowBiz>` 转换为对应的 `BizFormItemUnion<RealBiz>`
+   *
+   * (FormItemUnion | BizFormItemUnion<ShadowBiz>)[] -> (FormItemUnion | BizFormItemUnion<RealBiz>)[]
    */
   static toReal(
-    items: (FormItemUnion | BizFormItemUnion<BizPlaceHolderExtra>)[],
+    items: (FormItemUnion | BizFormItemUnion<ShadowBiz>)[],
     bizFeatures: FormEditorBizFeature[],
-  ) {
-    const transformedItems: (FormItemUnion | BizFormItemUnion<BizRealExtra>)[] = []
+  ): (FormItemUnion | BizFormItemUnion<RealBiz>)[] {
+    const transformedItems: (FormItemUnion | BizFormItemUnion<RealBiz>)[] = []
 
     items.forEach((item) => {
-      if (!BizFormHelper.isBizFormItemPlaceholder(item)) {
-        // FormItemUnion | BizFormItemUnion<BizRealExtra>
+      if (!BizFormHelper.isShadowBizFormItem(item)) {
+        // FormItemUnion | BizFormItemUnion<RealBiz>
         transformedItems.push(item)
       } else {
-        // BizFormItemUnion<BizPlaceholderExtra>
-        const { bizName } = item.extra!
-        const bizFeature = bizFeatures.find((bizFeature) => bizFeature.bizName === bizName)
-        if (!bizFeature) {
-          throw new Error(
-            createErrorMessage(
-              `BizFeatureFormEditorTransformer.toReal error, no matching bizFeature was found, bizName: ${bizName}`,
-            ),
-          )
-        }
-
-        // 执行 toReal 转换，结果可能是一个或多个配置项
-        const itemOrItems = bizFeature.bizTransformer.toReal(
+        // BizFormItemUnion<ShadowBiz>
+        const bizTransformer = getBizTransformerByBizClass(item.biz.bizClass, bizFeatures)
+        // 执行 `BizTransformer.toReal()` 转换，结果可能是一个或多个配置项
+        const itemOrItems = bizTransformer.toReal(
           item,
           randomStr(BizFeatureFormEditorTransformer.RANDOM_STR_LENGTH),
         )
@@ -92,16 +81,38 @@ export class BizFeatureFormEditorTransformer {
 }
 
 function deduplicate(items: FormItemUnion[]) {
+  // 记录所有出现过的 `RealBiz.bizSymbol`
   const set = new Set<string>()
+
   return items.filter((item) => {
-    if (!BizFormHelper.isBizFormItemReal(item)) return true
+    // 忽略普通的 `FormItemUnion` 和 `BizFormItemUnion<ShadowBiz>`
+    if (!BizFormHelper.isRealBizFormItem(item)) return true
 
-    // 同一组 biz 控件有着相同的 bizName 和 bizKey，只保留一个
-    const flag = item.extra!.bizName + item.extra!.bizKey
+    const biz: RealBiz = item.biz
 
-    if (set.has(flag)) return false
+    // 同一组 `RealBiz` 的不同控件有着相同的 `bizClass` 和 `bizSymbol`，只保留一个
+    const flag = `${biz.bizClass}#${biz.bizSymbol}`
 
-    set.add(flag)
-    return true
+    if (set.has(flag)) {
+      return false
+    } else {
+      set.add(flag)
+      return true
+    }
   })
+}
+
+function getBizTransformerByBizClass(
+  bizClass: string,
+  bizFeatures: FormEditorBizFeature[],
+): BizTransformer {
+  const bizFeature = bizFeatures.find((bizFeature) => bizFeature.bizClass === bizClass)
+  if (!bizFeature) {
+    throw new Error(
+      createErrorMessage(
+        `BizFeatureFormEditorTransformer.toReal error, no matching bizFeature was found, bizClass: ${bizClass}`,
+      ),
+    )
+  }
+  return bizFeature.bizTransformer
 }
