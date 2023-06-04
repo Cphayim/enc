@@ -13,17 +13,17 @@ import type { TimeFormItem } from './time'
 import type { UploadFormItem } from './upload'
 
 type FormItemTuple<F = string, E = any> = [
-  InputFormItem<F, E>,
-  SelectFormItem<F, E>,
   CascaderFormItem<F, E>,
+  CheckboxFormItem<F, E>,
+  CustomFormItem<F, E>,
   DateFormItem<F, E>,
+  InputFormItem<F, E>,
+  RadioFormItem<F, E>,
+  RateFormItem<F, E>,
+  SelectFormItem<F, E>,
+  SwitchFormItem<F, E>,
   TimeFormItem<F, E>,
   UploadFormItem<F, E>,
-  SwitchFormItem<F, E>,
-  RadioFormItem<F, E>,
-  CheckboxFormItem<F, E>,
-  RateFormItem<F, E>,
-  CustomFormItem<F, E>,
 ]
 
 /**
@@ -53,15 +53,15 @@ export type PartialFormItemIntersectionWithoutNameAndType<F = string, E = any> =
 >
 
 export * from './base'
+export * from './cascader'
+export * from './checkbox'
+export * from './custom'
+export * from './date'
 export * from './input'
 export * from './popup'
+export * from './radio'
+export * from './rate'
 export * from './select'
-export * from './cascader'
-export * from './date'
+export * from './switch'
 export * from './time'
 export * from './upload'
-export * from './switch'
-export * from './radio'
-export * from './checkbox'
-export * from './rate'
-export * from './custom'

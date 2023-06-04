@@ -5,8 +5,8 @@ import { useDrag } from '@ombro/dnd-vue'
 
 import { BizFormHelper, FormItemUnion, useEventLock } from '@cphayim-enc/vue'
 import {
-  FormEditorBizFeature,
-  FormEditorPresetFeature,
+  BizFormEditorFeature,
+  PresetFormEditorFeature,
   isBizFeature,
   isPresetFeature,
 } from '@cphayim-enc/extension-form-editor'
@@ -17,7 +17,7 @@ defineOptions({ name: 'EncDrawableFeature' })
 
 const props = defineProps<{
   items: FormItemUnion[]
-  feature: FormEditorPresetFeature | FormEditorBizFeature
+  feature: PresetFormEditorFeature | BizFormEditorFeature
   emitter: FormEditorInternalEmitter
 }>()
 
@@ -52,7 +52,7 @@ const disabled = computed(() => {
 
   // items 中是否已经存在该 bizName 的项
   const isExistCurrentBiz = !!BizFormHelper.filterBizFormItems(props.items, {
-    bizName: feature.value.bizName,
+    bizClass: feature.value.bizClass,
   }).length
 
   return feature.value.bizSingleton ? isExistCurrentBiz : false

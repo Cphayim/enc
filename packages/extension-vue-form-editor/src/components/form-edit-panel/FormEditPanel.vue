@@ -70,7 +70,7 @@ const handleAddItemByFeature = ({
   const rStr = randomStr(config.value.randomNameLength ?? 8)
   const item = isPresetFeature(feature)
     ? feature.getItem(rStr)
-    : feature.bizTransformer.toPlaceHolder([], rStr)
+    : feature.bizTransformer.toShadow([], rStr)
 
   handleAddItem({ index, item })
   emitter.emit('select-item', { type: 'adding', item, index })

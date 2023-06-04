@@ -1,7 +1,7 @@
 import { Emitter, FormItemUnion, withInstall } from '@cphayim-enc/vue'
 import type {
-  FormEditorPresetFeature,
-  FormEditorBizFeature,
+  PresetFormEditorFeature,
+  BizFormEditorFeature,
 } from '@cphayim-enc/extension-form-editor'
 
 import FormEditPanel from './FormEditPanel.vue'
@@ -25,7 +25,7 @@ export type FormEditorInternalEvents = {
   'remove-item': { index: number; select?: boolean }
   'move-item': { oldIndex: number; newIndex: number }
   'add-item-by-feature': {
-    feature: FormEditorPresetFeature | FormEditorBizFeature
+    feature: PresetFormEditorFeature | BizFormEditorFeature
     index?: number // 添加的位置，默认为尾部
     oldIndex?: number // 先前的位置，需要移除
   }
