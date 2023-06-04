@@ -52,7 +52,7 @@ const disabled = computed(() => {
 
   // items 中是否已经存在该 bizName 的项
   const isExistCurrentBiz = !!BizFormHelper.filterBizFormItems(props.items, {
-    bizName: feature.value.bizName,
+    bizClass: feature.value.bizClass,
   }).length
 
   return feature.value.bizSingleton ? isExistCurrentBiz : false

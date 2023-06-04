@@ -13,6 +13,7 @@ import {
 
 import { EncFormPreview } from '../form-preview'
 import { EncFormEditPanel } from '../form-edit-panel'
+import { log } from '@cphayim-enc/shared'
 
 defineOptions({ name: 'EncFormEditor' })
 
@@ -64,7 +65,7 @@ const handleTogglePreview = () => {
 }
 
 const handlePrint = () => {
-  console.log(getFormItems())
+  log.info('current formItems:', getFormItems())
 }
 
 const hasOperation = (operation: FormEditorOperation) =>

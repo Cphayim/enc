@@ -16,7 +16,7 @@ export function isPresetFeature(feature: any): feature is FormEditorPresetFeatur
 export function isBizFeature(feature: any): feature is FormEditorBizFeature {
   return (
     !isNone(feature) &&
-    isString(feature.bizName) &&
+    isString(feature.bizClass) &&
     isString(feature.bizLabel) &&
     isObject(feature.bizTransformer)
   )

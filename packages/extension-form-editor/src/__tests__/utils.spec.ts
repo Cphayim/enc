@@ -16,9 +16,9 @@ describe('utils', () => {
     expect(isBizFeature(undefined)).toBe(false)
     expect(isBizFeature(1)).toBe(false)
     expect(isBizFeature({})).toBe(false)
-    expect(isBizFeature({ bizName: 1, bizLabel: '1' })).toBe(false)
-    expect(isBizFeature({ bizName: 1, bizLabel: '1', bizTransformer: {} })).toBe(false)
-    expect(isBizFeature({ bizName: '1', bizLabel: '1', bizTransformer: {} })).toBe(true)
+    expect(isBizFeature({ bizClass: 1, bizLabel: '1' })).toBe(false)
+    expect(isBizFeature({ bizClass: 1, bizLabel: '1', bizTransformer: {} })).toBe(false)
+    expect(isBizFeature({ bizClass: '1', bizLabel: '1', bizTransformer: {} })).toBe(true)
   })
 
   it('should be add a mark to items', () => {
