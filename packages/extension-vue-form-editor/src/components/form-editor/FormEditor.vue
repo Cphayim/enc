@@ -2,9 +2,10 @@
 import { computed, ref, toRaw } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
+import { log } from '@cphayim-enc/shared'
 import { useFormItems } from '@cphayim-enc/vue'
 import {
-  BizFeatureFormEditorTransformer,
+  BizFormEditorTransformer,
   DEFAULT_FORM_EDITOR_CONFIG,
   FormEditorConfig,
   FormEditorOperation,
@@ -13,7 +14,6 @@ import {
 
 import { EncFormPreview } from '../form-preview'
 import { EncFormEditPanel } from '../form-edit-panel'
-import { log } from '@cphayim-enc/shared'
 
 defineOptions({ name: 'EncFormEditor' })
 
@@ -31,6 +31,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), { config: () => ({}) })
 const emit = defineEmits<{
   (e: 'confirm', items: FormItemUnion[]): void
+  (e: 'preview', isPreview: boolean): void
 }>()
 
 const config = computed(() => ({
@@ -39,14 +40,14 @@ const config = computed(() => ({
 }))
 
 const { formItems } = useFormItems(
-  BizFeatureFormEditorTransformer.toShadow(
+  BizFormEditorTransformer.batchToShadow(
     toRaw(props.initItems ?? []),
     config.value.bizFeatures ?? [],
   ),
 )
 
 const getFormItems = () => {
-  const allRealFormItems = BizFeatureFormEditorTransformer.toReal(
+  const allRealFormItems = BizFormEditorTransformer.batchToReal(
     toRaw(formItems.value),
     config.value.bizFeatures ?? [],
   )
@@ -60,8 +61,12 @@ const handleConfirm = () => {
 }
 
 const isPreview = ref(false)
+const togglePreview = (flag?: boolean) => {
+  isPreview.value = flag ?? !isPreview.value
+  emit('preview', isPreview.value)
+}
 const handleTogglePreview = () => {
-  isPreview.value = !isPreview.value
+  togglePreview()
 }
 
 const handlePrint = () => {
@@ -71,7 +76,7 @@ const handlePrint = () => {
 const hasOperation = (operation: FormEditorOperation) =>
   props.config.operations?.includes(operation)
 
-defineExpose({ getFormItems })
+defineExpose({ getFormItems, isPreview, togglePreview })
 </script>
 
 <template>
@@ -87,11 +92,7 @@ defineExpose({ getFormItems })
 
     <!-- edit -->
     <template v-else>
-      <EncFormEditPanel
-        v-model:items="formItems"
-        :config="config"
-        ref="formEditorInstRef"
-      ></EncFormEditPanel>
+      <EncFormEditPanel v-model:items="formItems" :config="config" />
     </template>
 
     <!-- bottom operation area -->

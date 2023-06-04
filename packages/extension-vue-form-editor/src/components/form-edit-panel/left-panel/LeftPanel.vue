@@ -4,7 +4,7 @@ import { computed } from 'vue'
 
 import {
   type FormEditorConfig,
-  type FormEditorPreset,
+  type PresetName,
   getPresetFeatureGroups,
   formEditorTips,
 } from '@cphayim-enc/extension-form-editor'
@@ -22,7 +22,7 @@ const props = defineProps<{
   emitter: FormEditorInternalEmitter
 }>()
 
-const presetSet = computed<Set<FormEditorPreset>>(() => new Set(props.config.presets))
+const presetSet = computed<Set<PresetName>>(() => new Set(props.config.presets))
 const presetFeatureGroups = computed(() => getPresetFeatureGroups(presetSet.value))
 
 const bizFeatures = computed(() => props.config.bizFeatures)

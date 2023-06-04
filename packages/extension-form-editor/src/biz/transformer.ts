@@ -8,9 +8,9 @@ import {
 } from '@cphayim-enc/base'
 import { createErrorMessage, randomStr } from '@cphayim-enc/shared'
 
-import type { FormEditorBizFeature } from '../FormEditorBiz'
+import type { BizFormEditorFeature } from './feature'
 
-export class BizFeatureFormEditorTransformer {
+export class BizFormEditorTransformer {
   private static RANDOM_STR_LENGTH = 6
 
   /**
@@ -18,9 +18,9 @@ export class BizFeatureFormEditorTransformer {
    *
    * (FormItemUnion | BizFormItemUnion<RealBiz>)[] -> (FormItemUnion | BizFormItemUnion<ShadowBiz>)[]
    */
-  static toShadow(
+  static batchToShadow(
     items: (FormItemUnion | BizFormItemUnion<RealBiz>)[],
-    bizFeatures: FormEditorBizFeature[],
+    bizFeatures: BizFormEditorFeature[],
   ): (FormItemUnion | BizFormItemUnion<ShadowBiz>)[] {
     // 有的 `BizFormItemUnion<ShadowBiz>` 可能是多个 `BizFormItemUnion<RealBiz>`，先进行去重
     // 根据 `RealBiz.bizSymbol` 实例标记去重
@@ -38,7 +38,7 @@ export class BizFeatureFormEditorTransformer {
         // 执行 `bizFeature` 上的 `BizTransformer.toShadow()` 转换
         const shadowItem = bizTransformer.toShadow(
           item,
-          randomStr(BizFeatureFormEditorTransformer.RANDOM_STR_LENGTH),
+          randomStr(BizFormEditorTransformer.RANDOM_STR_LENGTH),
         )
         transformedItems.push(shadowItem)
       }
@@ -52,9 +52,9 @@ export class BizFeatureFormEditorTransformer {
    *
    * (FormItemUnion | BizFormItemUnion<ShadowBiz>)[] -> (FormItemUnion | BizFormItemUnion<RealBiz>)[]
    */
-  static toReal(
+  static batchToReal(
     items: (FormItemUnion | BizFormItemUnion<ShadowBiz>)[],
-    bizFeatures: FormEditorBizFeature[],
+    bizFeatures: BizFormEditorFeature[],
   ): (FormItemUnion | BizFormItemUnion<RealBiz>)[] {
     const transformedItems: (FormItemUnion | BizFormItemUnion<RealBiz>)[] = []
 
@@ -68,7 +68,7 @@ export class BizFeatureFormEditorTransformer {
         // 执行 `BizTransformer.toReal()` 转换，结果可能是一个或多个配置项
         const itemOrItems = bizTransformer.toReal(
           item,
-          randomStr(BizFeatureFormEditorTransformer.RANDOM_STR_LENGTH),
+          randomStr(BizFormEditorTransformer.RANDOM_STR_LENGTH),
         )
         Array.isArray(itemOrItems)
           ? transformedItems.push(...itemOrItems)
@@ -104,7 +104,7 @@ function deduplicate(items: FormItemUnion[]) {
 
 function getBizTransformerByBizClass(
   bizClass: string,
-  bizFeatures: FormEditorBizFeature[],
+  bizFeatures: BizFormEditorFeature[],
 ): BizTransformer {
   const bizFeature = bizFeatures.find((bizFeature) => bizFeature.bizClass === bizClass)
   if (!bizFeature) {

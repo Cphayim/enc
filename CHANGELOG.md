@@ -15,7 +15,7 @@
 **@cphayim-enc/extension-vue-form-editor**
 
 - Add `FormEditorConfig.syncOptionsLabelAndValue` option to support key-value sync in edit panel with options (e.g. `Select`, `Checkbox`, `Redio`, etc.) [#107](https://github.com/Cphayim/enc/pull/107)
-- Add `FormEditorBizFeature.bizSingleton` option to limit the number of times `bizFeature` can be used in the editor [#107](https://github.com/Cphayim/enc/pull/107)
+- Add `BizFormEditorFeature.bizSingleton` option to limit the number of times `bizFeature` can be used in the editor [#107](https://github.com/Cphayim/enc/pull/107)
 
 ### Dependencies
 

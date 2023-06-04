@@ -15,7 +15,7 @@
 **@cphayim-enc/extension-vue-form-editor**
 
 - 添加 `FormEditorConfig.syncOptionsLabelAndValue` 选项，在含有选项的编辑面板中支持键值同步（例如 `Select`, `Checkbox`, `Redio` 等）[#107](https://github.com/Cphayim/enc/pull/107)
-- 添加 `FormEditorBizFeature.bizSingleton` 选项，用于限制 `bizFeature` 在编辑器中的使用次数 [#107](https://github.com/Cphayim/enc/pull/107)
+- 添加 `BizFormEditorFeature.bizSingleton` 选项，用于限制 `bizFeature` 在编辑器中的使用次数 [#107](https://github.com/Cphayim/enc/pull/107)
 
 ### Dependencies
 

@@ -3,7 +3,7 @@ import { EncForm, FormItemUnion } from '@cphayim-enc/vue-element-plus'
 import {
   EncFormEditor,
   FormEditorOperation,
-  // FormEditorPreset,
+  // PresetName,
   type FormEditorConfig,
 } from '@cphayim-enc/extension-vue-form-editor'
 
@@ -16,7 +16,7 @@ const formEditorConfig: FormEditorConfig = {
   ],
   // randomNameOnly: true,
   syncOptionsLabelAndValue: true,
-  // presets: [FormEditorPreset.Input],
+  // presets: [PresetName.Input, PresetName.UploadFile],
   bizFeatures: [
     {
       bizSingleton: true,

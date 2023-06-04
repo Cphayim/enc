@@ -1,7 +1,4 @@
-export * from './FormEditorConfig'
-export * from './FormEditorPreset'
-export * from './FormEditorBiz'
-
+export * from './config'
 export * from './preset'
 export * from './biz'
 export * from './utils'

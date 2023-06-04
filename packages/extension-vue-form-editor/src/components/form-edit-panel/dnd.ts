@@ -1,6 +1,6 @@
 import type {
-  FormEditorBizFeature,
-  FormEditorPresetFeature,
+  BizFormEditorFeature,
+  PresetFormEditorFeature,
 } from '@cphayim-enc/extension-form-editor'
 
 // 枚举无法使用 Symbol
@@ -15,6 +15,6 @@ export interface DragItem {
 }
 export interface DragFeature {
   type: 'feature'
-  feature: FormEditorPresetFeature | FormEditorBizFeature // 被拖动的控件功能（新增）
+  feature: PresetFormEditorFeature | BizFormEditorFeature // 被拖动的控件功能（新增）
   currentIndex?: number // 当前保存位置的索引
 }

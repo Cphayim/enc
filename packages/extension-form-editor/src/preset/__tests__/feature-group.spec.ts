@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { FormEditorPreset } from '../../FormEditorPreset'
 
-import { filterAndGetPresetFeature, getPresetFeatureGroups, GROUP_NAMES } from '../preset-group'
+import { PresetName } from '../feature'
+import { filterAndGetPresetFeature, getPresetFeatureGroups, GROUP_NAMES } from '../feature-group'
 
 describe('preset-group', () => {
   it('should be get group name constant', () => {
@@ -12,12 +12,7 @@ describe('preset-group', () => {
   })
 
   it('should be able to filter and get preset feature', () => {
-    const includes = [
-      FormEditorPreset.Input,
-      FormEditorPreset.Textarea,
-      FormEditorPreset.Number,
-      FormEditorPreset.Password,
-    ]
+    const includes = [PresetName.Input, PresetName.Textarea, PresetName.Number, PresetName.Password]
 
     const features1 = filterAndGetPresetFeature(new Set(), includes)
     expect(Array.isArray(features1)).toBe(true)
@@ -28,13 +23,13 @@ describe('preset-group', () => {
     expect(features2.length).toBe(includes.length)
 
     const features3 = filterAndGetPresetFeature(
-      new Set([FormEditorPreset.Input, FormEditorPreset.Textarea]),
+      new Set([PresetName.Input, PresetName.Textarea]),
       includes,
     )
     expect(Array.isArray(features3)).toBe(true)
     expect(features3.length).toBe(2)
 
-    const features4 = filterAndGetPresetFeature(new Set([FormEditorPreset.Select]), includes)
+    const features4 = filterAndGetPresetFeature(new Set([PresetName.Select]), includes)
     expect(Array.isArray(features4)).toBe(true)
     expect(features4.length).toBe(0)
   })
@@ -55,18 +50,18 @@ describe('preset-group', () => {
 
   it('should be able to get preset feature groups with preset set', () => {
     const groups = getPresetFeatureGroups(
-      new Set([FormEditorPreset.Input, FormEditorPreset.Date, FormEditorPreset.Number]),
+      new Set([PresetName.Input, PresetName.Date, PresetName.Number]),
     )
 
     const inputGroup = groups.find((group) => group.groupName === GROUP_NAMES.INPUT_TYPE)!
     expect(inputGroup).toBeDefined()
     expect(inputGroup.features.length).toBe(2)
-    expect(inputGroup.features[0].presetName).toBe(FormEditorPreset.Input)
-    expect(inputGroup.features[1].presetName).toBe(FormEditorPreset.Number)
+    expect(inputGroup.features[0].presetName).toBe(PresetName.Input)
+    expect(inputGroup.features[1].presetName).toBe(PresetName.Number)
 
     const selectGroup = groups.find((group) => group.groupName === GROUP_NAMES.SELECT_TYPE)!
     expect(selectGroup).toBeDefined()
     expect(selectGroup.features.length).toBe(1)
-    expect(selectGroup.features[0].presetName).toBe(FormEditorPreset.Date)
+    expect(selectGroup.features[0].presetName).toBe(PresetName.Date)
   })
 })

@@ -1,5 +1,5 @@
-import { FormEditorPreset } from './FormEditorPreset'
-import type { FormEditorBizFeature } from './FormEditorBiz'
+import { PresetName } from '../preset'
+import type { BizFormEditorFeature } from '../biz'
 
 /**
  * 表单编辑器可用的操作项
@@ -40,11 +40,11 @@ export interface FormEditorConfig {
   /**
    * 启用的预设功能，没有传递则全开
    */
-  presets?: FormEditorPreset[]
+  presets?: PresetName[]
   /**
    * 启用的业务功能
    */
-  bizFeatures?: FormEditorBizFeature[]
+  bizFeatures?: BizFormEditorFeature[]
   /**
    * 仅使用随机字段名
    *
@@ -82,7 +82,7 @@ export interface FormEditorConfig {
 
 export const DEFAULT_FORM_EDITOR_CONFIG: FormEditorConfig = {
   // default enable all
-  presets: Object.values(FormEditorPreset),
+  presets: Object.values(PresetName),
   bizFeatures: [],
   randomNameOnly: false,
   randomNameLength: 8,
