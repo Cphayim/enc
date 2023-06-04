@@ -38,10 +38,10 @@
   },
   "devDependencies": {
     "@vueuse/core": "^10.1.2",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.8",
     "vant": "^4.4.1",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.1"
+    "vue-router": "^4.2.2"
   },
   "peerDependencies": {
     "@vueuse/core": ">=8.0.0",
