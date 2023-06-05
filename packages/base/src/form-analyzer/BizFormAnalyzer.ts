@@ -9,9 +9,9 @@ import { FormAnalyzer } from './FormAnalyzer'
  * - 第 3 层为 `bizName`，即业务控件下的某个字段
  */
 export type BizAnalysisTree<T> = {
-  [bizName: string]: {
-    [bizKey: string]: {
-      [bizField: string]: T
+  [bizClass: string]: {
+    [bizSymbol: string]: {
+      [bizName: string]: T
     }
   }
 }

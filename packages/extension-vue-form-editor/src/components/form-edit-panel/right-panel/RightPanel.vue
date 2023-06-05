@@ -1,6 +1,9 @@
 <!-- 右侧详情面板 -->
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useVModel } from '@vueuse/core'
+
+import { BizFormHelper } from '@cphayim-enc/base'
 import { formEditorTips, type FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { EncFormEditorTip } from '../../form-editor-tip'
@@ -19,6 +22,11 @@ const props = defineProps<{
 }>()
 
 const selectedItem = useVModel(props, 'selectedItem')
+
+const isBizItem = computed(() => {
+  if (!selectedItem.value) return false
+  return BizFormHelper.isBizFormItem(selectedItem.value?.item)
+})
 </script>
 
 <template>
@@ -26,7 +34,7 @@ const selectedItem = useVModel(props, 'selectedItem')
     <EncFormEditorTip :content="formEditorTips.right" />
     <template v-if="selectedItem && selectedItem.type === 'select'">
       <!-- 不能编辑业务组合型控件配置 -->
-      <div v-if="selectedItem.item.extra?.biz" class="enc-text-[14px] enc-text-gray-500">
+      <div v-if="isBizItem" class="enc-text-[14px] enc-text-gray-500">
         <span>无法编辑业务组合型控件的配置</span>
       </div>
 
