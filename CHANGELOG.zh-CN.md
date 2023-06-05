@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.3.1 (2023-06-05)
+
+### Bug fixes
+
+**@cphayim-enc/base**
+
+- 修复错误的类型别名 [#114](https://github.com/Cphayim/enc/pull/114)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- 修复表单编辑器右侧面板意外显示 biz item [#114](https://github.com/Cphayim/enc/pull/114)
+
 ## 0.3.0 (2023-06-05)
 
 ### Features

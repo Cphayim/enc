@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.1 (2023-06-05)
+
+### Bug fixes
+
+**@cphayim-enc/base**
+
+- fixed wrong type alias [#114](https://github.com/Cphayim/enc/pull/114)
+
+**@cphayim-enc/extension-vue-form-editor**
+
+- fixed form editor right panel unexpectedly shows biz item [#114](https://github.com/Cphayim/enc/pull/114)
+
 ## 0.3.0 (2023-06-05)
 
 ### Features
