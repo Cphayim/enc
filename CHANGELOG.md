@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.3.0 (2023-06-05)
+
+### Features
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- Add `FormEditorConfig.markItemCreatedByEditor` option, add `__CREATED_BY_FORM_EDITOR: ${ENC_VERSION}` mark for `FormItemUnion` created by form editor, enabled by default. [#110](https://github.com/Cphayim/enc/pull/110)
+
+### Adjusted
+
+**@cphayim-enc/base**
+
+- redesigned the type definitions for biz form items. [#111](https://github.com/Cphayim/enc/pull/111)
+- flat modules structure. [#111](https://github.com/Cphayim/enc/pull/111)
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- Adjust based on the new type [#111](https://github.com/Cphayim/enc/pull/111)
+
+### Dependencies
+
+Update dependencies [#112](https://github.com/Cphayim/enc/pull/112)
+
+### BREAKING CHANGES
+
+Redesigned `BizForm` related types in **@cphayim-enc/base** package [#111](https://github.com/Cphayim/enc/pull/111)
+
 ## 0.2.13 (2023-06-01)
 
 ### Features
