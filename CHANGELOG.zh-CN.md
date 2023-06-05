@@ -1,5 +1,34 @@
 # 更新日志
 
+## 0.3.0 (2023-06-05)
+
+### Features
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- 添加`FormEditorConfig.markItemCreatedByEditor`选项，为表单编辑器创建的`FormItemUnion`添加`__CREATED_BY_FORM_EDITOR: ${ENC_VERSION}`标记，默认启用。 [#110](https://github.com/Cphayim/enc/pull/110)
+
+### Adjusted
+
+**@cphayim-enc/base**
+
+- 重新设计了 biz form item 相关类型定义 [#111](https://github.com/Cphayim/enc/pull/111)
+- 扁平化模块结构 [#111](https://github.com/Cphayim/enc/pull/111)
+
+**@cphayim-enc/extension-form-editor**
+**@cphayim-enc/extension-vue-form-editor**
+
+- 根据新的类型调整 [#111](https://github.com/Cphayim/enc/pull/111)
+
+### Dependencies
+
+更新依赖 [#112](https://github.com/Cphayim/enc/pull/112)
+
+### BREAKING CHANGES
+
+重新设计了 **@cphayim-enc/base** 包中的 `BizForm` 相关类型 [#111](https://github.com/Cphayim/enc/pull/111)
+
 ## 0.2.13 (2023-06-01)
 
 ### Features
