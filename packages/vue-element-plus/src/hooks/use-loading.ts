@@ -1,4 +1,4 @@
-import { ElMessage, MessageHandler } from 'element-plus'
+import { ElMessage, type MessageHandler } from 'element-plus'
 import 'element-plus/es/components/message/style/css'
 import { Loading } from '@element-plus/icons-vue'
 

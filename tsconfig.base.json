@@ -1,9 +1,6 @@
 {
-  "extends": "@ombro/tsconfig",
+  "extends": "@ombro/tsconfig/tsconfig.esm.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "jsx": "preserve",
     "removeComments": false,
     "noEmitOnError": false, // vue-tsc required
     "resolveJsonModule": true,

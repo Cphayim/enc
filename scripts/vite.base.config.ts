@@ -3,7 +3,6 @@ import fs from 'node:fs'
 
 import type { BuildOptions, UserConfig } from 'vite'
 import { PluginOption } from 'vite'
-import dts from 'vite-plugin-dts'
 
 export const EXTERNAL_REPO_PKG = /^@cphayim-enc\/(.*)/
 
@@ -39,31 +38,6 @@ export const createBuild = ({ root, external, mode }: CreateOptions) => {
 export type CreateDTSPluginOptions = CreateOptions & {
   skipDiagnostics?: boolean
   rollupTypes?: boolean
-}
-
-export const createDTSPlugin = ({
-  mode,
-  root,
-  skipDiagnostics,
-  rollupTypes = true,
-}: CreateDTSPluginOptions) => {
-  return dts({
-    skipDiagnostics,
-    // entryRoot: resolve(__dirname, 'src'),
-    tsConfigFilePath: resolve(root, 'tsconfig.build.json'),
-    rollupTypes,
-    copyDtsFiles: false,
-    staticImport: true,
-    beforeWriteFile: (filePath, content) => {
-      return { filePath, content }
-    },
-  })
-}
-
-export const addDTSPlugin = (config: UserConfig, options: CreateDTSPluginOptions) => {
-  if (options.mode === 'production') {
-    config.plugins = [...(config.plugins ?? []), createDTSPlugin(options)]
-  }
 }
 
 export type genStylePluginOptions = {

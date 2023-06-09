@@ -7,7 +7,7 @@ import type { FormItemUnion } from '@cphayim-enc/base'
 import { delayWrapper } from '@cphayim-enc/shared'
 
 import { EncFormItem } from '../form-item'
-import { FormInternalConfig, FORM_INTERNAL_CONFIG_KEY } from './provide'
+import { type FormInternalConfig, FORM_INTERNAL_CONFIG_KEY } from './provide'
 
 defineOptions({ name: 'EncForm', inheritAttrs: false })
 

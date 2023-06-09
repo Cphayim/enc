@@ -2,17 +2,24 @@
 import { computed, ref } from 'vue'
 import { Plus, Upload } from '@element-plus/icons-vue'
 
-import { ElMessage, ElButton, ElIcon, ElDialog, ElUpload, UploadRequestOptions } from 'element-plus'
+import {
+  ElMessage,
+  ElButton,
+  ElIcon,
+  ElDialog,
+  ElUpload,
+  type UploadRequestOptions,
+} from 'element-plus'
 import 'element-plus/es/components/upload/style/css'
 import 'element-plus/es/components/button/style/css'
 import 'element-plus/es/components/icon/style/css'
 import 'element-plus/es/components/dialog/style/css'
 
 import {
-  BaseFormItem,
+  type BaseFormItem,
   defaultUploadTransformer,
-  UploadedFile,
-  UploadFormItem,
+  type UploadedFile,
+  type UploadFormItem,
   UploadTransformerHelper,
   verifyUploadedFile,
 } from '@cphayim-enc/base'

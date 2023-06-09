@@ -1,4 +1,4 @@
-import { computed, isRef, ref, Ref, watchEffect } from 'vue'
+import { computed, isRef, ref, type Ref, watchEffect } from 'vue'
 
 import type {
   FormItemUnion,

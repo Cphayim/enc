@@ -7,7 +7,7 @@ import { DndProvider } from '@ombro/dnd-vue'
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { isNone, randomStr } from '@cphayim-enc/shared'
 import { useEmitter } from '@cphayim-enc/vue'
-import { FormEditorConfig, isPresetFeature } from '@cphayim-enc/extension-form-editor'
+import { type FormEditorConfig, isPresetFeature } from '@cphayim-enc/extension-form-editor'
 
 import type { FormEditorInternalEvents, FormEditorSelectedItem } from '.'
 import { EncLeftPanel } from './left-panel'

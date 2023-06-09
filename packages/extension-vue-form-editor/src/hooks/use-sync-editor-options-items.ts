@@ -1,4 +1,4 @@
-import { Ref, watchEffect, WritableComputedRef } from 'vue'
+import { type Ref, watchEffect, type WritableComputedRef } from 'vue'
 
 import type {
   CascaderFormItemOption,

@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useDrop } from '@ombro/dnd-vue'
 
 import type { FormEditorInternalEmitter } from '..'
-import { DnDTypes, DragFeature } from '../dnd'
+import { DnDTypes, type DragFeature } from '../dnd'
 
 defineOptions({ name: 'EncEmptyContainer' })
 

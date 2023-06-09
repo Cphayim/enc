@@ -1,6 +1,4 @@
-import { version } from '../package.json'
-
-export const ENC_VERSION = version
+export const ENC_VERSION = __ENC_VERSION__
 
 export * from './form'
 export * from './biz-form'

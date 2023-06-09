@@ -2,13 +2,13 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { toRefs } from '@vueuse/core'
-import { DropTargetMonitor, useDrag, useDrop, XYCoord } from '@ombro/dnd-vue'
+import { type DropTargetMonitor, useDrag, useDrop, type XYCoord } from '@ombro/dnd-vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
 import { useEventLock } from '@cphayim-enc/vue'
 
 import { EncFormEditorIcon, FormEditorIcon } from '../../../icons'
-import { DnDTypes, DragFeature, DragItem } from '../dnd'
+import { DnDTypes, type DragFeature, type DragItem } from '../dnd'
 import type { FormEditorInternalEmitter, FormEditorSelectedItem } from '..'
 
 defineOptions({ name: 'EncDrawableFormItem' })

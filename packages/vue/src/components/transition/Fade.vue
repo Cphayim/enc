@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, TransitionProps } from 'vue'
+import { computed, type TransitionProps } from 'vue'
 import { EncCSSVariables } from '@cphayim-enc/style'
 
-import { TimingFunction, useDuration, useTimingFunction } from './hooks'
+import { type TimingFunction, useDuration, useTimingFunction } from './hooks'
 
 defineOptions({ name: 'EncFadeTransition' })
 

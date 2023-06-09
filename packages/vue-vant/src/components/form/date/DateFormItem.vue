@@ -2,7 +2,7 @@
 import { computed, ref, watchEffect } from 'vue'
 import dayjs from 'dayjs'
 import { useVModel } from '@vueuse/core'
-import { Calendar as VanCalendar, CalendarDayItem } from 'vant'
+import { Calendar as VanCalendar, type CalendarDayItem } from 'vant'
 import 'vant/es/calendar/style/index'
 
 import type { BaseFormItem, DateFormItem } from '@cphayim-enc/base'

@@ -1,5 +1,5 @@
 import type { FormItemUnion, PartialFormItemIntersection } from '../form'
-import { BizFormHelper, BizFormItemUnion, RealBiz } from '../biz-form'
+import { BizFormHelper, type BizFormItemUnion, type RealBiz } from '../biz-form'
 import { FormAnalyzer } from './FormAnalyzer'
 
 /**

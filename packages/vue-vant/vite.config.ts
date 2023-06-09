@@ -20,7 +20,5 @@ export default defineConfig(({ mode }) => {
     ],
   }
 
-  // after the build, use vue-tsc to generate the type declaration file
-
   return config
 })

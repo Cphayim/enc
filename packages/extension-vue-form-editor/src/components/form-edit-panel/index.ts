@@ -1,4 +1,4 @@
-import { Emitter, FormItemUnion, withInstall } from '@cphayim-enc/vue'
+import { type Emitter, type FormItemUnion, withInstall } from '@cphayim-enc/vue'
 import type {
   PresetFormEditorFeature,
   BizFormEditorFeature,
