@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue'
+import { type Ref, ref } from 'vue'
 
 import { deepClone } from '@cphayim-enc/shared'
 

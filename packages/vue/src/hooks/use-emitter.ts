@@ -1,4 +1,4 @@
-import mitt, { Emitter } from 'mitt'
+import mitt, { type Emitter } from 'mitt'
 
 export type { Emitter }
 

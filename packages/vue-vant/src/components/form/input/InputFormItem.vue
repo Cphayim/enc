@@ -9,7 +9,7 @@ import { useEventLock } from '@cphayim-enc/vue'
 
 import {
   DEFAULT_FORM_INTERNAL_CONFIG,
-  FormInternalConfig,
+  type FormInternalConfig,
   FORM_INTERNAL_CONFIG_KEY,
 } from '../form/provide'
 

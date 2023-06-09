@@ -1,7 +1,7 @@
-import { Ref, ref } from 'vue'
+import { type Ref, ref } from 'vue'
 
 import type { FormItemUnion } from '@cphayim-enc/base'
-import { useForm as _useForm, UseFormOptions } from '@cphayim-enc/vue'
+import { useForm as _useForm, type UseFormOptions } from '@cphayim-enc/vue'
 import type { EncFormInstanceType } from '../components'
 
 type EncFormInstance = EncFormInstanceType | undefined

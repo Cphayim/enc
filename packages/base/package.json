@@ -21,8 +21,7 @@
   ],
   "scripts": {
     "dev": "vite build --mode=development --watch",
-    "build": "vite build",
-    "build:debug": "export DEBUG=\"vite-plugin-dts:bundle\" && vite build",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly -p tsconfig.build.json",
     "lint": "eslint src --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

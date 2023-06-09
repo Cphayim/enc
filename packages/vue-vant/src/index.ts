@@ -1,6 +1,6 @@
 import type { App, Plugin } from 'vue'
 
-import { CreateEncOptions, usingSFCWithInstall } from '@cphayim-enc/vue'
+import { type CreateEncOptions, usingSFCWithInstall } from '@cphayim-enc/vue'
 
 import './style.css'
 import * as componentMap from './components'

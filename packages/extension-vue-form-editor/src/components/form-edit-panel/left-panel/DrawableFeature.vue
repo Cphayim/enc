@@ -3,10 +3,10 @@
 import { computed, toRef } from 'vue'
 import { useDrag } from '@ombro/dnd-vue'
 
-import { BizFormHelper, FormItemUnion, useEventLock } from '@cphayim-enc/vue'
+import { BizFormHelper, type FormItemUnion, useEventLock } from '@cphayim-enc/vue'
 import {
-  BizFormEditorFeature,
-  PresetFormEditorFeature,
+  type BizFormEditorFeature,
+  type PresetFormEditorFeature,
   isBizFeature,
   isPresetFeature,
 } from '@cphayim-enc/extension-form-editor'

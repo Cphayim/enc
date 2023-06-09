@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from 'vue'
 import { useVModel } from '@vueuse/core'
-import { TimePicker as VanTimePicker, TimePickerColumnType } from 'vant'
+import { TimePicker as VanTimePicker, type TimePickerColumnType } from 'vant'
 import 'vant/es/time-picker/style/index'
 
 import type { BaseFormItem, TimeFormItem } from '@cphayim-enc/base'

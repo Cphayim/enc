@@ -1,4 +1,4 @@
-import { ENC_VERSION, FormItemUnion } from '@cphayim-enc/base'
+import { ENC_VERSION, type FormItemUnion } from '@cphayim-enc/base'
 
 /**
  * 为表单编辑器创建的 FormItemUnion 打标

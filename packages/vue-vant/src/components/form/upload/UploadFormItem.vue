@@ -4,10 +4,10 @@ import { Uploader as VanUploader, showToast } from 'vant'
 import 'vant/es/uploader/style/index'
 
 import {
-  BaseFormItem,
+  type BaseFormItem,
   defaultUploadTransformer,
-  UploadedFile,
-  UploadFormItem,
+  type UploadedFile,
+  type UploadFormItem,
   UploadTransformerHelper,
   verifyUploadedFile,
 } from '@cphayim-enc/base'

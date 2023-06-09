@@ -7,7 +7,7 @@ import { useFormItems } from '@cphayim-enc/vue'
 import {
   BizFormEditorTransformer,
   DEFAULT_FORM_EDITOR_CONFIG,
-  FormEditorConfig,
+  type FormEditorConfig,
   FormEditorOperation,
   markItemsCreatedByEditor,
 } from '@cphayim-enc/extension-form-editor'

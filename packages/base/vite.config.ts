@@ -2,14 +2,16 @@ import { type UserConfigExport, defineConfig } from 'vite'
 
 import { addDTSPlugin, createBuild } from '../../scripts/vite.base.config'
 
+import { version } from './package.json'
+
 export default defineConfig(({ mode }) => {
   const config: UserConfigExport = {
+    define: {
+      __ENC_VERSION__: JSON.stringify(version),
+    },
     build: createBuild({ mode, root: __dirname }),
     plugins: [],
   }
-
-  // generate dts file
-  addDTSPlugin(config, { mode, root: __dirname })
 
   return config
 })

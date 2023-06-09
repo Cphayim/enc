@@ -8,8 +8,5 @@ export default defineConfig(({ mode }) => {
     plugins: [genStylePlugin()],
   }
 
-  // generate dts file
-  addDTSPlugin(config, { mode, root: __dirname })
-
   return config
 })

@@ -7,7 +7,7 @@
  -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RouteLocationNormalized, useRouter } from 'vue-router'
+import { type RouteLocationNormalized, useRouter } from 'vue-router'
 
 defineOptions({ name: 'EncRouterTransition' })
 

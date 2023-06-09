@@ -5,9 +5,9 @@ import { Cascader as VanCascader } from 'vant'
 import 'vant/es/cascader/style/index'
 
 import {
-  BaseFormItem,
-  CascaderFormItem,
-  CascaderFormItemOption,
+  type BaseFormItem,
+  type CascaderFormItem,
+  type CascaderFormItemOption,
   CascaderHelper,
 } from '@cphayim-enc/base'
 

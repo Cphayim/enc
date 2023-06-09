@@ -1,10 +1,10 @@
 import {
-  BizFormItemUnion,
-  FormItemUnion,
+  type BizFormItemUnion,
+  type FormItemUnion,
   BizFormHelper,
-  RealBiz,
-  ShadowBiz,
-  BizTransformer,
+  type RealBiz,
+  type ShadowBiz,
+  type BizTransformer,
 } from '@cphayim-enc/base'
 import { createErrorMessage, randomStr } from '@cphayim-enc/shared'
 
