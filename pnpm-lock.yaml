@@ -190,9 +190,9 @@ importers:
       '@cphayim-enc/style':
         specifier: workspace:*
         version: link:../style
-      mitt:
-        specifier: ^3.0.0
-        version: 3.0.0
+      '@ombro/mitten':
+        specifier: ^0.1.0
+        version: 0.1.0
     devDependencies:
       '@vueuse/core':
         specifier: ^10.2.0
@@ -1577,6 +1577,10 @@ packages:
       readline: 1.3.0
       strip-ansi: 7.0.1
     dev: true
+
+  /@ombro/mitten@0.1.0:
+    resolution: {integrity: sha512-xWQuTmjkw3eC/mJhHtbm0yNg3R0iPkDNqeK1vXxF8d3YuXmnwr1pgz7MeV3FkNL+0mftDZBXV1iGdwEVgJ0qVQ==}
+    dev: false
 
   /@ombro/tsconfig@2.0.0(typescript@5.1.3):
     resolution: {integrity: sha512-9TGFhcJR6JoPDyc9qPhGKQVci3bnhrFhgIYpozJS/0pMv3d6TSGt4kGRNHpOP0mTicfMR495yBH/c0qwtNQdFw==}
@@ -4833,10 +4837,6 @@ packages:
     resolution: {integrity: sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==}
     engines: {node: '>=8'}
     dev: true
-
-  /mitt@3.0.0:
-    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
-    dev: false
 
   /mixme@0.5.4:
     resolution: {integrity: sha512-3KYa4m4Vlqx98GPdOHghxSdNtTvcP8E0kkaJ5Dlh+h2DRzF7zpuVVcA8B0QpKd11YJeP9QQ7ASkKzOeu195Wzw==}

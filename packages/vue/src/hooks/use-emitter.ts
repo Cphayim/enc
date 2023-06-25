@@ -1,7 +1,11 @@
-import mitt, { type Emitter } from 'mitt'
+import mitten, { type Emitter, type EventType } from '@ombro/mitten'
 
 export type { Emitter }
 
-export function useEmitter<T extends Record<string | symbol, unknown>>() {
-  return mitt<T>()
+export function useMitten<T extends Record<EventType, unknown>>() {
+  return mitten<T>()
+}
+
+export function useEmitter<T extends Record<EventType, unknown>>() {
+  return useMitten<T>()
 }
