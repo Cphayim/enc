@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { defineComponent, PropType, ref } from 'vue'
+import { defineComponent, type PropType, ref } from 'vue'
 
 import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 

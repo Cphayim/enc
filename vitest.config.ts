@@ -19,6 +19,7 @@ export default defineConfig({
     transformMode: {
       web: [/\.[jt]sx$/],
     },
+    include: ['packages/**/*.{test,spec}.{ts,tsx}'],
     coverage: {
       include: ['packages/*/src/**/*.{ts,vue}'],
       reporter: ['text', 'lcov'],
