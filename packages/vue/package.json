@@ -34,7 +34,7 @@
     "@cphayim-enc/base": "workspace:*",
     "@cphayim-enc/shared": "workspace:*",
     "@cphayim-enc/style": "workspace:*",
-    "mitt": "^3.0.0"
+    "@ombro/mitten": "^0.1.0"
   },
   "devDependencies": {
     "@vueuse/core": "^10.2.0",

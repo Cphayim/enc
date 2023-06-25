@@ -5,6 +5,7 @@ export { EncCSSVariables } from '@cphayim-enc/style'
 export {
   // hooks
   useEventLock,
+  useMitten,
   useEmitter,
   useFormData,
   useFormItems,
