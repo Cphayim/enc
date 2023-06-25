@@ -6,6 +6,7 @@ import type { FormEditorConfig } from '@cphayim-enc/extension-form-editor'
 
 import { useSyncOptionsEditorItems } from '../use-sync-editor-options-items'
 import { createTestMockEncForm } from '../../__tests__/mock-enc-form'
+import { mount } from '@vue/test-utils'
 
 function createOptionItems(): FormItemUnion[] {
   return [
@@ -22,15 +23,22 @@ describe('useSyncOptionsEditorItems', () => {
       encFormComponent: createTestMockEncForm(),
       // syncOptionsLabelAndValue: false, // default
     })
-    const { getItem } = useSyncOptionsEditorItems(createOptionItems(), config.value, modelValue)
+    let getItem: (name: string) => FormItemUnion | undefined
+
+    mount({
+      setup() {
+        getItem = useSyncOptionsEditorItems(createOptionItems(), config.value, modelValue).getItem
+      },
+      render: () => <div />,
+    })
 
     modelValue.value.label = '选项一'
     await nextTick()
     expect(modelValue.value.value).toBe('')
 
-    expect(getItem('label')?.col).toBe(8)
-    expect(getItem('value')?.disabled).toBeFalsy()
-    expect(getItem('value')?.hidden).toBeFalsy()
+    expect(getItem!('label')?.col).toBe(8)
+    expect(getItem!('value')?.disabled).toBeFalsy()
+    expect(getItem!('value')?.hidden).toBeFalsy()
   })
 
   it('should be sync options when syncOptionsLabelAndValue -> true', async () => {
@@ -39,14 +47,21 @@ describe('useSyncOptionsEditorItems', () => {
       encFormComponent: createTestMockEncForm(),
       syncOptionsLabelAndValue: true,
     })
-    const { getItem } = useSyncOptionsEditorItems(createOptionItems(), config.value, modelValue)
+    let getItem: (name: string) => FormItemUnion | undefined
+
+    mount({
+      setup() {
+        getItem = useSyncOptionsEditorItems(createOptionItems(), config.value, modelValue).getItem
+      },
+      render: () => <div />,
+    })
 
     modelValue.value.label = '选项一'
     await nextTick()
     expect(modelValue.value.value).toBe('选项一')
 
-    expect(getItem('label')?.col).toBe(16)
-    expect(getItem('value')?.disabled).toBeTruthy()
-    expect(getItem('value')?.hidden).toBeTruthy()
+    expect(getItem!('label')?.col).toBe(16)
+    expect(getItem!('value')?.disabled).toBeTruthy()
+    expect(getItem!('value')?.hidden).toBeTruthy()
   })
 })
