@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.2 (2023-06-25)
+
+### Adjusted
+
+**@cphayim-enc/vue**
+
+- replace mitt with @ombro/mitten [#118](https://github.com/Cphayim/enc/pull/118)
+
+### Dependencies
+
+Update dependencies [#117](https://github.com/Cphayim/enc/pull/117)
+
 ## 0.3.1 (2023-06-05)
 
 ### Bug fixes
