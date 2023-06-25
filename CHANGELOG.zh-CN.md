@@ -1,5 +1,17 @@
 # 更新日志
 
+## 0.3.2 (2023-06-25)
+
+### Adjusted
+
+**@cphayim-enc/vue**
+
+- 使用 @ombro/mitten 替换 mitt [#118](https://github.com/Cphayim/enc/pull/118)
+
+### Dependencies
+
+更新依赖 [#117](https://github.com/Cphayim/enc/pull/117)
+
 ## 0.3.1 (2023-06-05)
 
 ### Bug fixes
