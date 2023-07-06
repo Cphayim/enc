@@ -38,9 +38,9 @@
     "@ombro/dnd-vue": "^0.1.6"
   },
   "devDependencies": {
-    "@vueuse/core": "^10.2.0",
+    "@vueuse/core": "^10.2.1",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.4"
   },
   "peerDependencies": {
     "@vueuse/core": ">=8.0.0",
