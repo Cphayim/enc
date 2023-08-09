@@ -12,13 +12,10 @@ export default defineConfig({
     clearMocks: true,
     restoreMocks: true,
     environment: 'jsdom',
-    deps: {
-      inline: ['element-plus', 'vant', 'vue3-dnd'],
+    server: {
+      deps: { inline: ['element-plus', 'vant', 'vue3-dnd'] },
     },
     // setupFiles: ['./vitest.setup.ts'],
-    transformMode: {
-      web: [/\.[jt]sx$/],
-    },
     include: ['packages/**/*.{test,spec}.{ts,tsx}'],
     coverage: {
       include: ['packages/*/src/**/*.{ts,vue}'],
