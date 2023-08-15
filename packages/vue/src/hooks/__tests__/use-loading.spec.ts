@@ -25,6 +25,7 @@ describe('useLoading', () => {
     const onLoading = vi.fn().mockImplementation((_: string) => 'test')
     const onClearLoading = vi.fn((_: any) => void 0)
 
+    // default message
     const wrappedFn = useLoading(fn, { onLoading, onClearLoading })
     await wrappedFn()
     expect(onLoading).toHaveBeenCalledTimes(1)
@@ -32,11 +33,24 @@ describe('useLoading', () => {
     expect(onClearLoading).toHaveBeenCalledTimes(1)
     expect(onClearLoading).toHaveBeenCalledWith('test')
 
+    // pass a string as message
     const wrappedFn2 = useLoading(fn, { message: 'test loading...', onLoading, onClearLoading })
     await wrappedFn2()
     expect(onLoading).toHaveBeenCalledTimes(2)
     expect(onLoading).toHaveBeenCalledWith('test loading...')
     expect(onClearLoading).toHaveBeenCalledTimes(2)
+    expect(onClearLoading).toHaveBeenCalledWith('test')
+
+    // pass a function as message
+    const wrappedFn3 = useLoading(fn, {
+      message: () => 'function test loading...',
+      onLoading,
+      onClearLoading,
+    })
+    await wrappedFn3()
+    expect(onLoading).toHaveBeenCalledTimes(3)
+    expect(onLoading).toHaveBeenCalledWith('function test loading...')
+    expect(onClearLoading).toHaveBeenCalledTimes(3)
     expect(onClearLoading).toHaveBeenCalledWith('test')
   })
 
@@ -47,17 +61,27 @@ describe('useLoading', () => {
     await wrappedFn()
     expect(onSuccess).toHaveBeenCalledTimes(0) // because not pass `successMessage`
 
-    const wrappedFn2 = useLoading(fn, { successMessage: '成功', onSuccess })
+    // pass a string as successMessage
+    const wrappedFn2 = useLoading(fn, { successMessage: 'successful', onSuccess })
     await wrappedFn2()
     expect(onSuccess).toHaveBeenCalledTimes(1)
-    expect(onSuccess).toHaveBeenCalledWith('成功')
+    expect(onSuccess).toHaveBeenCalledWith('successful')
+
+    // pass a function as successMessage
+    const wrappedFn3 = useLoading(fn, {
+      successMessage: () => 'function test successful',
+      onSuccess,
+    })
+    await wrappedFn3()
+    expect(onSuccess).toHaveBeenCalledTimes(2)
+    expect(onSuccess).toHaveBeenCalledWith('function test successful')
   })
 
   it('should call onError callback', async () => {
     const { warn } = createConsoleSpy()
 
     const errorFn = vi.fn().mockImplementation(() => {
-      throw new Error('错误消息')
+      throw new Error('error message')
     })
     const onClearLoading = vi.fn((_: any) => void 0)
     const onError = vi.fn().mockImplementation((_: string) => void 0)
@@ -68,19 +92,30 @@ describe('useLoading', () => {
     expect(warn).toHaveBeenCalledTimes(1)
     expect(onClearLoading).toHaveBeenCalledTimes(1) // 错误时也会调用 `onClearLoading`
     expect(onError).toHaveBeenCalledTimes(1)
-    expect(onError).toHaveBeenCalledWith('错误消息') // 没有传入 `errorMessage`，传递错误消息给 `onError`
+    expect(onError).toHaveBeenCalledWith('error message') // 没有传入 `errorMessage`，传递错误消息给 `onError`
 
-    const wrappedFn2 = useLoading(errorFn, { errorMessage: '失败提示', onError })
+    // pass a string as errorMessage
+    const wrappedFn2 = useLoading(errorFn, { errorMessage: 'failed', onError })
     await wrappedFn2()
     expect(warn).toHaveBeenCalledTimes(2)
     expect(onError).toHaveBeenCalledTimes(2)
-    expect(onError).toHaveBeenCalledWith('失败提示')
+    expect(onError).toHaveBeenCalledWith('failed')
+
+    // pass a function as errorMessage
+    const wrappedFn3 = useLoading(errorFn, {
+      errorMessage: () => 'function test failed',
+      onError,
+    })
+    await wrappedFn3()
+    expect(warn).toHaveBeenCalledTimes(3)
+    expect(onError).toHaveBeenCalledTimes(3)
+    expect(onError).toHaveBeenCalledWith('function test failed')
 
     // 不吞掉错误，抛出错误
-    const wrappedFn3 = useLoading(errorFn, { catchError: false, errorMessage: '失败提示', onError })
-    await expect(wrappedFn3()).rejects.toThrow('错误消息')
-    expect(warn).toHaveBeenCalledTimes(2)
-    expect(onError).toHaveBeenCalledTimes(3)
-    expect(onError).toHaveBeenCalledWith('失败提示')
+    const wrappedFn4 = useLoading(errorFn, { catchError: false, errorMessage: 'failed', onError })
+    await expect(wrappedFn4()).rejects.toThrow('error message')
+    expect(warn).toHaveBeenCalledTimes(3)
+    expect(onError).toHaveBeenCalledTimes(4)
+    expect(onError).toHaveBeenCalledWith('failed')
   })
 })

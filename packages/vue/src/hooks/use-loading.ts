@@ -1,3 +1,4 @@
+import { isFunction } from '@cphayim-enc/shared'
 import { useEventLock } from './use-event-lock'
 
 export type UseLoadingOptions = {
@@ -15,15 +16,15 @@ export type UseLoadingOptions = {
    * 等待提示
    * @default '加载中...'
    */
-  message?: string
+  message?: string | (() => string)
   /**
    * 成功提示
    */
-  successMessage?: string
+  successMessage?: string | (() => string)
   /**
    * 失败提示
    */
-  errorMessage?: string
+  errorMessage?: string | (() => string)
   /**
    * 成功或失败消息持续时间，毫秒
    * @default 3000
@@ -72,20 +73,23 @@ export function useLoading<T extends unknown[]>(
   }
 
   return async (...args) => {
-    const flag = onLoading?.(message)
+    const flag = onLoading?.(isFunction(message) ? message() : message)
+
     try {
       await fn(...args)
 
       onClearLoading?.(flag)
 
       if (successMessage) {
-        onSuccess?.(successMessage)
+        onSuccess?.(isFunction(successMessage) ? successMessage() : successMessage)
       }
     } catch (err: any) {
       onClearLoading?.(flag)
 
       if (errorMessage || err.message) {
-        onError?.(errorMessage || err.message)
+        onError?.(
+          errorMessage ? (isFunction(errorMessage) ? errorMessage() : errorMessage) : err.message,
+        )
       }
 
       if (catchError) console.warn(err)
