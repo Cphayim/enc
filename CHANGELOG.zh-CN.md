@@ -1,5 +1,19 @@
 # 更新日志
 
+## 0.3.3 (2023-08-15)
+
+### Features
+
+**@cphayim-enc/vue**
+**@cphayim-enc/vue-element-plus**
+**@cphayim-enc/vue-vant**
+
+- 为 `useLoading` hook 的 `message`、`successMessage` 和 `errorMessage` 选项提供了函数类型支持，以提高灵活性 [#126](https://github.com/Cphayim/enc/pull/126)
+
+### Dependencies
+
+更新依赖 [#122](https://github.com/Cphayim/enc/pull/122), [#123](https://github.com/Cphayim/enc/pull/123), [#125](https://github.com/Cphayim/enc/pull/125)
+
 ## 0.3.2 (2023-06-25)
 
 ### Adjusted
