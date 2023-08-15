@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.3 (2023-08-15)
+
+### Features
+
+**@cphayim-enc/vue**
+**@cphayim-enc/vue-element-plus**
+**@cphayim-enc/vue-vant**
+
+- provided function type support for the `message`, `successMessage`, and `errorMessage` options of the `useLoading` hook to enhance flexibility. [#126](https://github.com/Cphayim/enc/pull/126)
+
+### Dependencies
+
+Update dependencies [#122](https://github.com/Cphayim/enc/pull/122), [#123](https://github.com/Cphayim/enc/pull/123), [#125](https://github.com/Cphayim/enc/pull/125)
+
 ## 0.3.2 (2023-06-25)
 
 ### Adjusted
