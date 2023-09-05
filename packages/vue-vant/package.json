@@ -37,9 +37,9 @@
     "@cphayim-enc/vue": "workspace:*"
   },
   "devDependencies": {
-    "@vueuse/core": "^10.3.0",
+    "@vueuse/core": "^10.4.1",
     "dayjs": "^1.11.9",
-    "vant": "^4.6.4",
+    "vant": "^4.6.7",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
