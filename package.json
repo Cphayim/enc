@@ -63,7 +63,7 @@
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.48.0",
-    "execa": "^7.2.0",
+    "execa": "^8.0.1",
     "globby": "^13.2.2",
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
