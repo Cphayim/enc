@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Enc"
-  text: "A cross-framework consistency enhancer"
-  tagline: My great project tagline
+  text: "跨框架一致性的组合函数及组件工具库"
+  tagline:
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
