@@ -31,3 +31,7 @@ tmp
 
 *.tsbuildinfo
 *timestamp-*
+
+# docs
+docs/.vitepress/dist
+docs/.vitepress/cache
