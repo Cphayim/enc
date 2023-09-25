@@ -2,7 +2,7 @@
 import { useLocalStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
-import { EncForm, FormItemUnion, useForm } from '@cphayim-enc/vue-element-plus'
+import { EncForm, type FormItemUnion, useForm } from '@cphayim-enc/vue-element-plus'
 
 import { FORM_ITEMS_STORE_KEY } from '../../constants'
 

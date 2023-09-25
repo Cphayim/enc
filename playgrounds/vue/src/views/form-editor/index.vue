@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EncForm, FormItemUnion } from '@cphayim-enc/vue-element-plus'
+import { EncForm, type FormItemUnion } from '@cphayim-enc/vue-element-plus'
 import {
   EncFormEditor,
   FormEditorOperation,
