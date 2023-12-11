@@ -37,11 +37,11 @@
     "@cphayim-enc/vue": "workspace:*"
   },
   "devDependencies": {
-    "@element-plus/icons-vue": "^2.1.0",
-    "@vueuse/core": "^10.5.0",
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vueuse/core": "^10.7.0",
     "dayjs": "^1.11.10",
-    "element-plus": "^2.4.1",
-    "vue": "^3.3.6"
+    "element-plus": "^2.4.3",
+    "vue": "^3.3.11"
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.0.0",
