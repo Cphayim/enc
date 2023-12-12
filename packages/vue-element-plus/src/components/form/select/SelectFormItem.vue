@@ -35,7 +35,7 @@ const _value = useVModel(props, 'modelValue')
     :multiple="item.selectMultiple"
     :filterable="item.selectFilterable"
     :clearable="item.clearable"
-    :options="item.selectOptions"
+    :options="(item.selectOptions as any)"
   />
 </template>
 

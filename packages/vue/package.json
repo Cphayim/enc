@@ -37,8 +37,8 @@
     "@ombro/mitten": "^0.1.0"
   },
   "devDependencies": {
-    "@vueuse/core": "^10.5.0",
-    "vue": "^3.3.6"
+    "@vueuse/core": "^10.7.0",
+    "vue": "^3.3.11"
   },
   "peerDependencies": {
     "@vueuse/core": ">=8.0.0",
