@@ -32,10 +32,10 @@ importers:
         version: 17.8.1
       '@ombro/eslint-config-typescript':
         specifier: ^0.1.4
-        version: 0.1.4(eslint@8.55.0)(prettier@2.8.8)(typescript@5.3.3)
+        version: 0.1.4(eslint@8.55.0)(prettier@3.2.2)(typescript@5.3.3)
       '@ombro/eslint-config-vue3-typescript':
         specifier: ^0.1.4
-        version: 0.1.4(eslint@8.55.0)(prettier@2.8.8)(typescript@5.3.3)
+        version: 0.1.4(eslint@8.55.0)(prettier@3.2.2)(typescript@5.3.3)
       '@ombro/logger':
         specifier: ^2.0.1
         version: 2.0.1
@@ -88,8 +88,8 @@ importers:
         specifier: ^15.2.0
         version: 15.2.0
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.2.2
+        version: 3.2.2
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -1833,7 +1833,7 @@ packages:
       - '@vue/composition-api'
     dev: false
 
-  /@ombro/eslint-config-typescript@0.1.4(eslint@8.55.0)(prettier@2.8.8)(typescript@5.3.3):
+  /@ombro/eslint-config-typescript@0.1.4(eslint@8.55.0)(prettier@3.2.2)(typescript@5.3.3):
     resolution: {integrity: sha512-+PSnc6SI9lL2sniV8UAL7NTOcThKWg6A5N4UEu5/yU0IY2krqgQ06zpuE2Ypl6xzK95SE4GUyfPeLe0GCoazqQ==}
     peerDependencies:
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
@@ -1844,13 +1844,13 @@ packages:
       '@typescript-eslint/parser': 5.62.0(eslint@8.55.0)(typescript@5.3.3)
       eslint: 8.55.0
       eslint-config-prettier: 8.10.0(eslint@8.55.0)
-      prettier: 2.8.8
+      prettier: 3.2.2
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@ombro/eslint-config-vue3-typescript@0.1.4(eslint@8.55.0)(prettier@2.8.8)(typescript@5.3.3):
+  /@ombro/eslint-config-vue3-typescript@0.1.4(eslint@8.55.0)(prettier@3.2.2)(typescript@5.3.3):
     resolution: {integrity: sha512-XMwa8Bw8Lw4iQLCGbWJ5HoBIhEmxgjHOqZ9XiFmn5Sn3PWvh9V/9kz1XiobjHhQwOk5eWR4Q0YDDtefhY57fzg==}
     peerDependencies:
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
@@ -1862,7 +1862,7 @@ packages:
       eslint: 8.55.0
       eslint-config-prettier: 8.10.0(eslint@8.55.0)
       eslint-plugin-vue: 9.9.0(eslint@8.55.0)
-      prettier: 2.8.8
+      prettier: 3.2.2
       typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
@@ -6142,6 +6142,12 @@ packages:
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier@3.2.2:
+    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
