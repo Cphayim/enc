@@ -78,7 +78,7 @@
     "turbo": "^1.11.1",
     "typescript": "^5.3.3",
     "unplugin-vue-define-options": "^1.4.1",
-    "vite": "^4.5.1",
+    "vite": "^5.1.6",
     "vitepress": "1.0.0-rc.31",
     "vitest": "^0.34.6",
     "vue-tsc": "^1.8.25"
