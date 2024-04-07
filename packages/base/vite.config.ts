@@ -1,6 +1,6 @@
 import { type UserConfigExport, defineConfig } from 'vite'
 
-import { addDTSPlugin, createBuild } from '../../scripts/vite.base.config'
+import { createBuild } from '../../scripts/vite.base.config'
 
 import { version } from './package.json'
 
