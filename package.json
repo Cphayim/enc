@@ -65,7 +65,7 @@
     "@vue/test-utils": "^2.4.3",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.55.0",
+    "eslint": "^9.2.0",
     "execa": "^8.0.1",
     "globby": "^13.2.2",
     "husky": "^9.0.11",
