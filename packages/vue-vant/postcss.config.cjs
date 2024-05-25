@@ -1,6 +1,5 @@
+const { baseWithTailwind } = require('../../scripts/postcss.base.config.cjs')
+
 module.exports = {
-  plugins: {
-    'tailwindcss/nesting': {},
-    tailwindcss: {},
-  },
+  ...baseWithTailwind,
 }

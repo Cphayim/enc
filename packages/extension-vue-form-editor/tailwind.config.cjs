@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin')
+const base = require('../../scripts/tailwind.base.config.cjs')
 
 const columns = {}
 for (let i = 1; i <= 24; i++) {
@@ -8,11 +8,7 @@ for (let i = 1; i <= 24; i++) {
 }
 
 module.exports = {
-  prefix: 'enc-',
-  corePlugins: {
-    preflight: false,
-  },
-  content: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
+  ...base,
   theme: {
     extend: {
       gridTemplateColumns: {
