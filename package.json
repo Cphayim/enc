@@ -3,7 +3,7 @@
   "private": true,
   "author": "Cphayim <i@cphayim.me>",
   "engines": {
-    "node": ">=v16.20.2"
+    "node": ">=v18"
   },
   "packageManager": "pnpm@9.0.4",
   "workspaces": [
