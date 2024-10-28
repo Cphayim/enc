@@ -3,7 +3,7 @@
   "private": true,
   "author": "Cphayim <i@cphayim.me>",
   "engines": {
-    "node": ">=v18"
+    "node": ">=20.18.0"
   },
   "packageManager": "pnpm@9.0.4",
   "workspaces": [
@@ -56,7 +56,7 @@
     "@ombro/eslint-config-vue3-typescript": "^0.1.4",
     "@ombro/logger": "^2.0.1",
     "@ombro/tsconfig": "^2.0.0",
-    "@types/node": "^18.19.3",
+    "@types/node": "^20.17.2",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
