@@ -70,7 +70,7 @@
     "globby": "^13.2.2",
     "husky": "^9.0.11",
     "jsdom": "^26.1.0",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^16.4.0",
     "postcss-replace": "^2.0.1",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.5",
